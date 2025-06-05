@@ -209,8 +209,8 @@ ExPReSS/
 ---
 #### ライセンス
 
-このExPReSS for HemeSightは、山口達郎によって作成されたものであり、 [クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際 ライセンス](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja)の下に提供されています。
-This ExPReSS for HemeSight are created by Tatsuro Yamaguchi and licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+このExPReSSは、山口達郎によって作成されたものであり、 [クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際 ライセンス](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja)の下に提供されています。
+This ExPReSS are created by Tatsuro Yamaguchi and licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 詳細はLICENSEファイルを参照してください。
 
 ##### CC BY-NC-SA 4.0（表示 - 非営利 - 継承 4.0 国際）
@@ -225,8 +225,8 @@ This ExPReSS for HemeSight are created by Tatsuro Yamaguchi and licensed under a
 
 ーーーーー クレジット ーーーーー
 - Copyright (c) 2025 Tatsuro Yamaguchi
-- このExPReSS for HemeSightは、山口達郎によって作成されたものであり、 クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際 ライセンスの下に提供されています。
-- This software, 'ExPReSS for HemeSight', are created by Tatsuro Yamaguchi and licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+- このExPReSSは、山口達郎によって作成されたものであり、 クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際 ライセンスの下に提供されています。
+- This software, 'ExPReSS', are created by Tatsuro Yamaguchi and licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 
 ーーーーーーーーーーーーーーーー
 

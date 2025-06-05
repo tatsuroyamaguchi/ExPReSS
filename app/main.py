@@ -231,7 +231,7 @@ st.markdown("""
             | Panel | HemeSight | FoundationOne | FoundationOne Liquid| GenMineTOP | Guardant360 |
             |-------|-----------|---------------|---------------------|------------|-------------|
             | Sample type | Blood/Normal | Tumor | Liquid | Tumor/Normal| Liquid|
-            | Nucleic acid | DNA/RNA  DNA | ctDNA | DNA/RNA | ctDNA|
+            | Nucleic acid | DNA/RNA | DNA | ctDNA | DNA/RNA | ctDNA|
             | # of SNV/Indel | 319 | 324 | 324 | 737 | 74 |
             | # of CNV | - | 309 (Amp/Del) | - | 737 (Amp) | 18 (Amp) |
             | # of rearrangements | 329   | 36 | 36 | 454 | 6 |

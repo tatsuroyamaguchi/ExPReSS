@@ -47,8 +47,8 @@ cd ExPReSS
 - Template_Hemesight.xlsx: HemeSightテンプレートファイル
 - Template_FastTrack.xlsx: Fast-Track用Excelテンプレートファイル
 - Template_FoundationOne.xlsx: FoundationOneテンプレートファイル
-─ Template_GenMineTOP.xlsx: GenMineTOPテンプレート
-─ Template_Guardant360.xlsx: Guardant360テンプレート
+- Template_GenMineTOP.xlsx: GenMineTOPテンプレート
+- Template_Guardant360.xlsx: Guardant360テンプレート
 - Logo.png: レポートに挿入するロゴ画像
 
 - Cosmic_CancerGeneCensus_v*_GRCh38.tsv: CancerGeneCensus (https://cancer.sanger.ac.uk/cosmic/download/cosmic   Cancer Gene Census > Cosmic_CancerGeneCensus_Tsv_v*_GRCh38.tar > Download in browser)

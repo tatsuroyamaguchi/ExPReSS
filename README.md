@@ -9,7 +9,7 @@ ExPReSSは、がん遺伝子パネル検査におけるエキスパートパネ�
 - FoundationOne Liquid CDx (XML)
 - GenMineTOP (XML)
 - Guardant360 CDx (XLSX)
-- HemeSight (XML)
+- HemeSight (JSON)
 - HemeSight FastTrack (PDF)
 
 ---

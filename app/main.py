@@ -3,7 +3,6 @@
 # Author  : tatsuroyamaguchi
 # License : CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
 # Created : 2025-05-03
-# Modified: 2025-05-16 for FoundationOne XML support
 # -----------------------------------------------------------------------------
 
 # app/main.py

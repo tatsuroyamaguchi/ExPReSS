@@ -102,7 +102,7 @@ streamlit run app/main.py --server.port 8080
 #### 使用方法
 
 ##### GeneBe API
-- GeneBedでAPI Keyを取得
+- GeneBeでAPI Keyを取得
 - 詳細はGeneBeのWebサイトで確認  https://genebe.net/about/api
 - 以下のコードで認証を確認
 ```bash

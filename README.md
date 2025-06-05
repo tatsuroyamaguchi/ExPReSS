@@ -19,7 +19,7 @@ ExPReSSは、がん遺伝子パネル検査におけるエキスパートパネ�
 
 - ゲノムデータ（JSON/XML）を読み込み、Excelレポートを生成
 - ClinVar、ClinGen、GeneBe、TOMMOなどのデータベースから情報を取得
-- ProteinPaintおよびDisco用のTSVファイルを生成
+- ProteinPaintおよびDisco用のTSVファイルを生成（HemeSightのみ）
 - 生成されたファイルを個別またはZIP形式でダウンロード可能
 - Dockerを使用したデプロイ対応
 
@@ -47,6 +47,8 @@ cd ExPReSS
 - Template_Hemesight.xlsx: HemeSightテンプレートファイル
 - Template_FastTrack.xlsx: Fast-Track用Excelテンプレートファイル
 - Template_FoundationOne.xlsx: FoundationOneテンプレートファイル
+─ Template_GenMineTOP.xlsx: GenMineTOPテンプレート
+─ Template_Guardant360.xlsx: Guardant360テンプレート
 - Logo.png: レポートに挿入するロゴ画像
 
 - Cosmic_CancerGeneCensus_v*_GRCh38.tsv: CancerGeneCensus (https://cancer.sanger.ac.uk/cosmic/download/cosmic   Cancer Gene Census > Cosmic_CancerGeneCensus_Tsv_v*_GRCh38.tar > Download in browser)
@@ -186,6 +188,10 @@ ExPReSS/
 |       |── nightly-FeatureSummaries.tsv           # CiVICデータ
 |       |── protein-coding_gene.tsv                # HGNCデータ
 |       └── pgpv.csv                               # 小杉班PGPVデータ
+├── img/
+│   ├── img_1.png                 # サンプル画面
+│   ├── img_2.png                 # サンプルレポート
+│   ├── img_3.png                 # サンプルレポート
 
 ```
 
@@ -197,7 +203,6 @@ ExPReSS/
 ![Image_2](./img/img_2.png)
 
 ![Image_3](./img/img_3.png)
-
 
 ---
 #### 注意点

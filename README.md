@@ -172,6 +172,8 @@ ExPReSS/
 |   |   ├── Template_HemeSight.xlsx                # HemeSightテンプレート
 |   |   ├── Template_FastTrack.xlsx                # HemeSight_FastTrackテンプレート
 |   |   ├── Template_FoundationOne.xlsx            # FoundationOneテンプレート
+|   |   ├── Template_GenMineTOP.xlsx               # GenMineTOPテンプレート
+|   |   ├── Template_Guardant360.xlsx              # Guardant360テンプレート
 |   |   └── Logo.png                               # ロゴ画像
 |   |
 |   └── db/
@@ -184,75 +186,6 @@ ExPReSS/
 |       └── pgpv.csv                               # 小杉班PGPVデータ
 
 ```
-
----
-#### ShortVariantsタブの構成
-
-|カラム名|説明|sample|
-|--|--|--|
-|itemId|item ID|MT001|
-|chromosome|chromosome|17|
-|position|position|7675088|
-|referenceAllele|reference allele|C|
-|alternateAllele|alternate allele|T|
-|alternateAlleleFrequency|allele frequency of alternate allele|
-|totalReadDepth|total read of depth|
-|alternateAlleleReadDepth|read of depth of alternate allele|
-|validated|
-|detectedInPaired|
-|cosmicCountThreshold|
-|cytoband|Cytoband|17p13.1|
-|transcriptId|transcript ID|NM_000546.6|
-|geneSymbol|gene symbol|TP53|
-|cdsChange|coding DNA|c.524G>A|
-|aminoAcidsChange|amino acide change|p.Arg175His|
-|calculatedEffects||missense_variant|
-|geneID|gene ID|171023|
-|ClinVar|ClinVar (data scraping)|ClinVar|
-|CLNSIG|pathogenicity in ClinVar|Pathogenic|
-|CiVIC|link to CiVIC|CiVIC|
-|ClinGen|link to ClinGen|ClinGen|
-|Assertion|pathogenicity in ClinGen|Pathogenic|
-|Applied Evidence Codes (Met)|Met criteria codes|PM2_Supporting,PP1_Moderate,PS3,PS4_Moderate,PM1,PP3|
-|Applied Evidence Codes (Not Met)|Not Met criteria codes|PS1,PP4,BS2,BS1,BS4,BS3,PM5,BP4,BA1|
-|Franklin|link to Franklin|Franklin|
-|GeneBe|link to GeneBe|GeneBe|
-|GeneBe_ACMG|ACMG classification by GeneBe|Pathogenic|
-|GeneBe_evidence|ACMG evidence by GeneBe|PP1_Moderate, PP3, PM1, PS4_Moderate, PS3, PM2_Supporting, |
-|Varsome|link to Varsome|Varsome|
-|St.Jude|link to St.Jude|St.Jude|
-|OncoKB|link to OncoKB|OncoKB|
-|gnomAD|link to gnomAD|gnomAD|
-|TogoVar|link to TogoVar|TogoVar|
-|jMorp|link to jMorp|jMorp|
-|dbSNP_TOMMO|MAF in jMorp by dbSNP|
-|CKB CORE|link to CKB CORE|CKB CORE|
-|TP53|function|non-functional|
-|database.cosmicAll|COSMIC v95|
-|database.cosmicHeme|COSMIC v95|
-|database.clinVar|ClinVar 20220102|Pathogenic|
-|database.tommo|ToMMo 14KJPN|
-|database.gnomAD|gnomAD r3.1|
-|database.hgvd|HGVD Version 2.30 (08/02/2017)|
-|database.igsr1000Genomes|1000G Phase 3 (remapped)|
-|database.dbSNP|dbSNP 154|
-|mnvReadNumber.refRef|read number of reference(MNV)|
-|mnvReadNumber.altAlt|read number of alteration(MNV)|
-|mnvReadNumber.refAlt|
-|mnvReadNumber.altRef|
-|mnvReadNumber.refRefRef|
-|mnvReadNumber.refRefAlt|
-|mnvReadNumber.refAltRef|
-|mnvReadNumber.refAltAlt|
-|mnvReadNumber.altRefRef|
-|mnvReadNumber.altRefAlt|
-|mnvReadNumber.altAltRef|
-|mnvReadNumber.altAltAlt|
-|function.fastTrack|fast track|MPL W515|
-|function.mitelman|Mitelman April 27, 2023|ETV6::ABL1|
-|number.exonIntron||Exon|
-|number.number|exon number|5|
-|number.numberTotal|total number of exons|11|
 
 ---
 #### 注意点

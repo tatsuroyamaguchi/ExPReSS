@@ -37,7 +37,7 @@ ExPReSSは、がん遺伝子パネル検査におけるエキスパートパネ�
 
 ```bash
 git clone https://github.com/tatsuroyamaguchi/ExPReSS.git
-cd ExPReSS_for_HemeSight
+cd ExPReSS
 ```
 
 ##### 2. データファイルの準備

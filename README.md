@@ -71,12 +71,12 @@ app/config.pyで初期設定をしてください
 
 Dockerイメージをビルド:
 ```bash
-docker build -t hemesight .
+docker build -t express .
 ```
 
 Dockerコンテナを実行:
 ```bash
-docker run --name HemeSight -p 8503:8503 hemesight
+docker run --name ExPRess -p 8503:8503 express
 ```
 
 ブラウザで http://localhost:8503 にアクセスしてアプリケーションを確認。

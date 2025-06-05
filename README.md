@@ -76,7 +76,7 @@ docker build -t express .
 
 Dockerコンテナを実行:
 ```bash
-docker run --name ExPRess -p 8503:8503 express
+docker run --name ExPReSS -p 8503:8503 express
 ```
 
 ブラウザで http://localhost:8503 にアクセスしてアプリケーションを確認。

@@ -1,0 +1,3735 @@
+﻿Gene,Disease,Germline,ClinicalUtiity,PathogenicVariants,Chromosome,Fast_track,EV_Diagnosis,EV_Treatment,EV_Prognosis,Drugs,Comments
+ALK,ALK-positive histiocytosis,,1,"GoF（Fusion：KIF5B::ALK, CLTC::ALK, TPM3::ALK, TFG::ALK:: EML4::ALK, DCTN1::ALK, COL1A2::ALK, TRIM33::ALKなど）",,,"A
+WHO2022, PMID: 34727172, 34727172 , 30573850, 33243034","C
+PMID: 34727172",,"FDA：Alectinib, Crizotinib, Ceritinib, Brigatinib, Lorlatinib
+FDA_Other：Crizotinib, Ceritinib, Alectinib, Brigatinib, Lorlatinib",
+FAS,ALPS,1,1,LoF,,,"A
+WHO2022",,,,
+AFDN,AML,,1,GoF（Fusion：KMT2A::AFDN）,t(6;11)(q27;q23.3),,"A
+ICC2022､NCCN2023 (AML)",,"A
+ELN2022, NCCN2023 (AML)",,
+ETV6,AML,,1,"GoF（Fusion：MNX1::ETV6, ETV6::NTRK3）","t(7;12)(q36;p13),  t(12;15)(p13;q25)",,"A
+WHO2022, ICC2022",C,,FDA_Other：TRK阻害剤,治療法選択のエビデンスはNTRK3 融合遺伝子のみ
+FLT3,AML,,1,"GoF（SNVIndel：ITD, TKD）",,"D835, N676K","A
+WHO2022, ICC2022, NCCN2023 (AML)","A
+PMID: 28644114, 28645776, 29859851, 36655425, NCCN2023 (AML)","A
+ELN2022, NCCN2023 (AML)","PMDA：Gilteritinib, Quizartinib (ITDのみ）
+PMDA_Other：Midostaurin, Gilteritinib, Quizartinib",
+FLT3,AML,,2,GoF（SNVIndel：F691Lなど）,,"D835, N676K",,"D
+PMID: 22504184 , 31088841",,,FLT3 の一部変異（F691Lなど）により、FLT3阻害剤に対する耐性をきたす可能性がある。
+FOXO4,AML,,1,GoF（Fusion：KMT2A::FOXO4）,t(X;11)(q13;q23),,"A
+WHO2017, ELN2017",,"A
+ELN2017",,
+STRN3,AML,,2,GoF（Fusion：STRN3::PDGFRB）,t(5;14)(q32;q12),,"D
+PMID: 37550570",C,,"FDA：Imatinib （PDGFRB 融合遺伝子）
+FDA_Other：Imatinib （PDGFRB 融合遺伝子）",
+GATA2,"AML with inv(3)(q21.3;q26.2) or t(3;3)(q21.3;q26.2); GATA2, MECOM",,1,LoF（SNVIndel、Rearrangement）,"inv(3)(q21.3;q26.2) , t(3;3)(q21.3;q26.2)",,"A
+WHO2022, ICC2022",,"A
+ELN2022, NCCN2023 (AML)",,
+MECOM,"AML with inv(3)(q21.3;q26.2) or t(3;3)(q21.3;q26.2); GATA2, MECOM",,1,GoF（Rearrangement）,"inv(3)(q21.3;q26.2) , t(3;3)(q21.3;q26.2)",,"A
+WHO2022, ICC2022",,"A
+ELN2022, NCCN2023 (AML)",,
+FLT3,APL with PML::RARA,,1,"GoF（SNVIndel：ITD, TKD）",,"D835, N676K","A
+NCCN2023 (AML)",A,,"PMDA：Gilteritinib, Quizartinib (ITDのみ）
+FDA_Other：Midostaurin",
+FAS,ATLL,,1,LoF,,,"A
+WHO2022",,,,
+FLT3,AUL,,1,"GoF（SNVIndel：ITD, TKD）",,"D835, N676K","A
+WHO2022","C
+PMID: 28644114, 28645776, 29859851",,"FDA：Gilteritinib, Quizartinib (ITDのみ）
+FDA_Other：Midostaurin",
+FLT3,B-ALL/LBLL,,2,"GoF（SNVIndel：ITD, TKD）",,"D835, N676K","D
+PMID: 14670924, 25961940","C
+PMID: 28644114, 28645776, 29859851, 14670924",,"FDA：Gilteritinib, Quizartinib (ITDのみ）
+FDA_Other：Midostaurin",特にBCL11Bの発現が高いサブタイプに変異の頻度が高い傾向にある（PMID: 34103329）。
+ETV6,B-ALL/LBLL BCR::ABL1-like,,1,"GoF（Fusion：ETV6::PDGFRB, ETV6::ABL1, ETV6::NTRK3）","t(5;12)(q33;p13), t(9;12)(q34;p13),  t(12;15)(p13;q25)",,"A
+WHO2022, ICC2022, PMID: 30181314, 31935290, 31434701","C
+PMID: 31434701","A
+NCCN2024 (Pediatric ALL)",FDA_Other：Imatinib （PDGFRB 融合遺伝子）、ABLキナーゼ阻害剤 (ABL1 融合遺伝子）、TRK阻害剤 (NTRK3 融合遺伝子）,"ABL1もしくはPDGFRβ 融合遺伝子を有するB-ALLで、各種TKI (Imatinib, Dasatinib,  Ponatinib, Sunitibなど）の有効性が示唆されている (PMID: 31434701)。"
+FLT3,B-ALL/LBLL BCR::ABL1-like,,1,"GoF（SNVIndel：ITD, TKD）",,"D835, N676K","D
+PMID: 25207766, 30181314, 31935290","C
+PMID: 28644114, 28645776, 29859851, 14670924","A
+NCCN2024 (Pediatric ALL)、NCCN2023 (ALL)","FDA：Gilteritinib, Quizartinib (ITDのみ）
+FDA_Other：Midostaurin",
+MYB,B-ALL/LBLL BCR::ABL1-like,,1,GoF（Fusion：MYB::TYK2）,t(6;19)(q23;p13),,"A
+WHO2017, PMID: 25207766",,"A
+NCCN2024 (Pediatric ALL)",,
+RCSD1,B-ALL/LBLL BCR::ABL1-like,,1,"GoF（Fusion：RCSD1::ABL1, RCSD1::ABL2）","t(1;9)(q24;q34), t(1;1)(q24;q25)",,"A
+WHO2017, PMID: 30181314, 31935290, 31434701","C
+PMID: 31434701","A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,"ABL1/2 融合遺伝子を有するB-ALLで、各種TKI (Imatinib, Dasatinib,  Ponatinibなど）の有効性が示唆されている (PMID: 31434701)。"
+ABL1,B-ALL/LBLL with t(9;22)(q34.1;q11.2); BCR::ABL1,,1,GoF（SNVIndel：T315I など）,,"T315I/A, G250E, Y253H, E255K/V, V299L, F317L/V/I/C, F359V/C/I , A337T, P465S","A
+NCCN2023 (ALL)","A
+NCCN2023 (ALL)",,"PMDA：Ponatinib
+FDA：Ponatinib
+PMDA_Other：Ponatinib",ABL1の変異により、キナーゼ阻害剤に対する耐性をきたす可能性がある。
+MYD88,CLL/SLL,,1,GoF（SNVIndel：L252Pなど: L265Pと記載される場合もある),,L252P (L265P),"A
+WHO2017",,,,比較的頻度が高いMYD88 L252P変異は、従来L265Pと表記されていたが、最近ではL252Pと表記することが推奨されている (PMID: 26876098)。
+ABL1,"CML, BCR::ABL1+",,1,GoF（SNVIndel：T315I など）,,"T315I/A, G250E, Y253H, E255K/V, V299L, F317L/V/I/C, F359V/C/I , A337T, P465S","A
+NCCN2024 (CML)","A
+NCCN2024 (CML), PMID: 21562040, 28971501, 29050692",,"PMDA：Ponatinib,  Dasatinib, Nilotinib, Bosutinib, Asciminib
+FDA：Ponatinib,  Dasatinib, Nilotinib, Bosutinib, Asciminib
+PMDA_Other：Ponatinib,  Dasatinib, Nilotinib, Bosutinib, Asciminib",ABL1の変異により、キナーゼ阻害剤に対する耐性をきたす可能性がある。
+FAS,DFL,,1,LoF,,,"A
+ICC2022, WHO2022",,,,
+MYD88,DLBCL,,1,GoF（SNVIndel：L252Pなど: L265Pと記載される場合もある),,L252P (L265P),"A
+WHO2017, PMID: 21179087, WHO2022","C
+PMID: 26193343",,,MYD88変異とCD79B変異の共存がある場合、BTK阻害剤が有効である可能性がある。比較的頻度が高いMYD88 L252P変異は、従来L265Pと表記されていたが、最近ではL252Pと表記することが推奨されている (PMID: 26876098)。
+SGK1,DLBCL,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+B2M,EATL,,1,LoF,,,"A
+WHO2022",,,,
+CD58,EATL,,1,LoF,,,"A
+WHO2022",,,,
+FAS,EATL,,1,LoF,,,"A
+WHO2022",,,,
+TNFAIP3,EATL,,1,LoF,,,"A
+WHO2022",,,,
+FAS,ENKTL,,1,LoF,,,"A
+WHO2017",,,,
+FLT3,ETP-ALL,,1,"GoF（SNVIndel：ITD, TKD）",,"D835, N676K","A
+NCCN2023 (ALL), PMID: 22237106","C
+PMID: 28644114, 28645776, 29859851, 23359050",,"FDA：Gilteritinib, Quizartinib (ITDのみ）
+FDA_Other：Midostaurin",FLT3-ITDとFLT3-TKDでは予後因子としての意味合いが異なる可能性がある。
+BCL2,FL,,1,GoF（Amplification、Rearrangement：IGH::BCL2）、Unknown（SNVIndel）,"amp(18q21), t(14;18)(q32;q21)",,"A
+WHO2022",,"A
+WHO2022",,
+FAS,FL,,1,LoF,,,"A
+WHO2017",,,,
+MYD88,HGBL,,1,GoF（SNVIndel：L252Pなど: L265Pと記載される場合もある),,L252P (L265P),"A
+WHO2017",,,,比較的頻度が高いMYD88 L252P変異は、従来L265Pと表記されていたが、最近ではL252Pと表記することが推奨されている (PMID: 26876098)。
+KMT2A,Indeterminate dendritic cell tumor,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+FLT3,JMML,,2,"GoF（SNVIndel：ITD, TKD）",,"D835, N676K",,"C
+PMID: 28644114, 28645776, 29859851, 31511612",,"FDA：Gilteritinib, Quizartinib (ITDのみ）
+FDA_Other：Midostaurin",
+MYD88,LBCL with IRF4-r,,1,GoF（SNVIndel：L252Pなど: L265Pと記載される場合もある),,L252P (L265P),"A
+WHO2022",,,,比較的頻度が高いMYD88 L252P変異は、従来L265Pと表記されていたが、最近ではL252Pと表記することが推奨されている (PMID: 26876098)。
+MYD88,MALT (EMZL),,1,GoF（SNVIndel：L252Pなど: L265Pと記載される場合もある),,L252P (L265P),"A
+WHO2017, PMID: 21179087",,,,MYD88変異とCD79B変異の共存がある場合、BTK阻害剤が有効である可能性がある。比較的頻度が高いMYD88 L252P変異は、従来L265Pと表記されていたが、最近ではL252Pと表記することが推奨されている (PMID: 26876098)。
+MYD88,MBL,,1,GoF（SNVIndel：L252Pなど: L265Pと記載される場合もある),,L252P (L265P),"A
+WHO2022, PMID: 27734522",,,,比較的頻度が高いMYD88 L252P変異は、従来L265Pと表記されていたが、最近ではL252Pと表記することが推奨されている (PMID: 26876098)。
+CARD11,MCL,,1,"GoF（SNVIndel：G123S, K215M, ,D230Nなど）",,,"D
+PMID: 27224912, 32598477",,,,
+FLT3,MDS,,1,"GoF（SNVIndel：ITD, TKD）",,"D835, N676K","A
+NCCN2023 (MDS)","C
+PMID: 28644114, 28645776, 29859851","A
+NCCN2023 (MDS), PMID: 27992414","FDA：Gilteritinib, Quizartinib (ITDのみ）
+FDA_Other：Midostaurin",特に BCL11B の発現が高いサブタイプにみられる（PMID: 34103329）。
+JAK1,MEITL,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+STAT3,MEITL,,1,GoF（SNVIndel）,,"Y640F, D661Y","A
+WHO2022",,,,
+FGFR1,MLN-e with FGFR1 rearrangement,,1,"GoF（Fusion：ZMYM2::FGFR1, CNTRLFGFR1, FGFR1OP1::FGFR1など）","t(8;13)(p11;q12),  t(8;9)(p12;q33),  t(6;8)(q27;p12)",,"A
+ICC2022, WHO2022, PMID: 20226962, 36485158","A
+NCCN2023 (MLN-e)",,"PMDA：Pemigatinib
+FDA：Pemigatinib
+PMDA_Other：Pemigatinib
+FDA_Other：Pemigatinib",FGFR1 遺伝子は 8p11-12に存在し、本疾患は「8p11 myeloproliferative syndrome」とも呼ばれる。
+COPS7B,MM,,2,LoF,del(2q37),,,"D
+PMID: 35853156",,,"COPS7B もしくは COPS8の欠失したクローンでは、COP9シグナロソームが形成されず、CRBN E3リカーゼ非依存性となるため、IMiDs (Lenalidomide, Pomalidomideなど) の感受性が低下している可能性がある。"
+COPS8,MM,,2,LoF,del(2q37),,,"D
+PMID: 35853156",,,"COPS7B もしくは COPS8の欠失したクローンでは、COP9シグナロソームが形成されず、CRBN E3リカーゼ非依存性となるため、IMiDs (Lenalidomide, Pomalidomideなど) の感受性が低下している可能性がある。"
+ABL1,MPAL with t(9;22)(q34.1;q11.2); BCR::ABL1,,1,GoF（SNVIndel：T315I など）,,"T315I/A, G250E, Y253H, E255K/V, V299L, F317L/V/I/C, F359V/C/I , A337T, P465S",,"C
+PMID: 21562040, 28971501, 29050692",,"FDA：Ponatinib
+PMDA_Other：Ponatinib
+FDA_Other：Ponatinib",ABL1の変異により、キナーゼ阻害剤に対する耐性をきたす可能性がある。
+FLT3,"MPAL, T/myeloid, NOS",,2,"GoF（SNVIndel：ITD, TKD）",,"D835, N676K","D
+PMID: 30209392","C
+PMID: 28644114, 28645776, 29859851, 14670924",,"FDA：Gilteritinib, Quizartinib (ITDのみ）
+FDA_Other：Midostaurin",
+KRAS,MPDMN,1,1,GoF（SNVIndel）,,"G12, G13, Q61","A
+WHO2022",,,"FDA：Sotorasib (G12C)
+FDA_Other：Sotorasib (G12C), Adagrasib (G12C)",
+NRAS,MPDMN,,1,GoF（SNVIndel）,,"G12, G13, Q61","A
+WHO2022",,,,
+CSF2RB,Myeloid leukaemia associated with Down syndrome,,2,GoF（SNVIndel：A455D/T）,,,"D
+PMID: 31303423",,,,
+CTCF,Myeloid leukaemia associated with Down syndrome,,2,LoF,,,"D
+PMID: 24056718",,,,
+DCAF7,Myeloid leukaemia associated with Down syndrome,,2,Unknown (SNVIndel）,,,"D
+PMID: 24056718",,,,
+EZH2,Myeloid leukaemia associated with Down syndrome,,1,LoF,,Y641,"A
+WHO2017, PMID: 24056718",C,,"FDA：Tazemetostat
+FDA_Other：Tazemetostat",
+GATA1,Myeloid leukaemia associated with Down syndrome,,1,LoF,,,"A
+WHO2022, ICC2022",,,,
+KANSL1,Myeloid leukaemia associated with Down syndrome,,2,LoF,,,"D
+PMID: 24056718",,,,
+NIPBL,Myeloid leukaemia associated with Down syndrome,,2,LoF,,,"D
+PMID: 24056718",,,,
+SH2B3,Myeloid leukaemia associated with Down syndrome,,2,LoF,,,"D
+PMID: 24056718",,,,
+SUZ12,Myeloid leukaemia associated with Down syndrome,,2,LoF,,,"D
+PMID: 24056718",,,,
+SGK1,NLPHL,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+FAS,NMZL,,1,LoF,,,"A
+WHO2022",,,,
+TP53,PBL,1,1,LoF（SNVIndel、Deletion）,del(17p),,"A
+WHO2022",,,,
+REL,PCFCL,,1,GoF（Amplification）,amp(2p16.1),,"A
+WHO2022",,,,
+FAS,PCMZL,,1,LoF,,,"A
+WHO2022, PMID: 29481902",,,,
+FAS,PCNSL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+INPP5D,PCNSL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+MYD88,PCNSL,,1,GoF（SNVIndel：L252Pなど: L265Pと記載される場合もある),,L252P (L265P),"A
+WHO2022","C
+PMID: 28552327",,,比較的頻度が高いMYD88 L252P変異は、従来L265Pと表記されていたが、最近ではL252Pと表記することが推奨されている (PMID: 26876098)。
+FLT3,PMF,,2,GoF（SNVIndel：ITD）,,"D835, N676K",,"C
+PMID: 28644114, 28645776, 29859851, 12620411","C
+PMID: 28028029","FDA：Gilteritinib, Quizartinib (ITDのみ）
+FDA_Other：Midostaurin",
+MYD88,"Primary cutaneous DLBCL, leg type",,1,GoF（SNVIndel：L252Pなど: L265Pと記載される場合もある),,L252P (L265P),"A
+WHO2022",,,,比較的頻度が高いMYD88 L252P変異は、従来L265Pと表記されていたが、最近ではL252Pと表記することが推奨されている (PMID: 26876098)。
+FAS,Rosai-Dorfman Disease,1,1,GoF,,,"A
+WHO2022, NCCN2023（Histiocytic Neoplasms),  PMID: 20140240 , 24172204, 15958855",,,,
+MYD88,SDRPL,,1,GoF（SNVIndel：L252Pなど: L265Pと記載される場合もある),,L252P (L265P),"A
+WHO2022",,,,比較的頻度が高いMYD88 L252P変異は、従来L265Pと表記されていたが、最近ではL252Pと表記することが推奨されている (PMID: 26876098)。
+MYD88,SMZL,,1,GoF（SNVIndel：L252Pなど: L265Pと記載される場合もある),,L252P (L265P),"A
+WHO2022, ICC2022, PMID: 34653238",,"A
+WHO2022, PMID: 34653238",,比較的頻度が高いMYD88 L252P変異は、従来L265Pと表記されていたが、最近ではL252Pと表記することが推奨されている (PMID: 26876098)。
+PLCG1,SS,,1,GoF（SNVIndel：R48W/S345Fなど）,,,"A
+WHO2022, PMID: 26551670, 27121473",,,,
+NKX2-1,T-ALL,,1,GoF（Rearrangement：TRA::NKX2-1など）,inv(14)(q11.2q13)など,,"A
+WHO2022",,,,
+NKX2-2,T-ALL,,1,GoF（Rearrangement：TRD::NKX2-2など）,t(14;20)(q11;p11)など,,"A
+WHO2022",,,,
+NKX2-5,T-ALL,,1,GoF（Rearrangement）,t(5;14)(q35;q32)など,,"A
+WHO2022",,,,
+SH2B3,T-ALL,,2,LoF,,,"D
+PMID: 22237106",,,,
+GATA1,TAM,,1,LoF,,,"A
+WHO2022, ICC2022",,,,
+SGK1,THRLBCL,,1,LoF（SNVIndel）,,,"A
+WHO2022, PMID: 30213827, PMID: 33988691",,,,
+MYD88,WM/LPL,,1,GoF（SNVIndel：L252Pなど: L265Pと記載される場合もある),,L252P (L265P),"A
+NCCN2023 (WM/LPL)","B
+NCCN2023 (WM/LPL), PMID: 25853747","A
+WHO2022",,MYD88変異がある場合、BTK阻害剤が有効である可能性がある。比較的頻度が高いMYD88 L252P変異は、従来L265Pと表記されていたが、最近ではL252Pと表記することが推奨されている (PMID: 26876098)。
+ATRX,AA,,2,LoF,,,"D
+PMID: 24047651, 26132940",,,,
+BCOR,AA,,2,LoF,,,"D
+PMID: 24047651, 26132940",,"D
+PMID: 24047651, 26132940, 35941135",,
+BCORL1,AA,,2,LoF,,,"D
+PMID: 24047651, 26132940",,"D
+PMID: 24047651, 26132940",,
+EED,AA,,2,LoF,,,"D
+PMID: 22053108, 26132940",,,,
+JAK3,AA,,2,Unknown (SNVIndel）,,,"D
+PMID: 26132940",,,,
+LAMB4,AA,,2,Unknown (SNVIndel）,,,"D
+PMID: 24220272, 26132940",,,,
+PEG3,AA,,2,Unknown (SNVIndel）,,,"D
+PMID: 26132940",,,,
+PIGA,AA,,1,LoF（SNVIndel）,,,"A
+NCCN2023 (MDS), PMID: 26132940, 27121470",,"D
+PMID: 26132940",,PIGA変異がAAの直接的な原因ではなく、変異を有するクローンがAAの病態に関連した細胞性免疫機序から逃れて優位性を持つと考えられている。
+RIT1,AA,,2,GoF,,,"D
+PMID: 23765226, 26132940",,,,
+CSF3R,aCML,1,1,"GoF（SNVIndel：T618I, T615A, D771fsなど）",,T618I,"A
+WHO2022, ICC2022","D
+PMID: 23656643, 24081659, 26475333","D
+PMID: 23896413",,
+ETNK1,aCML,,1,"LoFなど（Ｎ244S, G245A)",,,"A
+NCCN2023 (MDS), PMID: 25343957",,,,
+JAK2,aCML,1,2,GoF（SNVIndel：V617Fなど）,,V617F,,,"D
+PMID: 23896413",,"Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MF, PVに対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MFに対してFDA承認されている。"
+NTRK2,aCML,,2,GoF（SNVIndel：R458G）,,,,"D
+PMID: 32315394",,,"NTRK融合遺伝子を有する他がん種に対して、TRK阻害剤 (Entrectinib, Larotrectinib)が薬事承認、FDA承認されている。"
+SETBP1,aCML,,1,"GoF（SNVIndel：D868N, G870Sなど）",,,"A
+ICC2022, NCCN2023 (MDS), PMID: 23222956",,"D
+PMID: 23896413",,
+EPOR,AEL,,2,GoF（Amplification）,amp(19p13),,"C
+PMID: 35839275","D
+PMID: 35839275",,,
+NFIA,AEL,,2,GoF（Fusion：NFIA::ETO2）,t(1;16)(p31;q24),,"D
+PMID: 36735909",,,,TP53変異との共存により赤芽球系細胞の分化を阻害し、小児PELの発症に寄与する可能性がある (PMID: 36735909)。
+USP9X,AEL,,2,LoF（SNVIndel）,,,"C
+PMID: 35839275",,,,
+CD28,AITL,,1,GoF（Fusion：CTLA4::CD28、SNVIndel：F51Vなど）,2q33.2 tandem duplication,,"A
+WHO2022, ICC2022",,,,
+CTLA4,AITL,,1,GoF（Fusion：CTLA4::CD28）,2q33.2 tandem duplication,,"A
+WHO2022, ICC2022",,,,
+DNMT3A,AITL,,1,LoF、GoF（SNVIndel）,,,"A
+WHO2022, NCCN2023 (TCL), ICC2022",,"A
+WHO2022",,
+FYN,AITL,,1,GoF（SNVIndel：R176Cなど）,,,"A
+WHO2022",,,,
+ICOS,AITL,,1,GoF（Fusion：ICOS::CD28）,,,"A
+WHO2022, ICC2022",,,,
+IDH2,AITL,,1,GoF（SNVIndel：R172Kなど）,,"R140Q, R172K","A
+WHO2022, NCCN2023 (TCL), ICC2022",C,"A
+WHO2022",FDA_Other：Enasidenib,
+ITK,AITL,,1,GoF（Fusion：ITK::SYK）,t(5;9)(q33;q22),,"A
+WHO2017",,,,
+PLCG1,AITL,,1,GoF（SNVIndel：R48W/S345Fなど）,,,"A
+WHO2022",,,,
+RHOA,AITL,,1,GoF（SNVIndel：G17V）,,G17V,"A
+WHO2022, NCCN2023 (TCL), ICC2022",,,,
+SYK,AITL,,1,GoF（Fusion：ITK::SYK）,t(5;9)(q33;q22),,"A
+WHO2017",,,,
+TET2,AITL,,1,LoF,,,"A
+WHO2022, NCCN2023 (TCL), ICC2022",,"A
+WHO2022",,
+VAV1,AITL,,1,GoF（Fusion、SNVIndel）,,,"A
+WHO2022, ICC2022",,,,
+DUSP22,ALCL (ALK-),,1,GoF（Rearrangement：DUSP22::FRA7Hなど）,t(6;7)(p25.3;q32.3)など,,"A
+WHO2022, ICC2022, NCCN2023 (TCL),  PMID: 24894770",,"A
+WHO2022, PMID: 24894770",,
+JAK1,ALCL (ALK-),,1,GoF（SNVIndel：G1097Dなど）,,,"A
+WHO2022",,,,
+JAK2,ALCL (ALK-),,1,GoF（Rearrangement：JAK2::PCM1など）,,,"A
+ICC2022",,,,"Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MF, PVに対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MFに対してFDA承認されている。"
+MSC,ALCL (ALK-),,1,GoF（SNVIndel：E116K ）,,,"A
+WHO2022",,,,
+PRDM1,ALCL (ALK-),,1,LoF,del(6q21),,"A
+WHO2017",,"A
+WHO2017",,
+STAT3,ALCL (ALK-),,1,GoF（SNVIndel：Y640F::D661Yなど）,,"Y640F, D661Y","A
+WHO2022",,,,
+TBL1XR1,ALCL (ALK-),,1,GoF（Fusion：TBL1XR1::TP63),,,"A
+WHO2022, NCCN2023 (TCL), PMID: 21030553",,,,
+TP53,ALCL (ALK-),1,1,LoF、GoF（SNVIndel）,del(17p13),,"A
+WHO2022, ICC2022",,"A
+WHO2022",,
+TP63,ALCL (ALK-),,1,GoF（Rearrangement：TBL1XR1::TP63など）,inv(3)(q26;q28)など,,"A
+WHO2022, ICC2022, NCCN2023 (TCL),  PMID: 24894770",,"A
+WHO2022, PMID: 24894770",,
+ALK,ALCL (ALK+),,1,"GoF（Fusion：NPM1::ALK, TPM3::ALKなど）","t(2;5)(p23;q35), t(1;2)(q25;p23)など",,"A
+WHO2022, ICC2022, NCCN2023 (TCL)","A
+NCCN2023 (TCL)","A
+WHO2022","PMDA：Alectinib
+FDA：Alectinib, Crizotinib, Ceritinib, Brigatinib, Lorlatinib
+FDA_Other：Crizotinib, Ceritinib, Alectinib, Brigatinib, Lorlatinib",
+MYC,ALCL (ALK+),,1,GoF（Rearrangement：non-IGH::MYCなど）,"t(3;8)(q26.2;q24), t(8;17)(q24;q25), ins(6;8)(q23;q24q23)",,"D
+PMID: 32833271, PMID: 23619105, PMID: 21080342, PMID: 16955462",,"A
+WHO2017",,
+NPM1,ALCL (ALK+),,1,GoF（Fusion：NPM1::ALK）,t(2;5)(p23;q35),"L287fs, W288fs","A
+WHO2022, NCCN2023 (TCL)",,"A
+WHO2022",,小児において、NPM::ALK mRNA の定量測定は、molecular MRD markerとしての有用性が示唆されている。
+CASP10,ALPS,1,2,LoF (SNVIndel）,,,"D
+PMID: 10412980",,,,
+TET2,ALPS,1,2,LoF（SNVIndel）,,,"D
+PMID: 32518946",,,,小児のT/Bリンパ腫との関連が報告されている (PMID: 32518946)
+AFF1,AML,,1,GoF（Fusion：KMT2A::AFF1）,t(4;11)(q21;q23),,"A
+ICC2022､NCCN2023 (AML)",,"A
+ELN2022, NCCN2023 (AML)",,
+ALK,AML,,2,GoF,,,,"C
+PMID: 26032424",,"FDA：Alectinib, Crizotinib, Ceritinib, Brigatinib, Lorlatinib
+FDA_Other：Crizotinib, Ceritinib, Alectinib, Brigatinib, Lorlatinib",
+ARID1B,AML,,2,LoF（SNVIndel）,,,"D
+PMID: 22817890, 27063598",,"D
+PMID: 35022500",,
+ARID2,AML,,2,Unknown（SNVIndel）,,,"D
+PMID: 22817890, 27063598",,"D
+PMID: 35022500",,
+ASXL1,AML,,1,GoF（SNVIndel：exon11-12 truncation）,,,"A
+WHO2022, ICC2022, ELN2022, PMID: 25550361, 27276561, 27527698",,"A
+ELN2022, NCCN2023 (AML), PMID: 35941135",,
+ASXL2,AML,,2,LoF,,,"D
+PMID: 24973361, 27798625, 27527698, 28090090, 30610028",,,,
+BAX,AML,,2,LoF,,,,"D
+PMID: 34469514, 36219880",,,BAXの変異により、Venetoclaxに対する耐性をきたす可能性がある。
+BCOR,AML,,1,LoF,,,"A
+WHO2022, ICC2022, ELN2022, PMID: 25550361, 27276561",,"A
+ELN2022, NCCN2023 (AML), PMID: 22012066",,
+BCORL1,AML,,1,LoF,,,"A
+ELN2022",,,,
+BRAF,AML,,1,"GoF（SNVIndel：V600E, D594Nなど）",,V600E,"A
+ELN2022","C
+PMID: 35172484","D
+PMID: 27276561","FDA：Dabrafenib, Vemurafenib
+FDA_Other：Dabrafenib, Vemurafenib","BRAF V600E/K を有する一部の非造血器腫瘍に対して、BRAF阻害剤とMEK阻害剤 (Trametinib, Binimetinib, Selumetinibなど)の併用療法が薬事もしくはFDA承認されている。BRAF V600Eを有するAMLに対して、BRAF/MEK阻害剤が著効した例が報告されている（PMID: 35172484)。"
+CBFA2T3,AML,,1,"GoF（Fusion：CBFA2T3::GLIS2, RUNX1::CBFA2T3）","inv(16)(p13q24), t(16;21)(q24.3;q22.1)",,"A
+WHO2022, ICC2022, PMID: 19963144",,,,
+CBFB,AML,,2,GoF（SNVIndel）,,,"D
+PMID: 36179268",,,,Exon３領域に４アミノ酸残基（GDSY）を挿入する変異（PMID: 36179268）
+CBL,AML,1,1,GoF（SNVIndel）,,,"A
+ELN2022, PMID: 27276561",,"D
+PMID: 27983727",,
+CCND2,AML,,2,GoF（SNVIndel：P281L/A/Rなど）,,,"D
+PMID: 27798625",,,,
+CEBPA,AML,1,1,LoF,,,"A
+WHO2022, ELN2022, PMID: 14726504",,"A
+NCCN2023 (AML), ELN2022",,
+CHEK2,AML,1,1,LoF（SNVIndel：I200Tなど）,,,"A
+ELN2022, PMID: 34482403",,,,
+CSF3R,AML,1,1,"GoF（SNVIndel：T618I, T615A, D771fsなど）",,T618I,"A
+ELN2022",,,,
+CUX1,AML,,2,LoF,,,,,"D
+PMID: 35941135",,
+DHX15,AML,,2,LoF（SNVIndel：R222G）,,,"C
+PMID: 27798625, 30610028",,,,
+DNMT3A,AML,,1,LoF、GoF（SNVIndel：R882C::Hなど）,,,"A
+WHO2022, ELN2022, NCCN2023 (AML)","D
+PMID: 22417203, 25609058, 26755712, 27841873","C
+PMID: 21067377, 21670448, 22291079, 22289988,27983727, 35941135",,
+EPS15,AML,,1,GoF（Fusion：KMT2A::EPS15）,t(1;11)(p32;q23),,"A
+WHO2017, ELN2017",C,"A
+ELN2017",,
+ERG,AML,,1,GoF（Fusion：FUS::ERG）,t(16;21)(p11;q22),,"A
+ICC2022",,,,
+ETV6,AML,,1,GoF（Fusion：ETV6::MECOM),t(3;12)(q26.2;p13.2),,"A
+WHO2022, ICC2022, ELN2022",,"A
+NCCN2023 (AML)",,
+EZH2,AML,,1,LoF,,Y641,"A
+WHO2022, ICC2022, ELN2022, PMID:25550361, 27276561",C,"A
+ELN2022, NCCN2023 (AML), PMID: 27983727, 35941135","FDA：Tazemetostat
+FDA_Other：Tazemetostat",
+FGFR1,AML,,2,"GoF（Fusion：CEP43::FGFR1, CEP110::FGFR1など）",,,"D
+PMID: 9949182, 34207779","C
+PMID: 21482694",,"FDA：Pemigatinib
+FDA_Other：Pemigatinib",
+FUS,AML,,1,GoF（Fusion：FUS::ERG）,t(16;21)(p11;q22),,"A
+ICC2022",,,,
+GATA2,AML,1,1,LoF（SNVIndel）,,,"A
+ELN2022",,"D
+PMID: 30190467, 35941135",,"ZF1ドメイン (aa297-337) の変異を持つ症例では予後良好が示唆されている (PMID: 30190467)。造血幹細胞移植後にGATA2 変異を有するドナー由来白血病が報告されている (PMID: 30232126, 32865708)。"
+GLIS2,AML,,1,GoF（Fusion：CBFA2T3::GLIS2）,inv(16)(p13q24),,"A
+WHO2022, ICC2022",,,,
+IDH1,AML,,1,GoF（SNVIndel：R132C/G/H/L/Q/Sなど）,,R132C/L/H,"A
+WHO2022, ICC2022, NCCN2023 (AML)","A
+NCCN2023 (AML), PMID: 25583779, 29860938, 35443108","C
+PMID: 20538800, 27276561, 20368543, 35941135","PMDA_Other：Ivosidenib, Olutasidenib
+FDA_Other：Ivosidenib",
+IDH1,AML,,2,GoF（SNVIndel：R132C存在下で、同側アリルにおけるS280Fの獲得）,,R132C/L/H,,"D
+PMID:29950729",,,R132C存在下で、同側アリルにおけるS280F変異を獲得することで、IDH1阻害剤 (Ivosidenib) に対する耐性をきたす可能性がある (PMID:29950729)。
+IDH2,AML,,1,"GoF（SNVIndel：R140Q/W, R172Kなど）",,"R140Q, R172K","A
+WHO2022, ICC2022, NCCN2023 (AML) (AML), PMID:27276561","A
+NCCN2023 (AML), PMID: 28588019, 28588020, 30510081, 35714312","C
+PMID: 20538800, 27276561, 20368543, 35941135","PMDA_Other：Enasidenib
+FDA_Other：Enasidenib",
+IDH2,AML,,2,GoF（SNVIndel：R140Q存在下で、対側アリルにおけるQ316E/I319MSNVIndelの獲得）,,"R140Q, R172K",,"D
+PMID: 29950729",,,R140Q存在下で、対側アリルにQ316EもしくはI319Mの変異を獲得することで、IDH2阻害剤 (Enasidenib) に対する耐性をきたす可能性がある。
+JAK2,AML,1,1,GoF（SNVIndel：V617Fなど）,,V617F,"A
+ELN2022, NCCN2023 (MPN)",,,,"Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MF, PVに対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MFに対してFDA承認されている。"
+KIT,AML,,1,GoF（SNVIndel：D816Vなど）,,D816V,"A
+WHO2022, ICC2022, ELN2022","D
+PMID: 18986703, 23149070, 21482694","A
+ELN2022, PMID: 16384925,  35941135",,"Imatinib は、KIT変異の有無に関わらず、免疫組織学的検査によりKIT発現陽性のGISTに対して薬事承認されている。一方、FDAでは、KIT発現陽性のGISTに加えて、aggressive systemic mastocytosis (ASM) without the D816V c-Kit mutation or with c-Kit mutational status unknown"" が承認されている。"""
+KMD5A,AML,,1,GoF（Fusion：NUP98::KDM5A）,t(11;12)(p15;p13),,"A
+WHO2022, ICC2022",,"C
+PMID: 21813447, 29227476",,
+KMT2A,AML,,1,GoF（SNVIndel：PTD）,,,"A
+NCCN2023 (MDS)",,"A
+NCCN2023 (MDS), PMID: 35941135",,
+KRAS,AML,1,1,"GoF（SNVIndel：G12D/S/A/V, Q61Pなど）",,"G12, G13, Q61","A
+ELN2022, PMID: 27276561","C
+PMID: 31088841, 31932844, 32955176, 35941135","D
+PMID: 35941135","FDA：Sotorasib (G12C)
+FDA_Other：Sotorasib (G12C), Adagrasib (G12C)",KRAS変異により、BCL2阻害剤、FLT3阻害剤に対する耐性を示す可能性がある。
+MBD4,AML,1,1,LoF,,,"A
+ICC2022, NCCN2023 (AML), PMID: 30049810",,,,
+MEN1,AML,,2,"GoF（SNVIndel：M327V, M327Iなど）",,,,"D
+PMID: 36922589, 36922593","D
+PMID: 36922589, 36922593",,MEN1の変異により、Menin阻害剤 (Revumenibなど) に対する耐性をきたす可能性がある。
+MGA,AML,,1,LoF,,,"A
+ELN2017, PMID: 27798625",,,,
+MLLT10,AML,,1,"GoF（Fusion：PICALM::MLLT10, KMT2A::MLLT10）","t(10;11)(p13;q21), t(10;11)(p12;q23)",,"A
+WHO2022, ICC2022, PMID: 23634996",,"A
+ELN2022, NCCN2023 (AML)",,
+MLLT11,AML,,1,GoF（Fusion：KMT2A::MLLT11）,t(1;11)(q21;q23),,"A
+WHO2017",,"A
+ELN2022, NCCN2023 (AML)",,
+MNX1,AML,,1,GoF（Fusion：MNX1::ETV6）,t(7;12)(q36;p13),,"A
+ICC2022",,,,
+MPL,AML,1,2,GoF（SNVIndel：W515L/K）,,W515,,,"D
+PMID: 35941135",,
+MYC,AML,,1,"GoF（Rearrangement：MYC,, MECOM）",t(3;8)(q26.2;q24.2),,"A
+ICC2022",,"A
+ELN2022, NCCN2023 (AML), PMID: 35941135",,
+NF1,AML,,1,LoF,,,"A
+ELN2022",C,"D
+PMID: 35941135","FDA：Selumetinib
+FDA_Other：Selumetinib",Selumetinib（MEK阻害剤）は、neurofibromatosis type1 にみられる叢状神経線維腫に薬事承認、FDA承認されている。
+NRAS,AML,1,1,"GoF（SNVIndel：G12D/S/A/V, Q61R/Kなど）",,"G12, G13, Q61","A
+ELN2022","D
+PMID: 31088841","C
+PMID: 19880497, 31088841, 31932844, 35941135",,RAS 関連遺伝子の変異により、BCL2阻害剤、FLT3阻害剤に対する耐性をきたす可能性がある。
+NSD1,AML,,1,GoF（Fusion：NUP98::NSD1）,t(5;11)(q35;p15.5),,"A
+WHO2022, ICC2022",,"C
+PMID: 21813447, 29227476",,
+NTRK2,AML,,2,GoF（Fusion：ETV6::NTRK2）,,,"D
+PMID: 31551508",C,,"FDA：Entrectinib, Larotrectinib (融合遺伝子)
+FDA_Other：Entrectinib, Larotrectinib (融合遺伝子)",
+NTRK3,AML,,2,GoF（Fusion：ETV6::NTRK3）,t(12;15)(p13;q25),,"D
+PMID: 9949179, 10775267, 21401966, 31551508",C,,"FDA：Entrectinib, Larotrectinib (融合遺伝子)
+FDA_Other：Entrectinib, Larotrectinib (融合遺伝子)",
+NUP98,AML,,1,"GoF（Fusion：NUP98::NSD1, NUP98::KDM5Aなど）","t(5;11)(q35;p15.5), t(11;12)(p15;p13) など",,"A
+WHO2022, ICC2022",,"C
+PMID: 21813447, 29227476",,
+PHF6,AML,,1,LoF,,,"A
+ELN2022, PMID: 21030981, 22417203, 27479181, ELN2022",,"C
+PMID: 22417203, 35941135",,
+PICALM,AML,,1,GoF（Fusion：PICALM::MLLT10）,t(10;11)(p13;q21),,"A
+ICC2022, ELN2017, PMID: 23634996",,,,
+PPM1D,AML,,1,GoF（SNVIndel：exon 6 のnonsenseもしくはframeshiftSNVIndel）,,,"A
+ELN2022",,,,
+PTPN11,AML,1,1,LoF（SNVIndel）,,,"A
+ELN2022","D
+PMID: 30420752","D
+PMID: 34459887, 35941135",,
+RAD21,AML,,1,LoF,,,"A
+ELN2022",,,,
+RIT1,AML,,2,GoF,,,"D
+PMID: 23765226",,,,
+SETBP1,AML,,1,"GoF（SNVIndel：D868N, G870Sなど）",,,"A
+ELN2022",,"D
+PMID: 35941135",,
+SF1,AML,,2,LoF,,,,,"D
+PMID: 29563537, 35941135",,
+SF3B1,AML,,1,GoF（SNVIndel：K700Eなど）,,"K700E, R625, N626, K666","A
+WHO2022, ICC2022, ELN2022, PMID: 25550361, 27276561",,"A
+ELN2022, NCCN2023 (AML), PMID: 35941135",,
+SMC1A,AML,,1,LoF,,,"A
+ELN2017",,,,
+SMC3,AML,,1,LoF,,,"A
+ELN2017",,"D
+PMID: 35941135",,
+SRSF2,AML,,1,GoF（SNVIndel：P95L/H/R など）,,,"A
+WHO2022, ICC2022, ELN2022, PMID: 25550361, 27276561",,"A
+ELN2022, NCCN2023 (AML), PMID: 27276561",,
+STAG2,AML,,1,LoF,,,"A
+WHO2022, ICC2022, ELN2022, PMID: 25550361, 27276561",,"A
+ELN2022, NCCN2023 (AML), PMID: 35941135",,
+TET1,AML,,1,GoF(Fusion：TET1::KMT2A),t(10;11)(q21.3;q23.3),,"A
+ICC2022",,"A
+ELN2022, NCCN2023 (AML)",,
+TET2,AML,,1,LoF,,,"A
+ICC2022, ELN2022",,"C
+PMID:21343549, 22430270,  35941135",,
+TP53,AML,1,1,"LoF、GoF（SNVIndel：R175H, G245S, R248Q, R248W, R273Hなど）",,,"A
+WHO2022, ICC2022, ELN2022","A
+NCCN2023 (AML), PMID: 27959731","A
+ELN2022, NCCN2023 (AML)",,
+U2AF1,AML,,1,"GoF（SNVIndel：S34F/Y, Q157R/Pなど）",,,"A
+WHO2022, ICC2022, ELN2022, PMID: 25550361, 27276561",,"A
+ELN2022, NCCN2023 (AML)",,
+UBTF,AML,,2,GoF（SNVIndel：ITD）,,,,,"D
+PMID: 37236968、37085611、 35176137、36448876",,
+WT1,AML,,1,LoF,,,"A
+WHO2022, ICC2022, PMID: 27276561","D
+PMID: 25398938","D
+PMID: 18559874, 20368469, 35941135",,
+ZBTB7A,AML,,2,LoF,,,"C
+PMID: 26968532, 27252013, 27798625",,,,
+ZRSR2,AML,,1,LoF,,,"A
+WHO2022, ICC2022, ELN2022, PMID: 25550361, 27276561",,"A
+ELN2022, NCCN2023 (AML), PMID: 35941135",,
+PDGFRB,AML,,2,GoF（Fusion：STRN3::PDGFRB）,t(5;14)(q32;q12),,"D
+PMID: 37550570",C,,FDA_Other：Imatinib （PDGFRβ 融合遺伝子）,"PDGFRβ 融合遺伝子を有する造血器腫瘍で、各種TKI (Imatinib, Dasatinib,  Ponatinib, Sunitibなど）の有効性が示唆されている (PMID: 12181402, 23835704, 24687085, 31434701)。"
+MYB,AML (acute basophilic leukemia),,2,GoF（Fusion：MYB::GATA1）,t(X;6)(p11;q23),,"D
+PMID: 21474671",,,,
+MRTFA,AML (megakaryoblastic) with t(1;22)(p13.3;q13.3); RBM15::MKL1,,1,GoF（Fusion：RBM15::MRTFA）,t(1;22)(p13;q13),,"A
+WHO2022, ICC2022",,,,
+RBM15,AML (megakaryoblastic) with t(1;22)(p13.3;q13.3); RBM15::MKL1,,1,GoF（Fusion：RBM15::MRTFA）,t(1;22)(p13;q13),,"A
+WHO2022, ICC2022",,,,
+ABL1,AML with BCR::ABL1,,1,GoF（Fusion：BCR::ABL1）,t(9;22)(q34;q11),,"A
+WHO2022, ICC2022","C
+PMID: 12476305, 32289808, 33376671, 35782581","A
+NCCN2023 (AML), ELN2022, PMID: 34724563","FDA：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib
+FDA_Other：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib","BCR::ABL1 mRNAの定量測定は、molecular MRD markerとしての有用性が示唆されている (ELN2022, PMID: 34724563)。"
+BCR,AML with BCR::ABL1,,1,GoF（Fusion：BCR::ABL1）,t(9;22)(q34;q11),,"A
+WHO2022, ICC2022","C
+PMID: 12476305","A
+NCCN2023 (AML), ELN2022, PMID: 34724563","FDA：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib
+FDA_Other：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib","BCR::ABL1 mRNAの定量測定は、molecular MRD markerとしての有用性が示唆されている (ELN2022, PMID: 34724563)。"
+CEBPA,AML with biallelic mutations of CEBPA,1,1,LoF,,,"A
+WHO2022, ICC2022, PMID: 14726504",,"A
+ELN2022, NCCN2023 (AML)",,造血幹細胞移植後にCEBPA変異を有するドナー由来白血病が報告されている (PMID: 21403128)。
+CEBPA,AML with germline CEBPA mutation,1,1,LoF,,,"A
+WHO2022, ICC2022",,,,造血幹細胞移植後にCEBPA変異を有するドナー由来白血病が報告されている (PMID: 21403128)。
+CREBBP,AML with MRC,,1,GoF（Fusion：KAT6A::CREBBP）,t(8;16)(p11;p13),,"C
+PMID: 8782817",,"A
+ELN2022, NCCN2023 (AML)",,
+CREBBP,AML with MRC,,2,GoF（Fusion：KMT2A::CREBBP）,t(11;16)(q23.3;p13.3),,"C
+PMID: 9166831, 9226152",,,,
+KAT6A,AML with MRC,,1,GoF（Fusion：KAT6A::CREBBP）,t(8;16)(p11;p13),,"C
+PMID: 8782817",,"A
+ELN2022, NCCN2023 (AML)",,
+KMT2A,AML with MRC,,2,GoF（Fusion：KMT2A::CREBBPなど）,"t(11;16)(q23.3;p13.3), t(2;11)(p21;q23.3)",,"C
+PMID: 9166831, 9226152","D
+PMID: 36922589, 36922593",,,
+MECOM,AML with MRC,,1,GoF（Fusion：RUNX1::MECOM）,t(3;21)(q26;q22),,"A
+WHO2022, ICC2022",,"A
+ELN2022, NCCN2023 (AML)",,
+MLF1,AML with MRC,,1,GoF（Fusion：NPM1::MLF1）,t(3;5)(q25.3;q35.1),,"A
+ICC2022",,,,
+NPM1,AML with MRC,,1,GoF（Fusion：NPM1::MLF1）,t(3;5)(q25.3;q35.1),"L287fs, W288fs","A
+ICC2022","D
+PMID: 36922589, 36922593",,,
+PRDM16,AML with MRC,,1,GoF（Rearrangement：RPN1::PRDM16）,t(1;3)(p36.3;q21.2),,"A
+ICC2022",,,,
+RPN1,AML with MRC,,1,GoF（Rearrangement：RPN1::PRDM16）,t(1;3)(p36.3;q21.2),,"A
+ICC2022",,,,
+RUNX1,AML with MRC,,1,"GoF（Fusion：MECOM::RUNX1, CBFA2T3::RUNX1 など）","t(3;21)(q26;q22), t(16;21)(q24.3;q22.1)など",,"A
+WHO2022, ICC2022",,"A
+NCCN2023 (AML), ELN2022 (MECOM::RUNX1)",,
+NPM1,AML with mutated NPM1,,1,GoF、LoF（SNVIndel：exon12 mutation）,,"L287fs, W288fs","A
+WHO2022, ICC2022","D
+PMID: 26755712,  36922589, 36922593","A
+NCCN2023 (AML), ELN2022, PMID: 34724563, 37647641",,"Mutant NPM1 mRNAの定量測定は、molecular MRD markerとしての有用性が示唆されている（ELN2022, PMID: 34724563)。"
+RUNX1,AML with mutated RUNX1,1,1,LoF,,,"A
+WHO2022, ICC2022, ELN2022",,"A
+NCCN2023 (AML), ELN2022, PMID: 35941135",,造血幹細胞移植後にRUNX1変異を有するドナー由来白血病が報告されている (PMID: 11675361)
+ELL,AML with other KMT2A rearrangements,,1,GoF(Fusion：KMT2A::ELL),,,"A
+ICC2022",,"A
+ELN2022, NCCN2023 (AML)",,
+MLLT1,AML with other KMT2A rearrangements,,1,GoF(Fusion：KMT2A::ELL),t(11;19)(q23.3;p13.3),,"A
+ICC2022",,"A
+ELN2022, NCCN2023 (AML)",,
+CBFB,AML with t(16;16)(p13.1;q22); CBFB::MYH11,,1,GoF（Fusion：CBFB::MYH11）,inv(16)(p13.1q22),,"A
+WHO2022, ICC2022",,"A
+NCCN2023 (AML), ELN2022, PMID: 34724563",,"CBFB::MYH11 mRNAの定量測定は、molecular MRD markerとしての有用性が示唆されている (ELN2022, PMID: 34724563)。"
+MYH11,AML with t(16;16)(p13.1;q22); CBFB::MYH11,,1,GoF（Fusion：CBFB::MYH11）,inv(16)(p13.1q22),,"A
+WHO2022, ICC2022",,"A
+NCCN2023 (AML), ELN2022, PMID: 34724563",,"CBFB::MYH11 mRNAの定量測定は、molecular MRD markerとしての有用性が示唆されている (ELN2022, PMID: 34724563)"
+DEK,AML with t(6;9)(p23;q34.1); DEK::NUP214,,1,GoF（Fusion：DEK::NUP214）,t(6;9)(p22;q34),,"A
+WHO2022, ICC2022",,"A
+NCCN2023 (AML), ELN2022, PMID: 34724563",,"DEK::NUP214 mRNAの定量測定は、molecular MRD markerとしての有用性が示唆されている (ELN2022, PMID: 34724563)。"
+NUP214,AML with t(6;9)(p23;q34.1); DEK::NUP214,,1,GoF（Fusion：DEK::NUP214）,t(6;9)(p22;q34),,"A
+WHO2022, ICC2022",,"A
+NCCN2023 (AML), ELN2022, PMID: 34724563",,"DEK::NUP214 mRNAの定量測定は、molecular MRD markerとしての有用性が示唆されている (ELN2022, PMID: 34724563)"
+RUNX1,AML with t(8;21)(q22;q22.1); RUNX1::RUNX1T1,,1,GoF（Fusion：RUNX1::RUNX1T1）,t(8;21)(q22;q22),,"A
+WHO2022, ICC2022",,"A
+NCCN2023 (AML), ELN2022, PMID: 34724563",,"RUNX1::RUNX1T1 mRNAの定量測定は、molecular MRD markerとしての有用性が示唆されている (ELN2022, PMID: 34724563)。"
+RUNX1T1,AML with t(8;21)(q22;q22.1); RUNX1::RUNX1T1,,1,GoF（Fusion：RUNX1::RUNX1T1）,t(8;21)(q22;q22),,"A
+WHO2022, ICC2022",,"A
+NCCN2023 (AML), ELN2022, PMID: 34724563",,"RUNX1::RUNX1T1 mRNAの定量測定は、molecular MRD markerとしての有用性が示唆されている (ELN2022, PMID: 34724563)。"
+KMT2A,AML with t(9;11)(p21.3;q23.3); MLLT3::KMT2A,,1,"GoF（Fusion：KMT2A::MLLT3, KMT2A::MLLT4, KMT2A::AFF1, など）",t(9;11)(p21;q23)など,,"A
+WHO2022, ICC2022","D
+PMID: 36922589, 36922593","A
+NCCN2023 (AML), ELN2022, PMID: 34724563",,"KMT2A::MLLT3 mRNAの定量測定は、molecular MRD markerとしての有用性が示唆されている (ELN2022, PMID: 34724563)"
+MLLT3,AML with t(9;11)(p21.3;q23.3); MLLT3::KMT2A,,1,GoF（Fusion：MLLT3::KMT2A）,t(9;11)(p21;q23),,"A
+WHO2022, ICC2022",,"A
+NCCN2023 (AML), ELN2022, PMID: 34724563",,"KMT2A::MLLT3 mRNAの定量測定は、molecular MRD markerとしての有用性が示唆されている (ELN2022, PMID: 34724563)"
+CD274,ANKL,,1,GoF（Amplification）,,,"A
+WHO2022, PMID: 29674644",C,,"FDA：Nivolumab, Pembrolizumab
+FDA_Other：Nivolumab, Pembrolizumab",
+CREBBP,ANKL,,1,LoF,,,"A
+WHO2022",,,,
+DDX3X,ANKL,,1,LoF,,,"A
+WHO2022, PMID: 29674644",,,,
+KMT2D,ANKL,,1,LoF,,,"A
+WHO2022",,,,
+PDCD1LG2,ANKL,,1,GoF（Amplification）,,,"A
+WHO2022",,,,
+TET2,ANKL,,1,LoF,,,"A
+WHO2022",,,,
+TP53,ANKL,1,1,LoF、GoF（SNVIndel）,,,"A
+WHO2022, NCCN2023 (TCL)",,,,
+PIK3CD,APDS,1,1,GoF（SNVIndel）,,,"D
+PMID: 31942637, 36399712","C
+PMID: 36399712",,,"Activated PI3Kδ syndrom (APDS) は、PI3K3CDの機能獲得変異もしくは、PIK3R1の機能喪失変異が起因となる免疫不全症であり、患者の25%程度にB-cell lymphomaの合併を認める (PMID: 31942637, 36399712)。Leniolisib (PI3K-delta阻害剤）は、PI3K3CD/PIK3R1の変異の有無に関わらず、APDSに対してFDA承認されている。"
+PIK3R1,APDS,1,1,LoF,,,"D
+PMID: 31942637, 36399712","C
+PMID: 36399712",,,"Activated PI3Kδ syndrom (APDS) は、PI3K3CDの機能獲得変異もしくは、PIK3R1の機能喪失変異が起因となる免疫不全症であり、患者の25%程度にB-cell lymphomaの合併を認める (PMID: 31942637, 36399712)。Leniolisib (PI3K-delta阻害剤）は、PI3K3CD/PIK3R1の変異の有無に関わらず、APDSに対してFDA承認されている。"
+BCOR,APL,,1,GoF（Fusion： RARA::BCOR）,,,"A
+ICC2022",,,,
+FIP1L1,APL,,1,GoF（Fusion：RARA::FIP1LI）,,,"A
+ICC2022",,,,
+IRF2BP2,APL,,1,GoF（Fusion：IRF2BP2::RARA）,t(1;17)(q42.3;q21.2),,"A
+ICC2022",,,,
+NPM1,APL,,1,GoF（Fusion：NPM1::RARA）,t(5;17)(q35;q21),"L287fs, W288fs","A
+ICC2022",,,,
+RARB,APL,,2,GoF（Fusion：PML::RARB）,,,"D
+PMID: 29921692, 30575821","D
+PMID: 29921692","D
+PMID: 29921692",,
+STAT3,APL,,1,GoF（Fusion：STAT3::RARA）,,,"A
+ICC2022",,,,
+STAT5B,APL,,1,GoF（Fusion：STAT5B::RARA）,cryptic inv(17q) or del(17) (q21.2q21.2),,"A
+ICC2022",,,,
+TBL1XR1,APL,,1,GoF（Fusion：RARA:TBL1XR1）,,,"A
+ICC2022",,,,
+ZBTB16,APL,,1,GoF（Fusion：ZBTB16::RARA）,t(11;17)(q23;q21),,"A
+ICC2022",,,,
+ARID1A,APL with PML::RARA,,1,LoF,,,"A
+JSHGL2023, PMID: 27063598",,,,
+ARID1B,APL with PML::RARA,,1,LoF,,,"A
+JSHGL2023, PMID: 27063598",,,,
+PML,APL with PML::RARA,,1,GoF（Fusion：PML::RARA）,t(15;17)(q24;q21),,"A
+WHO2022, ICC2022, NCCN2023 (AML)","A
+JSHGL2023, NCCN2023 (AML)","A
+NCCN2023 (AML), PMID: 27276561,","PMDA：ATRA, Trisenoox (ATO), Tamibarotene
+PMDA_Other：ATRA, Trisenoox (ATO)",
+PML,APL with PML::RARA,,2,"GoF（SNVIndel：A216V/T, L218Pなど）",,,,"D
+PMID: 21613260, 24806185, 27063598",,,PMLの変異 (PML B2 domain: aa183-236) により、Arsenic trioxideに対する耐性をきたす可能性がある。
+RARA,APL with PML::RARA,,1,GoF（Fusion：PML::RARA）,t(15;17)(q24;q21),,"A
+WHO2022, ICC2022, NCCN2023 (AML)","A
+JSHGL2023、NCCN2023 (AML)","A
+NCCN2023 (AML), PMID: 27276561,","PMDA：ATRA, Trisenoox (ATO), Tamibarotene
+PMDA_Other：ATRA, Trisenoox (ATO)",RARAのligand binding domain の変異により、ATRAに対する耐性をきたす可能性がある。ZBTB16::RARAやSTAT5B-:RARAなどvariant RARA translocationも報告されている。
+ARID2,ATLL,,2,LoF,,,"D
+PMID: 26437031",,,,
+ATXN1,ATLL,,2,LoF,,,"D
+PMID: 26437031",,,,
+CARD11,ATLL,,1,GoF（SNVIndel：E626Kなど）,,,"A
+WHO2022",,,,
+CCR4,ATLL,,1,GoF（SNVIndel：Y331*など）,,,"A
+WHO2017, PMID: 26437031","D
+PMID: 24616310, 25488980, 27507878, 29930010",,,CCR4陽性であることがMogamulizumabの保険適応要件である。CCR4の機能獲得型変異とMogamulizumab反応性との関連が示唆されている (PMID: 29930010)。
+CCR7,ATLL,,1,GoF（SNVIndel：W355*など）,,,"A
+WHO2017, PMID: 26437031",,,,
+CD274,ATLL,,2,GoF（Rearrangement）,,,,"C
+PMID: 27281199",,"FDA：Nivolumab, Pembrolizumab
+FDA_Other：Nivolumab, Pembrolizumab",
+CDKN2A,ATLL,,1,LoF,del(9p21),,"A
+WHO2022",,"C
+PMID: 9164185",,
+EP300,ATLL,,1,LoF,,,"A
+WHO2022",,,,
+FYN,ATLL,,1,GoF（SNVIndel：R176Cなど）,,,"A
+WHO2022",,,,
+GATA3,ATLL,,1,LoF,,,"A
+WHO2017, PMID: 26437031",,,,
+GPR183,ATLL,,2,LoF,,,"D
+PMID: 26437031",,,,
+HNRNPA2B1,ATLL,,1,LoF,,,"A
+WHO2022",,,,
+IKZF2,ATLL,,1,GoF（Rearrangement：Deletion）,,,"A
+WHO2022, PMID: 26437031",,,,
+IRF2BP2,ATLL,,2,LoF,,,"D
+PMID: 26437031",,,,
+IRF4,ATLL,,1,"GoF（SNVIndel：K59R, L70Vなど）",,,"A
+WHO2022",,,,
+JAK3,ATLL,,2,GoF（SNVIndel：M511Iなど）,,,,"D
+PMID: 21821710",,,
+PDCD1,ATLL,,2,LoF,,,"D
+PMID: 26437031",,,,
+PLCG1,ATLL,,1,GoF（SNVIndel：R48W/S345Fなど）,,,"A
+WHO2017, PMID: 26437031",,,,
+PRKCB,ATLL,,1,GoF（SNVIndel：D427Nなど）,,,"A
+WHO2022",,,,
+STAT3,ATLL,,1,GoF（SNVIndel：Y640F/D661Yなど）,,"Y640F, D661Y","A
+WHO2022",,,,
+TBL1XR1,ATLL,,2,LoF,,,"D
+PMID: 26437031",,,,
+TP53,ATLL,1,1,LoF,,,"A
+WHO2022",,,,
+TP73,ATLL,,1,GoF（Rearrangement：Deletion）,,,"A
+WHO2017, PMID: 26437031",,,,コピー数異常をきたす領域に存在するが、当該遺伝子の欠失と病的意義との直接的な関連は明らかでない。
+VAV1,ATLL,,1,GoF（SNVIndel）,,,"A
+WHO2017",,,,
+ACIN1,B-ALL/LBLL,,1,GoF（Fusion：ACIN1::NUTM1）,t(14;15)(q11;q14),,"A
+WHO2022, ICC2022, PMID: 25730765, 30487223, 30643249",,"A
+NCCN2024 (Pediatric ALL)",,
+AFF1,B-ALL/LBLL,,1,GoF（Fusion：AFF1::NUTM1）,t(4;15)(q21;q14),,"A
+WHO2022, ICC2022, PMID: 30487223",,"A
+NCCN2024 (Pediatric ALL)",,
+ARID1B,B-ALL/LBLL,,1,GoF（Fusion：ARID1B::ZNF384）,t(6;12)(q25;p13),,"A
+WHO2022, ICC2022",,"A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,
+ARID5B,B-ALL/LBLL,,1,LoF,,,"A
+WHO2022, PMID: 19684603, 19684604",,,,
+ATAD5,B-ALL/LBLL,,1,GoF（Fusion：ATAD5::NUTM1）,t(15;17)(q14;q11),,"A
+WHO2022, ICC2022",,"A
+NCCN2024 (Pediatric ALL)",,
+ATXN7L3,B-ALL/LBLL,,1,GoF（Fusion：UBTF::ATXN7L3）,,,"A
+ICC 2022, PMID: 35316324",,"D
+PMID: 35316324, 34695176",,
+BCL9,B-ALL/LBLL,,1,GoF（Fusion： MEF2D::BCL9）,t(1;1)(q21;q22),,"A
+WHO2022, ICC2022, PMID: 27507882,30643249, 36309560",,"A
+NCCN2023 (ALL), NCCN2024 (Pediatric ALL), PMID: 27507882, 27824051",,
+BRD9,B-ALL/LBLL,,1,GoF（Fusion：BRD9::NUTM1）,t(5;15)(p15;q14),,"A
+WHO2022, ICC2022, PMID: 25730765",,"A
+NCCN2024 (Pediatric ALL)",,
+BTG1,B-ALL/LBLL,,2,LoF（Deletion）,,,,,"C
+PMID：19039135, 24957142",,
+CDKN2A,B-ALL/LBLL,,2,LoF（Deletion）,,,,,"D
+PMID: 24957142",,
+CDKN2B,B-ALL/LBLL,,2,LoF（Deletion）,,,,,"C
+PMID：24957142, 31821407",,
+CEBPE,B-ALL/LBLL,,1,GoF（Rearrangement：IGH::CEBPE),t(14;14)(q11;q32),,"A
+ICC2022, PMID: 30487223",,,,
+CHD4,B-ALL/LBLL,,1,GoF（Fusion：CHD4::NUTM1）,t(12;15)(p13;q14),,"A
+WHO2022, ICC2022",,"A
+NCCN2024 (Pediatric ALL)",,
+CREBBP,B-ALL/LBLL,,2,LoF,,,,,"C
+PMID: 21390130, 25917266",,CREBBPの変異により、ステロイドに対する耐性をきたす可能性がある。
+CREBBP,B-ALL/LBLL,,1,GoF（Fusion：ETV6::CREBBP(ETV6::RUNX1-like)）,t(12;16)(p13;p13),,"A
+WHO2022, ICC2022, NCCN2024 (Pediatric ALL), PMID: 27265895",,,,
+CREBBP,B-ALL/LBLL,,1,GoF（Fusion：CREBBP::ZNF384）,t(12;16)(p13;p13),,"A
+WHO2022, ICC2022, PMID: 27634205",,,,
+CUX1,B-ALL/LBLL,,1,GoF（Fusion：CUX1::NUTM1）,t(7;15)(q22;q14),,"A
+WHO2022, ICC2022, PMID: 30487223, 30643249, 33512459",,"A
+NCCN2024 (Pediatric ALL)",,
+DUX4,B-ALL/LBLL,,1,GoF（Rearrangement：IGH::DUX4など）,t(4;14)(q35;q32)など,,"A
+WHO2022, NCCN2023 (ALL), PMID: 27019113, 27776115, ICC2022",,"A
+NCCN2023 (ALL), NCCN2024 (Pediatric ALL), PMID: 27019113, 30643249",,
+EBF1,B-ALL/LBLL,,2,LoF（Deletion）,,,,,"D
+PMID: 24957142",,
+EP300,B-ALL/LBLL,,1,GoF（Fusion：EP300::ZNF384）,t(12;22)(p13;q13),,"A
+WHO2022, ICC2022, PMID: 27634205",,"A
+NCCN2023 (ALL), NCCN2024 (Pediatric ALL),, PMID: 34695176",,
+ERG,B-ALL/LBLL,,1,LoF（Deletion）,,,"B
+PMID: 27776115",,"D
+PMID: 24064621",,
+ETV6,B-ALL/LBLL,,1,"GoF（Fusion：ETV6::BCL2L14, ETV6::NID1, ETV6::PMEL, ETV6::BORCS5などETV6::RUNX1, ETV6::PAX5, ETV6::PDGFRB, ETV6::ABL1, ETV6::NTRK3以外）",,,"A
+WHO2022, ICC2022, NCCN2024 (Pediatric ALL), PMID: 27265895",,"A
+NCCN2024 (Pediatric ALL)",,"B-ALL with ETV6::RUNX1-like features,"
+ETV6,B-ALL/LBLL,1,1,LoF（Deletion）,,,"A
+ICC2022, PMID: 25581430, 25807284, 26102509, 26522332",,"D
+PMID: 24957142",,
+ETV6,B-ALL/LBLL,,1,GoF（Fusion：ETV6::PAX5）,t(9;12)(p13;p13),,"A
+WHO2022, NCCN2024 (Pediatric ALL), PMID: 24013638, 24287434, 30643249",,,,
+GNB1,B-ALL/LBLL,,2,GoF（SNVIndel）,,,"D
+PMID: 25485910",,,,
+HLF,B-ALL/LBLL,,1,GoF（Fusion：TCF4::HLF）,t(17;18)(q22;q21.2),,"A
+ICC2022",,"A
+NCCN2024 (Pediatric ALL)",,
+HLF,B-ALL/LBLL,,1,GoF（Fusion：TCF3::HLF）,t(17;19)(q22;p13),,"A
+WHO2022, ICC2022",,"A
+WHO2017, NCCN2024 (Pediatric ALL), PMID: 8608207、NCCN2023 (ALL)",,
+HNRNPUL1,B-ALL/LBLL,,1,GoF（Fusion： MEF2D::HNRNPUL1）,t(1;19)(q22;p13.2),,"A
+WHO2022, ICC2022, PMID: 27507882,30643249, 36309560",,"A
+NCCN2023 (ALL), NCCN2024 (Pediatric ALL), PMID: 27507882, 27824051",,
+IDH1,B-ALL/LBLL,,2,GoF（SNVIndel：R132Cなど）,,R132C/L/H,,C,"D
+PMID: 34695176","FDA_Other：Ivosidenib, Olutasidenib",
+IDH2,B-ALL/LBLL,,2,GoF（SNVIndel：R140Qなど）,,"R140Q, R172K",,C,"D
+PMID: 34695176",FDA_Other：Enasidenib,
+IGH,B-ALL/LBLL,,1,GoF（Rearrangement）,,,"A
+WHO2017",,"A
+NCCN2023 (ALL)",,
+IKZF1,B-ALL/LBLL,,1,GoF（Fusion：IKZF1::NUTM1）,t(7;15)(p12;q14),,"A
+WHO2022, ICC2022, PMID: 30487223, 30643249",,"A
+NCCN2024 (Pediatric ALL)",,
+IKZF1,B-ALL/LBLL,1,1,LoF､GoF（Deletion、Fusion、SNVIndel：N159Yなど）,,,"A
+ICC2022, PMID: 29681510, 30643249",,"A
+NCCN2024 (Pediatric ALL), PMID: 18408710, 19589926, 19129520, 24740809, 22699455, 29498923, 31821407, NCCN2023 (ALL)",,"DUX4 再構成症例・ERG欠失例では予後不良を示唆しない可能性がある (PMID: 27776115, 29498923)。, BCR::ABL1 症例ではTKI反応性不良や予後不良を示唆する可能性がある (PMID: 24366361, 35132195)。, ,"
+JAK1,B-ALL/LBLL,,2,GoF（SNVIndel）,,,,"D
+PMID: 22955920, 18805579",,,
+JAK2,B-ALL/LBLL,,1,GoF（SNVIndel；R683など）,,V617F,"A
+WHO2017","D
+PMID: 22875628, 22899477",,,"Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MF, PVに対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MFに対してFDA承認されている。"
+KDM6A,B-ALL/LBLL,,2,LoF,,,"D
+PMID: 30643249",,,,
+KRAS,B-ALL/LBLL,,1,GoF（SNVIndel：G12D/G13Dなど）,,"G12, G13, Q61","A
+NCCN2023 (ALL)","C
+PMID: 18701506, 25253770, 32955176",,"FDA：Sotorasib (G12C)
+FDA_Other：Sotorasib (G12C), Adagrasib (G12C)",
+MEF2D,B-ALL/LBLL,,1,GoF（Fusion： MEF2D::BCL9、MEF2D::HNRNPUL1など）,t(1;19)(q22;q13) など,,"A
+WHO2022, ICC2022, PMID: 27507882,30643249, 36309560",,"A
+NCCN2023 (ALL), NCCN2024 (Pediatric ALL), PMID: 27507882, 27824051",,
+MSH6,B-ALL/LBLL,,1,GoF（Fusion：ETV6::MSH6(ETV6::RUNX1-like)）,t(2;12)(p16;p13),,"A
+WHO2022, ICC2022, NCCN2024 (Pediatric ALL), PMID: 27265895",,"A
+NCCN2024 (Pediatric ALL)",,
+MYC,B-ALL/LBLL,,1,"GoF（Rearrangement：IGH::MYC, IGK::MYC, IGL::MYCなど）",t(8;14)(q24;q32)など,,"A
+ICC2022, NCCN2023 (ALL), NCCN2024 (Pediatric ALL), PMID: 30282799",,"A
+NCCN2023 (ALL)",,
+NR3C1,B-ALL/LBLL,,2,LoF（Deletion、Fusion）,,,,"D
+PMID: 19039135, 32793890",,,NR3C1の変異により、ステロイドに対する耐性をきたす可能性がある。
+NRAS,B-ALL/LBLL,,1,GoF（SNVIndel：G12Dなど）,,"G12, G13, Q61","A
+WHO2022","D
+PMID: 25253770",,,
+NSD2,B-ALL/LBLL,,2,GoF（SNVIndel）,,,"D
+PMID: 25790293, 24076604",,,,
+NT5C2,B-ALL/LBLL,,2,GoF（SNVIndel）,,,,"D
+PMID: 23377281","C
+PMID: 23377281",,NT5C2の変異により、6-MPに対する耐性をきたす可能性がある。
+NUTM1,B-ALL/LBLL,,1,GoF（Fusion：ACIN1::NUTM1など）,t(14;15)(q11;q14)など,,"A
+WHO2022, ICC2022, PMID: 30487223, 33512459",,"A
+NCCN2024 (Pediatric ALL), PMID 34211097",,
+PAX5,B-ALL/LBLL,1,1,LoF（P80R+LOHなど）,,,"A
+WHO2022, ICC2022, PMID: 30643249",,"A
+NCCN2023 (ALL), NCCN2024 (Pediatric ALL), PMID: 30643249, 33895809",,
+PAX5,B-ALL/LBLL,,1,"LoF（Fusion：PAX5::ETV6, PAX5::NOL4L, PAX5::AUTS2, PAX5::CBFA2T3など、部分Amplification, SNVIndel：R38H, R140Lなど）  , ただしPAX5::JAK2, PAX5::ZCCHC7は除く",t(9;12)(p13;p13)など,,"A
+WHO2022, ,NCCN2024 (Pediatric ALL), PMID: 24013638, 24287434, 29296789, 30643249",,"A
+NCCN2023 (ALL), NCCN2024 (Pediatric ALL), PMID: 24957142, 30643249, 30510083, 33895809",,
+PRPS1,B-ALL/LBLL,,2,GoF（SNVIndel）,,,,"D
+PMID: 25962120",,,PRPS1の変異により、6-MPに対する耐性をきたす可能性がある。
+PTPN11,B-ALL/LBLL,,2,GoF（SNVIndel）,,,"D
+PMID: 30643249",,,,
+RB1,B-ALL/LBLL,,2,LoF（Deletion）,,,,,"D
+PMID: 24957142",,
+RUNX1,B-ALL/LBLL,,1,GoF（Fusion：RUNX1::NUTM1）,t(15;21)(q14;q22),,"A
+WHO2022, ICC2022",,"A
+NCCN2024 (Pediatric ALL)",,
+SETD2,B-ALL/LBLL,,2,LoF,,,"D
+PMID: 24509477, 24662245, 30643249",,,,
+SLC12A6,B-ALL/LBLL,,1,GoF（Fusion：SLC12A6::NUTM1）,,,"A
+WHO2022, ICC2022, PMID: 30487223",,"A
+NCCN2024 (Pediatric ALL)",,
+SMARCA2,B-ALL/LBLL,,1,GoF（Fusion：SMARCA2::ZNF384）,t(9;12)(p24;p13),,"A
+WHO2022, ICC2022",,"A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,
+TAF15,B-ALL/LBLL,,1,GoF（Fusion：TAF15::ZNF384）,t(12;17)(p13;q12),,"A
+WHO2022, ICC2022, PMID: 27634205",,"A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,
+TCF3,B-ALL/LBLL,,1,GoF（Fusion：TCF3::HLF）,t(17;19)(q22;p13),,"A
+ICC2022",,"A
+NCCN2024 (Pediatric ALL), ICC2022, PMID: 8608207",,
+TCF3,B-ALL/LBLL,,1,GoF（Fusion：TCF3::ZNF384),t(12;19)(p13;p13),,"A
+WHO2022, ICC2022, PMID:27634205",,"A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,
+TCF4,B-ALL/LBLL,,1,GoF（Fusion：TCF4::HLF）,t(17;18)(q22;q21.2),,,,"A
+NCCN2024 (Pediatric ALL)",,
+TOX,B-ALL/LBLL,,2,LoF,,,"D
+PMID: 29489755, 30643249",,,,
+TP53,B-ALL/LBLL,1,1,LoF、GoF（SNVIndel）,,,"A
+WHO2017, PMID: 23334668, 23255406, 28572266, 29300620",,"A
+NCCN2023 (ALL), PMID: 21747090, 33095873",,
+UBTF,B-ALL/LBLL,,1,GoF（Fusion：UBTF::ATXN7L3）,,,"A
+ICC2022, PMID: 35316324",,"D
+PMID: 35316324",,成人に比べて小児で変異の頻度が高い可能性がある。
+USH2A,B-ALL/LBLL,,2,Unknown（SNVIndel）,,,"D
+PMID: 25790293",,,,
+VPREB1,B-ALL/LBLL,,2,LoF,,,"D
+PMID: 30643249",,,,
+ZEB2,B-ALL/LBLL,,1,Unknown（SNVIndel：H1038R）,,,"A
+ICC2022, PMID:30487223",,"D
+PMID: 32499245",,
+ZFP36L2,B-ALL/LBLL,,2,LoF,,,"D
+PMID: 30643249",,,,
+ZNF362,B-ALL/LBLL,,1,GoF（Fusion）,,,"A
+ICC2022, PMID: 34529760",,,,
+ZNF384,B-ALL/LBLL,,1,GoF（Fusion：EP300::ZNF384など）,t(12;22)(p13;q13)など,,"A
+WHO2022, ICC2022, PMID: 27634205",,"A
+NCCN2024 (ALL), NCCN2024 (Pediatric ALL),, PMID: 34695176",,
+ZNF618,B-ALL/LBLL,,1,GoF（Fusion：ZNF618::NUTM1）,t(15;19(q14;q13),,"A
+WHO2022, ICC2022, PMID: 30487223",,"A
+NCCN2024 (Pediatric ALL)",,
+ABL1,B-ALL/LBLL BCR::ABL1-like,,1,"GoF（Fusion：NUP214::ABL1, RANBP2::ABL1, ETV6::ABL1, ZMIZ1::ABL1, RCSD1::ABL1, LSM14A::ABL1など）","t(9;9)(q34;q34), t(2;9)(q12;q34), t(9;10)(q34;q22), t(1;9)(q24;q34)など",,"A
+WHO2022, , ICC2022, PMID: 25207766, 30181314, 31935290","C
+PMID: 31434701","A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)","FDA：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib
+FDA_Other：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib","ABL1/2 融合遺伝子を有するB-ALLで、各種TKI (Imatinib, Dasatinib,  Ponatinibなど）の有効性が示唆されている (PMID: 31434701)。"
+ABL2,B-ALL/LBLL BCR::ABL1-like,,1,"GoF（Fusion：RCSD1::ABL2, ZC3HAV1::ABL2, PAG1::ABL2など）","t(1;1)(q24;q25), t(1;7)(q25;q34)　など",,"A
+WHO2022, PMID: 25207766, 30181314, 31935290","C
+PMID: 31434701","A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)","FDA：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib
+FDA_Other：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib","ABL1/2 融合遺伝子を有するB-ALLで、各種TKI (Imatinib, Dasatinib,  Ponatinibなど）の有効性が示唆されている (PMID: 31434701)。"
+BCR,B-ALL/LBLL BCR::ABL1-like,,1,GoF（Fusion：BCR::JAK2）,t(9;22)(p24;q11.2),,"A
+WHO2022, PMID: 31935290","C
+PMID: 22875628, 22899477","A
+NCCN2024 (Pediatric ALL)",,
+CRLF2,B-ALL/LBLL BCR::ABL1-like,,1,GoF（Rearrangement：IGH::CRLF2、Fusion：P2RY8::CRLF2）,"t(14;X)(q32;p22), t(X)(p22p22)など",,"A
+WHO2022, ICC2022, PMID: 19838194, 25207766, 30181314, 31935290","D
+PMID: 22904298, 22955920","A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL), PMID:20378752, 20139093",,
+CSF1R,B-ALL/LBLL BCR::ABL1-like,,1,GoF（Fusion：SSBP2::CSF1R）,t(5;5)(q14;q32) or dup(5)(q14q32),,"A
+WHO2017, PMID: 25207766, 30181314, 31935290, 33197935","C
+PMID: 24186003, 31434701",,,"CSF1R 融合遺伝子を有するB-ALLで、Imatinibの有効性が示唆されている (PMID: 31434701, 33197935)。"
+EBF1,B-ALL/LBLL BCR::ABL1-like,,1,GoF（Fusion：EBF1::PDGFRB）,,,"A
+WHO2022, PMID: 25207766, 23835704, 30181314, 31935290","C
+PMID: 31434701","A
+NCCN2024 (Pediatric ALL)",FDA_Other：Imatinib （PDGFRB 融合遺伝子）,"PDGFRβ 融合遺伝子を有する造血器腫瘍で、各種TKI (Imatinib, Dasatinib,  Ponatinib, Sunitibなど）の有効性が示唆されている (PMID: 12181402, 23835704, 24687085, 31434701)。"
+EPOR,B-ALL/LBLL BCR::ABL1-like,,1,GoF（Rearrangement：IGH::EPOR）,t(14;19)(q32;p13),,"A
+ICC2022, PMID: 25207766, 30181314, 31935290, ICC2022","C
+PMID: 26859458","A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,
+FGFR1,B-ALL/LBLL BCR::ABL1-like,,1,"GoF（Fusion：HOOK3::FGFR1, FOXO1::FGFR1など）",,,"A
+ICC2022, WHO2022, NCCN2023 (ALL), PMID: 28408464, 21666686, 35344469",C,"A
+NCCN2024 (Pediatric ALL)","FDA：Pemigatinib
+FDA_Other：Pemigatinib",
+IL7R,B-ALL/LBLL BCR::ABL1-like,,1,GoF（SNVIndel）,,,"D
+PMID: 25207766, 30181314, 31935290",,"A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,
+JAK1,B-ALL/LBLL BCR::ABL1-like,,1,GoF（SNVIndel）,,,"D
+PMID: 25207766, 30181314, 31935290",,"A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,
+JAK2,B-ALL/LBLL BCR::ABL1-like,,1,"GoF（Fusion：ETV6::JAK2, PAX5::JAK2, BCR::JAK2, SSBP2::JAK2, GOLGA5-::JAK2など、SNVIndel；R683など）",t(9;12)(p24;p13) など,,"A
+ICC2022, PMID: 25207766, 30181314, 31935290, ICC2022","C
+PMID: 22875628, 22899477, 25260694, 29773603, 35939887","A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,"JAK2 融合遺伝子を有するB-ALLで、Ruxolitinib の有効性が示唆されている (PMID: 22875628, 22899477, 25260694, 29773603, 35939887)。Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MF, PVに対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MFに対してFDA承認されている。"
+JAK3,B-ALL/LBLL BCR::ABL1-like,,1,GoF（SNVIndel）,,,"D
+PMID: 25207766, 30181314, 31935290",,"A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,
+LSM14A,B-ALL/LBLL BCR::ABL1-like,,1,GoF（Fusion： LSM14A::ABL1）,t(9;19)(q34;q13),,"A
+WHO2017, PMID: 25207766, 30181314, 31935290","C
+PMID: 31434701","A
+NCCN2023 (ALL), NCCN2024 (Pediatric ALL)","FDA：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib （ABL1 融合遺伝子）
+FDA_Other：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib （ABL1 融合遺伝子）","ABL1/2 融合遺伝子を有するB-ALLで、各種TKI (Imatinib, Dasatinib,  Ponatinibなど）の有効性が示唆されている (PMID: 31434701)。"
+LYN,B-ALL/LBLL BCR::ABL1-like,,1,GoF（Rearrangement：LYN::NCOR1）,,,"D
+PMID: 27176795",,"A
+NCCN2023 (ALL), NCCN2024 (Pediatric ALL)",,
+NTRK3,B-ALL/LBLL BCR::ABL1-like,,1,GoF（Fusion：ETV6::NTRK3）,t(12;15)(p13;q25),,"A
+NCCN2024 (Pediatric ALL), PMID: 29997224, 25207766, 30181314, 31935290","C
+PMID: 29880614","A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)","FDA：Entrectinib, Larotrectinib (融合遺伝子)
+FDA_Other：Entrectinib, Larotrectinib (融合遺伝子)",
+NUMA1,B-ALL/LBLL BCR::ABL1-like,,1,GoF（Fusion：NUMA1::PDGFRB）,t(5;11)(q33;q13),,"A
+WHO2017, PMID: 25207766, 30181314, 31935290","C
+PMID: 23835704, 31434701","A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",FDA_Other：Imatinib （PDGFRB 融合遺伝子）,"PDGFRβ 融合遺伝子を有する造血器腫瘍で、各種TKI (Imatinib, Dasatinib,  Ponatinib, Sunitibなど）の有効性が示唆されている (PMID: 12181402, 23835704, 24687085, 31434701)。"
+NUP214,B-ALL/LBLL BCR::ABL1-like,,1,GoF（Fusion：NUP214::ABL1）,t(9;9)(q34;q34),,"A
+WHO2017, PMID: 30181314, 31935290, 31434701","C
+PMID: 31434701","A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",FDA_Other：Imatinib （ABL1 融合遺伝子）,
+P2RY8,B-ALL/LBLL BCR::ABL1-like,,1,GoF（Fusion：P2RY8::CRLF2）,t(X)(p22p22),,"A
+WHO2017, PMID: 25207766, 30181314, 31935290","D
+PMID: 22904298, 22955920","A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,PAR1の欠失を伴う。
+PAG1,B-ALL/LBLL BCR::ABL1-like,,1,GoF（Fusion：PAG1::ABL2）,t(1;8)(q25;q21),,"A
+WHO2017, PMID: 25207766, 30181314, 31935290","C
+PMID: 31434701","A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,
+PAX5,B-ALL/LBLL BCR::ABL1-like,,1,GoF（Fusion：PAX5::JAK2）,t(9;9)(p13;p24),,"A
+WHO2017, PMID: 25207766, 30181314, 31935290","C
+PMID: 22875628, 22899477","A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,"JAK2 融合遺伝子を有するB-ALLで、Ruxolitinib の有効性が示唆されている (PMID: 22875628, 22899477, 25260694, 29773603)。Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MF, PVに対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MFに対してFDA承認されている。"
+PDGFRA,B-ALL/LBLL BCR::ABL1-like,,1,GoF（Fusion：FIP1LI::PDGFRA）,del(4)(q12q12),,"A
+WHO2022, ICC2022",C,"A
+NCCN2023 (ALL), NCCN2024 (Pediatric ALL)","FDA：Imatinib （PDGFRα 融合遺伝子）
+FDA_Other：Imatinib （PDGFRα 融合遺伝子）",
+PDGFRB,B-ALL/LBLL BCR::ABL1-like,,1,"GoF（Fusion：EBF1::PDGFRB, ETV6::PDGFRB, ATF7IP::PDGFRB, NUMA1::PDGFRB, など）","del(5)(q32q33), t(5;12)(q33;p13), t(5;12)(q33;p13), t(5;11) (q33;q13)など",,"A
+WHO2017, PMID: 25207766, 30181314, 31935290","C
+PMID: 23835704, 31434701","A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",FDA_Other：Imatinib （PDGFRβ 融合遺伝子）,"PDGFRβ 融合遺伝子を有する造血器腫瘍で、各種TKI (Imatinib, Dasatinib,  Ponatinib, Sunitibなど）の有効性が示唆されている (PMID: 12181402, 23835704, 24687085, 31434701)。"
+PTK2B,B-ALL/LBLL BCR::ABL1-like,,1,GoF（Fusion：PTK2B::CRLF2など）,t(8;x)(p21;p22) など,,"D
+PMID: 25207766",,"A
+NCCN2023 (ALL), NCCN2024 (Pediatric ALL)",,
+RANBP2,B-ALL/LBLL BCR::ABL1-like,,1,GoF（Fusion： RANBP2::ABL1）,t(2;9)(q12;q34),,"A
+WHO2017, PMID: 25207766, 30181314, 31935290","C
+PMID: 31434701","A
+NCCN2024 (Pediatric ALL)","FDA：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib（ABL1融合遺伝子）
+FDA_Other：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib（ABL1融合遺伝子）","ABL1/2 融合遺伝子を有するB-ALLで、各種TKI (Imatinib, Dasatinib,  Ponatinibなど）の有効性が示唆されている (PMID: 31434701)。"
+SH2B3,B-ALL/LBLL BCR::ABL1-like,,1,LoF,,,"D
+PMID: 25207766, 30181314, 31935290",,"A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,
+SSBP2,B-ALL/LBLL BCR::ABL1-like,,1,GoF（Fusion：SSBP2::CSF1R）,t(5;5)(q14;q32) or dup(5)(q14q32),,"A
+WHO2017, PMID: 25207766, 30181314, 31935290, 33197935","C
+PMID: 31434701","A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,"CSF1R 融合遺伝子を有するB-ALLで、Imatinibの有効性が示唆されている (PMID: 31434701, 33197935)。"
+TYK2,B-ALL/LBLL BCR::ABL1-like,,1,GoF（Fusion：MYB::TYK2）,,,"A
+WHO2017, PMID: 25207766, 31935290",,"A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,
+ZMIZ1,B-ALL/LBLL BCR::ABL1-like,,1,GoF（Fusion：ABL1::ZMIZ1）,t(9;10)(q34;q22),,"A
+WHO2017, PMID: 25207766, 30181314, 31935290",,"A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,
+TP53,B-ALL/LBLL with hypodiploidy,1,1,LoF、GoF（SNVIndel）,,,"A
+WHO2022, ICC2022, PMID: 23334668, 23255406, 28572266",,"A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,
+RUNX1,B-ALL/LBLL with iAMP21,1,1,GoF（Amplification）,,,"A
+ICC2022",,"A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,
+PBX1,B-ALL/LBLL with t(1;19)(q23;p13.3); TCF3::PBX1,,1,GoF（Fusion：TCF3::PBX1）,t(1;19)(q23;p13.3),,"A
+ICC2022, NCCN2023 (ALL), ICC2022",,"A
+NCCN2023 (ALL)",,
+TCF3,B-ALL/LBLL with t(1;19)(q23;p13.3); TCF3::PBX1,,1,GoF（Fusion：TCF3::PBX1）,t(1;19)(q23;p13.3),,"A
+WHO2022, ICC2022, NCCN2023 (ALL)",,"A
+NCCN2023 (ALL)",,
+ETV6,B-ALL/LBLL with t(12;21)(p13.2;q22.1); ETV6::RUNX1,,1,GoF（Fusion：ETV6::RUNX1）,t(12;21)(p13;q22),,"A
+WHO2017, NCCN2023 (ALL), ICC2022",,"A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,
+RUNX1,B-ALL/LBLL with t(12;21)(p13.2;q22.1); ETV6::RUNX1,,1,GoF（Fusion：ETV6::RUNX1）,t(12;21)(p13;q22),,"A
+WHO2017",,"A
+NCCN2023 (ALL), NCCN2024 (Pediatric ALL)",,
+IL3,B-ALL/LBLL with t(5;14)(q31.1;q32.3); IGH::IL3,,1,GoF（Rearrangement：IGH::IL3）,t(5;14)(q31;q32),,"A
+WHO2017, NCCN2023 (ALL), ICC2022",,"A
+NCCN2023 (ALL)",,IGH::IL3 が予後不良を示唆する可能性がある (NCCN2023 ALL)。
+ABL1,B-ALL/LBLL with t(9;22)(q34.1;q11.2); BCR::ABL1,,1,GoF（Fusion：BCR::ABL1）,t(9;22)(q34;q11),,"A
+WHO2022, NCCN2023 (ALL), ICC2022, NCCN2024 (Pediatric ALL)","A
+JSHGL2023, ELN2022, NCCN2023 (ALL), NCCN2024 (Pediatric ALL)","A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)","PMDA：Imatinib, Dasatinib,, Ponatinib
+FDA：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib
+PMDA_Other：Imatinib, Dasatinib,, Ponatinib
+FDA_Other：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib",NCCN2023 (ALL) では、F317L変異に対して Bosutinib より Nilotinib の使用が推奨されている 。
+BCR,B-ALL/LBLL with t(9;22)(q34.1;q11.2); BCR::ABL1,,1,GoF（Fusion：BCR::ABL1）,t(9;22)(q34;q11),,"A
+WHO2022, NCCN2023 (ALL), ICC2022, NCCN2024 (Pediatric ALL)","A
+JSHGL2023, ELN2022, NCCN2023 (ALL), NCCN2024 (Pediatric ALL)","A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)","PMDA：Imatinib, Dasatinib,, Ponatinib
+FDA：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib
+PMDA_Other：Imatinib, Dasatinib,, Ponatinib
+FDA_Other：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib",
+AFF1,B-ALL/LBLL with t(v;11q23.3); KMT2A rearranged,,1,GoF（Fusion：KMT2A::AFF1）,t(4;11)(q21;q23),,"A
+WHO2022",,"A
+NCCN2024 (Pediatric ALL), NCCN2023 (ALL)",,
+KMT2A,B-ALL/LBLL with t(v;11q23.3); KMT2A rearranged,,1,GoF（Fusion：KMT2A::AFF1など）,"t(4;11)(q21;q23), t(9;11)(p21;q23), t(11;19)(q23;p13)など",,"A
+NCCN2023 (ALL), ICC2022","D
+PMID: 36922589, 36922593","A
+ NCCN2023 (ALL), NCCN2024 (Pediatric ALL)",,
+MLLT1,B-ALL/LBLL with t(v;11q23.3); KMT2A rearranged,,1,GoF（Fusion：KMT2A::MLLT1）,t(11;19)(q23;p13),,"A
+WHO2017",,"A
+NCCN2023 (ALL), NCCN2024 (Pediatric ALL)",,
+MLLT3,B-ALL/LBLL with t(v;11q23.3); KMT2A rearranged,,1,GoF（Fusion：MLLT3::KMT2A）,t(9;11)(p21;q23),,"A
+WHO2017",,"A
+NCCN2023 (ALL), NCCN2024 (Pediatric ALL)",,
+IGH,B-NHL,,1,GoF（Rearrangement）、Unknown（SNVIndel）,,,"A
+WHO2017",,,,
+IGK,B-NHL,,1,GoF（Rearrangement）,,,"A
+WHO2017",,,,
+IGL,B-NHL,,1,GoF（Rearrangement）,,,"A
+WHO2017",,,,
+ARID1A,BL,,1,LoF,,,"A
+WHO2017",,,,
+BTG2,BL,,2,Unknown（SNVIndel）,,,"D
+PMID: 30733272",,,,
+CCND3,BL,,1,GoF（SNVIndel：P284Sなど）,,,"A
+WHO2022",,,,
+CHD8,BL,,1,Unknown（SNVIndel）,,,"A
+WHO2022, PMID: 31558468",,,,
+DDX3X,BL,,2,LoF,,,"D
+PMID: 22885699",,,,
+DDX3X,BL,,2,LoF,,,"D
+PMID: 30733272",,,,
+GNA13,BL,,2,LoF,,,"D
+PMID: 22885699, 23143597",,,,
+GNA13,BL,,1,LoF,,,"A
+WHO2022, PMID: 30567752, PMID: 30733272",,,,
+ID3,BL,,1,LoF,,,"A
+WHO2022",,,,
+MYC,BL,,1,GoF（Rearrangement：IGH::MYCなど）,"t(8;14)(q24;q32), t(8;22)(q24;q11), t(2;8)(p12;q24)など",,"A
+WHO2022, NCCN2023",,,,"MYCの再構成と、BCL2 もしくはBCL6の再構成が重複した場合はBLの診断とならない。また、MYCとBCL6 がともに再構成している場合はDLBCL, NOSまたはHGBL, NOSと診断される。(WHO2022)"
+PIK3R1,BL,,2,LoF,,,"D
+PMID: 28297626",,,,"Activated PI3Kδ syndrom (APDS) は、PI3K3CDの機能獲得変異もしくは、PIK3R1の機能喪失変異が起因となる免疫不全症であり、患者の25%程度にB-cell lymphomaの合併を認める (PMID: 31942637, 36399712)。Leniolisib (PI3K-delta阻害剤）は、PI3K3CD/PIK3R1の変異の有無に関わらず、APDSに対してFDA承認されている。"
+RHOA,BL,,1,GoF（SNVIndel：R5Wなど）,,G17V,"A
+WHO2017",,,,
+SIN3A,BL,,,,,,"D
+PMID: 31558468",,,,
+SMARCA4,BL,,1,LoF,,,"A
+WHO2022, PMID: 23143597",,,,
+TCF3,BL,,1,GoF（SNVIndel：N551Kなど）,,,"A
+WHO2022",,,,
+TP53,BL,1,1,LoF、GoF（SNVIndel）,del(17p13),,"A
+WHO2022",,,,
+USP7,BL,,,,,,"D
+PMID: 31558468",,,,
+APC,BPDCN,,1,LoF,,,"A
+WHO2017, PMID: 25115387",,,,
+ARID1A,BPDCN,,2,LoF,,,"D
+PMID: 35788129",,,,
+ASXL1,BPDCN,,1,LoF,,,"A
+WHO2022, PMID: 24072100,  25115387 ,34615655, 35788129",,,,
+ATM,BPDCN,,1,LoF,,,"A
+WHO2017, PMID: 25115387, PMID: 12362033",,,,
+ATM,BPDCN,,1,LoF,,,"A
+WHO2022,PMID: 25115387, 35788129",,,,
+BRAF,BPDCN,,1,GoF（SNVIndel：V600Eなど）,,V600E,"A
+WHO2017, PMID: 25115387",C,,"FDA：Dabrafenib, Vemurafenib
+FDA_Other：Dabrafenib, Vemurafenib","BRAF V600E/K を有する一部の非造血器腫瘍に対して、BRAF阻害剤とMEK阻害剤 (Trametinib, Binimetinib, Selumetinibなど)の併用療法が薬事もしくはFDA承認されている。"
+CDKN1B,BPDCN,,1,LoF（Deletion）,,,"A
+WHO2022, PMID: 19158833, 19924135",,,,
+CDKN2A,BPDCN,,1,LoF（Deletion）,,,"A
+WHO2022, PMID: 19158833, 19924135, 21900200,  25115387",,,,
+CDKN2B,BPDCN,,1,LoF,,,"A
+WHO2022, PMID:19924135, 21900200",,,,
+CREBBP,BPDCN,,2,LoF（Deletion）,,,"D
+PMID: 35788129",,,,
+EP300,BPDCN,,2,LoF,,,"D
+PMID: 35788129",,,,
+ETV6,BPDCN,1,1,LoF,,,"A
+WHO2022, PMID: 30248580",,,,
+IDH2,BPDCN,,1,"GoF（SNVIndel：R140Q/W, R172Kなど）",,"R140Q, R172K","A
+WHO2017, PMID: 25115387","C
+PMID: 28588019, 28588020, 30510081",,FDA_Other：Enasidenib,
+IKZF3,BPDCN,,1,LoF,,,"A
+WHO2017, PMID: 24072100",,,,
+KDM5C,BPDCN,,2,LoF,,,"D
+PMID: 35788129",,,,
+KIT,BPDCN,,1,GoF,,D816V,"A
+WHO2017, PMID: 24072100,  25115387",,,,"Imatinib は、KIT変異の有無に関わらず、免疫組織学的検査によりKIT発現陽性のGISTに対して薬事承認されている。一方、FDAでは、KIT発現陽性のGISTに加えて、aggressive systemic mastocytosis (ASM) without the D816V c-Kit mutation or with c-Kit mutational status unknown"" が承認されている。"""
+KMT2D,BPDCN,,2,,,,"D
+PMID: 35788129",,,,
+KRAS,BPDCN,1,1,GoF,,"G12, G13, Q61","A
+WHO2022, PMID: 25115387","C
+PMID: 32955176",,"FDA：Sotorasib (G12C)
+FDA_Other：Sotorasib (G12C), Adagrasib (G12C)",
+MED12,BPDCN,,,,,,"D
+PMID: 35788129",,,,
+MET,BPDCN,,1,GoF,,,"A
+WHO2017, PMID: 25115387",,,,
+MLH1,BPDCN,1,1,LoF,,,"A
+WHO2017, PMID: 25115387",,,,
+MYB,BPDCN,,1,"GoF（Fusion：MYB::ZFAT, MYB::PLEKHO1, MYB::DCPS, MYB::MIR3134）",,,"A
+WHO2022, PMID: 28344318",,,,
+MYBL1,BPDCN,,1,GoF(Fusion）,,,"A
+WHO2022, PMID 29795241",,,,
+MYBL1,BPDCN,,1,GoF（Rearrangement）,,,"A
+WHO2022, PMID:  29795241",,,,
+MYC,BPDCN,,1,GoF（Rearrangement）,(6;8)(p21;q24)など,,"A
+WHO2022, PMID: 29795241, 30971697",,"A
+WHO2022",,
+NOTCH2,BPDCN,,2,不明,,,"D
+PMID: 35788129",,,,
+NPM1,BPDCN,,2,GoF,,"L287fs, W288fs","D
+PMID: 19066330, 24072100, 25115387",,,,
+NR3C1,BPDCN,,1,LoF（Deletion、Fusion）,,,"A
+WHO2022, PMID:27060168","D
+PMID: 27060168","D
+PMID: 27060168",,NR3C1の変異により、ステロイドに対する耐性をきたす可能性がある。
+NRAS,BPDCN,,1,GoF,,"G12, G13, Q61","A
+WHO2022, PMID:  24072100, 25115387",,,,
+RB1,BPDCN,,1,LoF,,,"A
+WHO2022, PMID: 25115387",,,,
+RET,BPDCN,,1,LoF,,,"A
+WHO2017, PMID: 25115387",,,,
+RUNX1,BPDCN,1,2,,,,"D
+PMID: 35788129",,,,
+RUNX2,BPDCN,,1,GoF（Rearrangement）,t(6;8)(p21;q24),,"A
+WHO2022, PMID: 30971697",,"A
+WHO2022",,
+SETD2,BPDCN,,2,LoF,,,"D
+PMID: 35788129",,,,
+SF3B1,BPDCN,,1,GoF（SNVIndel：K700Eなど）,,"K700E, R625, N626, K666","A
+WHO2022",,,,
+SRSF2,BPDCN,,1,LoF,,,"A
+WHO2022",,,,
+TET2,BPDCN,,1,LoF,,,"A
+WHO2022, PMID: 24072100",,,,
+TSR2,BPDCN,,2,LoF,,,"D
+PMID: 35788129",,,,
+U2AF1,BPDCN,,1,LoF,,,"A
+WHO2022",,,,
+VHL,BPDCN,,1,LoF,,,"A
+WHO2017, PMID: 25115387",,,,
+ZEB2,BPDCN,,1,Unknown（SNVIndel）,,,"A
+WHO2017, PMID: 24072100",,,,
+ZRSR2,BPDCN,,1,LoF,,,"A
+WHO2022, PMID: 35788129, 34615655",,,,
+BRCA1,Breast implant-associated ALCL,,1,LoF,,,"A
+WHO2022, PMID: 32452517",,,,
+BRCA2,Breast implant-associated ALCL,,1,LoF,,,"A
+WHO2022, PMID: 32452517",,,,
+CD274,Breast implant-associated ALCL,,1,GoF,,,"A
+WHO2022",C,,"FDA：Nivolumab, Pembrolizumab
+FDA_Other：Nivolumab, Pembrolizumab",
+CHD2,Breast implant-associated ALCL,,1,LoF,,,"A
+WHO2022, PMID: 31774495",,,,
+CREBBP,Breast implant-associated ALCL,,1,LoF,,,"A
+WHO2022",,,,
+DNMT3A,Breast implant-associated ALCL,,1,LoF、GoF（SNVIndel）,,,"A
+WHO2022",,,,
+JAK1,Breast implant-associated ALCL,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+JAK2,Breast implant-associated ALCL,,1,GoF（SNVIndel）,,V617F,"A
+WHO2022",,,,"Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MF, PVに対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MFに対してFDA承認されている。"
+KMT2C,Breast implant-associated ALCL,,1,LoF,,,"A
+WHO2022",,,,
+KMT2D,Breast implant-associated ALCL,,1,LoF,,,"A
+WHO2022",,,,
+SOCS1,Breast implant-associated ALCL,,1,LoF,,,"A
+WHO2022",,,,
+SOCS3,Breast implant-associated ALCL,,1,LoF,,,"A
+WHO2022",,,,
+STAT3,Breast implant-associated ALCL,,1,GoF（SNVIndel）,,"Y640F, D661Y","A
+WHO2022",,,,
+STAT5B,Breast implant-associated ALCL,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+TP53,Breast implant-associated ALCL,1,1,LoF、GoF（SNVIndel）,del(17p13),,"A
+WHO2022",,,,
+ALK,C-ALCL,,1,GoF（Fusion：NPM1::ALK）,t(2;5)(p23;q35),,"A
+WHO2022",C,,"FDA：Alectinib, Crizotinib, Ceritinib, Brigatinib, Lorlatinib
+FDA_Other：Crizotinib, Ceritinib, Alectinib, Brigatinib, Lorlatinib",
+CREBBP,C-ALCL,,1,LoF,,,"A
+WHO2022",,,,
+DUSP22,C-ALCL,,1,GoF（Rearrangement：DUSP22::FRA7Hなど）,t(6;7)(p25.3;q32.3)など,,"A
+WHO2022, PMID: 21030553",,,,
+EOMES,C-ALCL,,1,LoF,,,"A
+WHO2022, PMID: 34977845",,,,
+IRF4,C-ALCL,,1,GoF（Rearrangement）,,,"A
+NCCN2023 (TCL)",,,,
+KMT2A,C-ALCL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+KMT2D,C-ALCL,,1,LoF,,,"A
+WHO2022",,,,
+MSC,C-ALCL,,2,GoF（SNVIndel：E116K ）,,,"D
+PMID: 31101622",,,,
+NPM1,C-ALCL,,1,GoF（Fusion：NPM1::TYK2）,t(5;19)(q35;p13),"L287fs, W288fs","A
+WHO2022",,,,
+SETD2,C-ALCL,,1,LoF,,,"A
+WHO2022",,,,
+STAT3,C-ALCL,,1,GoF（SNVIndel）,,"Y640F, D661Y","A
+WHO2022",,,,
+TP63,C-ALCL,,1,GoF（Rearrangement）,,,"A
+WHO2022",,,,
+TYK2,C-ALCL,,1,GoF（Fusion：NPM1::TYK2、Rearrangement）,t(5;19)(q35;p13),,"A
+WHO2022",,,,
+ASXL1,CHIP,,2,GoF（SNVIndel：exon11-12 truncation）,,,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+ASXL2,CHIP,,2,LoF,,,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+ATM,CHIP,,2,LoF,,,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+BRCC3,CHIP,,2,LoF,,,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+CBL,CHIP,,2,GoF（SNVIndel）,,,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+CUX1,CHIP,,2,LoF,,,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+DNMT3A,CHIP,,2,LoF、GoF（SNVIndel：R882C::Hなど）,,,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+ETNK1,CHIP,,2,"LoFなど（Ｎ244S, G245A)",,,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+EZH2,CHIP,,2,LoF,,Y641,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+GNAS,CHIP,,2,GoF（SNVIndel：R201C::Hなど）,,,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+GNB1,CHIP,,2,GoF（SNVIndel）,,,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+IDH2,CHIP,,2,GoF（SNVIndel：R140Wなど）,,"R140Q, R172K","D
+PMID: 25426837, 25426838, 33057201, 33106634",,,FDA_Other：Enasidenib,
+JAK2,CHIP,,2,GoF（SNVIndel：V617Fなど）,,V617F,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,"Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MF, PVに対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MFに対してFDA承認されている。"
+KRAS,CHIP,,2,GoF（SNVIndel）,,"G12, G13, Q61","D
+PMID: 25426837, 25426838, 33057201, 33106634",C,,"FDA：Sotorasib (G12C)
+FDA_Other：Sotorasib (G12C), Adagrasib (G12C)",
+PDS5B,CHIP,,2,LoF,,,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+POT1,CHIP,,2,LoF,,,"D
+PMID: 37140166",,,,
+PPM1D,CHIP,,2,GoF（SNVIndel：exon 6 のnonsenseもしくはframeshiftSNVIndel）,,,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+PRPF8,CHIP,,2,LoF,,,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+RAD21,CHIP,,2,LoF,,,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+SETD2,CHIP,,2,LoF,,,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+SF3B1,CHIP,,2,GoF（SNVIndel：K700Eなど）,,"K700E, R625, N626, K666","D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+SRSF2,CHIP,,2,GoF（SNVIndel：P95L/H/R など）,,,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+TET2,CHIP,,2,LoF,,,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+TP53,CHIP,,2,LoF、GoF（SNVIndel）,,,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+U2AF1,CHIP,,2,"GoF（SNVIndel：S34F/Y, Q157R/Pなど）",,,"D
+PMID: 25426837, 25426838, 33057201, 33106634",,,,
+ZBTB33,CHIP,,1,LoF,,,"D
+PMID: 34568833",,,,
+B2M,CHL,,1,LoF,,,"A
+WHO2022",,,,
+CD274,CHL,,1,GoF（Amplification）,amp(9p24),,"A
+WHO2022",C,,"FDA：Nivolumab, Pembrolizumab
+FDA_Other：Nivolumab, Pembrolizumab","Nivolumab, Pembrolizumabは、CD274増幅の有無に関わらず、当該疾患に対して薬事承認、FDA承認されている。"
+CD40,CHL,,1,GoF（Amplification）,,,"A
+WHO2017, PMID: 20339089",,,,
+CSF2RB,CHL,,1,,,,"A
+WHO2022, PMID: 33686198",,,,
+GNA13,CHL,,2,LoF,,,"D
+PMID: 29650799",,,,
+IKBKB,CHL,,1,GoF（Amplification）,,,"A
+WHO2017, PMID: 20339089",,,,
+ITPKB,CHL,,2,LoF（SNVIndel）,,,"D
+PMID: 29650799",,,,
+JAK2,CHL,,1,GoF（Amplification）,amp(9p24),,"A
+WHO2022",,,,"Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MF, PVに対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MFに対してFDA承認されている。"
+MAP3K14,CHL,,1,GoF（Amplification）,,,"A
+WHO2022",,,,
+NFKBIA,CHL,,1,LoF,,,"A
+WHO2022, PMID: 33686198",,,,
+PDCD1LG2,CHL,,1,GoF（Amplification）,amp(9p24),,"A
+WHO2022",,"D
+PMID: 27069084",,
+PTPN1,CHL,,1,LoF,,,"A
+WHO2022, PMID: 28297626, 24531327",,,,
+REL,CHL,,1,GoF（Amplification）,amp(2p16),,"A
+WHO2022",,,,
+SOCS1,CHL,,1,LoF,,,"A
+WHO2022",,,,
+STAT3,CHL,,1,GoF（SNVIndel）,,"Y640F, D661Y","A
+WHO2022, PMID: 33686198",,,,
+STAT6,CHL,,1,GoF（Amplification・SNVIndel）,,,"A
+WHO2022, PMID: 33686198",,,,
+TNFAIP3,CHL,,1,LoF,del(6q23),,"A
+WHO2022, PMID: 28297626",,,,
+XPO1,CHL,,2,GoF（SNVIndel：E571など）,,,"D
+PMID: 27479820, 31285298",,,,Selinexor（XPO1阻害剤）はXPO1変異の有無に関わらず、再発難治多発性骨髄腫に対してFDA承認されている。
+ATM,CLL/SLL,,1,LoF,del(11q23),,"A
+WHO2022, JSHGL2023",,"A
+WHO2022, JSHGL2023",,
+BCL2,CLL/SLL,,1,"GoF（SNVIndel：G101V, D103Y/E/V,  R107_R110dup, A113G, R129L, V156D）",,,,"A
+WHO2022, PMID: 30514704, 31004028, 31951646",,,BCL2 変異により、BCL2阻害剤に対する耐性をきたす可能性がある。
+BCL2,CLL/SLL,,1,GoF（Rearrangement：IGH::BCL2）,t(14;18)(q32;q21),,"A
+WHO2022",,,,
+BCL3,CLL/SLL,,1,GoF（Rearrangement：IGH::BCL3）,t(14;19)(q32;q13),,"A
+WHO2022",,,,
+BIRC3,CLL/SLL,,1,LoF,del(11q22),,"A
+WHO2022",,"A
+WHO2022, ICC2022,  NCCN2023 (CLL/SLL)",,
+BTK,CLL/SLL,,1,"GoF（SNVIndel：T316A, V416L, A428D, M437R, T474I, C481Sなど）",,,,"A
+WHO2022, PMID: 24869598, 24869597, 35196427, 26182309, 27626698",,,BTK変異により、BTK阻害剤に対する耐性をきたす可能性がある。Ibrutinib（BTK阻害剤）は、BTK変異の有無に関わらず、当該疾患に対して薬事承認、FDA承認されている。
+CDKN2A,CLL/SLL,,1,LoF,del(9p21),,,,"A
+WHO2022",,
+DLEU2,CLL/SLL,,1,LoF,del(13q14),,"A
+WHO2022, PMID:20060366",,"A
+WHO2022",,
+IGHV,CLL/SLL,,1,GoF（Rearrangement）、Unknown（SNVIndel）,,,"A
+WHO2022, ICC2022, JSHGL2023, NCCN2023 (CLL/SLL), , PMID: 28439111",,"A
+WHO2022, JSHGL2023, , PMID: 28439111, 10477712, 10477713",,"IGHV 遺伝子未変異群（germlineとの比較で相同性が98%以上)は、変異群（同98%未満）と比較して予後が悪い（PMID: 10477712, 10477713）"
+IGLV3-21,CLL/SLL,,1,GoF（SNVIndel：R110）,,,"A
+WHO2022",,"A
+WHO2022",,
+miR-15a,CLL/SLL,,1,LoF,del(13q14),,"A
+WHO2022",,"A
+WHO2022",,
+miR16-1,CLL/SLL,,1,LoF,del(13q14),,"A
+WHO2022",,"A
+WHO2022",,
+MYC,CLL/SLL,,1,GoF（Amplification、Rearrangement：IGH::MYCなど）,"amp(8q24), t(8;14)(q24;q32)など",,"A
+WHO2022",,"A
+WHO2022",,
+NOTCH1,CLL/SLL,,1,GoF（SNVIndel：P2514fsなど）,,,"A
+WHO2022, ICC2022, PMID: 21670202, 23295735",,"A
+WHO2022, NCCN2023 (CLL/SLL), PMID: 23295735",,
+PLCG2,CLL/SLL,,1,GoF（SNVIndel：R665Wなど）,,,,"A
+NCCN2024 (CLL/SLL), PMID: 24869598",,,PLCG2変異により、BTK阻害剤に対する耐性をきたす可能性がある。
+POT1,CLL/SLL,1,1,LoF,,,"A
+WHO2017",,,,
+SF3B1,CLL/SLL,,1,GoF（SNVIndel：K700Eなど）,,"K700E, R625, N626, K666",,,"A
+WHO2022, ICC2022,  NCCN2023 (CLL/SLL)",,
+TP53,CLL/SLL,1,1,LoF、GoF（SNVIndel）,del(17p13),,"A
+WHO2022, ICC2022, JSHGL2023","A
+NCCN2023 (CLL/SLL), JSHGL2023","A
+WHO2022, NCCN2023 (CLL/SLL), JSHGL2023",,
+CCL22,CLPD-NK,,2,"GoF（SNVIndel：L45R, P79Rなど）",,,"D
+PMID: 35513723",,,,
+STAT3,CLPD-NK,,1,GoF（SNVIndel：Y640F/D661Yなど）,,"Y640F, D661Y","A
+WHO2017, PMID: 35513723",,,,
+ABL1,"CML, BCR::ABL1+",,1,GoF（Fusion：BCR::ABL1）,t(9;22)(q34;q11),,"A
+NCCN2024 (CML), JSHGL2023, ELN2022","A
+NCCN2024 (CML), JSHGL2023, ELN2022","A
+NCCN2024 (CML), JSHGL2023, ELN2022","PMDA：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib
+FDA：Imatinib, Dasatinib, Ponatinib
+PMDA_Other：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib
+FDA_Other：Imatinib, Dasatinib, Ponatinib",
+ABL1,"CML, BCR::ABL1+",,2,GoF（Fusion、Rearrangement：BCR::ABL1以外）,,,"D
+PMID: 29967129",,,,
+ASXL1,"CML, BCR::ABL1+",,1,GoF（SNVIndel：exon11-12 truncation）,,,"A
+NCCN2024(CML)","D
+PMID: 28667884","D
+PMID: 29967129",,
+BCL2L11,"CML, BCR::ABL1+",,2,LoF,,,,"D
+PMID: 22426421, 26076815",,,
+BCOR,"CML, BCR::ABL1+",,1,LoF,,,"A
+NCCN2024(CML), PMID: 33990592",,,,
+BCORL1,"CML, BCR::ABL1+",,2,LoF,,,"D
+PMID: 33990592",,,,
+BCR,"CML, BCR::ABL1+",,1,GoF（Fusion：BCR::ABL1）,t(9;22)(q34;q11),,"A
+NCCN2024 (CML), JSHGL2023, ELN2022","A
+NCCN2024 (CML), JSHGL2023, ELN2022","A
+NCCN2024 (CML), JSHGL2023, ELN2022","PMDA：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib
+FDA：Imatinib, Dasatinib, Ponatinib
+PMDA_Other：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib
+FDA_Other：Imatinib, Dasatinib, Ponatinib",
+BCR,"CML, BCR::ABL1+",,2,GoF（Fusion、Rearrangement：BCR::ABL1以外）,,,"D
+PMID: 29967129",,,,
+CDKN2A,"CML, BCR::ABL1+",,2,LoF,,,,"D
+PMID: 19028987",,,
+DNMT3A,"CML, BCR::ABL1+",,1,LoF、GoF（SNVIndel：R882C/Hなど）,,,"A
+NCCN2024(CML)","D
+PMID: 28667884",,,
+IDH1,"CML, BCR::ABL1+",,1,GoF（SNVIndel：R132C/G/H/L/Q/Sなど）,,R132C/L/H,"A
+NCCN2024 (CML), PMID: 33990592",C,,"FDA_Other：Ivosidenib, Olutasidenib",
+IDH2,"CML, BCR::ABL1+",,1,"GoF（SNVIndel：R140Q/W, R172Kなど）",,"R140Q, R172K","A
+NCCN2024 (CML), PMID: 33990592",C,,FDA_Other：Enasidenib,
+IKZF1,"CML, BCR::ABL1+",1,1,GoF（SNVIndel）,,,"A
+NCCN2024(CML)","D
+PMID: 20684991, 21387093","D
+PMID: 29967129",,
+MECOM,"CML, BCR::ABL1+",,2,GoF（Fusion：RUNX1::MECOM）,t(3;21)(q26;q22),,,,"C
+PMID: 20682391",,
+NTRK2,"CML, BCR::ABL1+",,2,GoF（SNVIndel：R458G）,,,,"D
+PMID: 32315394",,,"NTRK融合遺伝子を有する他がん種に対して、TRK阻害剤 (Entrectinib, Larotrectinib)が薬事承認、FDA承認されている。"
+RUNX1,"CML, BCR::ABL1+",1,1,LoF,,,"A
+NCCN2024(CML)","D
+PMID: 18202228","D
+PMID: 29967129",,
+SETD1B,"CML, BCR::ABL1+",,2,LoF,,,,,"D
+PMID: 29967129",,
+TP53,"CML, BCR::ABL1+",1,2,LoF,,,,"D
+PMID: 16651519",,,
+UBE2A,"CML, BCR::ABL1+",,2,LoF,,,"D
+PMID: 30819912 33990592",,,,
+ASXL1,CMML,,1,GoF（SNVIndel：exon11-12 truncation）,,,"A
+ICC2022, PMID: 23690417, 27527698",,"D
+PMID: 23690417",,
+CBL,CMML,1,2,GoF（SNVIndel）,,,,,"D
+PMID: 23690417",,
+ETNK1,CMML,,2,"LoFなど（Ｎ244S, G245A)",,,"C
+PMID: 25615281",,,,
+IDH2,CMML,,2,"GoF（SNVIndel：R140Q/W, R172Kなど）",,"R140Q, R172K",,"C
+PMID: 28588019, 28588020, 30510081","D
+PMID: 23690417",FDA_Other：Enasidenib,
+KDM6A,CMML,,2,LoF,,,"D
+PMID: 21828135",,,,
+NDE1,CMML,,1,GoF（Fusion：NDE1::PDGFRB）,t(5;16)(q32;p13),,"C
+PMID: 17301821, 19737658",C,,FDA_Other：Imatinib （PDGFRB 融合遺伝子）,
+PDGFRB,CMML,,1,GoF（Fusion：NDE1::PDGFRB）,t(5;17)(q32;p13.2),,"C
+PMID: 17301821, 19737658","A
+NCCN2023 (MPN)",,PMDA_Other：Imatinib （PDGFRβ 融合遺伝子）,"PDGFRβ 融合遺伝子を有する造血器腫瘍で、各種TKI (Imatinib, Dasatinib,  Ponatinib, Sunitibなど）の有効性が示唆されている (PMID: 12181402, 23835704, 24687085, 31434701)。"
+RIT1,CMML,,2,GoF,,,"D
+PMID: 23765226",,,,
+SRSF2,CMML,,1,GoF（SNVIndel：P95L::H::R など）,,,"A
+ICC2022, PMID: 22919025, 22323480",,"D
+PMID: 23690417",,
+TET2,CMML,,1,LoF,,,"A
+ICC2022, PMID: 23690417",,,,
+ASXL1,CNL,,1,GoF（SNVIndel：exon11-12 truncation）,,,"A
+ICC2022",,,,
+CBL,CNL,1,2,GoF（SNVIndel）,,,,,"D
+PMID: 28762112",,
+CSF3R,CNL,1,1,"GoF（SNVIndel：T618I, T615A, D771fsなど）",,T618I,"A
+WHO2022, ICC2022","D
+PMID: 23656643, 24081659, 26475333","D
+PMID: 23656643",,
+JAK2,CNL,1,2,GoF（SNVIndel：V617Fなど）,,V617F,,,"D
+PMID: 23896413",,"Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MF, PVに対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MFに対してFDA承認されている。"
+NRAS,CNL,1,2,"GoF（SNVIndel：G12D/S/A/V, Q61R/Kなど）",,"G12, G13, Q61",,,"D
+PMID: 28762112",,
+SETBP1,CNL,,2,"GoF（SNVIndel：D868N, G870Sなど）",,,,,"D
+PMID: 23896413",,
+SRSF2,CNL,,2,GoF（SNVIndel：P95L/H/R など）,,,,"D
+PMID:22301675, 22781593","D
+PMID: 28762112",,
+BCL2,DFL,,1,GoF（Amplification）,amp(18q21),,"A
+WHO2017",,,,
+BCL6,DFL,,1,GoF（Amplification）,,,"A
+WHO2017",,,,
+EIF4A2,DFL,,1,GoF（Amplification）,,,"A
+WHO2017",,,,コピー数異常をきたす領域に存在するが、当該遺伝子の増幅と病的意義との直接的な関連は明らかでない。
+FGFR1,DFL,,1,GoF（Amplification）,,,"A
+WHO2017",,,,コピー数異常をきたす領域に存在するが、当該遺伝子の増幅と病的意義との直接的な関連は明らかでない。
+PTEN,DFL,,1,LoF,del(10q23),,"A
+WHO2017",,,,コピー数異常をきたす領域に存在するが、当該遺伝子の欠失と病的意義との直接的な関連は明らかでない。
+TFRC,DFL,,1,GoF（Amplification）,,,"A
+WHO2017",,,,コピー数異常をきたす領域に存在するが、当該遺伝子の増幅と病的意義との直接的な関連は明らかでない。
+TNFRSF14,DFL,,1,LoF,,,"A
+WHO2017",,,,
+TP73,DFL,,1,LoF,,,"A
+WHO2017",,,,
+ARAF,Disseminated juvenile xanthogranuloma,,1,GoF (SNVIndel）,,,"A
+WHO2022, PMID:28752840 ; 31768065",,,,
+BRAF,Disseminated juvenile xanthogranuloma,,1,GoF（SNVIndel：V600Eなど）,,V600E,"A
+WHO2022, PMID:28752840 ; 31768065",C,,"FDA：Dabrafenib, Vemurafenib
+FDA_Other：Dabrafenib, Vemurafenib","BRAF V600E/K を有する一部の非造血器腫瘍に対して、BRAF阻害剤とMEK阻害剤 (Trametinib, Binimetinib, Selumetinibなど)の併用療法が薬事もしくはFDA承認されている。"
+CSF1R,Disseminated juvenile xanthogranuloma,,1,GoF (SNVIndel）,,,"A
+WHO2022, PMID:28752840 ; 31768065",,,,
+KRAS,Disseminated juvenile xanthogranuloma,1,1,GoF (SNVIndel）,,"G12, G13, Q61","A
+WHO2022, PMID:28752840 ; 31768065",C,,"FDA：Sotorasib (G12C)
+FDA_Other：Sotorasib (G12C), Adagrasib (G12C)",
+MAP2K1,Disseminated juvenile xanthogranuloma,,1,GoF (SNVIndel）,,,"A
+WHO2022, PMID:28752840 ; 31768065",,,,"MEK阻害剤 (Cobimetinib, Trametinib, Binimetinib, Selumetinibなど)は、MEK1変異の有無に関わらず、単剤もしくはBRAF阻害剤との併用で、他がん種に対して、薬事もしくはFDA承認されている。"
+NRAS,Disseminated juvenile xanthogranuloma,1,1,GoF (SNVIndel）,,"G12, G13, Q61","A
+WHO2022, PMID:28752840 ; 31768065",,,,
+NTRK1,Disseminated juvenile xanthogranuloma,,1,GoF (SNVIndel）,,,"A
+WHO2022, PMID:28752840 ; 31768065",,,,"NTRK融合遺伝子を有する他がん種に対して、TRK阻害剤 (Entrectinib, Larotrectinib)が薬事承認、FDA承認されている。"
+PIK3CD,Disseminated juvenile xanthogranuloma,,1,GoF (SNVIndel）,,,"A
+WHO2022, PMID:25202140 ; 26637772",,,,PI3K阻害剤 (Copanlisib)は、PI3KCD変異の有無に関わらず、他がん種に対してFDA承認されている。Leniolisib (PI3K-delta阻害剤）は、PI3K3CDの変異の有無に関わらず、APDSに対してFDA承認されている。
+B2M,DLBCL,,1,LoF,,,"A
+WHO2022",,,,
+BCL2,DLBCL,,1,GoF（Amplification、Rearrangement：IGH::BCL2）,"amp(18q21), t(14;18)(q32;q21)",,"A
+NCCN2023 (BCL), WHO2022","A
+NCCN2023 (BCL)","A
+WHO2017",,
+BCL6,DLBCL,,1,GoF（Rearrangement：IGH::BCL6など）,3q27 rearrangement,,"A
+WHO2022",,"A
+WHO2017",,
+BTG1,DLBCL,,2,Unknown（SNVIndel）,,,"D
+PMID: 21796119, 22343534, 28985567, WHO2022",,,,
+BTG2,DLBCL,,2,Unknown（SNVIndel）,,,"D
+PMID: 21796119, 22343534, 28985567, WHO2022",,,,
+CARD11,DLBCL,,1,GoF（SNVIndel）,,,"A
+WHO2022","C
+PMID: 26193343",,,CARD11の変異により、BTK阻害剤に対する耐性をきたす可能性がある。
+CCR6,DLBCL,,1,", Unknown（SNVIndel）",,,"A
+WHO2022",,,,
+CCR7,DLBCL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+CD274,DLBCL,,1,GoF（Amplification、Rearrangement）,amp(9p24),,"A
+WHO2022","C
+PMID: 27281199",,"FDA：Nivolumab, Pembrolizumab
+FDA_Other：Nivolumab, Pembrolizumab",
+CD58,DLBCL,,1,LoF,,,"A
+WHO2017, PMID: 22137796",,,,
+CD70,DLBCL,,2,LoF,,,"D
+PMID: 28985567",,,,
+CD79A,DLBCL,,1,GoF（SNVIndel）,,,"A
+WHO2017",,,,
+CD79B,DLBCL,,1,GoF（SNVIndel：Y196Hなど）,,Y196,"A
+WHO2022","C
+PMID: 26193343",,,
+CDKN2A,DLBCL,,1,LoF,del(9p21),,"A
+WHO2022",,"A
+WHO2017",,
+CIITA,DLBCL,,1,GoF（Rearrangement）,,,"A
+WHO2017",,,,
+CREBBP,DLBCL,,1,LoF,,,"A
+WHO2022",,,,
+CSNK2B,DLBCL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+DAPK1,DLBCL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+DTX1,DLBCL,,2,LoF,,,"D
+PMID: 25171927",,,,
+EP300,DLBCL,,1,LoF,,,"A
+WHO2017",,,,
+EZH2,DLBCL,,1,GoF（SNVIndel：Y641Fなど）,,Y641,"A
+WHO2017, PMID: 20081860, 28985567, WHO2022","C
+PMID: 29650362","A
+WHO2022, PMID: 29641966","FDA：Tazemetostat
+FDA_Other：Tazemetostat",
+FOXO1,DLBCL,,1,LoF,,,,,"A
+WHO2017",,
+GNA13,DLBCL,,1,LoF,,,"A
+WHO2017, PMID: 25274307, 26989201, WHO2022",,,,
+HIST1H1E,DLBCL,,1,Unknown（SNVIndel）,,,"A
+WHO2022, PMID: 28985567",,,,
+HLA-A,DLBCL,,1,LoF,,,"A
+WHO2017",,,,
+HLA-B,DLBCL,,1,LoF,,,"A
+WHO2022",,,,
+HLA-C,DLBCL,,1,LoF,,,"A
+WHO2017",,,,
+HLA-DQA1,DLBCL,,1,LoF,,,"A
+WHO2017",,,,
+HLA-DQA2,DLBCL,,1,LoF,,,"A
+WHO2017",,,,
+HLA-DQB1,DLBCL,,1,LoF,,,"A
+WHO2017",,,,
+HLA-DQB2,DLBCL,,1,LoF,,,"A
+WHO2017",,,,
+HLA-DRB1,DLBCL,,1,LoF,,,"A
+WHO2017",,,,
+HLA-DRB5,DLBCL,,1,LoF,,,"A
+WHO2017",,,,
+IRF8,DLBCL,,2,Unknown（SNVIndel）,,,"D
+PMID: 28985567",,,,
+KMT2C,DLBCL,,1,LoF,,,"A
+WHO2017",,,,
+KMT2D,DLBCL,,1,LoF,,,"A
+WHO2022",,,,
+MDM2,DLBCL,,2,GoF（Amplification）,,,"D
+PMID: 23982177",,,,
+MEF2B,DLBCL,,1,LoF,,,"A
+WHO2022",,,,
+MYC,DLBCL,,1,GoF（Amplification、Rearrangement：IGH::MYCなど）,"amp(8q24), t(8;14)(q24;q32)など",,"A
+NCCN2023 (BCL), WHO2022",,"A
+WHO2017",,
+NOTCH1,DLBCL,,1,GoF,,,"A
+WHO2022, PMID: 29641966",,"A
+WHO2022, PMID: 29641966",,
+NOTCH2,DLBCL,,1,GoF,,,"A
+WHO2022, PMID: 29641966",,"A
+WHO2022, PMID: 29641966",,
+PDCD1LG2,DLBCL,,1,GoF（Amplification、Rearrangement）,amp(9p24),,"A
+WHO2017, PMID: 27268263, WHO2022",,,,
+PIM1,DLBCL,,1,Unknown（SNVIndel）,,,"A
+WHO2022, PMID: 21804550, 29713087",,,,
+PRDM1,DLBCL,,1,LoF,del(6q21),,"A
+WHO2022",,,,
+REL,DLBCL,,1,GoF（Amplification）,amp(2p16),,"A
+WHO2017",,,,
+SETD1B,DLBCL,,1,LoF,,,"A
+WHO2022, PMID: 28985567",,,,
+SOCS1,DLBCL,,1,LoF,,,"A
+WHO2017",,,,
+SPEN,DLBCL,,2,LoF,,,"D
+PMID: 28985567",,,,
+STAT6,DLBCL,,1,GoF（SNVIndel：D419Aなど）,,,"A
+WHO2017",,,,
+TBL1XR1,DLBCL,,1,GoF（Fusion：TBL1XR1::TP63),,,"A
+WHO2017, PMID: 22496164",,,,
+TET2,DLBCL,,1,LoF（SNVIndel）,,,"A
+WHO2022, PMID: 32289277",,"A
+WHO2022, PMID: 29641966",,
+TNFAIP3,DLBCL,,1,LoF,del(6q23),,"A
+WHO2017, PMID: 19412163","D
+PMID: 26193343",,,TNFAIP3の変異により、BTK阻害剤に対する耐性をきたす可能性がある。
+TNFRSF14,DLBCL,,1,LoF,del(1p36),,"A
+WHO2022",,,,
+TNFRSF21,DLBCL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+TP53,DLBCL,1,1,LoF、GoF（SNVIndel）,del(17p13),,"A
+WHO2022",,"A
+WHO2017",,
+TRAF5,DLBCL,,2,GoF（SNVIndel）,,,"D
+PMID: 19412164, 28297626",,,,
+YY1,DLBCL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+CDKN2A,EATL,,1,LoF,del(9p21),,"A
+WHO2017",,,,
+CDKN2B,EATL,,1,LoF,del(9p21),,"A
+WHO2017",,,,
+DDX3X,EATL,,1,LoF,,,"A
+WHO2022",,,,
+JAK1,EATL,,1,GoF（SNVIndel：G1097Dなど）,,,"A
+WHO2022, ICC2022",,,,
+JAK3,EATL,,1,GoF（SNVIndel：M511Iなど）,,,"A
+WHO2017",,,,
+KMT2D,EATL,,1,LoF,,,"A
+WHO2022",,,,
+POT1,EATL,1,1,LoF,,,"A
+WHO2022",,,,
+STAT3,EATL,,1,GoF（SNVIndel：Y640F::D661Yなど）,,"Y640F, D661Y","A
+WHO2022, ICC2022",,,,
+STAT5B,EATL,,1,GoF（SNVIndel：N642Hなど）,,,"A
+WHO2017",,,,
+TET2,EATL,,1,LoF,,,"A
+WHO2022",,,,
+TNIP3,EATL,,1,LoF,,,"A
+WHO2022, PMID: 33579790",,,,
+TP53,EATL,1,1,LoF、GoF（SNVIndel）,del(17p13),,"A
+WHO2022",,,,
+DDX3X,EBV-positive nodal T- and NK-cell lymphoma,,1,LoF,,,"A
+WHO2020",,,,
+PIK3CD,EBV-positive nodal T- and NK-cell lymphoma,,1,GoF (SNVIndel）,,,"A
+WHO2022",,,,PI3K阻害剤 (Copanlisib)は、PI3KCD変異の有無に関わらず、他がん種に対してFDA承認されている。Leniolisib (PI3K-delta阻害剤）は、PI3K3CDの変異の有無に関わらず、APDSに対してFDA承認されている。
+STAT3,EBV-positive nodal T- and NK-cell lymphoma,,1,GoF（SNVIndel）,,"Y640F, D661Y","A
+WHO2022",,,,
+TET2,EBV-positive nodal T- and NK-cell lymphoma,,1,LoF,,,"A
+WHO2022",,,,
+MALT1,EMZL,,1,GoF（Fusion：BIRC3::MALT1など）,t(11;18)(q21;q21),,"A
+WHO2022",,"A
+WHO2022",,
+ARID1A,ENKTL,,1,LoF,,,"A
+WHO2022",,,,
+ASXL3,ENKTL,,1,LoF,,,"A
+WHO2017, PMID: 26192917",,,,
+ATG5,ENKTL,,1,LoF,del(6q21),,"A
+WHO2017, PMID: 19194464",,,,
+BCOR,ENKTL,,1,LoF,,,"A
+WHO2022",,,,
+CD274,ENKTL,,1,GoF,,,,"A
+WHO2022",,"FDA：Nivolumab, Pembrolizumab
+FDA_Other：Nivolumab, Pembrolizumab",CD274遺伝子の3’側非翻訳領域の構造異常はPembrolizumabの奏効を予測する可能性がある（PMID: 32753688）。
+CDKN2A,ENKTL,,1,LoF,del(9p21),,"A
+WHO2022",,,,
+CDKN2B,ENKTL,,1,LoF,del(9p21),,"A
+WHO2022",,,,
+CRYBG1,ENKTL,,1,LoF,del(6q21),,"A
+WHO2017, PMID: 19194464",,,,コピー数異常をきたす領域に存在するが、当該遺伝子の欠失と病的意義との直接的な関連は明らかでない。
+CTNNB1,ENKTL,,1,GoF（SNVIndel）,,,"A
+WHO2017, PMID: 12824925",,,,
+DDX3X,ENKTL,,1,LoF,,,"A
+WHO2022",,"D
+PMID: 26192917",,
+EP300,ENKTL,,1,LoF,,,"A
+WHO2022",,,,
+FOXO3,ENKTL,,1,LoF,deletion of 6q21-25,,"A
+WHO2022",,,,
+HACE1,ENKTL,,1,LoF,deletion of 6q21-25,,"A
+WHO2022, PMID: 23142381",,,,
+JAK3,ENKTL,,1,"GoF（SNVIndel：A572V, A573など）",,,"A
+WHO2022",,,,
+KIT,ENKTL,,1,GoF（SNVIndel）,,D816V,"A
+WHO2017, PMID: 10811105",,,,"Imatinib は、KIT変異の有無に関わらず、免疫組織学的検査によりKIT発現陽性のGISTに対して薬事承認されている。一方、FDAでは、KIT発現陽性のGISTに加えて、aggressive systemic mastocytosis (ASM) without the D816V c-Kit mutation or with c-Kit mutational status unknown"" が承認されている。"""
+KMT2D,ENKTL,,1,LoF,,,"A
+WHO2022",,,,
+MGA,ENKTL,,1,LoF,,,"A
+WHO2022",,,,
+MSN,ENKTL,,2,LoF,,,"D
+PMID: 26192917",,,,
+NRAS,ENKTL,,1,GoF（SNVIndel：G12Dなど）,,"G12, G13, Q61","A
+WHO2017",,,,
+PRDM1,ENKTL,,1,LoF,del(6q21),,"A
+WHO2022",,,,
+PTPRK,ENKTL,,1,LoF,deletion of 6q21-25,,"A
+WHO2022; PMID: 25612622, 29674644",,,,
+STAT3,ENKTL,,1,GoF（SNVIndel：Y640F、D661Yなど）,,"Y640F, D661Y","A
+WHO2022",,,,
+STAT5B,ENKTL,,1,GoF（SNVIndel：N642Hなど）,,,"A
+WHO2022",,,,
+TP53,ENKTL,1,1,LoF、GoF（SNVIndel）,del(17p13),,"A
+WHO2022",,,,
+ARAF,Erdheim-Chester disease,,1,GoF (SNVIndel）,,,"A
+WHO2022,  NCCN2023（Histiocytic Neoplasms), PMID:26566875",,,,
+BRAF,Erdheim-Chester disease,,1,GoF（SNVIndel：V600Eなど）,,V600E,"A
+WHO2022,  NCCN2023（Histiocytic Neoplasms), PMID: 24850756, 25150293","A
+NCCN2023 (Histiocytic neoplasms), PMID: 30867592, 25150293",,"PMDA：Dabrafenib,Trametinib併用療法
+FDA：Dabrafenib, Vemurafenib
+PMDA_Other：Vemurafenib
+FDA_Other：Dabrafenib, Vemurafenib","BRAF V600E/K を有する一部の非造血器腫瘍に対して、BRAF阻害剤とMEK阻害剤 (Trametinib, Binimetinib, Selumetinibなど)の併用療法が薬事もしくはFDA承認されている。"
+CSF1R,Erdheim-Chester disease,,1,GoF（SNVIndel：Y546_K551delなど）,,,"A
+NCCN2023（Histiocytic Neoplasms), PMID: 31768065",,,,
+KRAS,Erdheim-Chester disease,,1,GoF (SNVIndel）,,"G12, G13, Q61","A
+WHO2022,  NCCN2023（Histiocytic Neoplasms), PMID: 26566875",C,,"FDA：Sotorasib (G12C)
+FDA_Other：Sotorasib (G12C), Adagrasib (G12C)",
+MAP2K1,Erdheim-Chester disease,,1,GoF (SNVIndel）,,,"A
+WHO2022, PMID: 26566875","A
+NCCN2023 (Histiocytic Neoplasms)",,,"Cobimetinib（MEK阻害剤）は、MEK1変異の有無に関わらず、histiocytic, neoplasms に対してFDA承認されている。その他のMEK阻害剤 (Trametinib, Binimetinib, Selumetinibなど)も単剤もしくはBRAF阻害剤との併用で、他がん種に対して、薬事もしくはFDA承認されている。"
+NRAS,Erdheim-Chester disease,,1,GoF（SNVIndel：G61Rなど）,,"G12, G13, Q61","A
+WHO2022,  NCCN2023（Histiocytic Neoplasms), PMID: 24850756, 25150293","D
+PMID: 30867592",,,
+PIK3CA,Erdheim-Chester disease,,1,GoF (SNVIndel）,,,"A
+WHO2022,  NCCN2023（Histiocytic Neoplasms), PMID:25150293",C,,FDA_Other：Alpelisib,PI3K阻害剤 (Copanlisib)は、PI3KCA変異の有無に関わらず、他がん種に対してFDA承認されている。
+ASXL1,ET,,1,GoF（SNVIndel：exon11-12 truncation）,,,,,"A
+NCCN2023 (MPN)",,
+CALR,ET,,1,GoF（SNVIndel：L367fsなど）,,"E364fs, K385fs","A
+WHO2017,  NCCN2023 (MPN), PMID: 24325356, 24325359, 31562135",,"A
+NCCN2023 (MPN)",,
+DNMT3A,ET,,2,LoF、GoF（SNVIndel：R882C/Hなど）,,,"C
+PMID: 23782935, 28028029",,,,
+EZH2,ET,,1,LoF,,Y641,"B
+PMID: 28028029",C,"A
+NCCN2023 (MPN)","FDA：Tazemetostat
+FDA_Other：Tazemetostat",
+IDH1,ET,,1,GoF（SNVIndel：R132C/G/H/L/Q/Sなど）,,R132C/L/H,,"C
+PMID: 25583779, 29860938","A
+NCCN2023 (MPN)","FDA_Other：Ivosidenib, Olutasidenib",
+IDH2,ET,,1,"GoF（SNVIndel：R140Q/W, R172Kなど）",,"R140Q, R172K",,"C
+PMID: 28588019, 28588020, 30510081","A
+NCCN2023 (MPN)",FDA_Other：Enasidenib,
+JAK2,ET,1,1,GoF（SNVIndel：V617Fなど）,,V617F,"A
+WHO2017,  NCCN2023 (MPN)",,,,"Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MF, PVに対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MFに対してFDA承認されている。"
+MPL,ET,1,1,GoF（SNVIndel：W515L/K）,,W515,"A
+WHO2017,  NCCN2023 (MPN)",,,,
+RUNX1,ET,1,1,LoF,,,,,"A
+NCCN2023 (MPN)",,
+SF3B1,ET,,1,GoF（SNVIndel：K700Eなど）,,"K700E, R625, N626, K666",,D,"A
+NCCN2023 (MPN)",,
+SH2B3,ET,1,1,LoF（SNVIndel・E208Q）,,,"A
+PMID: 28028029",,"A
+NCCN2023 (MPN)",,
+SRSF2,ET,,1,GoF（SNVIndel：P95L/H/R など）,,,,,"A
+NCCN2023 (MPN)",,
+TET2,ET,,1,LoF,,,"B
+PMID: 28028029",,"A
+NCCN2023 (MPN), PMID: 28028029",,
+TP53,ET,1,1,"LoF、GoF（SNVIndel：R175H, G245S, R248Q, R248W, R273Hなど）",,,"A
+NCCN2023 (MPN)",,"A
+NCCN2023 (MPN)",,
+U2AF1,ET,,1,"GoF（SNVIndel：S34F/Y, Q157R/Pなど）",,,,,"A
+NCCN2023 (MPN)",,
+DNMT3A,ETP-ALL,,1,LoF,,,"A
+WHO2017",,,,
+EP300,ETP-ALL,,1,LoF,,,"A
+NCCN2023 (ALL), PMID: 22237106",,,,
+ETV6,ETP-ALL,1,1,LoF（Deletion）,,,"A
+NCCN2023 (ALL), PMID: 22237106",,,,
+GATA3,ETP-ALL,,1,LoF,,,"A
+NCCN2023 (ALL), PMID: 22237106",,,,
+IKZF1,ETP-ALL,1,1,LoF,,,"A
+NCCN2023 (ALL), PMID: 22237106",,,,
+IL7R,ETP-ALL,,1,GoF（SNVIndel）,,,"A
+NCCN2023 (ALL), PMID: 22237106",,,,
+JAK1,ETP-ALL,,1,GoF（SNVIndel）,,,"A
+NCCN2023 (ALL), PMID: 22237106",,,,
+JAK3,ETP-ALL,,1,GoF（SNVIndel：M511Iなど）,,,"A
+NCCN2023 (ALL), PMID: 22237106",,,,
+KMT2E,ETP-ALL,,2,GoF（Fusion：KMT2E::ASNS）,,,,"D
+PMID: 28069604",,,再発時のKMT2E::ASNS 獲得は、アスパラギナーゼ抵抗性と関連する可能性がある。
+KRAS,ETP-ALL,,1,GoF（SNVIndel：G12D/G13Dなど）,,"G12, G13, Q61","A
+NCCN2023 (ALL), PMID: 22237106, 28671688","C
+PMID: 32955176",,"FDA：Sotorasib (G12C)
+FDA_Other：Sotorasib (G12C), Adagrasib (G12C)",
+NRAS,ETP-ALL,,1,GoF（SNVIndel：G12Dなど）,,"G12, G13, Q61","A
+NCCN2023 (ALL), PMID: 22237106, 28671688",,,,
+RUNX1,ETP-ALL,1,1,LoF（Deletion）,,,"A
+NCCN2023 (ALL), PMID: 22237106",,,,
+SH2B3,ETP-ALL,,1,LoF,,,"A
+NCCN2023 (ALL), PMID: 22237106",,,,
+ATG2B,Familial MPN,1,1,GoF（重複）,,,"A
+WHO2017, NCCN2023 (AML), PMID: 26280900, 28444727",,,,"ATG2BとGSKIPは、Familiall MPNと関連したChromosome 14q32 duplication syndrome, 700-KB（OMIM: 616604 ）に関連した領域に存在する (PMID: 26280900)。各遺伝子単独でのMPNとの関連性は不明。"
+GSKIP,Familial MPN,1,1,GoF（重複）,,,"A
+WHO2017, NCCN2023 (AML), PMID: 26280900, 28444727",,,,"ATG2BとGSKIPは、Familiall MPNと関連したChromosome 14q32 duplication syndrome, 700-KB（OMIM: 616604 ）に関連した領域に存在する (PMID: 26280900)。各遺伝子単独でのMPNとの関連性は不明。"
+RBBP6,Familial MPN,1,1,LoF,,,"A
+ELN2022, PMID: 26574608",,,,
+SH2B3,Familial MPN,1,2,LoF（SNVIndel・E208Q）,,,"D
+PMID: 27216218, 28444727",,,,
+BIRC3,FDCS,,1,LoF,,,"A
+WHO2022, PMID: 28621320, 33904632",,,,
+BRAF,FDCS,,1,GoF（SNVIndel：V600Eなど）,,V600E,"A
+WHO2022, PMID: 24720374",C,,"FDA：Dabrafenib, Vemurafenib
+FDA_Other：Dabrafenib, Vemurafenib","BRAF V600E/K を有する一部の非造血器腫瘍に対して、BRAF阻害剤とMEK阻害剤 (Trametinib, Binimetinib, Selumetinibなど)の併用療法が薬事もしくはFDA承認されている。"
+CDKN2A,FDCS,,1,LoF（Deletion）,,,"A
+WHO2022, PMID: 26564005, 28621320, 33904632",,,,
+CYLD,FDCS,,1,LoF,,,"A
+WHO2022, PMID:  26564005, 28621320",,,,
+NFKBIA,FDCS,,1,LoF,,,"A
+WHO2022, PMID: 26564005, 28621320, 33904632",,,,
+RB1,FDCS,,1,LoF,,,"A
+WHO2022, PMID: 26564005, 28621320",,,,
+SHC4,FDCS,,1,GoF（Fusion遺伝子HDGFRP3::SHC4）,,,"A
+WHO2022, PMID: 28975018",,,,
+SOCS3,FDCS,,1,LoF,,,"A
+WHO2022, PMID: 33904632",,,,
+TNFAIP3,FDCS,,1,LoF,,,"A
+WHO2022, PMID: 26564005, 33904632",,,,
+TP53,FDCS,1,1,LoF(SNVIndel）,,,"A
+WHO2022, PMID: 26564005, 28621320, 33904632",,,,
+TRAF3,FDCS,,1,LoF（SNVIndel）,,,"A
+WHO2022, PMID: 33904632",,,,
+ARID1A,FL,,1,LoF,,,,,"A
+WHO2022, PMID: 27664263 (ESMO)",,
+ATP6AP1,FL,,2,LoF,,,"D
+PMID: 26691987",,,,
+ATP6V1B2,FL,,2,LoF,,,"D
+PMID: 26691987",,,,
+BCL6,FL,,1,GoF（Amplification、Rearrangement：IGH::BCL6）、Unknown（SNVIndel）,3q27 rearrangement,,"A
+WHO2022",,,,
+BTK,FL,,1,LoF,,,"A
+WHO2022, PMID: 28064239,  33419778",,,,
+CARD11,FL,,1,GoF（SNVIndel）,,,,,"A
+WHO2022, PMID: 27664263 (ESMO)",,予後指標であるm7-FLIPIに含まれている。
+CDKN2A,FL,,1,LoF,del(9p21),,,,"A
+WHO2022",,
+CREBBP,FL,,1,LoF,,,"A
+WHO2022",,"A
+WHO2022, PMID: 27664263 (ESMO)",,
+CTSS,FL,,1,GoF（SNVIndel：Y132Dなど）,,,"A
+WHO2022, PMID:  32330455",,,,
+EBF1,FL,,2,LoF,,,"D
+PMID: 24362818",,,,
+EP300,FL,,1,LoF,,,"A
+WHO2022",,"A
+WHO2022, PMID: 27664263 (ESMO)",,
+EPHA7,FL,,1,LoF,,,"A
+WHO2017",,,,
+EZH2,FL,,1,GoF（SNVIndel：Y641Fなど）,,Y641,"A
+WHO2022, PMID: 20081860","A
+NCCN2023 (BCL), PMID: 29650362, 29980507","A
+WHO2022, PMID: 27664263 (ESMO)","PMDA：Tazemetostat
+PMDA_Other：Tazemetostat",
+FOXO1,FL,,1,LoF,,,"A
+WHO2022",,"A
+WHO2022, PMID: 27664263 (ESMO)",,
+KMT2C,FL,,1,LoF,,,"A
+WHO2022, PMID: 29158360",,,,
+KMT2D,FL,,1,LoF,,,"A
+WHO2022",,,,
+MEF2B,FL,,1,LoF,,,"A
+WHO2022",,"A
+WHO2022, PMID: 27664263 (ESMO)",,
+MYC,FL,,1,GoF（Amplification、Rearrangement：IGH::MYCなど）,"amp(8q24), t(8;14)(q24;q32)など",,"A
+WHO2022",,"A
+WHO2022",,
+NOTCH1,FL,,1,GoF（SNVIndel：P2514fs*4など）,,,"A
+WHO2022, PMID:  25141821",,,,
+NOTCH2,FL,,1,"GoF（SNVIndel：R2400*, I2304fs*9など）",,,"A
+WHO2022, PMID:  25141821",,,,
+PTEN,FL,,1,LoF,del(10q23),,"A
+WHO2017",,,,
+RRAGC,FL,,1,GoF（SNVIndel）,,,"A
+WHO2017, PMID: 26691987",,,,
+STAT6,FL,,1,GoF（SNVIndel：D419G/A/Hなど）,,,"A
+WHO2022, ICC2022, NCCN2023 (BCL), PMID: 25428220",,,,","
+TNFAIP3,FL,,1,LoF,del(6q23),,"A
+WHO2017, PMID: 19412163",,,,
+TNFRSF14,FL,,1,LoF,del(1p36),,"A
+WHO2022, NCCN2023 (BCL)",,,,
+TP53,FL,1,1,LoF、GoF（SNVIndel）,del(17p13),,"A
+WHO2022",,"A
+WHO2022",,
+DNMT3A,FTCL,,1,LoF、GoF（SNVIndel）,,,"A
+WHO2022",,,,
+ITK,FTCL,,1,GoF（Fusion：ITK::SYK）,t(5;9)(q33;q22),,"A
+WHO2022",,,,
+RHOA,FTCL,,1,GoF（SNVIndel：G17V）,,G17V,"A
+WHO2022",,,,
+SYK,FTCL,,1,GoF（Fusion：ITK::SYK）,t(5;9)(q33;q22),,"A
+WHO2022",,,,
+TET2,FTCL,,1,LoF,,,"A
+WHO2022",,,,
+BRCA1,Germline predisposition for myeloid neoplasms,1,1,LoF,,,"A
+NCCN2023 (MDS), ELN2017, PMID: 26641009",C,,"FDA：Olaparib, Rucaparib
+FDA_Other：Olaparib, Rucaparib, Talazoparib, Niraparib",
+BRCA2,Germline predisposition for myeloid neoplasms,1,1,LoF,,,"A
+NCCN2023 (MDS), ELN2017, PMID: 26641009, 25455269",C,,"FDA：Olaparib, Rucaparib
+FDA_Other：Olaparib, Rucaparib, Talazoparib, Niraparib",
+BRIP1,Germline predisposition for myeloid neoplasms,1,2,LoF,,,"D
+PMID: 34482403",,,,
+JAK2,Germline predisposition for myeloid neoplasms,1,2,GoF（SNVIndel：R564Q）,,V617F,"D
+PMID: 24381227",D,,,"Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MF, PVに対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MFに対してFDA承認されている。"
+NBN,Germline predisposition for myeloid neoplasms,1,2,LoF,,,"D
+PMID: 34482403",,,,
+NF1,Germline predisposition for myeloid neoplasms,1,2,LoF（SNVIndel：c.3113+2T>Aなど）,,,"D
+PMID: 34482403, 37216690",C,,"FDA：Selumetinib
+FDA_Other：Selumetinib",Selumetinib（MEK阻害剤）は、neurofibromatosis type1 にみられる叢状神経線維腫に薬事承認、FDA承認されている。
+PTPN11,Germline predisposition for myeloid neoplasms,1,2,LoF,,,"D
+PMID: 34482403",,,,PTPN11の変異により、Venetoclax耐性に対する耐性をきたす可能性がある。
+SAMD9,Germline predisposition for myeloid neoplasms,1,1,LoF,,,"A
+NCCN2023 (MDS), PMID: 30322869, 34621053",,,,
+SAMD9L,Germline predisposition for myeloid neoplasms,1,1,LoF,,,"A
+WHO2022, NCCN2023 (MDS), PMID: 30322869, 34621053",,,,
+SRP72,Germline predisposition for myeloid neoplasms,1,1,LoF,,,"A
+ICC2022",,,,
+USB1,Germline predisposition for myeloid neoplasms,1,2,LoF,,,"D
+PMID: 34482403",,,,
+EPCAM,Germline predisposition for myeloid neoplasms: mismatch repair deficiency,1,1,LoF,,,"A
+NCCN2023 (MDS)",,,,
+MLH1,Germline predisposition for myeloid neoplasms: mismatch repair deficiency,1,1,LoF,,,"A
+NCCN2023 (MDS)",,,,
+MSH2,Germline predisposition for myeloid neoplasms: mismatch repair deficiency,1,1,LoF,,,"A
+NCCN2023 (MDS)",,,,
+MSH6,Germline predisposition for myeloid neoplasms: mismatch repair deficiency,1,1,LoF,,,"A
+NCCN2023 (MDS)",,,,
+PMS2,Germline predisposition for myeloid neoplasms: mismatch repair deficiency,1,1,LoF,,,"A
+NCCN2023 (MDS)",,,,
+TP53,Germline predisposition for myeloid neoplasms:Li-Fraumeni syndrome,1,1,"LoF、GoF（SNVIndel：R175H, G245S, R248Q, R248W, R273Hなど）",,,"A
+WHO2022, ICC2022,  NCCN2023 (MDS), PMID: 28637615",,,,
+BRAF,HCL,,1,"GoF（SNVIndel：V600E/R/K/Dなど, IGH::BRAF）",del(7q),V600E,"A
+WHO2022, NCCN2024 (HCL), PMID: 21663470","A
+NCCN2024 (HCL),    PMID:36108341",,"PMDA：Dabrafenib,Trametinib併用療法
+FDA：Dabrafenib, Vemurafenib
+FDA_Other：Dabrafenib, Vemurafenib","BRAF V600E/K を有する一部の非造血器腫瘍に対して、BRAF阻害剤とMEK阻害剤 (Trametinib, Binimetinib, Selumetinibなど)の併用療法が薬事もしくはFDA承認されている。"
+CDKN1B,HCL,,1,LoF,,,"A
+NCCN2024 (HCL), PMID: 26065650,",,,,
+KLF2,HCL,,1,LoF,,,"A
+WHO2022",,,,
+KMT2C,HCL,,1,LoF,,,"A
+WHO2022",,,,
+CCND3,HCL-v (SBLPN),,1,GoF（SNVIndel）,,,"A
+WHO2022, NCCN2024 (HCL), PMID: 28801450",,,,
+KMT2C,HCL-v (SBLPN),,1,LoF,,,"A
+WHO2022,  PMID: 28801450",,,,
+MAP2K1,HCL-v (SBLPN),,1,GoF（SNVIndel：K57Nなど）,,,"A
+WHO2022, NCCN2024 (HCL)",,,,"MEK阻害剤 (Cobimetinib, Trametinib, Binimetinib, Selumetinibなど)は、MEK1変異の有無に関わらず、単剤もしくはBRAF阻害剤との併用で、他がん種に対して、薬事もしくはFDA承認されている。"
+TP53,HCL-v (SBLPN),1,1,LoF、GoF（SNVIndel）,del(17p13),,"A
+WHO2022, PMID: 22594855",,"A
+WHO2022, PMID: 10576509",,
+U2AF1,HCL-v (SBLPN),,1,GoF（SNVIndel：S34Fなど）,,,"A
+WHO2022, PMID: 24241536",,,,
+BCL2,HGBL,,1,GoF（Amplification、Rearrangement：IGH::BCL2）,t(14;18)(q32;q21),,"A
+WHO2022",,,,
+BCL6,HGBL,,1,GoF（Rearrangement：IGH::BCL6など）,3q27 rearrangement,,"A
+WHO2022",,,,
+ID3,HGBL,,1,LoF,,,"A
+WHO2017",,,,
+KMT2D,HGBL,,,,,,"A
+WHO2022",,,,
+MYC,HGBL,,1,GoF（Amplification、Rearrangement：IGH::MYCなど）,"amp(8q24), t(8;14)(q24;q32)など",,"A
+WHO2022",,,,
+TP53,HGBL,1,1,LoF、GoF（SNVIndel）,del(17p13),,"A
+WHO2022",,,,
+BRAF,Histiocytic sarcoma,,1,GoF（SNVIndel：V600Eなど、Fusion）,,V600E,"A
+WHO2022, PMID: 31768065, 32929178, 33904632",C,,"PMDA：Dabrafenib,Trametinib併用療法
+FDA：Dabrafenib, Vemurafenib
+FDA_Other：Dabrafenib, Vemurafenib","BRAF V600E/K を有する一部の非造血器腫瘍に対して、BRAF阻害剤とMEK阻害剤 (Trametinib, Binimetinib, Selumetinibなど)の併用療法が薬事もしくはFDA承認されている。"
+CBL,Histiocytic sarcoma,,1,GoF（SNVIndel）,,,"A
+WHO2022, PMID: 31768065, 32929178, 33904632",,,,
+CDKN2A,Histiocytic sarcoma,,1,GoF（SNVIndel）,,,"A
+WHO2022, 30626916",,,,
+CREBBP,Histiocytic sarcoma,,1,GoF（SNVIndel）,,,"B
+WHO2022",,,,
+CSF1R,Histiocytic sarcoma,,1,GoF（SNVIndel）,,,"B
+WHO2022",,,,
+KMT2D,Histiocytic sarcoma,,1,GoF（SNVIndel）,,,"B
+WHO2022",,,,
+KRAS,Histiocytic sarcoma,,1,GoF（SNVIndel）,,"G12, G13, Q61","A
+WHO2022, PMID: 31768065, 32929178, 33904632",C,,"FDA：Sotorasib (G12C)
+FDA_Other：Sotorasib (G12C), Adagrasib (G12C)",
+MAP2K1,Histiocytic sarcoma,,1,GoF（SNVIndel）,,,"A
+WHO2022, PMID: 31768065, 32929178, 33904632",,,,"Cobimetinib（MEK阻害剤）は、MEK1変異の有無に関わらず、histiocytic, neoplasms に対してFDA承認されている。その他のMEK阻害剤 (Trametinib, Binimetinib, Selumetinibなど)も単剤もしくはBRAF阻害剤との併用で、他がん種に対して、薬事もしくはFDA承認されている。"
+MTOR,Histiocytic sarcoma,,1,GoF（SNVIndel）,,,"A
+WHO2022, PMID:30626916, 31439678, 31768065, 32929178 , 33904632",,,,
+NF1,Histiocytic sarcoma,,1,LoF,,,"A
+WHO2022, PMID: 31768065, 32929178, 33904632",C,,"FDA：Selumetinib
+FDA_Other：Selumetinib",Selumetinib（MEK阻害剤）は、neurofibromatosis type1 にみられる叢状神経線維腫に薬事承認、FDA承認されている。
+NRAS,Histiocytic sarcoma,,1,GoF（SNVIndel）,,"G12, G13, Q61","A
+WHO2022, PMID: 31768065, 32929178, 33904632",,,,
+NTRK1,Histiocytic sarcoma,,1,"GoF（Fusion：NTRK1::PDIA3, NTRK1::TPRなど）",,,"A
+WHO2022, PMID:30626916, 31439678, 31768065, 32929178 , 33904632",C,,"FDA：Entrectinib, Larotrectinib (融合遺伝子)
+FDA_Other：Entrectinib, Larotrectinib (融合遺伝子)",
+PIK3CA,Histiocytic sarcoma,,1,GoF（SNVIndel）,,,"A
+WHO2022, PMID:30626916, 31439678, 31768065, 32929178 , 33904632",C,,FDA_Other：Alpelisib,PI3K阻害剤 (Copanlisib)は、PI3KCA変異の有無に関わらず、他がん種に対してFDA承認されている。
+PIK3R1,Histiocytic sarcoma,,1,LoF,,,"A
+WHO2022, PMID:30626916, 31439678, 31768065, 32929178 , 33904632",,,,
+PTEN,Histiocytic sarcoma,,1,GoF（SNVIndel）,,,"A
+WHO2022, PMID:30626916, 31439678, 31768065, 32929178 , 33904632",,,,
+PTPN11,Histiocytic sarcoma,,1,GoF（SNVIndel）,,,"A
+WHO2022, PMID: 31768065, 32929178, 33904632",,,,
+TP53,Histiocytic sarcoma,1,1,GoF（SNVIndel）,,,"B
+WHO2022",,,,
+ARID1B,HSTL,,1,LoF,,,"A
+WHO2017, PMID: 28122867",,,,
+INO80,HSTL,,1,GoF（SNVIndel）,,,"A
+WHO2022, NCCN2023 (TCL), PMID: 28122867",,,,
+PIK3CD,HSTL,,1,GoF（SNVIndel）,,,"A
+NCCN2023 (TCL), PMID: 28122867, 28297626",,,,PI3K阻害剤 (Copanlisib)は、PI3KCD変異の有無に関わらず、他がん種に対してFDA承認されている。Leniolisib (PI3K-delta阻害剤）は、PI3K3CDの変異の有無に関わらず、APDSに対してFDA承認されている。
+SETD2,HSTL,,1,LoF,,,"A
+WHO2022, NCCN2023 (TCL)",,,,
+SMARCA2,HSTL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+STAT3,HSTL,,1,GoF（SNVIndel：Y640F/D661Yなど）,,"Y640F, D661Y","A
+WHO2022, NCCN2023 (TCL)",,,,
+STAT5B,HSTL,,1,GoF（SNVIndel：N642Hなど）,,,"A
+WHO2022, NCCN2023 (TCL)",,,,
+TET3,HSTL,,1,LoF,,,"A
+WHO2022, NCCN2023 (TCL)",,,,
+ERCC6L2,IBMFS,1,1,LoF,,,"A
+ICC2022, NCCN2023 (MDS), PMID: 24507776, 28815563, 29146883, 30936069, 36952636",,,,
+ERG,IBMFS,1,2,LoF,,,"D
+ASH2023, LBA-6",,,,
+TLR8,IBMFS,1,2,GoF（SNVIndel：P432Lなど）,,,"D
+PMID: 33512449",,,,
+MPL,IBMFS: congenital amegakaryocytic thrombocytopenia (CAMT),1,2,LoF,,,"D
+PMID: 10077649, 11133753",,,,
+CLPB,IBMFS: Congenital neutropenia,1,1,LoF,,,"A
+OMIM: # 619813, PMID: 34115842,",,,,
+CSF3R,IBMFS: Congenital neutropenia,1,1,"LoF（SNVIndel：R308C, G316fs, G415fs, P146fsなど）",,,"A
+PMID: 24064807, 26052913, 26568159, 24753537, 28875503, 37216690",,,,
+ELANE,IBMFS: Congenital neutropenia,1,1,LoF,,,"A
+WHO2022, NCCN2023 (MDS), PMID: 28875503, 10581030",,,,
+G6PC3,IBMFS: Congenital neutropenia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS)",,,,
+GFI1,IBMFS: Congenital neutropenia,1,1,"GoF（SNVIndel：N382S, K403Rなど）",,,"A
+WHO2017, NCCN2023 (MDS), PMID: 12778173, 28875503",,,,
+HAX1,IBMFS: Congenital neutropenia,1,1,LoF（SNVIndel：W44Xなど）,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 17187068, 28875503",,,,
+JAGN1,IBMFS: Congenital neutropenia,1,1,LoF（SNVIndel）,,,"A
+OMIM: # 616022",,,,
+SRP54,IBMFS: Congenital neutropenia,1,1,LoF,,,"A
+OMIM: # 618752",,,,
+VPS45,IBMFS: Congenital neutropenia,1,1,LoF（SNVIndel）,,,"A
+OMIM: # 615285",,,,
+WAS,IBMFS: Congenital neutropenia,1,1,LoF（SNVIndel）,,,"A
+WHO2017",,,,
+DBA2,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+OMIM: %606129",,,,
+GATA1,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS)",,,,
+HEATR3,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+OMIM: # 620072",,,,
+RPL11,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS)",,,,
+RPL15,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+NCCN2023 (MDS)",,,,
+RPL18,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+OMIM: # 618310, PMID: 28280134",,,,
+RPL23,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+NCCN2023 (MDS)",,,,
+RPL26,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS)",,,,
+RPL27,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+NCCN2023 (MDS)",,,,
+RPL31,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+NCCN2023 (MDS)",,,,
+RPL35,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+OMIM: # 618312, PMID: 28280134",,,,
+RPL35A,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 18535205, 32241839",,,,
+RPL5,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+NCCN2023 (MDS), WHO2017",,,,
+RPS10,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS)",,,,
+RPS15A,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+OMIM: # 618313",,,,
+RPS17,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS)",,,,
+RPS19,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS)",,,,
+RPS24,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS)",,,,
+RPS26,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+NCCN2023 (MDS)",,,,
+RPS27,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+NCCN2023 (MDS)",,,,
+RPS28,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+NCCN2023 (MDS)",,,,
+RPS29,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+NCCN2023 (MDS)",,,,
+RPS7,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS)",,,,
+TSR2,IBMFS: Diamond-Blackfan anemia,1,1,LoF,,,"A
+NCCN2023 (MDS)",,,,
+BRCA1,IBMFS: Fanconi anemia,1,1,LoF,,,"A
+ICC2022, NCCN2023 (MDS), PMID: 30882047, 31351673",,,,
+BRCA2,IBMFS: Fanconi anemia,1,1,LoF,,,"A
+ICC2022, NCCN2023 (MDS), PMID: 30882047, 31351673",,,,
+BRIP1,IBMFS: Fanconi anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 30882047, 31351673",,,,
+ERCC4,IBMFS: Fanconi anemia,1,1,LoF,,,"A
+NCCN2023 (MDS), PMID: 30882047, 31351673",,,,
+FANCA,IBMFS: Fanconi anemia,1,1,"LoF（SNVIndel：P1325L, V372fs, N1140fs, c.79+1G>Cなど）",,,"A
+WHO2017, NCCN2023 (MDS), PMID: 30882047, 21325596, 27248996, 31351673, 37216690",,,,
+FANCB,IBMFS: Fanconi anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 30882047, 31351673",,,,
+FANCC,IBMFS: Fanconi anemia,1,2,LoF,,,"D
+PMID: 34482403",,,,
+FANCC,IBMFS: Fanconi anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 30882047, 21325596, 27248996, 31351673",,,,
+FANCD2,IBMFS: Fanconi anemia,1,1,LoF（SNVIndel：P679fsなど）,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 30882047, 31351673, 37216690",,,,
+FANCE,IBMFS: Fanconi anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 30882047, 21325596, 27248996, 31351673",,,,
+FANCF,IBMFS: Fanconi anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 30882047, 21325596, 27248996, 31351673",,,,
+FANCG,IBMFS: Fanconi anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 30882047, 21325596, 27248996, 31351673, 34482403",,,,
+FANCI,IBMFS: Fanconi anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 30882047, 31351673, 34482403",,,,
+FANCL,IBMFS: Fanconi anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 30882047, 31351673",,,,
+FANCM,IBMFS: Fanconi anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 30882047, 31351673",,,,
+MAD2L2,IBMFS: Fanconi anemia,1,1,LoF,,,"A
+NCCN2023 (MDS), PMID: 30882047, 31351673",,,,
+PALB2,IBMFS: Fanconi anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 30882047, 31351673",,,,
+RAD51,IBMFS: Fanconi anemia,1,1,LoF,,,"A
+NCCN2023 (MDS), PMID: 30882047, 31351673",,,,
+RAD51C,IBMFS: Fanconi anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 20400963, 30882047, 31351673",,,,
+RFWD3,IBMFS: Fanconi anemia,1,1,LoF,,,"A
+OMIM: # 617784, PMID: 30882047, 28691929, 31351673",,,,
+SLX4,IBMFS: Fanconi anemia,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 30882047, 31351673",,,,
+UBE2T,IBMFS: Fanconi anemia,1,1,LoF,,,"A
+NCCN2023 (MDS), PMID: 30882047, 31351673",,,,
+XRCC2,IBMFS: Fanconi anemia,1,1,LoF,,,"A
+NCCN2023 (MDS), PMID: 30882047, 31351673",,,,
+DNAJC21,IBMFS: Shwachmann-Diamond syndrome,1,1,LoF,,,"A
+NCCN2023  (MDS), PMID: 34482403,",,,,
+EFL1,IBMFS: Shwachmann-Diamond syndrome,1,1,LoF,,,"A
+NCCN2023 (MDS)",,,,
+EIF6,IBMFS: Shwachmann-Diamond syndrome,,1,LoF（SNVIndel：N106S、R96Wなど）,,,"A
+NCCN2023 (MDS), PMID: 33637765, 36542827,",,,,EIF6 の機能欠失をきたす体細胞変異が、Shwachmann-Diamond syndromeで認めるSBDS欠失細胞の生存を高めるため、いわゆる”Revertant somatic mosaicismとして顕在化すると考えられている (PMID: 34528395)
+SBDS,IBMFS: Shwachmann-Diamond syndrome,1,1,LoF（SNVIndel：c.258+2T>Cなど）,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 36542827, 37216690",,"D
+PMID: 28177873",,
+ACD,IBMFS: Telomere biology disorders,1,1,LoF,,,"A
+NCCN2023 (MDS)","D
+PMID: 27192671, 30047419",,,造血幹細胞移植の際には、移植前治療の選択に注意が必要 である(PMID: 30047419)。
+CTC1,IBMFS: Telomere biology disorders,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 22899577, 30891747","D
+PMID: 27192671, 30047419",,,造血幹細胞移植の際には、移植前治療の選択に注意が必要 (PMID: 30047419)。
+DCLRE1B,IBMFS: Telomere biology disorders,1,1,LoF,,,"A
+OMIM: # 620133","D
+PMID: 27192671, 30047419",,,造血幹細胞移植の際には、移植前治療の選択に注意が必要 (PMID: 30047419)。
+DKC1,IBMFS: Telomere biology disorders,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 24064807, 16332973, 26052913","D
+PMID: 27192671, 30047419",,,造血幹細胞移植の際には、移植前治療の選択に注意が必要 (PMID: 30047419)。
+GRHL2,IBMFS: Telomere biology disorders,1,2,LoF,,,"D
+PMID: 27612988","D
+PMID: 27192671, 30047419",,,造血幹細胞移植の際には、移植前治療の選択に注意が必要 (PMID: 30047419)。
+NAF1,IBMFS: Telomere biology disorders,1,1,LoF,,,"A
+NCCN2023 (MDS)","D
+PMID: 27192671, 30047419",,,造血幹細胞移植の際には、移植前治療の選択に注意が必要 (PMID: 30047419)。
+NHP2,IBMFS: Telomere biology disorders,1,1,LoF,,,"A
+NCCN2023 (MDS), WHO2017","D
+PMID: 27192671, 30047419",,,造血幹細胞移植の際には、移植前治療の選択に注意が必要 (PMID: 30047419)。
+NOP10,IBMFS: Telomere biology disorders,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS)","D
+PMID: 27192671, 30047419",,,造血幹細胞移植の際には、移植前治療の選択に注意が必要 (PMID: 30047419)。
+PARN,IBMFS: Telomere biology disorders,1,1,LoF,,,"A
+NCCN2023 (MDS), PMID: 25848748, 33035329","D
+PMID: 27192671, 30047419",,,造血幹細胞移植の際には、移植前治療の選択に注意が必要 (PMID: 30047419)。
+POT1,IBMFS: Telomere biology disorders,1,1,LoF,,,"A
+NCCN2023 (MDS)","D
+PMID: 27192671, 30047419",,,造血幹細胞移植の際には、移植前治療の選択に注意が必要 (PMID: 30047419)。
+RPA1,IBMFS: Telomere biology disorders,1,1,GoF（SNVIndel：E240Kなど）,,,"A
+OMIM: *179835, PMID: 34767620","D
+PMID: 27192671, 30047419",,,造血幹細胞移植の際には、移植前治療の選択に注意が必要 (PMID: 30047419)。
+RTEL1,IBMFS: Telomere biology disorders,1,1,LoF,,,"A
+WHO2017, NCCN2023 (AML),NCCN2023 (MDS), PMID: 27418648, 29146883, 29344583","D
+PMID: 27192671, 30047419",,,造血幹細胞移植の際には、移植前治療の選択に注意が必要 (PMID: 30047419)。
+STN1,IBMFS: Telomere biology disorders,1,2,LoF,,,"D
+PMID: 27432940","D
+PMID: 27192671, 30047419",,,造血幹細胞移植の際には、移植前治療の選択に注意が必要 (PMID: 30047419)。
+TERC,IBMFS: Telomere biology disorders,1,1,LoF,,,"A
+WHO2017, NCCN2023 (AML),  NCCN2023 (MDS), PMID: 16332973, 18931339","D
+PMID: 27192671, 30047419",,,造血幹細胞移植の際には、移植前治療の選択に注意が必要 (PMID: 30047419)。
+TERT,IBMFS: Telomere biology disorders,1,1,LoF,,,"A
+WHO2017, NCCN2023 (AML), NCCN2023 (MDS), PMID: 16332973, 18931339","D
+PMID: 27192671, 30047419",,,造血幹細胞移植の際には、移植前治療の選択に注意が必要 (PMID: 30047419)。
+TINF2,IBMFS: Telomere biology disorders,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 18669893, 29146883","D
+PMID: 27192671, 30047419",,,造血幹細胞移植の際には、移植前治療の選択に注意が必要 (PMID: 30047419)。
+TYMS,IBMFS: Telomere biology disorders,1,1,LoF,,,"A
+OMIM: #620040","D
+PMID: 27192671, 30047419",,,"TYMSのバリアントは、ENOSFの特定のハプロタイプと関連して、DKCD (dyskeratosis congenita, digenic) に関連 (OMIM: 620040)。造血幹細胞移植の際には、移植前治療の選択に注意が必要 (PMID: 30047419)。"
+WRAP53,IBMFS: Telomere biology disorders,1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 21205863","D
+PMID: 27192671, 30047419",,,造血幹細胞移植の際には、移植前治療の選択に注意が必要 (PMID: 30047419)。
+ZCCHC8,IBMFS: Telomere biology disorders,1,1,LoF,,,"A
+NCCN2023 (MDS)","D
+PMID: 27192671, 30047419",,,造血幹細胞移植の際には、移植前治療の選択に注意が必要 (PMID: 30047419)
+BCL2,IDCS,,1,GoF (Rearrangement：IGH::BCL2）,t(14;18)(q32;q21),,"A
+WHO2022, PMID 18272816",,,,
+BRAF,IDCS,,1,GoF（SNVIndel：V600Eなど）,,V600E,"A
+WHO2022, PMID 33904632, 25787243, 26047060",C,,"FDA：Dabrafenib, Vemurafenib
+FDA_Other：Dabrafenib, Vemurafenib","BRAF V600E/K を有する一部の非造血器腫瘍に対して、BRAF阻害剤とMEK阻害剤 (Trametinib, Binimetinib, Selumetinibなど)の併用療法が薬事もしくはFDA承認されている。"
+CBL,IDCS,,1,GoF (SNVIndel、Fusion:CBL::USP2）,,,"A
+WHO2022, PMID 33904632, 25787243, 26047060",,,,
+FBXW7,IDCS,,1,GoF (SNVIndel）,,,"A
+WHO2022, PMID 33904632, 25787243, 26047060",,,,
+KRAS,IDCS,,1,GoF (SNVIndel）,,"G12, G13, Q61","A
+WHO2022, PMID 33904632, 25787243, 26047060",C,,"FDA：Sotorasib (G12C)
+FDA_Other：Sotorasib (G12C), Adagrasib (G12C)",
+MAP2K1,IDCS,,1,GoF (SNVIndel）,,,"A
+WHO2022, PMID 33904632, 25787243, 26047060",,,,"MEK阻害剤 (Cobimetinib, Trametinib, Binimetinib, Selumetinibなど)は、MEK1変異の有無に関わらず、単剤もしくはBRAF阻害剤との併用で、他がん種に対して、薬事もしくはFDA承認されている。"
+NRAS,IDCS,,1,GoF (SNVIndel）,,"G12, G13, Q61","A
+WHO2022, PMID 33904632, 25787243, 26047060",,,,
+TET2,IDCS,,1,GoF (SNVIndel）,,,"A
+WHO2022, PMID 33904632, 25787243, 26047060",,,,
+BRAF,Indeterminate dendritic cell tumor,,1,GoF（SNVIndel：V600Eなど）,,V600E,"A
+WHO2022",C,,"FDA：Dabrafenib, Vemurafenib
+FDA_Other：Dabrafenib, Vemurafenib","BRAF V600E/K を有する一部の非造血器腫瘍に対して、BRAF阻害剤とMEK阻害剤 (Trametinib, Binimetinib, Selumetinibなど)の併用療法が薬事もしくはFDA承認されている。"
+ETV3,Indeterminate dendritic cell tumor,,1,GoF (Fusion：ETV3::NCOA2）,t(1;8)(q23.1;q13.3),,"A
+WHO2022",,,,
+ETV6,Indeterminate dendritic cell tumor,,1,GoF (Fusion）,der (1;1)t(1;12)(q21;p13),,"A
+WHO2022",,,,
+KRAS,Indeterminate dendritic cell tumor,,1,GoF（SNVIndel）,,"G12, G13, Q61","A
+WHO2022",C,,"FDA：Sotorasib (G12C)
+FDA_Other：Sotorasib (G12C), Adagrasib (G12C)",
+CIC,iNKLPD,,1,LoF,,,"A
+WHO2022",,,,
+ERBB4,iNKLPD,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+IL2,iNKLPD,,1,GoF,,,"A
+WHO2022",,,,
+JAK2,iNKLPD,,1,GoF（Fusion；STAT3::JAK2）,,,"A
+WHO2022",,,,"Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MF, PVに対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MFに対してFDA承認されている。"
+JAK3,iNKLPD,,1,GoF,,,"A
+WHO2022",,,,
+KMT2D,iNKLPD,,1,LoF,,,"A
+WHO2022",,,,
+RUNX1T1,iNKLPD,,1,Unknown,,,"A
+WHO2022, PMID: 31383643",,,,
+SETD5,iNKLPD,,1,Unknown,,,"A
+WHO2022, PMID: 31383643",,,,
+STAT3,iNKLPD,,1,GoF（SNVIndel）,,"Y640F, D661Y","A
+WHO2022",,,,
+TET2,iNKLPD,,1,LoF,,,"A
+WHO2022",,,,
+JAK3,ITCL-NOS,,1,GoF,,,"A
+WHO2022",,,,
+SETD2,ITCL-NOS,,1,LoF,,,"A
+WHO2022",,,,
+STAT5B,ITCL-NOS,,1,GoF (SNVIndel）,,,"A
+WHO2022",,,,
+ALK,JMML,,2,"GoF（Fusion：DCTN1::ALK, RANBP2-ALK）",,,,"C
+PMID：29437595",,"FDA：Alectinib, Crizotinib, Ceritinib, Brigatinib, Lorlatinib
+FDA_Other：Crizotinib, Ceritinib, Alectinib, Brigatinib, Lorlatinib",
+CBL,JMML,1,1,GoF（SNVIndel）,,,"A
+WHO2022, ICC2022",,,,
+DCTN1,JMML,,2,GoF（Fusion：DCTN1::ALK）,,,,"C
+PMID：29437595",,"FDA：Alectinib, Crizotinib, Ceritinib, Brigatinib, Lorlatinib
+FDA_Other：Crizotinib, Ceritinib, Alectinib, Brigatinib, Lorlatinib",
+NF1,JMML,,1,LoF,,,"A
+WHO2022, ICC2022, PMID: 26457648",C,,"FDA：Selumetinib
+FDA_Other：Selumetinib",Selumetinib（MEK阻害剤）は、neurofibromatosis type1 にみられる叢状神経線維腫に薬事承認、FDA承認されている。
+NRAS,JMML,1,1,"GoF（SNVIndel：G12D/S/A/V, Q61R/Kなど）",,"G12, G13, Q61","A
+WHO2022, ICC2022, PMID: 26457648",,,,
+PTPN11,JMML,1,1,GoF（SNVIndel）,,,"A
+WHO2022; ICC2022, PMID: 30670449",,,,
+RANBP2,JMML,,2,GoF（Fusion： RANBP2::ALK）,,,,"C
+PMID：29437595",,"FDA：Alectinib, Crizotinib, Ceritinib, Brigatinib, Lorlatinib
+FDA_Other：Crizotinib, Ceritinib, Alectinib, Brigatinib, Lorlatinib（ALK融合遺伝子）",
+ROS1,JMML,,2,GoF（Fusion：TBL1XR1::ROS1）,,,,"C
+PMID：29437595",,"FDA：Crizotinib（ROS1融合遺伝子）
+FDA_Other：Crizotinib（ROS1融合遺伝子）",
+RRAS,JMML,,2,GoF（SNVIndel）,,,"D
+PMID: 26457647, 26457648",,,,
+CBL,"JMML associated with neurofibromatosis, Noonan syndrome or Noonan syndrome-like disorders",1,1,GoF（SNVIndel）,,,"A
+WHO2022, ICC2022, NCCN2023 (MDS)",,,,
+KRAS,"JMML associated with neurofibromatosis, Noonan syndrome or Noonan syndrome-like disorders",1,1,"GoF（SNVIndel：G12D/S/A/V, Q61Pなど）",,"G12, G13, Q61","A
+WHO2022, ICC2022, NCCN2023 (MDS)","C
+PMID: 32955176",,"FDA：Sotorasib (G12C)
+FDA_Other：Sotorasib (G12C), Adagrasib (G12C)",
+NF1,"JMML associated with neurofibromatosis, Noonan syndrome or Noonan syndrome-like disorders",1,1,LoF,,,"A
+WHO2017, NCCN2023 (MDS)",C,,"FDA：Selumetinib
+FDA_Other：Selumetinib",Selumetinib（MEK阻害剤）は、neurofibromatosis type1 にみられる叢状神経線維腫に薬事承認、FDA承認されている。
+NRAS,"JMML associated with neurofibromatosis, Noonan syndrome or Noonan syndrome-like disorders",1,1,GoF（SNVIndel）,,"G12, G13, Q61","A
+WHO2017",,,,
+PTPN11,"JMML associated with neurofibromatosis, Noonan syndrome or Noonan syndrome-like disorders",1,1,GoF（SNVIndel）,,,"A
+WHO2022, ICC2022, NCCN2023 (MDS), PMID: 30670449",,,,
+RAF1,"JMML associated with neurofibromatosis, Noonan syndrome or Noonan syndrome-like disorders",1,1,GoF（SNVIndel）,,,"A
+WHO2017",,,,
+SOS1,"JMML associated with neurofibromatosis, Noonan syndrome or Noonan syndrome-like disorders",1,1,GoF（SNVIndel）,,,"A
+WHO2017",,,,
+ARAF,Langerhans cell histiocytosis,,1,GoF,,,"A
+WHO2022, NCCN2023（Histiocytic Neoplasms）","D
+PMID: 30867592",,,
+BRAF,Langerhans cell histiocytosis,,1,"GoF（SNVIndel：V600E, K57Nなど）",,V600E,"A
+WHO2022, NCCN2023（Histiocytic Neoplasms), PMID: 20519626","A
+WHO2022, PMID: 30867592",,"PMDA：Dabrafenib,Trametinib併用療法
+FDA：Dabrafenib, Vemurafenib
+FDA_Other：Dabrafenib, Vemurafenib","VemurafenibはErdheim-ChesterのみFDA承認されている。BRAF V600E/K を有する一部の非造血器腫瘍に対して、BRAF阻害剤とMEK阻害剤 (Trametinib, Binimetinib, Selumetinibなど)の併用療法が薬事もしくはFDA承認されている。"
+ERBB3,Langerhans cell histiocytosis,,1,GoF（SNVIndel）,,,"A
+WHO2022, PMID 30157397",,,,
+KRAS,Langerhans cell histiocytosis,,1,GoF（SNVIndel）,,"G12, G13, Q61","A
+WHO2022,  NCCN2023（Histiocytic Neoplasms), PMID 30157397",C,,"FDA：Sotorasib (G12C)
+FDA_Other：Sotorasib (G12C), Adagrasib (G12C)",
+MAP2K1,Langerhans cell histiocytosis,,1,"GoF（SNVIndel：exon2 in-frameSNVIndel,p.56_61del, Q58_E62del など）",,,"A
+PMID: 25202140,30157397, 32654047, 34611301","A
+WHO2022, PMID: 30867592",,,"Cobimetinib（MEK阻害剤）は、MEK1変異の有無に関わらず、histiocytic, neoplasms に対してFDA承認されている。その他のMEK阻害剤 (Trametinib, Binimetinib, Selumetinibなど)も単剤もしくはBRAF阻害剤との併用で、他がん種に対して、薬事もしくはFDA承認されている。"
+NRAS,Langerhans cell histiocytosis,,1,GoF（SNVIndel）,,"G12, G13, Q61","A
+WHO2022,  NCCN2023（Histiocytic Neoplasms), PMID: 30157397",,,,
+BRAF,Langerhans cell sarcoma,,1,GoF（SNVIndel：V600Eなど）,,V600E,"A
+WHO2022 NCCN2023（Histiocytic Neoplasms),","C
+PMID: 30867592",,"PMDA：Dabrafenib,Trametinib併用療法
+FDA：Dabrafenib, Vemurafenib
+FDA_Other：Dabrafenib, Vemurafenib","BRAF V600E/K を有する一部の非造血器腫瘍に対して、BRAF阻害剤とMEK阻害剤 (Trametinib, Binimetinib, Selumetinibなど)の併用療法が薬事もしくはFDA承認されている。"
+CDKN2A,Langerhans cell sarcoma,,1,LoF(SNVIndel）,,,"A
+WHO2022, PMID 33904632 ; 29194093",,,,
+KRAS,Langerhans cell sarcoma,,1,LoF(SNVIndel）,,"G12, G13, Q61","A
+WHO2022, PMID 33904632",C,,"FDA：Sotorasib (G12C)
+FDA_Other：Sotorasib (G12C), Adagrasib (G12C)",
+PTEN,Langerhans cell sarcoma,,1,LoF(SNVIndel）,,,"A
+WHO2022,33904632 ; 29194093",,,,
+TP53,Langerhans cell sarcoma,1,1,LoF(SNVIndel）,,,"A
+WHO2022, PMID 33904632 ; 29194094",,,,
+ALK,LBCL (ALK+),,1,"GoF（Fusion：CLTC::ALK, NPM1::ALK, SQSTM1::ALK, SEC31A::ALK）など","t(2;17)(p23;q23), t(2;5)(p23;q35), t(X;2)(q21;q23), t(2;12)(p23;q24.1), Insertion of 3' ALK into 4q22-24など",,"A
+WHO2022","A
+NCCN2023 (BCL)",,"FDA：Alectinib, Crizotinib, Ceritinib, Brigatinib, Lorlatinib
+FDA_Other：Alectinib, Crizotinib, Ceritinib, Brigatinib, Lorlatinib",
+CLTC,LBCL (ALK+),,1,GoF（Fusion：CLTC::ALK）,t(2;17)(p23;q23),,"A
+WHO2022",,,,ALKは融合パートナーによって免疫組織化学的染色パターンに特徴があり、CTLCがパートナーの場合はALK染色パターンはCytoplasmic; granularとなる。
+EML4,LBCL (ALK+),,1,GoF（Fusion： EML4::ALK）,inv(2)(p21p23),,"A
+WHO2022",,,,ALKは融合パートナーによって免疫組織化学的染色パターンに特徴があり、EML4がパートナーの場合はALK染色パターンはCytoplasmic; diffuseとなる。
+GORASP2,LBCL (ALK+),,1,GoF（Fusion：GORASP2::ALK）,inv(2)(p21q31.1) or t(2;2)(p23;q31.1),,"A
+WHO2022",,,,ALKは融合パートナーによって免疫組織化学的染色パターンに特徴があり、GORASP2がパートナーの場合はALK染色パターンはCytoplasmic; diffuseとなる。
+NPM1,LBCL (ALK+),,1,GoF（Fusion：NPM1::ALK）,t(2;5)(p23;q35),"L287fs, W288fs","A
+WHO2022",,,,ALKは融合パートナーによって免疫組織化学的染色パターンに特徴があり、NPM1がパートナーの場合はALK染色パターンはNuclear and cytoplasmicとなる。
+RANBP2,LBCL (ALK+),,1,GoF（Fusion： RANBP2::ALK）,inv(2)(p23q13) or t(2;2)(p23;q13),,"A
+WHO2022",,,,ALKは融合パートナーによって免疫組織化学的染色パターンに特徴があり、RANBO2がパートナーの場合はALK染色パターンはNuclear membrane and perinuclear punctateとなる。
+SEC31A,LBCL (ALK+),,1,GoF（Fusion：SEC31A::ALK）,,,"A
+WHO2022",,,,ALKは融合パートナーによって免疫組織化学的染色パターンに特徴があり、SEC31Aがパートナーの場合はALK染色パターンはALK染色パターンはCytoplasmic; granulatとなる。
+SQSTM1,LBCL (ALK+),,1,GoF（Fusion：SQSTM1::ALK）,,,"A
+WHO2022",,,,ALKは融合パートナーによって免疫組織化学的染色パターンに特徴があり、SQSTM1がパートナーの場合はALK染色パターンはCytoplasmic; diffuseとなる。
+BCL6,LBCL with IRF4-r,,1,GoF（Rearrangement：IGH::BCL6など）,3q27 rearrangement,,"A
+WHO2022",,,,
+CARD11,LBCL with IRF4-r,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+CD79B,LBCL with IRF4-r,,1,GoF（SNVIndel：Y196など）,,Y196,"A
+WHO2022",,,,
+IRF4,LBCL with IRF4-r,,1,GoF（Rearrangement：IGH::IRF4）,t(6;14)(p25;q32),,"A
+WHO2022, NCCN2023",,,,
+TP53,LBCL with IRF4-r,1,1,LoF、GoF（SNVIndel）,del(17p13),,"A
+WHO2017",,,,
+DUSP22,Lymphomatoid papulosis,,1,GoF（Rearrangement：DUSP22::FRA7Hなど）,t(6;7)(p25.3;q32.3)など,,"A
+WHO2022",,,,
+NPM1,Lymphomatoid papulosis,,1,GoF（Fusion：NPM1::TYK2）,t(5;19)(q35;p13),"L287fs, W288fs","A
+WHO2022",,,,
+ITK,lymphoproliferative syndrome,1,1,LoF　（SNVIndel）,,,"A
+OMIM: # 186973",,,,
+BCL6,M-PTLD,,1,Unknown（SNVIndel）,,,"A
+WHO2017, NCCN2023 (BCL)",,"A
+NCCN2023 (BCL), PMID: 9746767",,BCL6の変異により、免疫抑制療法に対する耐性をきたす可能性がある。
+MYC,M-PTLD,,1,GoF（Rearrangement：IGH::MYC）,t(8;14)(q24;q32)など,,"A
+WHO2017, NCCN2023 (BCL)",,,,
+NRAS,M-PTLD,,1,GoF（SNVIndel：Q61Kなど）,,"G12, G13, Q61","A
+WHO2017, NCCN2023 (BCL), PMID: 7812011",,,,
+TP53,M-PTLD,1,1,LoF、GoF（SNVIndel）,,,"A
+WHO2017, NCCN2023 (BCL)",,,,
+BCL10,MALT (EMZL),,1,GoF（Rearrangement：IGH::BCL10）,t(1;14)(p22;q32),,"A
+WHO2022,  NCCN2023 (BCL)",,,,
+BIRC3,MALT (EMZL),,1,GoF（Fusion：BIRC3::MALT1）,t(11;18)(q21;q21),,"A
+WHO2022",,,,t(11;18)転座により、H.pyroli 除菌に対する耐性をきたす可能性がある。
+CD274,MALT (EMZL),,1,LoF,,,"A
+WHO2022, PMID: 34021249",,,,
+FOXP1,MALT (EMZL),,1,GoF（Rearrangement：IGH::FOXP1）,t(3;14)(p14.1;q32),,"A
+WHO2022",,,,
+GPR34,MALT (EMZL),,1,GoF（SNVIndel、Rearrangement：IGH::GPR34）,t(X;14)(p11;q32),,"A
+WHO2022",,,,
+MALT1,MALT (EMZL),,1,GoF（Fusion：BIRC3::MALT1、Rearrangement：IGH::MALT1）,"t(11;18)(q21;q21), t(14;18)(q32;q21)",,"A
+WHO2022",,,,t(11;18) 転座により、H.pyroli 除菌に対する耐性をきたす可能性がある。
+TET2,MALT (EMZL),,1,LoF,,,"A
+WHO2022, PMID: 34021249",,,,
+TNFAIP3,MALT (EMZL),,1,LoF,del(6q23),,"A
+WHO2022, PMID: 19412163",,,,
+TNFRSF14,MALT (EMZL),,1,LoF,,,"A
+WHO2022, PMID: 34021249",,,,
+TP53,MBL,1,1,"LoF、GoF（SNVIndel：R175H, G245S, R248Q, R248W, R273Hなど）",del(17p13),,"A
+WHO2022",,,,
+ATM,MCL,,1,LoF,del(11q23),,"A
+WHO2022",,,,
+BCL2,MCL,,1,GoF（Amplification）,amp(18q21),,"A
+WHO2022",,,,
+BCL6,MCL,,1,GoF（Rearrangement：IGH::BCL6など）,3q27 rearrangement,,"A
+WHO2017",,,,
+BIRC3,MCL,,1,LoF,,,"A
+WHO2022",,,,
+BMI1,MCL,,1,GoF（Amplification）,,,"A
+WHO2017",,,,
+BTK,MCL,,1,GoF（SNVIndel）,,,,"A
+WHO 2022, NCCN 2023 (BCL), PMID: 25082755, 30175400","A
+NCCN2023 (BCL), PMID: 25082755",,Ibrutinib（BTK阻害剤）は、BTK変異の有無に関わらず、当該疾患に対して薬事承認、FDA承認されている。
+CCND1,MCL,,1,"GoF（Rearrangement：IGH::CCND1、SNVIndel：Y44Dなど, 構造異常：3’UTR or by 3´UTR mutations）",t(11;14)(q13;q32),,"A
+WHO2022",,"A
+WHO2022",,
+CCND2,MCL,,1,"GoF（Rearrangement：IGK::CCND2, IGL::CCND2）","t(2;12)(p12;p13), t(12;22)(p13;q11)",,"A
+WHO2022",,,,
+CCND3,MCL,,1,"GoF（Rearrangement：IGK::CCND3, IGL::CCND3）","t(2;6)(p12; p21), t(6;22)(p21;q11)",,"A
+WHO2022, ICC2022, NCCN2023 (BCL)",,,,
+CDK4,MCL,,1,GoF（Amplification）,,,"A
+WHO2017",,,,
+CDKN2A,MCL,,1,LoF,del(9p21),,"A
+WHO2022",,"A
+WHO2017",,
+CDKN2B,MCL,,1,LoF,del(9p21),,"A
+WHO2022",,,,
+CDKN2C,MCL,,1,LoF,,,"A
+WHO2017",,,,
+KMT2D,MCL,,1,LoF,,,"A
+WHO2022",,,,
+MAP3K14,MCL,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+MYC,MCL,,1,GoF（Amplification、Rearrangement：IGH::MYCなど）,"amp(8q24), t(8;14)(q24;q32)など",,"A
+WHO2022",,"A
+WHO2017",,
+NOTCH1,MCL,,1,GoF（SNVIndel：P2514fsなど）,,,"A
+WHO2022, PMID: 22210878",,"A
+WHO2017",,
+NOTCH2,MCL,,1,GoF（SNVIndel：R2400*など）,,,"A
+WHO2017",,"A
+WHO2017",,
+NSD2,MCL,,1,GoF（SNVIndel）,,,"A
+WHO2022, PMID: 24145436",,"D
+PMID: 30175400",,
+RB1,MCL,,1,LoF,,,"A
+WHO2022",,,,
+S1PR1,MCL,,1,LoF,,,"A
+WHO2022",,,,
+SMARCA4,MCL,,1,LoF,,,"A
+WHO2022",,,,SMARCA4変異により、Venetoclax / Iburutinib 併用療法に対する耐性をきたす可能性がある。(PMID: 30455436)
+TNFAIP3,MCL,,1,LoF,del(6q23),,"A
+WHO2017",,,,
+TP53,MCL,1,1,LoF、GoF（SNVIndel）,del(17p13),,"A
+WHO2022",,"A 
+WHO 2022, NCCN2023 (BCL), PMID: 25210087 (ESMO)",,
+TRAF2,MCL,,2,LoF（SNVIndel）,,,"D
+PMID: 24362935, 25499451","D
+PMID: 24362935",,,TRAF2変異により、BTK阻害剤に対する耐性をきたす可能性がある。
+UBR5,MCL,,1,LoF,,,"A
+WHO2022, PMID: 23407552, 28297626",,,,
+ASXL1,MDS,,1,GoF（SNVIndel：exon11-12 truncation）,,,"A
+WHO2022, ICC2022, NCCN2023 (MDS), PMID: 27527698",,"A
+NCCN2023 (MDS)",,
+ATRX,MDS,,2,LoF,,,"D
+PMID: 24220272",,,,
+BCOR,MDS,,1,LoF,,,"A
+WHO2022, ICC2022, NCCN2023 (MDS)",,"A
+NCCN2023 (MDS)",,
+BCORL1,MDS,,1,LoF,,,"D
+PMID: 24047651, 26132940",,"A
+NCCN2023 (MDS), PMID: 26132940",,
+BRCC3,MDS,,2,LoF,,,"D
+PMID: 26001790, 27992414",,,,
+CBL,MDS,1,1,GoF（SNVIndel）,,,"A
+NCCN2023 (MDS), PMID: 21714648, 24220272",,"A
+NCCN2023 (MDS)",,
+CEBPA,MDS,1,1,LoF,,,"A
+NCCN2023 (MDS)",,"A
+NCCN2023 (MDS)",,
+CSNK1A1,MDS,,2,GoF（SNVIndel）,,,"D
+PMID: 26688096",,"D
+PMID: 26688096",,
+CTCF,MDS,,1,LoF,,,"B
+PMID: 24220272",,,,
+CUX1,MDS,,1,LoF,,,"B
+PMID: 23212519, 24030381",,,,
+DDX41,MDS,1,1,"LoF（SNVIndel：D140Gfs, M1I, A500Cfs, 対側アリルにおけるR525Hなど）",,,"A
+NCCN2023 (MDS), PMID: 27992414, 34482403, 36322930, 36455200","D
+PMID: 35987913, 36001442","D
+PMID: 36322930, 36455200",,"造血幹細胞移植後にDDX41変異を有するドナー由来白血病が報告されている (PMID: 27795557, 28194039)"
+DNMT3A,MDS,,1,LoF、GoF（SNVIndel：R882C::Hなど）,,,"A
+WHO2022, ICC2022, NCCN2023 (MDS)",,"A
+NCCN2023 (MDS)",,
+EED,MDS,,2,LoF,,,"D
+PMID: 22053108, 26132940",,,,
+ERG,MDS,1,2,LoF,,,"D
+ASH2023, LBA-6",,,,
+ETNK1,MDS,,1,LoFなど（Ｎ244S),,,"A
+NCCN2023 (MDS)",,"A
+NCCN2023 (MDS)",,
+ETV6,MDS,1,1,LoF,,,"A
+NCCN2023 (MDS)",,"A
+NCCN2023 (MDS)",,
+EZH2,MDS,,1,LoF,,Y641,"A
+WHO2022, ICC2022, NCCN2023 (MDS)",C,"A
+NCCN2023 (MDS)","FDA：Tazemetostat
+FDA_Other：Tazemetostat",
+GATA2,MDS,,1,LoF（SNVIndel、Rearrangement）,"inv(3)(q21.3q26.2) , t(3;3)(q21.3;q26.2)",,"A
+NCCN2023 (MDS)",,"A
+NCCN2023 (MDS), PMID: 27992414",,
+GNAS,MDS,,1,GoF（SNVIndel：R201C::Hなど）,,,"B
+PMID: 21714648, 24220272",,,,
+GNB1,MDS,,1,GoF（SNVIndel）,,,"A
+NCCN2023 (MDS), PMID: 25485910",,"A
+NCCN2023 (MDS)",,
+IDH1,MDS,,1,GoF（SNVIndel：R132C/G/H/L/Q/Sなど）,,R132C/L/H,"A
+NCCN2023 (MDS)","A
+NCCN2023 (MDS)","A
+NCCN2023 (MDS), PMID: 27992414","PMDA_Other：Ivosidenib
+FDA_Other：Ivosidenib, Olutasidenib",
+IDH2,MDS,,1,"GoF（SNVIndel：R140Q/W, R172Kなど）",,"R140Q, R172K","A
+NCCN2023 (MDS)","C
+PMID: 28588019, 28588020, 30510081","A
+NCCN2023 (MDS)",FDA_Other：Enasidenib,
+JAK2,MDS,1,1,GoF（SNVIndel：V617Fなど）,,V617F,"A
+NCCN2023 (MDS)",,"D
+PMID: 28177873",,"Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MF, PVに対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MFに対してFDA承認されている。"
+JAK3,MDS,,2,Unknown (SNVIndel）,,,"D
+PMID: 26132940",,,,
+KMT2A,MDS,,1,GoF（SNVIndel：PTD）,,,"A
+NCCN2023 (MDS)",,"A
+NCCN2023 (MDS)",,
+KRAS,MDS,1,1,"GoF（SNVIndel：G12D/S/A/V, Q61Pなど）",,"G12, G13, Q61","A
+NCCN2023 (MDS)","C
+PMID: 32955176","A
+NCCN2023 (MDS), PMID: 24220272, 27992414, 28177873","FDA：Sotorasib (G12C)
+FDA_Other：Sotorasib (G12C), Adagrasib (G12C)",
+LAMB4,MDS,,2,Unknown (SNVIndel）,,,"D
+PMID: 24220272, 26132940",,,,
+LIG4,MDS,1,1,Unknown (SNVIndel）,,,"A
+NCCN2023 (MDS), OMIM: 601837",,,,
+LUC7L2,MDS,,1,LoF,,,"B
+PMID: 24220272",,,,
+MECOM,MDS,1,1,Unknown（SNVIndel）,,,"A
+ELN2022, PMID: 29097497",,,,
+MPL,MDS,1,1,GoF（SNVIndel：W515L/Kなど）,,W515,"A
+NCCN2023 (MDS), PMID: 24220272",,,,
+NF1,MDS,,1,LoF,,,"A
+NCCN2023 (MDS)",C,"A
+NCCN2023 (MDS), PMID: 24220272","FDA：Selumetinib
+FDA_Other：Selumetinib",Selumetinib（MEK阻害剤）は、neurofibromatosis type1 にみられる叢状神経線維腫に薬事承認、FDA承認されている。
+NPM1,MDS,,1,GoF、LoF（SNVIndel：exon12 mutation）,,"L287fs, W288fs","A
+NCCN2023 (MDS)",,"A
+NCCN2023 (MDS), PMID: 30902805",,
+NRAS,MDS,1,1,"GoF（SNVIndel：G12D/S/A/V, Q61R/Kなど）",,"G12, G13, Q61","A
+NCCN2023 (MDS)",,"A
+NCCN2023 (MDS), PMID: 28177873",,
+PEG3,MDS,,2,Unknown (SNVIndel）,,,"D
+PMID: 26132940",,,,
+PHF6,MDS,,1,LoF,,,"A
+NCCN2023 (MDS), PMID: 28068180",,"A
+NCCN2023 (MDS)",,
+PIGA,MDS,,2,LoF,,,"D
+PMID: 26132940",,"D
+PMID: 26132940",,
+PPM1D,MDS,,1,GoF（SNVIndel：exon 6 のnonsenseもしくはframeshiftSNVIndel）,,,"A
+NCCN2023 (MDS), PMID: 28177873",,"A
+NCCN2023 (MDS)",,Therapy-related MDSとの関連が示唆されている。
+PRPF8,MDS,,1,LoF,,,"A
+NCCN2023 (MDS)",,"A
+NCCN2023 (MDS), PMID: 24220272",,
+PTPN11,MDS,1,1,GoF（SNVIndel）,,,"A
+NCCN2023 (MDS)",,"A
+NCCN2023 (MDS), PMID: 27992414",,
+RAD21,MDS,,1,LoF,,,"B
+PMID: 23955599, 25006131",,,,
+RECQL4,MDS,1,1,LoF,,,"A
+ELN2022, PMID: 37228773",,,,
+RIT1,MDS,,2,GoF,,,"D
+PMID: 23765226, 26132940",,,,
+ROBO1,MDS,,2,LoF（Deletion）,,,"D
+PMID: 26608094",,,,
+ROBO2,MDS,,2,LoF（Deletion）,,,"D
+PMID: 26608094",,,,
+RUNX1,MDS,1,1,LoF,,,"A
+WHO2022, ICC2022, NCCN2023 (MDS)",,"A
+NCCN2023 (MDS)",,
+SBDS,MDS,1,1,LoF,,,"A
+NCCN2023 (MDS)",,"D
+PMID: 28177873",,SBDSの変異がある場合、造血幹細胞移植後の予後が不良である可能性がある。
+SETBP1,MDS,,1,"GoF（SNVIndel：D868N, G870Sなど）",,,"A
+NCCN2023 (MDS), PMID: 23832012",,"A
+NCCN2023 (MDS)",,
+SF3B1,MDS,,1,GoF（SNVIndel：K700Eなど）,,"K700E, R625, N626, K666","A
+WHO2022, ICC2022, NCCN2023 (MDS)",,"A
+NCCN2023 (MDS)",,
+SMC1A,MDS,,2,LoF,,,"D
+PMID: 23955599",,,,
+SMC3,MDS,,2,LoF,,,"D
+PMID: 23955599",,,,
+SRSF2,MDS,,1,GoF（SNVIndel：P95L/H/R など）,,,"A
+WHO2022, ICC2022, NCCN2023 (MDS)",,"A
+NCCN2023 (MDS)",,
+STAG2,MDS,,1,LoF,,,"A
+WHO2022, NCCN2023 (MDS)",,"A
+NCCN2023 (MDS)",,
+STAT3,MDS,,1,GoF（SNVIndel：Y640F/D661Yなど）,,"Y640F, D661Y","A
+NCCN2023 (MDS), PMID: 23926297",,,,
+SUZ12,MDS,,2,LoF,,,"D
+PMID: 22053108",,,,
+TET2,MDS,,1,LoF,,,"A
+NCCN2023 (MDS)",,"C
+PMID: 27992414",,
+TP53,MDS,1,1,"LoF、GoF（SNVIndel：R175H, G245S, R248Q, R248W, R273Hなど）",,,"A
+WHO2022, ICC2022, NCCN2023 (MDS)",,"A
+NCCN2023 (MDS), PMID: 28177873",,
+U2AF1,MDS,,1,"GoF（SNVIndel：S34F/Y, Q157R/Pなど）",,,"A
+WHO2022, ICC2022, NCCN2023 (MDS)",,"A
+NCCN2023 (MDS)",,
+U2AF2,MDS,,2,GoF（SNVIndel）,,,"D
+PMID: 21909114",,,,
+WT1,MDS,,1,LoF,,,"A
+NCCN2023 (MDS)",,"A
+NCCN2023 (MDS), PMID: 27992414",,
+XPC,MDS,1,1,LoF,,,"A
+NCCN2023 (MDS), ICC2022, PMID: 30914417",,,,
+ZBTB33,MDS,,2,LoF,,,"D
+PMID: 34568833",,,,
+ZRSR2,MDS,,1,LoF,,,"A
+WHO2022, NCCN2023 (MDS), ICC2022",,"A
+NCCN2023 (MDS)",,
+SF3B1,MDS/MPN-RS-T,,1,GoF（SNVIndel：K700Eなど）,,"K700E, R625, N626, K666","A
+WHO2022, ICC2022, NCCN2023 (MDS), PMID: 25957392, 16990759, 16741247",,"D
+PMID: 23594705, 22532522",,
+CALR,MDS/MPN-RS-T,,1,GoF（SNVIndel：L367fsなど）,,"E364fs, K385fs","A
+NCCN2023 (MDS)",,,,
+JAK2,MDS/MPN-RS-T,1,1,GoF（SNVIndel：V617Fなど）,,V617F,"A
+NCCN2023 (MDS)",,,,"Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MF, PVに対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MFに対してFDA承認されている。"
+MPL,MDS/MPN-RS-T,1,1,GoF（SNVIndel：W515L::Kなど）,,W515,"A
+NCCN2023 (MDS)",,,,
+GNAI2,MEITL,,1,GoF（SNVIndel：R179Hなど）,,,"A
+WHO2017, ICC2022,  PMID: 26854024",,,,
+JAK3,MEITL,,1,GoF（SNVIndel：M511Iなど）,,,"A
+WHO2022, ICC2022",,,,
+MYC,MEITL,,1,GoF（Amplification）,amp(8q24),,"A
+WHO2022",,,,
+SETD2,MEITL,,1,LoF,,,"A
+WHO2022, ICC2022",,,,
+SOCS3,MEITL,,1,LoF,,,"A
+WHO2022",,,,
+STAT5B,MEITL,,1,GoF（SNVIndel：N642Hなど）,,,"A
+WHO2022, ICC2022",,,,
+TP53,MEITL,1,1,LoF、GoF（SNVIndel）,,,"A
+ICC2022",,,,
+JAK2,MLN-e with PCM1::JAK2,,1,GoF（Fusion：PCM1::JAK2）,t(8;9)(p22;p24),,"A
+WHO2022","D
+PMID: 22875628",,,"Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MF, PVに対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MFに対してFDA承認されている。"
+PCM1,MLN-e with PCM1::JAK2,,1,GoF（Fusion：PCM1::JAK2）,t(8;9)(p22;p24),,"A
+WHO2022","D
+PMID: 22875628",,,
+FIP1L1,MLN-e with PDGFRA rearrangement,,1,GoF（Fusion：FIP1LI::PDGFRA）,del(4)(q12q12),,"A
+WHO2022, ICC2022, PMID: 12660384","A
+ELN2022, NCCN2023 (MLN-e)",,"PMDA：Imatinib (FIP1L1::PDGFRα)
+PMDA_Other：Imatinib (FIP1L1::PDGFRα)",
+PDGFRA,MLN-e with PDGFRA rearrangement,,1,GoF（Fusion：FIP1LI::PDGFRA）,del(4)(q12q12),,"A
+WHO2022, ICC2022, PMID: 12660384","A
+ELN2022, NCCN2023 (MLN-e)",,"PMDA：Imatinib (FIP1L1::PDGFRα 融合遺伝子)
+PMDA_Other：Imatinib (FIP1L1::PDGFRα 融合遺伝子)",
+PDGFRB,MLN-e with PDGFRB rearrangement,,1,GoF（Fusion：ETV6::PDGFRB）,t(5;12)(q32;p13.2),,"A
+WHO2022, ICC2022","A
+ELN2022, NCCN2023 (MLN-e), PMID: 12181402, 24687085",,FDA_Other：Imatinib （PDGFRβ 融合遺伝子）,"PDGFRβ 融合遺伝子を有する造血器腫瘍で、各種TKI (Imatinib, Dasatinib,  Ponatinib, Sunitibなど）の有効性が示唆されている (PMID: 12181402, 23835704, 24687085, 31434701)。"
+ACTG1,MM,,2,GoF（SNVIndel）,,,"D
+PMID:29884741",,,,
+ARID1A,MM,,2,LoF,,,"D
+PMID:29884741",,,,
+ARID2,MM,,2,LoF,,,"C
+PMID: 29884741",,,,
+ATM,MM,,1,LoF,del(11q23),,"A
+WHO2022, PMID:29884741",,"D
+PMID: 26282654",,
+ATR,MM,,2,LoF,,,"D
+PMID:26282654",,"D
+PMID: 26282654",,
+ATRX,MM,,2,LoF,,,"D
+PMID:29884741",,,,
+BCMA,MM,,2,LoF（SNVIndel、Deletion）,del(16p),,,"D
+PMID: 33626253",,,
+BIRC2,MM,,1,LoF,del(11q),,"A
+WHO2022, PMID: 27002115, 20616218",,"D
+PMID:29789651",,PRDM1変異を伴うと予後が悪いの報告がある（PMID:29789651）。
+BIRC3,MM,,1,LoF,del(11q),,"A
+WHO2022, PMID: 27002115, 20616218",,"D
+PMID:29789651",,PRDM1変異を伴うと予後が悪いの報告がある（PMID:29789651）。
+BRAF,MM,,1,GoF（SNVIndel：V600Eなど）,,V600E,"A
+WHO2022, PMID: 28584253, 26282654",C,,"FDA：Dabrafenib, Vemurafenib
+FDA_Other：Dabrafenib, Vemurafenib","BRAF V600E/K を有する一部の非造血器腫瘍に対して、BRAF阻害剤とMEK阻害剤 (Trametinib, Binimetinib, Selumetinibなど)の併用療法が薬事もしくはFDA承認されている。"
+CCND1,MM,,1,GoF（Rearrangement：IGH::CCND1、Amplification、SNVIndel）,t(11;14)(q13;q32),,"A
+ICC2022, WHO2022, NCCN2023 (MM), PMID: 27002115, 28584253, 21430775, 26282654, 24429703","A
+WHO2022, PMID: 29018077","A
+WHO2022, PMID: 27002115, 28584253, 26282654",,t(11;14)(q13q;32) を有する症例に対してVenetoclaxの有用性が示唆されている（WHO2022）。
+CCND2,MM,,1,GoF（Rearrangement：IGH::CCND2）,t(12;14)(p13;q32),,"A
+ICC2022, WHO2022, PMID: 28584253",,,,
+CCND3,MM,,1,GoF（Rearrangement：IGH::CCND3）,t(6;14)(p21;q32),,"A
+ICC2022, WHO2022, PMID: 27002115",,"A
+PMID: 27002115",,
+CD38,MM,,2,LoF（Deletion・SNVIndel）,,,,"D
+PMID: 35768438",,,Dararumumab結合部位の欠失が報告されている。
+CDK4,MM,,2,GoF（Amplification）,,,"C
+PMID: 24429703, 18829482",,,,"Ribociclib, Palbociclib（CDK4/6阻害剤）は、CDK4増幅の有無に関わらず、他の腫瘍に対して薬事承認、FDA承認されている。"
+CDKN1B,MM,,2,LoF,,,"D
+PMID:29884741",,,,
+CDKN2C,MM,,1,LoF,del(1p32),,"A
+WHO2017, PMID: 27002115, 28584253",,"C
+PMID: 20616218, 18829482",,
+CKS1B,MM,,1,GoF（Amplification）,amp(1q),,"A
+WHO2022, PMID: 27002115, 28584253",,"A
+NCCN2023 (MM), PMID: 27002115, 28584253, 21836613, 22547600",,
+CRBN,MM,,2,GoF（SNVIndel、Amplification）、LoF（SNVIndel、Deletion）,amp(3p),,"C
+PMID: 29884741, 21860026, 23480694, 25108355, 33443552","D
+PMID: 21860026, 23480694, 25108355, 27458004, 33443552",,,"CRBNの変異や欠失により、(IMiDs: Lenalidomide, Pomalidomideなど) に対する耐性をきたす可能性がある。"
+CREBBP,MM,,2,LoF,,,"D
+PMID:29884741",,,,
+CUL4B,MM,,2,LoF（SNVIndel）,,,,"D
+PMID: 35768438, 31558666",,,"CUL4B の変異および欠失により、(IMiDs: Lenalidomide, Pomalidomideなど) に対する耐性をきたす可能性がある。"
+CYLD,MM,,1,LoF,del(16q),,"A
+WHO2022, PMID: 24434212, 26282654, 24429703, 27458004, 22573403, 17692805",,,,
+DDB1,MM,,2,Unknown (SNVIndel）,,,,"D
+PMID: 25302557",,,"DDB1の変異により、免疫調節薬 (IMiDs: Lenalidomide, Pomalidomideなど) に対する耐性をきたす可能性がある。"
+DIS3,MM,,1,LoF,del(13),,"A
+WHO2017, PMID: 21430775, 24434212, 26282654, 20616218",,,,
+DNMT3A,MM,,2,LoF、GoF（SNVIndel）,,,"D
+PMID:29884741",,,,
+DUSP2,MM,,2,Unknown(SNVIndel）,,,"D
+PMID:29884741",,,,
+EGR1,MM,,2,GoF（SNVIndel）,,,"C
+PMID:24429703, 26282654, 29884741",,,,
+EP300,MM,,2,LoF,,,"D
+PMID:29884741",,,,
+EZH2,MM,,2,Unknown（SNVIndel）,,Y641,,"C
+PMID: 36223594",,"FDA：Tazemetostat
+FDA_Other：Tazemetostat",
+FAF1,MM,,1,LoF,del(1p),,"A
+WHO2017, PMID: 27002115, 28584253",,"C
+PMID: 20616218, 18829482",,
+FGFR3,MM,,1,GoF（Rearrangement：IGH::FGFR3、SNVIndel）,t(4;14)(p16;q32),,"A
+WHO2022, NCCN2023 (MM), PMID: 27002115, 28584253, 26282654, 27531699","C
+PMID: 19331127, 21273588, 19331127, 21273588","A
+WHO2017, PMID: 27002115, 28584253",FDA_Other：Erdafitinib,"FGFR3 はNSD2に隣接する（セントロメア側約 60 kb ～に位置）。, IGH::FGFR3 とIGH::NSD2 は同等の機能獲得の再構成と考えられる。"
+FUBP1,MM,,2,LoF,,,"D
+PMID:29884741",,,,
+HIST1H1E,MM,,2,GoF Unknown（SNVIndel）,,,"D
+PMID: 29884741, 26282654, 27235425",,,,
+HNRNPA2B1,MM,,2,GoF（Fusion： HNRNPA2B1::NTRK3）,,,"D
+PMID: 29920189, 31551508","C
+PMID: 29920189, 31551508",,"FDA_Other：Entrectinib, Larotrectinib (融合遺伝子)",
+HUWE1,MM,,2,LoF,,,"D
+PMID:29884741",,,,
+IDH1,MM,,2,GoF（SNVIndel）,,R132C/L/H,"D
+PMID:29884741","C
+PMID: 25583779, 29860938",,"FDA_Other：Ivosidenib, Olutasidenib",
+IDH2,MM,,2,GoF（SNVIndel）,,"R140Q, R172K","D
+PMID:29884741","C
+PMID: 28588019, 28588020, 30510081, 30455381",,FDA_Other：Enasidenib,
+IRF4,MM,,1,GoF（Rearrangement：IGH::IRF4、SNVIndel：K123Rなど）,t(6;14)(p25;q32),,"A
+WHO2022, PMID: 21430775, 26282654, 29884741",,"D
+PMID: 26282654",,
+KDM5C,MM,,2,LoF,,,"D
+PMID:29884741",,,,
+KDM6A,MM,,2,LoF,,,"D
+PMID:29884741",,,,
+KLHL6,MM,,2,Unknown(SNVIndel）,,,"C
+PMID: 29884741",,,,
+KMT2B,MM,,2,LoF,,,"D
+PMID:29884741",,,,
+KMT2C,MM,,2,LoF,,,"D
+PMID:29884741",,,,
+KRAS,MM,,1,GoF（SNVIndel）,,"G12, G13, Q61","A
+WHO2017, PMID: 26282654","C
+PMID: 32955176",,"FDA：Sotorasib (G12C)
+FDA_Other：Sotorasib (G12C), Adagrasib (G12C)",
+LTB,MM,,2,LoF,,,"C
+PMID: 26282654, 24429703",,,,
+MAF,MM,,1,GoF（Rearrangement：IGH::MAF、Amplification）,"t(14;16)(q32;q23), amp(16q23)",,"A
+WHO2022, NCCN2023 (MM), ICC2022, PMID: 29884471, 27002115, 28584253",,"A
+WHO2022, NCCN2023 (MM),  ICC2022, PMID: 27002115, 28584253",,
+MAFA,MM,,1,GoF（Rearrangement：IGH::MAFA）,t(8;14)(q24;q32),,"A
+WHO2022",,,,
+MAFB,MM,,1,GoF（Rearrangement：IGH::MAFB）,t(14;20)(q32;q12),,"A
+WHO2022, PMID: 27002115",,"A
+WHO2022, PMID: 27002115",,
+MAML2,MM,,2,Unknown(SNVIndel）,,,"D
+PMID:29884741",,,,
+MAN2C1,MM,,2,Unknown(SNVIndel）,,,"D
+PMID:29884741",,,,
+MAP3K14,MM,,1,GoF（Rearrangement：IGH::MAP3K14、Amplification）,t(14;17)(q32;q21),,"A
+WHO2022, PMID: 17692805, 17692804",,,,
+MAX,MM,,2,Unknown（SNVIndel）,,,"D
+PMID: 26282654",,,,
+MYC,MM,,1,"GoF（Rearrangement：IGH::MYC, Amplification）","t(8;14)(q24;q32)など, amp(8q24)",,"A
+WHO2022, PMID: 29884741, 28584253",,"A
+NCCN2023 (SM),  PMID: 26282654, 24632883",,
+NCOR1,MM,,2,LoF,,,"D
+PMID:29884741",,,,
+NF1,MM,,2,LoF,,,"D
+PMID:29884741",C,,"FDA：Selumetinib
+FDA_Other：Selumetinib",Selumetinib（MEK阻害剤）は、neurofibromatosis type1 にみられる叢状神経線維腫に薬事承認、FDA承認されている。
+NFKB2,MM,,2,Unknown（SNVIndel）,,,"D
+PMID:29884741",,,,
+NFKBIA,MM,,2,LoF,,,"D
+PMID: 24429703, 29884741",,,,
+NR3C1,MM,,2,LoF（SNVIndel）,,,,"D
+PMID: 35768438, 23076843",,,NR3C1の変異により、ステロイドに対する耐性をきたす可能性がある。
+NRAS,MM,,1,GoF（SNVIndel）,,"G12, G13, Q61","A
+WHO2022, PMID: 26282654, 29884741",C,,,
+NSD2,MM,,1,GoF（Rearrangement：IGH::NSD2）,t(4;14)(p16.3;q32.3),,"A
+WHO2022, ICC2022, NCCN2023 (MM), PMID: 27002115, 28584253, 21430775",,"A
+WHO2022, ICC2022, NCCN2023 (MM), PMID: 27002115, 28584253, 35984902",,FGFR3 はNSD2 に隣接（セントロメア側約 60 kb ～に位置）しており、IGH::FGFR3 と IGH::NSD2 は同等の機能獲得型再構成と考えられる。NSD2 のbreak point は3か所に大別され（NSD2の上流、NSD2の5'UTR、NSD2 gene CDS内）、予後に差がある可能性がある (PMID: 35984902)
+NTRK3,MM,,2,"GoF（Fusion：UBE2R2::NTRK3, HNRNPA2B1::NTRK3）",,,"D
+PMID: 29920189, 31551508, 29654269",C,,"FDA：Entrectinib, Larotrectinib (融合遺伝子)
+FDA_Other：Entrectinib, Larotrectinib (融合遺伝子)",
+PIK3CA,MM,,2,GoF（SNVIndel）,,,"D
+PMID: 24429703",C,,FDA_Other：Alpelisib,PI3K阻害剤 (Copanlisib)は、PI3KCA変異の有無に関わらず、他がん種に対してFDA承認されている。
+PRDM1,MM,,2,LoF,,,"C
+PMID: 26282654, 24434212, 21430775,",,"D
+PMID:29789651",,IgH::NSD1 陽性群において、PRDM1 変異陽性群はさらに予後不良である可能性がある（PMID:29789651）。
+PRKD2,MM,,2,GoF（SNVIndel）,,,"D
+PMID: 26282654、30262586",,,,
+PSMB5,MM,,2,GoF（SNVIndel）,,,"D
+PMID: 30026573, 20555361, 18565852","D
+PMID: 20555361, 18565852",,,PSMB5 の変異により、プロテアソーム阻害剤に対する耐性をきたす可能性がある。
+PTPN11,MM,,2,GoF（SNVIndel）,,,"D
+PMID:29884741",,,,
+PVT1,MM,,2,"GoF（Rearrangement：IGH::PVT1, WWOX::PVT1, NBEA:: PVT1など）",t(8;14)(q24;q32) など,,"D
+PMID: 22869583",,,,
+RASA2,MM,,2,LoF,,,"D
+PMID: 24429703, 29884741",,,,
+RB1,MM,,1,LoF,del(13q),,"A
+WHO2022, ICC2022, NCCN2023 (MM), PMID: 21430775, 24434212, 26282654, 20616218",,,,
+RFTN1,MM,,2,Unknown(SNVIndel）,,,"D
+PMID:29884741",,,,
+SAMHD1,MM,,2,Unknown (SNVIndel）,,,"D
+PMID:29884741",,,,
+SETD2,MM,,2,LoF,,,"D
+PMID:29884741",,,,
+SF3B1,MM,,2,GoF（SNVIndel）,,"K700E, R625, N626, K666","D
+PMID:29884741",,,,
+SP140,MM,,2,LoF,,,"C
+PMID: 24429703, 24434212",,,,
+TENT5C,MM,,1,LoF,del(1p12),,"A
+WHO2022, PMID: 27002115, 28584253, 28619709, 28931820, 29884741",,"C
+PMID: 20616218, 18829482",,
+TET2,MM,,2,LoF,,,"D
+PMID:29884741",,,,
+TGDS,MM,,2,LoF、GoF（SNVIndel）,,,"D
+PMID:29884741",,,,
+TP53,MM,1,1,LoF、GoF（SNVIndel）,del(17p13),,"A
+WHO2022, ICC2022, NCCN2023 (MM),  PMID: 27002115, 24434212, 21430775, 20616218, 26282654, 24429703",,"A
+NCCN2023 (MM), PMID: 20616218, 26282654 29967379 30692124",,"1q amp + biallelic TP53 inactivation（double hit）症例は予後不良の可能性がある（PMID:29967379）。,  Del17pでは、FISHシグナルが55％以上陽性の場合、予後がきわめて悪い可能性がある（PMID:30692124）。"
+TRAF2,MM,,1,LoF,,,"A
+WHO2022, PMID:29884741",,,,
+TRAF3,MM,,1,LoF,del(14q),,"A
+WHO2022, PMID: 24434212, 17692805, 17692804, 26282654",,,,
+UBE2R2,MM,,2,GoF（Fusion：UBE2R2::NTRK3）,,,"D
+PMID: 29920189, 31551508",C,,"FDA：Entrectinib, Larotrectinib (NTRK3 融合遺伝子)
+FDA_Other：Entrectinib, Larotrectinib (NTRK3 融合遺伝子)",
+UBR5,MM,,2,LoF,,,"C
+PMID: 29884741",,,,
+WWOX,MM,,1,LoF,del(16q),,"A
+PMID: 27002115, 20616218, 17609426",,"D
+PMID: 17609426",,WWOXはMAFの上流（1Mb セントロメア側）に位置し、IgH::MAF 転座時のブレークポイントになりうる。その際は、MAF の発現上昇とともに WWOX の失活がもたらされる可能性がある。
+XBP1,MM,,2,Unknown（SNVIndel）,,,"D
+PMID:29884741",,,,
+ZFHX4,MM,,2,LoF（SNVIndel）,,,"D
+PMID: 26282654",,,,
+ZFP36L1,MM,,2,Unknown（SNVIndel）,,,"D
+PMID:29884741",,,,
+ZNF292,MM,,2,LoF,,,"D
+PMID:29884741",,,,
+ASXL1,MPAL,,1,LoF,,,"A
+WHO2017",,,,
+DNMT3A,MPAL,,1,LoF,,,"A
+WHO2017",,,,
+TET2,MPAL,,1,LoF（Deletion）,,,"A
+WHO2017",,,,
+ABL1,MPAL with t(9;22)(q34.1;q11.2); BCR::ABL1,,1,GoF（Fusion：BCR::ABL1）,t(9;22)(q34;q11),,"A
+WHO2022, ICC2022",C,"A
+NCCN2023 (AML)","FDA：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib
+FDA_Other：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib",
+BCR,MPAL with t(9;22)(q34.1;q11.2); BCR::ABL1,,1,GoF（Fusion：BCR::ABL1）,t(9;22)(q34;q11),,"A
+WHO2017",C,,"FDA：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib
+FDA_Other：Imatinib, Dasatinib, Nilotinib, Bosutinib, Ponatinib, Asciminib",
+KMT2A,MPAL with t(v;11q23.3); KMT2A rearranged,,1,GoF（Fusion）,t(v;11q23.3),,"A
+WHO2017","D
+PMID: 36922589, 36922593",,,
+ETV6,"MPAL, B/myeloid, NOS",1,1,LoF（Deletion）,,,"A
+WHO2017, PMID: 25581430, 25807284, 26102509, 26522332, 30209392",,,,
+IDH1,"MPAL, B/myeloid, NOS",,1,GoF（SNVIndel：R132Hなど）,,R132C/L/H,"A
+WHO2017, PMID: 29991687","A
+NCCN2023 (AML), PMID: 25583779, 29860938",,"FDA_Other：Ivosidenib, Olutasidenib",
+IDH2,"MPAL, B/myeloid, NOS",,1,"GoF（SNVIndel：R140Q/W, R172Kなど）",,"R140Q, R172K","D
+PMID:27276561","A
+NCCN2023 (AML), PMID: 25583779, 29860938",,FDA_Other：Enasidenib,
+RUNX1,"MPAL, B/myeloid, NOS",1,1,LoF,,,"C
+PMID: 29991687, 30209392",,,,
+ZNF384,"MPAL, B/myeloid, NOS",,2,"GoF（Fusion：TCF3::ZNF384, EP300::ZNF384など）","t(12;19)(p13;p13), t(12;22)(p13;q13)など",,"D
+PMID: 30209392,",,,,
+ETV6,"MPAL, T/myeloid, NOS",1,1,LoF（Deletion）,,,"D
+PMID: 30209392",,,,
+IDH2,"MPAL, T/myeloid, NOS",,1,"GoF（SNVIndel：R140Q::W, R172Kなど）",,"R140Q, R172K","D
+PMID:27276561","A
+NCCN2023 (AML), PMID: 28588019, 28588020, 30510081",,FDA_Other：Enasidenib,
+NOTCH1,"MPAL, T/myeloid, NOS",,2,"GoF（SNVIndel：L1678P, L1600P, R1598P など）",,,"C
+PMID: 29991687, 30209392",,,,
+RUNX1,"MPAL, T/myeloid, NOS",1,1,LoF,,,"C
+PMID: 29991687, 30209392",,,,
+WT1,"MPAL, T/myeloid, NOS",,2,LoF（両アレルSNVIndel）,,,"D
+PMID: 30209392",,,,
+RUNX1,MPDMN,1,1,GoF (SNVIndel),,,"A
+WHO2022",,,,
+CUX1,MPN,,2,LoF,,,,,"D
+PMID: 21531982",,
+ETV6,MPN,1,2,LoF,,,,,"D
+PMID: 21531982",,
+IKZF1,MPN,1,2,GoF（SNVIndel）,,,,,"D
+PMID: 21531982",,
+CDKN2A,Mycosis fungoides,,1,LoF,del(9p21),,"A
+WHO2017",,,,
+DNMT3A,Mycosis fungoides,,1,LoF、GoF（SNVIndel）,,,"A
+WHO2022",,,,
+PTEN,Mycosis fungoides,,1,LoF,del(10q23),,"A
+WHO2017",,,,
+STAT3,Mycosis fungoides,,1,GoF（SNVIndel：Y640F/D661Yなど）,,"Y640F, D661Y","A
+WHO2022",,,,
+SAMD9L,Myeloid neoplasms associated with BM failure syndromes: Ataxia-pancytopenia syndrome,1,1,生殖細胞系列：GoF（SNVIndel）；体細胞系列：LoF (monosomy 7::del(7q)など,,,"A
+WHO2022, NCCN2023 (MDS), PMID: 27259050, 28202457, 29146883, 34621053",,,,
+SAMD9,Myeloid neoplasms associated with BM failure syndromes: MIRAGE syndrome,1,1,生殖細胞系列：GoF（SNVIndel）；体細胞系列：LoF (monosomy 7::del(7q)など,,,"A
+WHO2022, NCCN2023 (MDS), PMID: 27259050, 28202457, 29146883, 34621053",,,,
+BLM,Myeloid neoplasms with biallelic germline BLM mutation: Bloom syndrome,1,1,LoF,,,"A
+WHO2022, NCCN2023 (MDS)",,,,
+ANKRD26,Myeloid neoplasms with germline ANKRD26 mutation,1,1,GoF,,,"A
+WHO2022, ICC2022, ELN2022, NCCN2023 (AML), PMID: 21211618, 21467542, 24430186, 24030261, 27913495, 36626254",,,,5′ regulatory region (UTR) 領域に変異を高頻度に認める。
+DDX41,Myeloid neoplasms with germline DDX41 mutation,1,1,"LoF（SNVIndel：D140Gfs, M1I, A500Cfs, 対側アリルにおけるR525H, Q48*, K102fs, I207T, G218D, P258L, Y259Hなど）",,,"A
+WHO2022 NCCN2023 (MDS), PMID: 28547672, 31484648, 34482403, 36322930, 36455200, 37216690","D
+PMID: 35987913, 36001442","D
+PMID: 35443031, 36322930, 36455200, 36001442",,"造血幹細胞移植後にDDX41変異を有するドナー由来白血病が報告されている (PMID: 27795557, 28194039)"
+GATA2,Myeloid neoplasms with germline GATA2 mutation,1,1,"LoF（SNVIndel：R398W, c.1018-1G>Aなど）",,,"A
+WHO2017, NCCN2023 (MDS), PMID: 36455197, 37216690",,,,"造血幹細胞移植後にGATA2 変異を有するドナー由来白血病が報告されている (PMID: 30232126, 32865708)"
+ETV6,Myeloid or Lymphoid neoplasms with germline ETV6 mutation,1,1,LoF,,,"A
+ICC2022, NCCN2023 (MDS), PMID: 25581430, 31248877, 36626254",,,,
+RUNX1,Myeloid or Lymphoid neoplasms with germline RUNX1 mutation,1,1,LoF（SNVIndel：L56fsなど）,,,"A
+WHO2017, NCCN2023 (MDS), PMID: 36626254, 37216690",,,,造血幹細胞移植後にRUNX1変異を有するドナー由来白血病が報告されている (PMID: 11675361)。
+CCL22,NKLGLL,,1,GoF (SNVIndel）,,,"A
+WHO2022",,,,
+STAT3,NKLGLL,,1,GoF (SNVIndel）,,"Y640F, D661Y","A
+WHO2022",,,,
+STAT5B,NKLGLL,,1,GoF (SNVIndel）,,,"A
+WHO2022",,,,
+TET2,NKLGLL,,1,LoF (SNVIndel）,,,"A
+WHO2022",,,,
+TNFAIP3,NKLGLL,,2,LoF (SNVIndel）,,,"D
+PMID: 26252351",,,,
+BCL6,NLPHL,,1,GoF（Rearrangement：IGH::BCL6など）,3q27 rearrangement,,"A
+WHO2022",,,,
+DUSP2,NLPHL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+JUNB,NLPHL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+MYC,NLPHL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+PAX5,NLPHL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+PIM1,NLPHL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+RHOH,NLPHL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+SOCS1,NLPHL,,1,LoF,,,"A
+WHO2022, PMID: 19734449",,,,
+BRAF,NMZL,,1,GoF（SNVIndel：V600Eなど）,,V600E,"A
+WHO2022",C,,"FDA：Dabrafenib, Vemurafenib
+FDA_Other：Dabrafenib, Vemurafenib","BRAF V600E/K を有する一部の非造血器腫瘍に対して、BRAF阻害剤とMEK阻害剤 (Trametinib, Binimetinib, Selumetinibなど)の併用療法が薬事もしくはFDA承認されている。"
+CARD11,NMZL,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+CREBBP,NMZL,,1,LoF,,,"A
+WHO2022",,,,
+KLF2,NMZL,,1,LoF,,,"A
+WHO2022",,,,
+KMT2D,NMZL,,1,LoF,,,"A
+WHO2022",,,,
+NOTCH2,NMZL,,1,GoF（SNVIndel：R2400*など）,,,"A
+WHO2022",,,,
+PTPRD,NMZL,,1,LoF,,,"A
+WHO2022",,,,
+TBL1XR1,NMZL,,1,LoF,,,"A
+WHO2022",,,,
+TET2,NMZL,,1,LoF,,,"A
+WHO2022",,,,
+TNFAIP3,NMZL,,1,LoF,,,"A
+WHO2022",,,,
+DNMT3A,Nodal PTCL with TFH phenotype,,1,LoF、GoF（SNVIndel）,,,"A
+WHO2017",,,,
+RHOA,Nodal PTCL with TFH phenotype,,1,GoF（SNVIndel：G17V）,,G17V,"A
+WHO2017",,,,
+TET2,Nodal PTCL with TFH phenotype,,1,LoF,,,"A
+WHO2017",,,,
+BCL6,P-PTLD,,1,Unknown（SNVIndel）,,,"A
+WHO2017",,,,BCL6の変異により、免疫抑制療法に対する耐性をきたす可能性がある。
+BRAF,PBL,,1,GoF（SNVIndel：V600Eなど）,,V600E,"A
+WHO2022",C,,"FDA：Dabrafenib, Vemurafenib
+FDA_Other：Dabrafenib, Vemurafenib","BRAF V600E/K を有する一部の非造血器腫瘍に対して、BRAF阻害剤とMEK阻害剤 (Trametinib, Binimetinib, Selumetinibなど)の併用療法が薬事もしくはFDA承認されている。"
+CARD11,PBL,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+CD44,PBL,,1,GoF（Amplification）,amp(11p53),,"A
+WHO2022",,,,
+HRAS,PBL,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+IRF4,PBL,,1,GoF（Amplification）,amp(6p25.3),,"A
+WHO2022",,,,
+JAK1,PBL,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+KRAS,PBL,,1,GoF（SNVIndel）,,"G12, G13, Q61","A
+WHO2022",C,,"FDA：Sotorasib (G12C)
+FDA_Other：Sotorasib (G12C), Adagrasib (G12C)",
+MAP2K1,PBL,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,"MEK阻害剤 (Cobimetinib, Trametinib, Binimetinib, Selumetinibなど)は、MEK1変異の有無に関わらず、単剤もしくはBRAF阻害剤との併用で、他がん種に対して、薬事もしくはFDA承認されている。"
+MCL1,PBL,,1,GoF（Amplification）,amp(1q21.3),,"A
+WHO2022",,,,
+MYC,PBL,,1,"GoF（Rearrangement：IGH::MYCなど）, Amplification, SNVIndel",t(8;14)(q24;q32)など,,"A
+WHO2022",,,,
+NCOR2,PBL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+NOTCH1,PBL,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+NOTCH4,PBL,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+NRAS,PBL,,1,GoF（SNVIndel）,,"G12, G13, Q61","A
+WHO2022",,,,
+SOCS1,PBL,,1,LoF,,,"A
+WHO2022",,,,
+SPEN,PBL,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+STAT3,PBL,,1,GoF（SNVIndel）,,"Y640F, D661Y","A
+WHO2022",,,,
+JAK2,PCAETCL,,1,GoF（SNVIndel）,,V617F,"A
+WHO2022",,,,"Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MF, PVに対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MFに対してFDA承認されている。"
+JAK2,PCAETCL,,2,"GoF（Fusion：PICALM::JAK2, CAPRIN1::JAK2, PCM1::JAK2 など）",,,"D
+PMID: 34432866",,,,"Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MF, PVに対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MFに対してFDA承認されている。"
+SH2B3,PCAETCL,,1,LoF,,,"A
+WHO2022",,,,
+STAT3,PCAETCL,,1,GoF（SNVIndel）,,"Y640F, D661Y","A
+WHO2022",,,,
+STAT5B,PCAETCL,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+BCL2,PCFCL,,1,GoF（Rearrangement：IGH::BCL2）,t(14;18)(q32;q21),,,,"A
+WHO2022, PMID:  25696794 ; 33560380",,BCL2転座を認める症例では、全身性病変が進展するリスクが高い（PMID： 25696794 ; 33560380）
+CREBBP,PCFCL,,1,LoF,,,"A
+WHO2022",,,,
+KMT2D,PCFCL,,1,LoF,,,"A
+WHO2022",,,,
+NCOR2,PCMZL,,1,LoF,,,"A
+WHO2022, PMID: 29481902",,,,
+SLAMF1,PCMZL,,1,LoF,,,"A
+WHO2022, PMID: 29481902",,,,
+SPEN,PCMZL,,1,LoF,,,"A
+WHO2022, PMID: 29481902",,,,
+B2M,PCNSL,,1,LoF（SNVIndel）,del(15q21),,"A
+WHO2022",,,,
+BCL2,PCNSL,,1,GoF（Amplification）,amp(18)(q21.22-q23),,"A
+WHO2022",,,,
+BCL6,PCNSL,,1,GoF（Rearrangement：IGH::BCL6など）,3q27 rearrangement,,"A
+WHO2022",,,,
+BLNK,PCNSL,,1,LoF（SNVIndel）,,,"A
+WHO2022",,,,
+BTG1,PCNSL,,1,GoF（SNVIndel）,,,"A
+WHO2022, PMID: 36656933",,,,
+CARD11,PCNSL,,1,GoF（SNVIndel）,,,"A
+WHO2017",,,,
+CBL,PCNSL,1,1,LoF（SNVIndel）,,,"A
+WHO2022",,,,
+CD274,PCNSL,,1,GoF（Amplification）,amp(9p24.3),,"A
+WHO2022",C,,"FDA：Nivolumab, Pembrolizumab
+FDA_Other：Nivolumab, Pembrolizumab",
+CD79B,PCNSL,,1,GoF（SNVIndel：Y196Hなど）,,Y196,"A
+WHO2022",,,,
+CIITA,PCNSL,,1,GoF（Rearrangement）,,,"A
+WHO2017",,,,
+ETV6,PCNSL,1,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+GRB2,PCNSL,,2,Unknown（SNVIndel）,,,"D
+PMID: 26757737",,,,
+HLA-DQA1,PCNSL,,1,LoF,,,"A
+WHO2017",,,,
+HLA-DQA2,PCNSL,,1,LoF,,,"A
+WHO2017",,,,
+HLA-DQB1,PCNSL,,1,LoF,,,"A
+WHO2017",,,,
+HLA-DQB2,PCNSL,,1,LoF,,,"A
+WHO2017",,,,
+HLA-DRB1,PCNSL,,1,LoF,,,"A
+WHO2017",,,,
+HLA-DRB5,PCNSL,,1,LoF,,,"A
+WHO2017",,,,
+IGLL5,PCNSL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+IRF4,PCNSL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+KLHL14,PCNSL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+MALT1,PCNSL,,1,GoF（Amplification）,amp(18q21.22-q23),,"A
+WHO2022",,,,
+MYC,PCNSL,,1,"GoF（Rearrangement：IGH::MYCなど）、Unknown（SNVIndel）, Unknown（somatic hypermutation）",t(8;14)(q24;q32)など,,"A
+WHO2022",,,,
+OSBPL10,PCNSL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+PAX5,PCNSL,,1,GoF（Amplification）,amp(9p13),,"A
+WHO2022",,,,
+PIM1,PCNSL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+PRDM1,PCNSL,,1,LoF（SNVIndel）,del(6q21),,"A
+WHO2022",,,,
+RHOH,PCNSL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+SOCS1,PCNSL,,1,LoF（SNVIndel）,,,"A
+WHO2022",,,,
+SUSD2,PCNSL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+TBL1XR1,PCNSL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+BCL11A,PMBL,,1,GoF（Amplification）,,,"A
+WHO2017",,,,
+BCL6,PMBL,,1,Unknown（SNVIndel）,,,"A
+WHO2017",,,,
+CD274,PMBL,,1,GoF（Amplification、Rearrangement）,amp(9p24),,"A
+WHO2022",C,,"FDA：Nivolumab, Pembrolizumab
+FDA_Other：Nivolumab, Pembrolizumab",
+CIITA,PMBL,,1,GoF（Rearrangement）,,,"A
+WHO2022",,,,
+GNA13,PMBL,,2,LoF,,,"D
+PMID: 26819451",,,,
+IL4R,PMBL,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+ITPKB,PMBL,,1,Unknown（SNVIndel）,,,"A
+WHO2017",,,,
+JAK2,PMBL,,1,GoF（Amplification）,amp(9p24),,"A
+WHO2022, NCCN2023 (BCL)",,,,"Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MF, PVに対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MFに対してFDA承認されている。"
+MFHAS1,PMBL,,1,Unknown（SNVIndel）,,,"A
+WHO2017, PMID: 26819451",,,,
+NFKBIE,PMBL,,1,LoF,,,"A
+WHO2022, PMID: 27670424",,"D
+PMID: 27670424",,
+PDCD1LG2,PMBL,,1,GoF（Amplification、Rearrangement）,amp(9p24),,"A
+WHO2017, PMID: 24497532, 31292115, WHO2022",,,,
+PTPN1,PMBL,,1,LoF,,,"A
+WHO2017, PMID: 24531327, WHO2022",,,,
+REL,PMBL,,1,GoF（Amplification）,amp(2p16),,"A
+WHO2017, NCCN2023 (BCL), WHO2022",,,,
+SOCS1,PMBL,,1,LoF,,,"A
+WHO2022",,,,
+STAT6,PMBL,,1,GoF（SNVIndel：D419Aなど）,,,"A
+WHO2022",,,,
+TNFAIP3,PMBL,,1,LoF,del(6q23),,"A
+WHO2022",,,,
+XPO1,PMBL,,1,GoF（SNVIndel：E571など）,,,"A
+WHO2017, PMID: 31285298",,,,Selinexor（XPO1阻害剤）はXPO1変異の有無に関わらず、再発難治多発性骨髄腫に対してFDA承認されている。
+ASXL1,PMF,,1,GoF（SNVIndel：exon11-12 truncation）,,,,,"A
+WHO2022, ICCN2022,  NCCN2023 (MPN), PMID: 31076447",,
+CALR,PMF,,1,GoF（SNVIndel：L367fsなど）,,"E364fs, K385fs","A
+WHO2022, ICC2022,  NCCN2023 (MPN), PMID: 24325356, 24325359, 31562135",,"A
+NCCN2023 (MPN)",,
+CBL,PMF,1,1,GoF（SNVIndel）,,,,,"A
+PMID: 28028029, NCCN2023 (MPN)",,
+DNMT3A,PMF,,1,LoF、GoF（SNVIndel：R882C/Hなど）,,,"C
+PMID: 23782935, 28028029",,"A
+NCCN2023 (MPN)",,
+EZH2,PMF,,1,LoF,,Y641,"B
+PMID: 28028029",C,"A
+NCCN2023 (MPN)","FDA：Tazemetostat
+FDA_Other：Tazemetostat",
+IDH1,PMF,,1,GoF（SNVIndel：R132C/G/H/L/Q/Sなど）,,R132C/L/H,,"C
+PMID: 25583779, 29860938,","A
+NCCN2023 (MPN)","FDA_Other：Ivosidenib, Olutasidenib",
+IDH2,PMF,,1,"GoF（SNVIndel：R140Q/W, R172Kなど）",,"R140Q, R172K",,"C
+PMID: 28588019, 28588020, 30510081","A
+NCCN2023 (MPN)",FDA_Other：Enasidenib,
+JAK2,PMF,1,1,"GoF（SNVIndel：V617F, exon12SNVIndelなど）",,V617F,"A
+WHO2022, ICC2022,  NCCN2023 (MPN)","A
+NCCN2023 (MPN)","A
+NCCN2023 (MPN)",,Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、当該疾患に対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、当該疾患に対してFDA承認されている。
+MPL,PMF,1,1,GoF（SNVIndel：W515L/Kなど）,,W515,"A
+WHO2022, ICC2022,  NCCN2023 (MPN)",,"A
+NCCN2023 (MPN)",,
+NF1,PMF,,2,LoF,,,,C,"C
+PMID: 28028029","FDA：Selumetinib
+FDA_Other：Selumetinib",Selumetinib（MEK阻害剤）は、neurofibromatosis type1 にみられる叢状神経線維腫に薬事承認、FDA承認されている。
+NRAS,PMF,1,1,"GoF（SNVIndel：G12D/S/A/V, Q61R/Kなど）",,"G12, G13, Q61",,,"A
+NCCN2023 (MPN), PMID: 28028029",,
+RIT1,PMF,,2,GoF,,,"D
+PMID: 23765226",,,,
+SH2B3,PMF,1,2,LoF,,,"A
+OMIM#254450",,"C
+PMID: 28028029",,
+SRSF2,PMF,,1,GoF（SNVIndel：P95L/H/R など）,,,,,"A
+NCCN2023 (MPN)",,
+TET2,PMF,,1,LoF,,,"B
+PMID: 28028029",,"A
+NCCN2023 (MPN), PMID: 28028029",,
+TP53,PMF,1,1,"LoF、GoF（SNVIndel：R175H, G245S, R248Q, R248W, R273Hなど）",,,,,"A
+NCCN2023 (MDS), PMID: 36940410",,Multi-hit TP53 変異の場合、single-hit 変異とは異なり、同種移植による予後の改善は限定的である可能性がある。
+U2AF1,PMF,,1,"GoF（SNVIndel：S34F/Y, Q157R/Pなど）",,,,,"A
+NCCN2023",,
+PIGA,PNH,,1,LoF（SNVIndel）,,,"A
+NCCN2023 (MDS), PMID: 26132940, 27121470","D
+PMID: 16990386",,,PIGAはX染色体上に存在するため、女性においても対側X染色体の不活化により、片アリルの変異のみで機能喪失をきたしうる。
+EHD1,POEMS syndrome,,2,Unknown（SNVIndel）,,,"D
+PMID: 30635632",,,,
+EML4,POEMS syndrome,,2,Unknown（SNVIndel）,,,"D
+PMID: 30635632",,,,
+HEPHL1,POEMS syndrome,,2,Unknown（SNVIndel）,,,"D
+PMID: 30635632",,,,
+HIPK1,POEMS syndrome,,2,Unknown（SNVIndel）,,,"D
+PMID: 30635632",,,,
+KLHL6,POEMS syndrome,,1,Unknown（SNVIndel）,,,"A
+WHO2022, PMID: 30635632",,,,
+LTB,POEMS syndrome,,1,Unknown（SNVIndel）,,,"A
+WHO2022, PMID: 30635632",,,,
+PCDH10,POEMS syndrome,,1,Unknown（SNVIndel）,,,"A
+WHO2022, PMID: 30635632",,,,
+USB1,Poikiloderma with neutropenia,1,1,LoF,,,"A
+OMIM# *613276",,,,
+ATM,PTCL-NOS,,1,LoF,,,"A
+WHO2017, PMID: 24413734",,,,
+CARD11,PTCL-NOS,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+CD28,PTCL-NOS,,1,GoF（Fusion、SNVIndel）,,,"A
+WHO2022",,,,
+CDK6,PTCL-NOS,,1,GoF（Amplification）,amp(7q22),,"A
+WHO2022",,,,
+CDKN2A,PTCL-NOS,,1,LoF,del(9p21),,"A
+WHO2022",,,,
+DNMT3A,PTCL-NOS,,1,LoF、GoF（SNVIndel）,,,"A
+WHO2022",,,,
+NOTCH1,PTCL-NOS,,2,GoF（SNVIndel）,,,"D
+PMID: 31092896",,,,
+PLCG1,PTCL-NOS,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+PTEN,PTCL-NOS,,1,LoF,,,"A
+WHO2022",,,,
+PVRL2,PTCL-NOS,,1,GoF（Rearrangement：TRA::PVRL2）,t(14;19)(q11;q13),,"A
+WHO2022",,,,
+TET2,PTCL-NOS,,1,LoF,,,"A
+WHO2022",,,,
+TP53,PTCL-NOS,1,1,LoF、GoF（SNVIndel）,,,"A
+WHO2022",,,,
+TP63,PTCL-NOS,,1,GoF（Rearrangement：TBL1XR1::TP63など）,inv(3)(q26;q28)など,,"A
+WHO2022, PMID: 22855598",,,,
+VAV1,PTCL-NOS,,1,GoF（Fusion、SNVIndel）,,,"A
+WHO2022",,,,
+EP300,PTFL,,1,LoF,,,"A
+WHO2022",,"B
+PMID: 27664263 (ESMO)",,
+IRF8,PTFL,,1,Unknown（SNVIndel）,,,"A
+WHO2022",,,,
+MAP2K1,PTFL,,1,GoF（SNVIndel：K57Nなど）,,,"A
+WHO2022, NCCN2023 (BCL), PMID: 28533310",,,,"MEK阻害剤 (Cobimetinib, Trametinib, Binimetinib, Selumetinibなど)は、MEK1変異の有無に関わらず、単剤もしくはBRAF阻害剤との併用で、他がん種に対して、薬事もしくはFDA承認されている。"
+TNFRSF14,PTFL,,1,LoF,del(1p36),,"A
+WHO2022, NCCN2023 (BCL), PMID: 28533310",,,,
+ASXL1,PV,,1,GoF（SNVIndel：exon11-12 truncation）,,,,,"A
+NCCN2023 (MPN)",,
+CALR,PV,,1,GoF（SNVIndel：L367fsなど）,,"E364fs, K385fs","A
+WHO2022, ICC2022,  NCCN2023 (MPN), PMID: 24325356, 24325359, 31562135",,,,
+DNMT3A,PV,,2,LoF、GoF（SNVIndel：R882C::Hなど）,,,"C
+PMID: 23782935, 28028029",,,,
+EGFR,PV,,2,GoF（SNVIndel：C329R）,,,"D
+PMID: 28550306",C,,"FDA：Gefitinib, Erlotinib, Afatinib, Osimertinib, Cetuximab, Panitumumab, Vandetanib
+FDA_Other：Gefitinib, Erlotinib, Afatinib, Osimertinib, Cetuximab, Panitumumab, Vandetanib",
+EZH2,PV,,1,LoF,,Y641,"B
+PMID: 28028029",C,"A
+NCCN2023 (MPN)","FDA：Tazemetostat
+FDA_Other：Tazemetostat",
+IDH1,PV,,1,GoF（SNVIndel：R132C/G/H/L/Q/Sなど）,,R132C/L/H,,"C
+PMID: 25583779, 29860938","A
+NCCN2023 (MPN)","FDA_Other：Ivosidenib, Olutasidenib",
+IDH2,PV,,1,"GoF（SNVIndel：R140Q/W, R172Kなど）",,"R140Q, R172K",,"C
+PMID: 28588019, 28588020, 30510081","A
+NCCN2023 (MPN)",FDA_Other：Enasidenib,
+JAK2,PV,1,1,"GoF（SNVIndel：V617F, exon12SNVIndelなど）",,V617F,"A
+WHO2022, ICC2022,  NCCN2023 (MPN)","A
+NCCN2023 (MPN)","A
+NCCN2023 (MPN)",,Ruxolitinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、当該疾患に対して薬事承認、FDA承認されている。Fedratinib（JAK2阻害剤）は、JAK2変異の有無に関わらず、MFに対してFDA承認されている。
+MPL,PV,1,1,GoF（SNVIndel：W515L/Kなど）,,W515,"A
+WHO2022, ICC2022,  NCCN2023 (MPN)",,,,
+RUNX1,PV,1,1,LoF,,,,,"A
+NCCN2023 (MPN)",,
+SRSF2,PV,,1,GoF（SNVIndel：P95L/H/R など）,,,,,"A
+NCCN2023 (MPN)",,
+TET2,PV,,1,LoF,,,"B
+PMID: 28028029",,"A
+NCCN2023 (MPN), PMID: 28028029",,
+ARAF,Rosai-Dorfman Disease,,1,GoF,,,"A
+WHO2022, NCCN2023（Histiocytic Neoplasms),",,,,
+BRAF,Rosai-Dorfman Disease,,1,GoF (SNVIndel：V600Eなど),,V600E,"A
+WHO2022",C,,"FDA：Dabrafenib, Vemurafenib
+FDA_Other：Dabrafenib, Vemurafenib","BRAF V600E/K を有する一部の非造血器腫瘍に対して、BRAF阻害剤とMEK阻害剤 (Trametinib, Binimetinib, Selumetinibなど)の併用療法が薬事もしくはFDA承認されている。"
+CSF1R,Rosai-Dorfman Disease,,1,GoF,,,"A
+WHO2022",,,,
+KRAS,Rosai-Dorfman Disease,,1,GoF,,"G12, G13, Q61","A
+WHO2022,  NCCN2023（Histiocytic Neoplasms),",C,,"FDA：Sotorasib (G12C)
+FDA_Other：Sotorasib (G12C), Adagrasib (G12C)",
+MAP2K1,Rosai-Dorfman Disease,,1,GoF,,,"A
+WHO2022, NCCN2023 (Histiocytic Neoplasms)","A
+NCCN2023 (Histiocytic Neoplasms)",,,"MEK阻害剤 (Cobimetinib, Trametinib, Binimetinib, Selumetinibなど)は、MEK1変異の有無に関わらず、単剤もしくはBRAF阻害剤との併用で、他がん種に対して、薬事もしくはFDA承認されている。"
+NRAS,Rosai-Dorfman Disease,,1,GoF,,"G12, G13, Q61","A
+WHO2022, NCCN2023（Histiocytic Neoplasms),",,,,
+SLC29A3,Rosai-Dorfman Disease,1,1,GoF,,,"A
+WHO2022,  NCCN2023（Histiocytic Neoplasms), PMID: 20140240 , 24172204, 15958855",,,,
+BCOR,SDRPL,,1,LoF,del(Xp11.4),,"A
+WHO2022, PMID: 28751561",,,,
+CCND3,SDRPL,,1,GoF（SNVIndel：P284Sなど）,,,"A
+WHO2022, PMID: 28069605",,,,
+MAP2K1,SDRPL,,1,GoF（SNVIndel：I103Nなど）,,,"A
+WHO2022",,"A
+WHO2022",,"MEK阻害剤 (Cobimetinib, Trametinib, Binimetinib, Selumetinibなど)は、MEK1変異の有無に関わらず、単剤もしくはBRAF阻害剤との併用で、他がん種に対して、薬事もしくはFDA承認されている。"
+NOTCH1,SDRPL,,1,GoF,,,"A
+WHO2022",,"A
+WHO2022",,
+TP53,SDRPL,1,1,LoF,del(17p),,"A
+WHO2022",,"A
+WHO2022",,
+DDX3X,Severe mosquito bite allergy,,1,LoF,,,"A
+WHO2022",,,,
+ASXL1,SM,,1,GoF（SNVIndel：exon11-12 truncation）,,,"A
+WHO2022, PMID: 31509472",,"A
+WHO2022, NCCN2023 (SM), ICC2022, PMID: 31509472, PMID: 30373888",,
+BRAF,SM,,1,GoF（SNVIndel：V600Eなど）,,V600E,"A
+ICC2022",C,"A
+ICC2022, PMID: 28255023","FDA：Dabrafenib, Vemurafenib
+FDA_Other：Dabrafenib, Vemurafenib","BRAF V600E/K を有する一部の非造血器腫瘍に対して、BRAF阻害剤とMEK阻害剤 (Trametinib, Binimetinib, Selumetinibなど)の併用療法が薬事もしくはFDA承認されている。"
+CBL,SM,1,1,GoF（SNVIndel）,,,"A
+NCCN2023 (SM), PMID: 26628266",,"A
+NCCN2023 (SM), ICC2022, PMID: 26628266",,
+DNMT3A,SM,,1,LoF,,,"A
+ICC2022",,"A
+ICC2022",,
+ETV6,SM,1,1,LoF,,,"A
+ICC2022",,,,
+EZH2,SM,,1,LoF,,Y641,"A
+NCCN2023 (SM)",C,"A
+NCCN2023 (SM), ICC2022, PMID: 30373888","FDA：Tazemetostat
+FDA_Other：Tazemetostat",
+IDH2,SM,,1,"GoF（SNVIndel：R140Q/W, R172Kなど）",,"R140Q, R172K","A
+ICC2022",C,,FDA_Other：Enasidenib,
+JAK2,SM,1,1,GoF（SNVIndel：V617Fなど）,,V617F,"A
+ICC2022",,,,
+KIT,SM,1,1,"GoF（SNVIndel：D816V, deletion of codon 419 on exon 9, A502_Y503dup in exon 9, p.F522C, p.V560Gなど）",,D816V,"A
+WHO2022, NCCN2023 (SM), ICC2022, PMID: 15173254, 21689725, 7479840, 31896808, 30536695","A
+NCCN2023 (SM)",,,"Imatinib は、KIT変異の有無に関わらず、免疫組織学的検査によりKIT発現陽性のGISTに対して薬事承認されている。一方、FDAでは、KIT発現陽性のGISTに加えて、aggressive systemic mastocytosis (ASM) without the D816V c-Kit mutation or with c-Kit mutational status unknown"" が承認されている。AvapritinibはKIT変異の有無に関わらず、Advanced Systemic Mastocytosisに対してFDA承認されている。"""
+KRAS,SM,1,1,GoF（SNVIndel）,,"G12, G13, Q61","A
+ICC2022, PMID: 28255023",C,,"FDA：Sotorasib (G12C)
+FDA_Other：Sotorasib (G12C), Adagrasib (G12C)",
+NRAS,SM,,1,GoF（SNVIndel）,,"G12, G13, Q61","A
+ICC2022",,"A
+ICC2022, PMID: 28255023",,
+RUNX1,SM,1,1,LoF,,,,,"A
+WHO2022, NCCN2023 (MM), ICC2022, PMID: 31509472, PMID: 30373888",,
+SF3B1,SM,,1,GoF（SNVIndel：K700Eなど）,,"K700E, R625, N626, K666","A
+ICC2022",,,,
+SRSF2,SM,,1,GoF（SNVIndel：P95L/H/R など）,,,"A
+WHO2022, PMID: 31509472",,"A
+WHO2022, NCCN2023 (SM), ICC2022, PMID: 31509472, PMID: 30373888",,
+TET2,SM,,1,LoF,,,"A
+WHO2022, PMID: 19262599",,,,
+U2AF1,SM,,1,GoF（SNVIndel）,,,"A
+ICC2022",,,,
+ATM,SMZL,,1,LoF,,,"A
+WHO2022, PMID: 34653238",,"A
+WHO2022, PMID: 34653238",,
+BIRC3,SMZL,,1,LoF,,,"A
+WHO2022, PMID: 34653238",,"A
+WHO2022, PMID: 34653238",,
+BRAF,SMZL,,1,GoF（SNVIndel：D594Nなど）,,V600E,"A
+WHO2022, PMID: 34653238",,"A
+WHO2022, PMID: 34653238",,
+CDK6,SMZL,,1,GoF（Rearrangement：IGK::CDK6）,t(2;7)(p12;q21),,"A
+WHO2022",,,,
+KLF2,SMZL,,1,LoF,,,"A
+WHO2022, ICC2022, NCCN2023 (BCL)",,"A
+WHO2022",,
+KMT2D,SMZL,,1,LoF,,,"A
+ICC2022, PMID: 34653238",,,,
+NOTCH1,SMZL,,1,GoF（SNVIndel：P2514fsなど）,,,"A
+WHO2022, PMID: 34653238",,"A
+WHO2022, PMID: 34653238",,
+NOTCH2,SMZL,,1,GoF（SNVIndel：R2400*など）,,,"A
+WHO2022, ICC2022, NCCN2023 (BCL)",,"A
+WHO2022",,
+SPEN,SMZL,,1,LoF,,,"A
+WHO2022, PMID: 34653238",,"A
+WHO2022, PMID: 34653238",,
+TNFAIP3,SMZL,,1,LoF,,,"A
+WHO2022, ICC2022, PMID: 34653238",,"A
+WHO2022, PMID: 34653238",,
+TP53,SMZL,1,1,LoF、GoF（SNVIndel）,del(17p13),,"A
+ICC2022, PMID: 34653238",,"A
+WHO2017, ICC2022, PMID: 34653238",,"SMZLのなかで比較的良好な予後を示すDMT (DNA damage response, MAPK and TLR modules) サブタイプでTP53変異が特徴的 (PMID: 34653238)。"
+TRAF3,SMZL,,1,LoF,,,"A
+WHO2022, PMID: 34653238",,"A
+WHO2022, PMID: 34653238",,
+HAVCR2,SPTCL,1,1,LoF （SNVIndel：Y82Cなど）,,,"A
+WHO2022, ICC2022, PMID: 30374066, 30792187, 34535012",,,,
+ARID1A,SS,,1,LoF,,,"A
+WHO2022",,,,
+ATM,SS,,1,LoF,,,"A
+WHO2022",,,,
+CARD11,SS,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+CD28,SS,,1,GoF（SNVIndel：F51Vなど）,,,"A
+WHO2022",,,,
+CDKN2A,SS,,1,LoF,del(9p21),,"A
+WHO2017",,,,
+DNMT3A,SS,,1,LoF、GoF（SNVIndel）,,,"A
+WHO2022",,,,
+JAK3,SS,,1,GoF（SNVIndel：M511Iなど）,,,"A
+WHO2017",,,,
+RHOA,SS,,1,GoF（SNVIndel）,,G17V,"A
+WHO2017",,,,
+RLTPR,SS,,1,GoF,,,"A
+WHO2022",,,,
+STAT5B,SS,,1,GoF（Amplification、SNVIndel：N642Hなど）,,,"A
+WHO2022",,,,
+TET2,SS,,1,LoF,,,"A
+WHO2022",,,,
+TNFRSF1B,SS,,1,GoF（SNVIndel）,,,"A
+WHO2017",,,,
+TP53,SS,1,1,LoF、GoF（SNVIndel）,del(17p13),,"A
+WHO2022",,,,
+TRRAP,SS,,1,GoF,,,"A
+WHO2022, PMID: 34570882",,,,
+DDX3X,Systemic chronic active EBV disease,,1,LoF,,,"A
+WHO2022, ICC2022",,,,
+AKT1,T-ALL,,2,GoF（SNVIndel：E17K など）,,,"D
+PMID: 28671688","D
+PMID: 28202458",,,
+BCL11B,T-ALL,,1,LoF（SNVIndel：R447C など、Rearrangement：BCL11B::TLX3 など）,t(5;14)(q35;q32)など,,"A
+WHO2022, ICC2022, PMID: 21878675, 28671688,",,,,
+CCND3,T-ALL,,2,GoF,,,,"D
+PMID: 23079656",,,
+CDKN2A,T-ALL,,1,LoF (Deletion）,,,"A
+WHO2017",,,,
+CIC,T-ALL,,2,LoF,,,"D
+PMID: 28827401",,,,
+DNMT3A,T-ALL,,2,LoF,,,,,"C
+PMID: 23341344",,
+FBXW7,T-ALL,,1,LoF,,,"A
+NCCN2023 (ALL), NCCN2024 (Pediatric ALL), PMID: 16614245, 19109228, 24166518","D
+PMID: 20861909, 21368834","A
+WHO2022, PMID: 16614245, 19109228, 24166518, NCCN2023 (ALL)",,FBXW7の変異により、ステロイド、Tubulin阻害剤に対する耐性をきたす可能性がある。
+HOXA,T-ALL,,1,GoF（Rearrangement：TRB::HOXAなど）,inv(7)(p15q34)など,,"A
+WHO2022",,,,
+IGH,T-ALL,,1,GoF（Rearrangement）,,,"A
+WHO2017",,,,
+IL7R,T-ALL,,2,GoF（SNVIndel）,,,,"C
+PMID:22897847, 22955920, 27268088",,,
+JAK1,T-ALL,,2,GoF（SNVIndel）,,,,"D
+PMID: 22955920, 18805579",,,
+JAK3,T-ALL,,2,GoF（SNVIndel：M511Iなど）,,,,"D
+PMID: 25193870",,,Tofacitinibは慢性関節リウマチ、潰瘍性大腸炎において薬事承認されている。
+KMT2A,T-ALL,,1,GoF（Fusion：KMT2A::MLLT1など）,t(11;19)(q23;p13)など,,"A
+NCCN2023 (ALL), NCCN2024 (Pediatric ALL)","D
+PMID: 36922589, 36922593",,,
+KMT2D,T-ALL,,1,LoF,,,,,"A
+WHO2022, PMID: 33152759",,
+KRAS,T-ALL,,1,GoF（SNVIndel：G12D/G13Dなど）,,"G12, G13, Q61","A
+NCCN2023 (ALL), PMID: 22237106, 28671688","C
+PMID: 18701506, 25253770, 32955176","A
+NCCN2023 (ALL), PMID: 24166518","FDA：Sotorasib (G12C)
+FDA_Other：Sotorasib (G12C), Adagrasib (G12C)",
+LCK,T-ALL,,1,GoF（Rearrangement：TRB::LCKなど）,t(1;7)(p34;q34)など,,"A
+WHO2017",,,,
+LMO1,T-ALL,,1,GoF（Rearrangement：TRD::LMO1など）,t(11;14)(p15;q11)など,,"A
+WHO2022",,,,
+LMO2,T-ALL,,1,GoF（Rearrangement：TRD::LMO2など）,t(11;14)(p13;q11)など,,"A
+WHO2022",,,,
+LYL1,T-ALL,,1,GoF（Rearrangement：TRB::LYL1など）,t(7;19)(q34;p13)など,,"A
+NCCN2023 (ALL), NCCN2024 (Pediatric ALL)",,,,
+MLLT1,T-ALL,,1,GoF（Fusion：KMT2A::MLLT1）,t(11;19)(q23;p13),,"A
+WHO2022",,,,
+MLLT10,T-ALL,,1,GoF（Fusion：PICALM::MLLT10）,t(10;11)(p13;q14),,"A
+WHO2022",,,,
+MYB,T-ALL,,2,GoF（Amplification、Rearrangement、SNVIndel）,,,"D
+PMID: 17452517, 28671688",,,,
+MYC,T-ALL,,1,GoF（Rearrangement：TRA::MYCなど）,t(8;14)(q24;q11)など,,"A
+WHO2017",,,,
+NOTCH1,T-ALL,,1,"GoF（SNVIndel：L1678P, L1600P, R1598P など）",,,"A
+WHO2017, NCCN2023 (ALL), NCCN2024 (Pediatric ALL), PMID: 15472075, 30209392","D
+PMID: 15472075, 19778842, 22510873, 23001755","A
+WHO2022, NCCN2023 (ALL), PMID: 24166518",,小児T-ALLにおいては予後不良としない報告がある（PMID 22814294、24424791）。
+NOTCH2,T-ALL,,2,GoF（SNVIndel）,,,,"D
+PMID: 25564152",,,
+NR3C1,T-ALL,,2,LoF（Deletion、Fusion）,,,,"D
+PMID: 33364552",,,NR3C1の変異により、ステロイドに対する耐性をきたす可能性がある。
+NRAS,T-ALL,,1,GoF（SNVIndel：G12Dなど）,,"G12, G13, Q61","A
+WHO2021, PMID: 22237106, 28671688","D
+PMID: 25253770","A
+NCCN2023 (ALL), PMID: 24166518",,
+OLIG2,T-ALL,,1,GoF（Rearrangement：TRA::OLG2など）,t(14;21)(q11;q22),,"A
+WHO2022",,"D
+PMID: 31882550",,
+PHF6,T-ALL,,2,LoF,,,"D
+PMID: 20228800, 21880637, 26206799",,,,
+PICALM,T-ALL,,1,GoF（Fusion：PICALM::MLLT10）,t(10;11)(p13;q14),,"A
+WHO2022",,,,
+PTEN,T-ALL,,1,LoF,,,,,"A
+WHO2022, NCCN2023 (ALL), PMID: 24166518",,
+RPL10,T-ALL,,2,LoF,,,"D
+PMID:23263491",,,,
+RPL5,T-ALL,1,2,LoF,,,"D
+PMID:23263491, 28671688",,,,
+RUNX1,T-ALL,1,2,LoF,,,,,"C
+PMID: 23341344",,
+SPI1,T-ALL,,2,"GoF（Fusion：TCF7::SPI1, STMN1::SPI1など）","t(5;11)(q31;p11), t(1;11)(p36;p11)など",,,,"C
+PMID: 28671687, 28671688",,
+STIL,T-ALL,,1,GoF（Rearrangement：TAL1::STILなど）,t(1;14)(p32;q11)など,,"A
+WHO2017, NCCN2023 (ALL)",,,,
+STMN1,T-ALL,,2,GoF（Fusion：STMN1::SPI1）,t(1;11)(p36;p11),,,,"C
+PMID: 28671687, 28671688",,
+TAL1,T-ALL,,1,GoF（Rearrangement：TAL1::STILなど）,t(1;14)(p32;q11)など,,"A
+WHO2022, NCCN2023 (ALL), NCCN2024 (Pediatric ALL)",,,,
+TAL2,T-ALL,,1,GoF（Rearrangement：TRB::TAL2など）,t(7;9)(q34;q32) など,,"A
+WHO2022",,,,
+TCF7,T-ALL,,2,GoF（Fusion：TCF7::SPI1）,t(5;11)(q31;p11),,,,"C
+PMID: 28671687",,
+TLX1,T-ALL,,1,GoF（Rearrangement：TLX1::TRDなど）,t(10;14)(q24;q11)など,,"A
+WHO2022, NCCN2023 (ALL), NCCN2024 (Pediatric ALL), PMID: 28671688",,"A
+WHO2017",,
+TLX3,T-ALL,,1,GoF（Rearrangement：BCL11B::TLX3 など）,t(5;14)(q35;q32)など,,"A
+WHO2022, NCCN2023 (ALL), NCCN2024 (Pediatric ALL), PMID: 28671688",,,,
+TRA,T-ALL,,1,GoF（Rearrangement：TRA::MYCなど）,t(8;14)(q24;q11)など,,"A
+WHO2017, NCCN2023 (ALL)",,,,
+TRB,T-ALL,,1,"GoF（Rearrangement：TRB::LCK, TRB::LYL1など）","t(1;7)(p34;q34), t(7;19)(q34;p13)など",,"A
+WHO2017",,,,
+TRD,T-ALL,,1,"GoF（Rearrangement：TRD::LMO1, TRD::LMO2, TLX1::TRDなど）","t(11;14)(p15;q11), t(11;14)(p13;q11), t(10;14)(q24;q11)など",,"A
+WHO2017, NCCN2023 (ALL)",,,,
+XPC,T-ALL,1,1,LoF,,,"A
+NCCN2023 (MDS), ICC2022, PMID: 30914417",,,,
+ZFP36L2,T-ALL,,2,LoF,,,"D
+PMID: 28671688",,,,
+STAT3,T-LGL,,1,GoF（SNVIndel：Y640F/D661Y/N647Y/N642H/Y665F など）,,"Y640F, D661Y","A
+NCCN2023 (TCL),  PMID: 22591296, 31740810, 35015834, WHO2022",,"D
+PMID: 31740810",,LGL-associated MDSとの関連が示唆されている(PMID: 31624375)。
+STAT5B,T-LGL,,1,GoF（SNVIndel：N642Hなど）,,,"A
+WHO2022, NCCN2023 (TCL)",,"A
+WHO2017",,
+CHEK2,t-MNs,1,1,LoF,,,"A
+ELN2022, PMID: 26641009",,,,
+PPM1D,t-MNs,,1,GoF（SNVIndel：exon 6 のnonsenseもしくはframeshiftSNVIndel）,,,"A
+WHO2017, WHO2022",,,,
+TP53,t-MNs,1,1,LoF,,,"A
+WHO2017, WHO2022",,"A
+WHO2017",,
+TRB,T-NHL,,1,GoF（Rearrangement）,,,"A
+WHO2017",,,,
+TRD,T-NHL,,1,GoF（Rearrangement）,,,"A
+WHO2017",,,,
+TRG,T-NHL,,1,GoF（Rearrangement）,,,"A
+WHO2017",,,,
+AGO2,T-PLL,,1,LoF,,,"A
+WHO2022",,,,
+ATM,T-PLL,,1,LoF,del(11q23),,"A
+WHO2022, NCCN2023 (TCL)",,,,
+BCOR,T-PLL,,1,LoF,,,"A
+WHO2022",,,,
+CHEK2,T-PLL,,1,LoF,,,"A
+WHO2022",,,,
+EZH2,T-PLL,,1,LoF,,Y641,"A
+WHO2022",C,,"FDA：Tazemetostat
+FDA_Other：Tazemetostat",
+FBXW10,T-PLL,,1,LoF,,,"A
+WHO2022",,,,
+IL2RG,T-PLL,,1,LoF,,,"A
+WHO2022",,,,
+JAK1,T-PLL,,1,GoF（SNVIndel）,,,"A
+WHO2022",,,,
+JAK3,T-PLL,,1,GoF（SNVIndel：M511Iなど）,,,"A
+WHO2022",,,,
+MTCP1,T-PLL,,1,GoF（Fusion：TRA::MTCP1）,t(X;14)(q28;q11.2),,"A
+WHO2022, NCCN2023 (TCL)",,,,
+MYC,T-PLL,,1,GoF（Amplification）,amp(8q24),,"A
+WHO2022",,,,
+STAT5B,T-PLL,,1,GoF（SNVIndel：N642Hなど）,,,"A
+WHO2022",,"A
+WHO2017",,
+TCL1A,T-PLL,,1,GoF（Fusion：TRA::TCL1A）,"inv(14)(q11;q32), t(14;14)(q11;q32)",,"A
+WHO2017,  WHO2022, NCCN2023 (TCL)",,,,
+TCL1B,T-PLL,,1,GoF（Fusion：TRA::TCL1B）,"inv(14)(q11;q32), t(14;14)(q11;q32)",,"A
+WHO2017,  WHO2022, NCCN2023 (TCL)",,,,
+TP53,T-PLL,1,1,LoF、GoF（SNVIndel）,del(17p13),,"A
+WHO2017",,,,
+TRA,T-PLL,,1,"GoF（Fusion：TRA::TCL1A, TRA::TCL1B, TRA::MTCP1など）","inv(14)(q11;q32), t(14;14)(q11;q32), t(X;14)(q28;q11.2)など",,"A
+WHO2022",,,,
+CREBBP,THRLBCL,,1,LoF（SNVIndel）,,,"A
+WHO2022, PMID: 30213827",,,,
+DUSP2,THRLBCL,,1,Unknown（SNVIndel）,,,"A
+WHO2022, PMID: 30213827, PMID: 26658840",,,,
+JUNB,THRLBCL,,1,LoF（SNVIndel）,,,"A
+WHO2022, PMID: 30213827, PMID: 26658840",,,,
+SOCS1,THRLBCL,,1,LoF（SNVIndel）,,,"A
+WHO2022, PMID: 30213827",,,,
+UBA1,VEXAS syndrome,,1,LoF (SNVIndel：M41V/Tなど）,,,"A
+NCCN2023 (MDS), PMID: 33108101, 33971000, 33108101, 36823397",,,,
+ARID1A,WM/LPL,,1,LoF,,,"A
+WHO2017",,,,
+CD79B,WM/LPL,,1,GoF（SNVIndel：Y196Hなど）,,Y196,"A
+WHO2017",,,,
+CXCR4,WM/LPL,,1,GoF（SNVIndel：S338*など）,,,"A
+WHO2022, NCCN2023 (BCL)","A
+NCCN2023 (BCL), PMID: 25853747, WHO2017",,,CXCR4変異により、BTK阻害剤に対する耐性をきたす可能性がある。
+KMT2D,WM/LPL,,1,LoF,,,"A
+WHO2017",,,,
+MYBBP1A,WM/LPL,,1,LoF,,,"A
+WHO2017",,,,
+PAX5,WM/LPL,,1,GoF（Rearrangement：IGH::PAX5）,t(9;14)(p13;q32),,"A
+WHO2017",,,,
+TP53,WM/LPL,1,1,LoF、GoF（SNVIndel）,del(17p13),,"A
+WHO2017",,,,
+SH2D1A,XLP,1,1,LoF,,,"A
+WHO2017, PMID: 9811875",,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,

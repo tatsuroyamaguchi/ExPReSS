@@ -570,7 +570,7 @@ def excel_foundationone(analysis_type, output_stream, date, ep_institution, ep_d
             df_germline = df_germline[df_germline['alternateAlleleFrequency'] > df_germline['SNV']]
         elif df_germline['cdsChange'].str.contains('del|ins', na=False).any():
             df_germline = df_germline[df_germline['alternateAlleleFrequency'] > df_germline['Indel']]
-        if (df_msi['status'] != 'MSI-H').any():
+        if (df_msi['status'] != 'MSI').any():
             df_germline = df_germline[~df_germline['geneSymbol'].isin(['MLH1', 'MSH2', 'MSH6', 'PMS2'])]
         else:
             pass

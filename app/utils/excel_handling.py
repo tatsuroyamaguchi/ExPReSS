@@ -545,12 +545,12 @@ def excel_foundationone(analysis_type, output_stream, date, ep_institution, ep_d
     
     if not df_short.empty:
         df_short = df_short.copy()
-        df_short['alternateAlleleFrequency'] = df_short.apply(
-            lambda x: f"{x['alternateAlleleReadDepth'] / x['totalReadDepth'] * 100:.1f}%" if pd.notna(x['alternateAlleleReadDepth']) and pd.notna(x['totalReadDepth']) else '-', axis=1)
+        df_short['alternateAlleleFrequency'] = df_short.apply(lambda x: x['alternateAlleleReadDepth'] / x['totalReadDepth'] if pd.notna(x['alternateAlleleReadDepth']) and pd.notna(x['totalReadDepth']) and x['totalReadDepth'] != 0 else None, axis=1)
         df_short['GeneBe_ClinVar_Germline'] = df_short['GeneBe_ClinVar_Germline'].fillna('').astype(str) + ' ' + df_short['GeneBe_ClinVar_Germline_Status'].fillna('').astype(str)
         df_short['GeneBe_ClinVar_Somatic'] = df_short['GeneBe_ClinVar_Somatic'].fillna('').astype(str) + ' ' + df_short['GeneBe_ClinVar_Somatic_Status'].fillna('').astype(str)   
         df_short.loc[df_short['GeneBe_ClinVar_Germline'].isin(['§']), 'GeneBe_ClinVar_Germline'] = '(' + df_short['GeneBe_ClinVar_Submission_Summary'].astype(str) + ')'
         df_snv = df_short[Columns.SNV_INDEL].copy()
+        df_snv['alternateAlleleFrequency'] = df_snv['alternateAlleleFrequency'].apply(lambda x: f"{x * 100:.1f}%" if pd.notna(x) else '')
         df_snv = df_snv.sort_values(by=['status', 'geneSymbol'])
     
     if not df_cnv.empty:
@@ -566,19 +566,21 @@ def excel_foundationone(analysis_type, output_stream, date, ep_institution, ep_d
     df_pgpv = pd.read_csv(os.path.join(base_path, Database.PGPV_PATH))
     df_germline = pd.merge(df_germline, df_pgpv, on='geneSymbol', how='left')
     if analysis_type == 'FoundationOne':
-        if df_germline['cdsChange'].str.match(r'^[cC]\.\d+[+-]?\d*[A-Z]?[>][A-Z]$').any():
+        if df_germline['cdsChange'].str.contains('>', na=False).any():
             df_germline = df_germline[df_germline['alternateAlleleFrequency'] > df_germline['SNV']]
-        else:
+        elif df_germline['cdsChange'].str.contains('del|ins', na=False).any():
             df_germline = df_germline[df_germline['alternateAlleleFrequency'] > df_germline['Indel']]
         if (df_msi['status'] != 'MSI-H').any():
             df_germline = df_germline[~df_germline['geneSymbol'].isin(['MLH1', 'MSH2', 'MSH6', 'PMS2'])]
         else:
             pass
+        
     elif analysis_type == 'FoundationOne Liquid':
-        df_germline = df_germline[df_germline['alternateAlleleFrequency'].str.replace('%', '', regex=False).astype(float) > 30]
+        df_germline = df_germline[df_germline['alternateAlleleFrequency'].astype(float) > 0.3]
     df_germline = df_germline[['geneSymbol', 'aminoAcidsChange', 'Comment']].copy()
     df_germline['Merged'] = df_germline['geneSymbol'] + ' ' + df_germline['aminoAcidsChange'] + ' ' + df_germline['Comment']
     df_germline = df_germline[['Merged']]
+    
     
     ####################################
     wb = openpyxl.load_workbook(output_stream)

@@ -788,7 +788,7 @@ def excel_genminetop(analysis_type, output_stream, date, ep_institution, ep_depa
         df_fusion['Breakpoint_2'] = df_fusion['chr_2'] + ":" + df_fusion['pos_2'].astype(str)
         df_fusion['Breakpoint'] = df_fusion['Breakpoint_1'] + ' - ' + df_fusion['Breakpoint_2']
         
-        df_fusion = df_fusion[Columns.GENEMINE_FUSION].copy()
+        df_fusion = df_fusion[Columns.GENMINE_FUSION].copy()
         for insert_pos in [1, 3, 4, 5, 7, 8, 10]:
             col_name = chr(96 + insert_pos)
             if 0 <= insert_pos <= df_fusion.shape[1]:

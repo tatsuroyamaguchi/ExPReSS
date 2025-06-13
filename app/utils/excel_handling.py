@@ -51,7 +51,8 @@ def delete_blank_lines(sheet):
             sheet.delete_rows(row, 1)
 
 def insert_row(wb, df, sheet_name, start_row, start_col, end_col):
-    if df.empty:
+    if df is None or df.empty:
+        print(f"[WARNING] DataFrame for sheet '{sheet_name}' is None or empty. Skipping insertion.")
         return
     sheet = wb[sheet_name]
     # スタイルを取得
@@ -574,7 +575,6 @@ def excel_foundationone(analysis_type, output_stream, date, ep_institution, ep_d
             df_germline = df_germline[~df_germline['geneSymbol'].isin(['MLH1', 'MSH2', 'MSH6', 'PMS2'])]
         else:
             pass
-        
     elif analysis_type == 'FoundationOne Liquid':
         df_germline = df_germline[df_germline['alternateAlleleFrequency'].astype(float) > 0.3]
     df_germline = df_germline[['geneSymbol', 'aminoAcidsChange', 'Comment']].copy()
@@ -808,7 +808,9 @@ def excel_genminetop(analysis_type, output_stream, date, ep_institution, ep_depa
     insert_row(wb, df_germline, sheet_name='Summary', start_row=start_row_germline, start_col='A', end_col='O')
     start_row_short = start_row_germline + 6 + len(df_germline) - 1 if len(df_germline) > 1 else start_row_germline + 6
     insert_row(wb, df_short, sheet_name='Summary', start_row=start_row_short, start_col='A', end_col='O')
-    start_row_cnv = start_row_short + 5 + len(df_short) - 1 if len(df_short) > 1 else start_row_short + 5
+    
+    df_short_len = len(df_short) if df_short is not None else 0
+    start_row_cnv = start_row_short + 5 + df_short_len - 1 if df_short_len > 1 else start_row_short + 5
     insert_row(wb, df_cnv, sheet_name='Summary', start_row=start_row_cnv, start_col='A', end_col='O')
     start_row_fusion = start_row_cnv + 4 + len(df_cnv) - 1 if len(df_cnv) > 1 else start_row_cnv + 4
     insert_row(wb, df_fusion, sheet_name='Summary', start_row=start_row_fusion, start_col='A', end_col='O')
@@ -817,10 +819,11 @@ def excel_genminetop(analysis_type, output_stream, date, ep_institution, ep_depa
     
     for df_section, start_row in [(df_germline, start_row_germline), (df_short, start_row_short), (df_cnv, start_row_cnv), 
                                   (df_fusion, start_row_fusion), (df_germline_comment, start_row_germline_comment)]:
-        for r_idx, row in enumerate(dataframe_to_rows(df_section, index=False, header=False), start_row):
-            for c_idx, value in enumerate(row, 1):
-                sheet.cell(row=r_idx, column=c_idx, value=value)
-                sheet.cell(row=r_idx, column=c_idx).alignment = Alignment(wrap_text=False, vertical='top')
+        if df_section is not None and not df_section.empty:
+            for r_idx, row in enumerate(dataframe_to_rows(df_section, index=False, header=False), start_row):
+                for c_idx, value in enumerate(row, 1):
+                    sheet.cell(row=r_idx, column=c_idx, value=value)
+                    sheet.cell(row=r_idx, column=c_idx).alignment = Alignment(wrap_text=False, vertical='top')
 
     # 空行削除
     # delete_blank_lines(sheet)
@@ -865,7 +868,10 @@ def excel_genminetop(analysis_type, output_stream, date, ep_institution, ep_depa
     sheet['E42'] = f'{ep_institution} {ep_department}\n{ep_contact}\n電話番号 {ep_tel}'
 
     # 必要な列のみ抽出
-    df_patient = df_short[['geneSymbol', 'aminoAcidsChange']].copy()
+    if df_short is not None and not df_short.empty:
+        df_patient = df_short[['geneSymbol', 'aminoAcidsChange']].copy()
+    else:
+        df_patient = pd.DataFrame(columns=['geneSymbol', 'aminoAcidsChange'])
 
     # df_patient
     start_row_patient = 26

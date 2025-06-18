@@ -52,7 +52,6 @@ def delete_blank_lines(sheet):
 
 def insert_row(wb, df, sheet_name, start_row, start_col, end_col):
     if df is None or df.empty:
-        print(f"[WARNING] DataFrame for sheet '{sheet_name}' is None or empty. Skipping insertion.")
         return
     sheet = wb[sheet_name]
     # スタイルを取得

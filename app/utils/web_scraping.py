@@ -21,20 +21,31 @@ def fetch_genebe(analysis_type, transcript_id, cds_change):
         grc = "hg19"
         
     url = f'{Hyperlink.GENEBE_LINK}{grc}/{transcript_id}:{cds_change}'
-    r = requests.get(url)
-    r.raise_for_status()
+    
+    try:
+        r = requests.get(url)
+        r.raise_for_status()
+    except requests.exceptions.HTTPError as e:
+        print(f"[GeneBe fetch error] {e} - URL: {url}")
+        return None, None, None, None, None, None, None
+
     soup = BeautifulSoup(r.text, 'html.parser')
-    if grc == "hg19":
-        variant_element = soup.find('div', class_='prose max-w-none').find("a")
-    elif grc == "hg38":
-        variant_element = soup.find('li', class_='inline-block').find("a")
-    variant = variant_element.get_text(strip=True).replace('hg38:', '').replace('chr:', '')
-    chromosome, position, ref, alt = variant.split('-')
-    chromosome = chromosome.replace('chr', '')
-    genebe_json = gnb.annotate_variants_list([variant], flatten_consequences=False, genome="hg38")
-    dbsnp = genebe_json[0].get('dbsnp')
-    consequences = genebe_json[0].get('consequences', [])
-    # transcript_id = consequences[0].get('transcript') if consequences else transcript_id
+    
+    try:
+        if grc == "hg19":
+            variant_element = soup.find('div', class_='prose max-w-none').find("a")
+        else:
+            variant_element = soup.find('li', class_='inline-block').find("a")
+        variant = variant_element.get_text(strip=True).replace('hg38:', '').replace('chr:', '')
+        chromosome, position, ref, alt = variant.split('-')
+        chromosome = chromosome.replace('chr', '')
+        
+        genebe_json = gnb.annotate_variants_list([variant], flatten_consequences=False, genome=grc)
+        dbsnp = genebe_json[0].get('dbsnp')
+    except Exception as e:
+        print(f"[GeneBe parsing error] {e} - URL: {url}")
+        return None, None, None, None, None, None, None
+
     return genebe_json, variant, chromosome, position, ref, alt, dbsnp
     
 

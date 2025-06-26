@@ -9,17 +9,18 @@ from .parameter import Hyperlink
 
 def fetch_genebe(analysis_type, transcript_id, cds_change):
 
-    if analysis_type == 'HemeSight':
-        grc = "hg38"
-    elif analysis_type == 'FoundationOne':
-        grc = "hg19"
-    elif analysis_type == 'FoundationOne Liquid':
-        grc = "hg19"
-    elif analysis_type == 'GenMineTOP':
-        grc = "hg38"
-    elif analysis_type == 'Guardant360':
-        grc = "hg19"
-        
+    # if analysis_type == 'HemeSight':
+    #     grc = "hg38"
+    # elif analysis_type == 'FoundationOne':
+    #     grc = "hg19"
+    # elif analysis_type == 'FoundationOne Liquid':
+    #     grc = "hg19"
+    # elif analysis_type == 'GenMineTOP':
+    #     grc = "hg38"
+    # elif analysis_type == 'Guardant360':
+    #     grc = "hg19"
+    grc = "hg38"
+    
     url = f'{Hyperlink.GENEBE_LINK}{grc}/{transcript_id}:{cds_change}'
     
     try:

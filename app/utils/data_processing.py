@@ -1,4 +1,5 @@
 import fnmatch
+import glob
 import json
 import os
 from io import BytesIO
@@ -14,14 +15,13 @@ from .parameter import Base, Transcript, Database, Gene, Columns
 
 
 def cancer_gene_census():
-    current_dir = os.getcwd()
-    db_dir = os.path.join(current_dir, 'app/db')
-    search_pattern = Database.COSMIC_PATH
-    for file in os.listdir(db_dir):
-        if fnmatch.fnmatch(file, search_pattern):
-            cancergenecensus_path = os.path.join(db_dir, file)
-            break
-        
+    cosmic_files = glob.glob(Database.COSMIC_PATH)
+
+    if not cosmic_files:
+        raise FileNotFoundError(f"No file matching pattern: {Database.COSMIC_PATH}")
+    
+    cancergenecensus_path = cosmic_files[0]
+
     df_cgc = pd.read_csv(cancergenecensus_path, sep='\t', encoding='utf-8')
     df_cgc = df_cgc[['GENE_SYMBOL', 'ROLE_IN_CANCER', 'TIER']].copy()
     df_cgc['ROLE_IN_CANCER'] = df_cgc['ROLE_IN_CANCER'].replace({

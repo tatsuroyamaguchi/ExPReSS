@@ -162,126 +162,112 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
     sheet['J26'] = ep_institution + ' ' + ep_department + '\n' + ep_contact + '\n' + '電話番号 ' + ep_tel
 
     ####################################
+    # 1. データ読み込み
     df_rearrangements = pd.read_excel(output_stream, sheet_name='Rearrangements')
-    df_rearrange = df_rearrangements[Columns.HEMESIGHT_REARRANGEMENT]
-    df_rearrange.loc[:, 'geneSymbol'] = df_rearrange['geneSymbol'].fillna('-')
-    df_rearrange.loc[:, 'geneSymbol'] = df_rearrange.apply(lambda row: row['geneSymbol'] + ' [ex ' + str(int(row['number.number'])) + ']' if pd.notna(row['number.number']) else row['geneSymbol'], axis=1)
+    df_rearrange = df_rearrangements[Columns.HEMESIGHT_REARRANGEMENT].copy()
+
+    # 2. geneSymbolの前処理
+    df_rearrange['geneSymbol'] = df_rearrange['geneSymbol'].fillna('-')
+    df_rearrange['geneSymbol'] = df_rearrange.apply(
+        lambda row: f"{row['geneSymbol']} [ex {int(row['number.number'])}]" 
+        if pd.notna(row['number.number']) else row['geneSymbol'], axis=1)
     df_rearrange = df_rearrange.drop(columns=['number.number'])
 
-    df_sv = df_rearrange[df_rearrange['itemId'].str.startswith('SV')]
-    if not df_sv.empty:
-        df_sv = df_sv.pivot_table(index=['itemId', 'chromosome', 'startPosition'], columns=df_sv.groupby(['itemId', 'chromosome', 'startPosition']).cumcount(), values='geneSymbol', aggfunc='first')
-        # geneSymbol_0, geneSymbol_1, ... にリネーム
-        df_sv.columns = [f'geneSymbol_{col}' for col in df_sv.columns]
-        df_sv = df_sv.reset_index()
-        # 安全にgeneSymbol列を生成
-        if 'geneSymbol_1' in df_sv.columns:
-            df_sv['geneSymbol'] = df_sv.apply(lambda row: row['geneSymbol_0'] + ' / ' + row['geneSymbol_1'] if pd.notna(row['geneSymbol_1']) else row['geneSymbol_0'], axis=1)
-        else:
-            df_sv['geneSymbol'] = df_sv['geneSymbol_0']
-        df_sv = df_sv.drop(columns=[col for col in ['geneSymbol_0', 'geneSymbol_1'] if col in df_sv.columns])
-        df_sv['geneSymbol'] = (df_sv['geneSymbol'] + '\n' + df_sv['chromosome'].astype(str) + ':' + df_sv['startPosition'].astype(str))
-        df_sv = pd.merge(df_sv, df_rearrange[['itemId', 'chromosome', 'startPosition', 'rearrangementType', 'insertedSequence', 'function.mitelman']], on=['itemId', 'chromosome', 'startPosition'], how='left')
-        df_sv = df_sv.drop_duplicates()
-        df_sv = df_sv.pivot_table(index='itemId', columns=df_sv.groupby('itemId').cumcount(), values=['geneSymbol', 'rearrangementType', 'insertedSequence', 'function.mitelman'], aggfunc='first')
-        df_sv.columns = [f'{col[0]}_{col[1]}' for col in df_sv.columns]
-        df_sv = df_sv.reset_index()
-        df_sv = df_sv.reindex(columns=Columns.HEMESIGHT_SV, fill_value='')  # 念のため整形
-        df_sv['Check'] = 'SV'
-    else:
-        df_sv = pd.DataFrame(columns=Columns.HEMESIGHT_SV)
-        df_sv['Check'] = 'SV'
+    # 3. 共通処理用の関数定義
+    def process_rearrangement_data(df, prefix, columns, check_value, include_inserted_sequence=True):
+        if df.empty:
+            result = pd.DataFrame(columns=columns)
+            result['Check'] = check_value
+            return result
 
-    df_up_sv = df_rearrange[df_rearrange['itemId'].str.startswith('UP')]
-    if not df_up_sv.empty:
-        df_up_sv.loc[:, 'geneSymbol'] = df_up_sv['geneSymbol'] + '\n' + df_up_sv['chromosome'].astype(str) + ':' + df_up_sv['startPosition'].astype(str)
-        df_up_sv = df_up_sv.pivot_table(index=['itemId', 'chromosome', 'startPosition'], columns=df_up_sv.groupby(['itemId', 'chromosome', 'startPosition']).cumcount(), values='geneSymbol', aggfunc='first')
-        df_up_sv.columns = [f'geneSymbol_{col}' for col in df_up_sv.columns]
-        df_up_sv = df_up_sv.reset_index()
-        try:
-            df_up_sv['geneSymbol'] = df_up_sv.apply(lambda row: row['geneSymbol_0'] + '/' + row['geneSymbol_1'] if pd.notna(row['geneSymbol_1']) else row['geneSymbol_0'], axis=1)
-            df_up_sv = df_up_sv.drop(columns=['geneSymbol_0', 'geneSymbol_1'])
-        except:
-            df_up_sv['geneSymbol'] = df_up_sv['geneSymbol_0']
-            df_up_sv = df_up_sv.drop(columns=['geneSymbol_0'])
-        df_up_sv = pd.merge(df_up_sv, df_rearrange[['itemId', 'chromosome', 'startPosition', 'rearrangementType', 'insertedSequence', 'function.mitelman']], on=['itemId', 'chromosome', 'startPosition'])
-        df_up_sv['function.mitelman'] = df_up_sv['function.mitelman'].fillna('-')
-        df_up_sv = df_up_sv.drop_duplicates().pivot_table(index='itemId', columns=df_up_sv.groupby('itemId').cumcount(), values=['geneSymbol', 'rearrangementType', 'insertedSequence', 'function.mitelman'], aggfunc='first')
-        df_up_sv.columns = [f'{col[0]}_{col[1]}' for col in df_up_sv.columns]
-        df_up_sv = df_up_sv.reset_index()
-        df_up_sv = df_up_sv.reindex(columns=Columns.HEMESIGHT_SV, fill_value='')
-        df_up_sv['Check'] = 'UP_SV'
-    else:
-        df_up_sv = pd.DataFrame(columns=Columns.HEMESIGHT_SV)
-        df_up_sv['Check'] = 'UP_SV'
+        # geneSymbolに位置情報を追加
+        df['geneSymbol'] = df['geneSymbol'] + '\n' + df['chromosome'].astype(str) + ':' + df['startPosition'].astype(str)
+        
+        # ピボットテーブル作成
+        df_pivot = df.pivot_table(
+            index=['itemId', 'chromosome', 'startPosition'],
+            columns=df.groupby(['itemId', 'chromosome', 'startPosition']).cumcount(),
+            values='geneSymbol',
+            aggfunc='first'
+        )
+        df_pivot.columns = [f'geneSymbol_{col}' for col in df_pivot.columns]
+        df_pivot = df_pivot.reset_index()
 
-    df_fu = df_rearrange[df_rearrange['itemId'].str.startswith('FU')]
-    if not df_fu.empty:
-        df_fu.loc[:, 'geneSymbol'] = df_fu['geneSymbol'] + '\n' + df_fu['chromosome'].astype(str) + ':' + df_fu['startPosition'].astype(str)
-        df_fu = df_fu.pivot_table(index=['itemId', 'chromosome', 'startPosition'], columns=df_fu.groupby(['itemId', 'chromosome', 'startPosition']).cumcount(), values='geneSymbol', aggfunc='first')
-        df_fu.columns = [f'geneSymbol_{col}' for col in df_fu.columns]
-        df_fu = df_fu.reset_index()
-        try:
-            df_fu['geneSymbol'] = df_fu.apply(lambda row: row['geneSymbol_0'] + '/' + row['geneSymbol_1'] if pd.notna(row['geneSymbol_1']) else row['geneSymbol_0'], axis=1)
-            df_fu = df_fu.drop(columns=['geneSymbol_0', 'geneSymbol_1'])
-        except:
-            df_fu['geneSymbol'] = df_fu['geneSymbol_0']
-            df_fu = df_fu.drop(columns=['geneSymbol_0'])
-        df_fu = pd.merge(df_fu, df_rearrange[['itemId', 'chromosome', 'startPosition', 'rearrangementType', 'function.mitelman']], on=['itemId', 'chromosome', 'startPosition'])
-        df_fu['function.mitelman'] = df_fu['function.mitelman'].fillna('-')
-        df_fu = df_fu.drop_duplicates().pivot_table(index='itemId', columns=df_fu.groupby('itemId').cumcount(), values=['geneSymbol', 'rearrangementType', 'function.mitelman'], aggfunc='first')
-        df_fu.columns = [f'{col[0]}_{col[1]}' for col in df_fu.columns]
-        df_fu = df_fu.reset_index()[Columns.HEMESIGHT_FU]
-        df_fu['Check'] = 'FU_RNA'
-    else:
-        df_fu = pd.DataFrame(columns=Columns.HEMESIGHT_FU)
-        df_fu['Check'] = 'FU_RNA'
+        # geneSymbolの結合
+        df_pivot['geneSymbol'] = df_pivot.apply(
+            lambda row: f"{row['geneSymbol_0']}/{row['geneSymbol_1']}" 
+            if 'geneSymbol_1' in df_pivot.columns and pd.notna(row['geneSymbol_1']) 
+            else row['geneSymbol_0'], axis=1
+        )
+        df_pivot = df_pivot.drop(columns=[col for col in ['geneSymbol_0', 'geneSymbol_1'] if col in df_pivot.columns])
 
-    df_du = df_rearrange[df_rearrange['itemId'].str.startswith('DU')]
-    if not df_du.empty:
-        df_du.loc[:, 'geneSymbol'] = df_du['geneSymbol'] + '\n' + df_du['chromosome'].astype(str) + ':' + df_du['startPosition'].astype(str)
-        df_du = df_du.pivot_table(index=['itemId', 'chromosome', 'startPosition'], columns=df_du.groupby(['itemId', 'chromosome', 'startPosition']).cumcount(), values='geneSymbol', aggfunc='first')
-        df_du.columns = [f'geneSymbol_{col}' for col in df_du.columns]
-        df_du = df_du.reset_index()
-        try:
-            df_du['geneSymbol'] = df_du.apply(lambda row: row['geneSymbol_0'] + '/' + row['geneSymbol_1'] if pd.notna(row['geneSymbol_1']) else row['geneSymbol_0'], axis=1)
-            df_du = df_du.drop(columns=['geneSymbol_0', 'geneSymbol_1'])
-        except:
-            df_du['geneSymbol'] = df_du['geneSymbol_0']
-            df_du = df_du.drop(columns=['geneSymbol_0'])
-        df_du = pd.merge(df_du, df_rearrange[['itemId', 'chromosome', 'startPosition', 'rearrangementType', 'insertedSequence', 'function.mitelman']], on=['itemId', 'chromosome', 'startPosition'])
-        df_du['function.mitelman'] = df_du['function.mitelman'].fillna('-')
-        df_du = df_du.drop_duplicates().pivot_table(index='itemId', columns=df_du.groupby('itemId').cumcount(), values=['geneSymbol', 'rearrangementType', 'insertedSequence', 'function.mitelman'], aggfunc='first')
-        df_du.columns = [f'{col[0]}_{col[1]}' for col in df_du.columns]
-        df_du = df_du.reset_index()[Columns.HEMESIGHT_SV]
-        df_du['Check'] = 'DU'
-    else:
-        df_du = pd.DataFrame(columns=Columns.HEMESIGHT_SV)
-        df_du['Check'] = 'DU'
+        # マージとデータ整形
+        merge_cols = ['itemId', 'chromosome', 'startPosition', 'rearrangementType', 'function.mitelman']
+        if include_inserted_sequence:
+            merge_cols.append('insertedSequence')
+        df_merged = pd.merge(df_pivot, df_rearrange[merge_cols], on=['itemId', 'chromosome', 'startPosition'])
+        df_merged['function.mitelman'] = df_merged['function.mitelman'].fillna('-')
 
+        # ピボットテーブル再作成
+        pivot_values = ['geneSymbol', 'rearrangementType', 'function.mitelman']
+        if include_inserted_sequence:
+            pivot_values.append('insertedSequence')
+        df_final = df_merged.drop_duplicates().pivot_table(
+            index='itemId',
+            columns=df_merged.groupby('itemId').cumcount(),
+            values=pivot_values,
+            aggfunc='first'
+        )
+        df_final.columns = [f'{col[0]}_{col[1]}' for col in df_final.columns]
+        df_final = df_final.reset_index().reindex(columns=columns, fill_value='')
+        df_final['Check'] = check_value
+        return df_final
+
+    # 4. SV, UP_SV, FU, DUの処理
+    df_sv = process_rearrangement_data(
+        df_rearrange[df_rearrange['itemId'].str.startswith('SV')],
+        'SV', Columns.HEMESIGHT_SV, 'SV'
+    )
+    df_up_sv = process_rearrangement_data(
+        df_rearrange[df_rearrange['itemId'].str.startswith('UP')],
+        'UP', Columns.HEMESIGHT_SV, 'UP_SV'
+    )
+    df_fu = process_rearrangement_data(
+        df_rearrange[df_rearrange['itemId'].str.startswith('FU')],
+        'FU', Columns.HEMESIGHT_FU, 'FU_RNA', include_inserted_sequence=False
+    )
+    df_du = process_rearrangement_data(
+        df_rearrange[df_rearrange['itemId'].str.startswith('DU')],
+        'DU', Columns.HEMESIGHT_SV, 'DU'
+    )
+
+    # 5. CaseDataとJSHデータの処理
     df_case_data = pd.read_excel(output_stream, sheet_name='CaseData')
-    cancer_type = df_case_data['cancerType'].values[0]
-    cancer_mappings = Abbreviation.ABBR_DISEASE_NAME
-    cancer_type = next((abbr for key, abbr in cancer_mappings.items() if key in cancer_type), 'Other')
+    cancer_type = next(
+        (abbr for key, abbr in Abbreviation.ABBR_DISEASE_NAME.items() if key in df_case_data['cancerType'].values[0]),
+        'Other'
+    )
 
-    all_genes = set(df_gl['geneSymbol']).union(df_mt['geneSymbol'], df_mnv['geneSymbol'], df_up['geneSymbol'], 
-                                               df_sv[['geneSymbol_0', 'geneSymbol_1']].stack(), 
-                                               df_up_sv[['geneSymbol_0', 'geneSymbol_1']].stack(), 
-                                               df_fu[['geneSymbol_0', 'geneSymbol_1']].stack(), 
-                                               df_du[['geneSymbol_0', 'geneSymbol_1']].stack())
-    all_genes = set([gene.split('\n')[0].split(' [')[0] for gene in all_genes])
+    # 6. 全遺伝子の収集
+    all_genes = set(df_gl['geneSymbol']).union(
+        df_mt['geneSymbol'], df_mnv['geneSymbol'], df_up['geneSymbol'],
+        df_sv[['geneSymbol_0', 'geneSymbol_1']].stack(),
+        df_up_sv[['geneSymbol_0', 'geneSymbol_1']].stack(),
+        df_fu[['geneSymbol_0', 'geneSymbol_1']].stack(),
+        df_du[['geneSymbol_0', 'geneSymbol_1']].stack()
+    )
+    all_genes = {gene.split('\n')[0].split(' [')[0] for gene in all_genes}
 
+    # 7. JSHデータのフィルタリング
     jsh_path = os.path.join(current_dir, Database.JSA_PATH)
     df_jsh = pd.read_csv(jsh_path, encoding='utf-8')
     df_jsh = df_jsh[df_jsh['Disease'].str.contains(cancer_type) & df_jsh['Gene'].isin(all_genes)].sort_values('Gene')
-    
-    df_jsh_evidence = df_jsh[Columns.HEMESIGHT_JSA]
-    df_jsh_evidence = df_jsh_evidence.copy()
+
+    # 8. JSHエビデンスと薬剤データの作成
+    df_jsh_evidence = df_jsh[Columns.HEMESIGHT_JSA].copy()
     df_jsh_evidence['Check'] = 'evidence'
-    df_jsh_drugs = df_jsh[['Gene', 'Drugs', 'Comments']]
-    df_jsh_drugs = df_jsh_drugs.copy()
+    df_jsh_drugs = df_jsh[['Gene', 'Drugs', 'Comments']].copy()
     df_jsh_drugs['Check'] = 'drug'
-    
     
     ####################################    
     sheet = wb['Report']

@@ -79,14 +79,18 @@ class Gene:
         'H3-3A': 'H3F3A'
     }
 
+import os
+
 class Database:
-    CIVIC_PATH = '../db/nightly-FeatureSummaries.tsv'
-    COSMIC_PATH = 'Cosmic_CancerGeneCensus_v*_GRCh38.tsv'
-    HGNC_PATH = '../db/protein-coding_gene.tsv'
-    JSA_PATH = 'app/db/JSH_Guidelines.csv'
-    LOGO_PATH = 'app/template/Logo.png'
-    PGPV_PATH = '../db/pgpv.csv'
-    TP53_PATH = '../db/MutationView_r21.csv'
+    BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+    CIVIC_PATH = os.path.join(BASE_DIR, 'app', 'db', 'nightly-FeatureSummaries.tsv')
+    COSMIC_PATH = os.path.join(BASE_DIR, 'app', 'db', 'Cosmic_CancerGeneCensus_v*_GRCh38.tsv')  # glob使用時対応
+    HGNC_PATH = os.path.join(BASE_DIR, 'app', 'db', 'protein-coding_gene.tsv')
+    JSA_PATH = os.path.join(BASE_DIR, 'app', 'db', 'JSH_Guidelines.csv')
+    LOGO_PATH = os.path.join(BASE_DIR, 'app', 'template', 'Logo.png')
+    PGPV_PATH = os.path.join(BASE_DIR, 'app', 'db', 'pgpv.csv')
+    TP53_PATH = os.path.join(BASE_DIR, 'app', 'db', 'MutationView_r21.csv')
+
     
     
 class Hyperlink:

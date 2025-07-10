@@ -162,18 +162,22 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
     df_rearrange = df_rearrange.drop(columns=['number.number'])
 
     df_sv = df_rearrange[df_rearrange['itemId'].str.startswith('SV')]
-    df_sv = df_sv.pivot_table(index=['itemId', 'chromosome', 'startPosition'], columns=df_sv.groupby(['itemId', 'chromosome', 'startPosition']).cumcount(), values='geneSymbol', aggfunc='first')
-    df_sv.columns = [f'geneSymbol_{col}' for col in df_sv.columns]
-    df_sv = df_sv.reset_index()
-    df_sv['geneSymbol'] = df_sv.apply(lambda row: row['geneSymbol_0'] + ' / ' + row['geneSymbol_1'] if pd.notna(row['geneSymbol_1']) else row['geneSymbol_0'], axis=1)
-    df_sv = df_sv.drop(columns=['geneSymbol_0', 'geneSymbol_1'])
-    df_sv['geneSymbol'] = df_sv['geneSymbol'] + '\n' + df_sv['chromosome'].astype(str) + ':' + df_sv['startPosition'].astype(str)
-    df_sv = pd.merge(df_sv, df_rearrange[['itemId', 'chromosome', 'startPosition', 'rearrangementType', 'insertedSequence', 'function.mitelman']], on=['itemId', 'chromosome', 'startPosition'])
-    df_sv = df_sv.drop_duplicates()
-    df_sv = df_sv.pivot_table(index='itemId', columns=df_sv.groupby('itemId').cumcount(), values=['geneSymbol', 'rearrangementType', 'insertedSequence', 'function.mitelman'], aggfunc='first')
-    df_sv.columns = [f'{col[0]}_{col[1]}' for col in df_sv.columns]
-    df_sv = df_sv.reset_index()[Columns.HEMESIGHT_SV]
-    df_sv['Check'] = 'SV'
+    if not df_sv.empty:
+        df_sv = df_sv.pivot_table(index=['itemId', 'chromosome', 'startPosition'], columns=df_sv.groupby(['itemId', 'chromosome', 'startPosition']).cumcount(), values='geneSymbol', aggfunc='first')
+        df_sv.columns = [f'geneSymbol_{col}' for col in df_sv.columns]
+        df_sv = df_sv.reset_index()
+        df_sv['geneSymbol'] = df_sv.apply(lambda row: row['geneSymbol_0'] + ' / ' + row['geneSymbol_1'] if pd.notna(row['geneSymbol_1']) else row['geneSymbol_0'], axis=1)
+        df_sv = df_sv.drop(columns=['geneSymbol_0', 'geneSymbol_1'])
+        df_sv['geneSymbol'] = df_sv['geneSymbol'] + '\n' + df_sv['chromosome'].astype(str) + ':' + df_sv['startPosition'].astype(str)
+        df_sv = pd.merge(df_sv, df_rearrange[['itemId', 'chromosome', 'startPosition', 'rearrangementType', 'insertedSequence', 'function.mitelman']], on=['itemId', 'chromosome', 'startPosition'])
+        df_sv = df_sv.drop_duplicates()
+        df_sv = df_sv.pivot_table(index='itemId', columns=df_sv.groupby('itemId').cumcount(), values=['geneSymbol', 'rearrangementType', 'insertedSequence', 'function.mitelman'], aggfunc='first')
+        df_sv.columns = [f'{col[0]}_{col[1]}' for col in df_sv.columns]
+        df_sv = df_sv.reset_index()[Columns.HEMESIGHT_SV]
+        df_sv['Check'] = 'SV'
+    else:
+        df_sv = pd.DataFrame(columns=Columns.HEMESIGHT_SV)
+        df_sv['Check'] = 'SV'
 
     df_up_sv = df_rearrange[df_rearrange['itemId'].str.startswith('UP')]
     df_up_sv.loc[:, 'geneSymbol'] = df_up_sv['geneSymbol'] + '\n' + df_up_sv['chromosome'].astype(str) + ':' + df_up_sv['startPosition'].astype(str)
@@ -187,6 +191,7 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
         df_up_sv['geneSymbol'] = df_up_sv['geneSymbol_0']
         df_up_sv = df_up_sv.drop(columns=['geneSymbol_0'])
     df_up_sv = pd.merge(df_up_sv, df_rearrange[['itemId', 'chromosome', 'startPosition', 'rearrangementType', 'insertedSequence', 'function.mitelman']], on=['itemId', 'chromosome', 'startPosition'])
+    df_up_sv['function.mitelman'] = df_up_sv['function.mitelman'].fillna('-')
     df_up_sv = df_up_sv.drop_duplicates().pivot_table(index='itemId', columns=df_up_sv.groupby('itemId').cumcount(), values=['geneSymbol', 'rearrangementType', 'insertedSequence', 'function.mitelman'], aggfunc='first')
     df_up_sv.columns = [f'{col[0]}_{col[1]}' for col in df_up_sv.columns]
     df_up_sv = df_up_sv.reset_index()[Columns.HEMESIGHT_SV]
@@ -204,6 +209,7 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
         df_fu['geneSymbol'] = df_fu['geneSymbol_0']
         df_fu = df_fu.drop(columns=['geneSymbol_0'])
     df_fu = pd.merge(df_fu, df_rearrange[['itemId', 'chromosome', 'startPosition', 'rearrangementType', 'function.mitelman']], on=['itemId', 'chromosome', 'startPosition'])
+    df_fu['function.mitelman'] = df_fu['function.mitelman'].fillna('-')
     df_fu = df_fu.drop_duplicates().pivot_table(index='itemId', columns=df_fu.groupby('itemId').cumcount(), values=['geneSymbol', 'rearrangementType', 'function.mitelman'], aggfunc='first')
     df_fu.columns = [f'{col[0]}_{col[1]}' for col in df_fu.columns]
     df_fu = df_fu.reset_index()[Columns.HEMESIGHT_FU]
@@ -221,6 +227,7 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
         df_du['geneSymbol'] = df_du['geneSymbol_0']
         df_du = df_du.drop(columns=['geneSymbol_0'])
     df_du = pd.merge(df_du, df_rearrange[['itemId', 'chromosome', 'startPosition', 'rearrangementType', 'insertedSequence', 'function.mitelman']], on=['itemId', 'chromosome', 'startPosition'])
+    df_du['function.mitelman'] = df_du['function.mitelman'].fillna('-')
     df_du = df_du.drop_duplicates().pivot_table(index='itemId', columns=df_du.groupby('itemId').cumcount(), values=['geneSymbol', 'rearrangementType', 'insertedSequence', 'function.mitelman'], aggfunc='first')
     df_du.columns = [f'{col[0]}_{col[1]}' for col in df_du.columns]
     df_du = df_du.reset_index()[Columns.HEMESIGHT_SV]
@@ -462,9 +469,15 @@ def excel_fasttrack(analysis_type, pdf_data, template_path, date, ep_institution
             disease_2 = ""
 
         df_snv_indel = pd.DataFrame(combined_json.get("SNV_Indel", []))
-        df_snv_indel = df_snv_indel[Columns.HEMESIGHT_FASTTRACK_SNV]
+        try:
+            df_snv_indel = df_snv_indel[Columns.HEMESIGHT_FASTTRACK_SNV]
+        except KeyError:
+            df_snv_indel = pd.DataFrame(columns=Columns.HEMESIGHT_FASTTRACK_SNV)
         df_sv = pd.DataFrame(combined_json.get("SV", []))
-        df_sv = df_sv[Columns.HEMESIGHT_FASTTRACK_CNV]
+        try:
+            df_sv = df_sv[Columns.HEMESIGHT_FASTTRACK_CNV]
+        except KeyError:
+            df_sv = pd.DataFrame(columns=Columns.HEMESIGHT_FASTTRACK_CNV)
 
         wb = openpyxl.load_workbook(template_path)
         sheet = wb["FTReport"]

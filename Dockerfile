@@ -1,10 +1,14 @@
 FROM python:3.11-slim
 
+# 作業ディレクトリをコンテナ内で /app に設定
 WORKDIR /app
 
-COPY requirements.txt .
+# 必要ファイルをすべて /app にコピー
+COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY app/ ./app/
+COPY .streamlit/ ./.streamlit/
+COPY README.md ./README.md
 
 CMD ["streamlit", "run", "app/main.py", "--server.port=8503", "--server.address=0.0.0.0"]

@@ -52,6 +52,7 @@ cd ExPReSS
 - Logo.png: レポートに挿入するロゴ画像
 
 - Cosmic_CancerGeneCensus_v*_GRCh38.tsv: CancerGeneCensus (https://cancer.sanger.ac.uk/cosmic/download/cosmic   Cancer Gene Census > Cosmic_CancerGeneCensus_Tsv_v*_GRCh38.tar > Download in browser)
+- CancerMutationCensus_AllData_Tsv_v*_GRCh37.tsv: CancerGeneCensus (https://cancer.sanger.ac.uk/cosmic/download/cosmic   Cancer Mutation Census > CancerMutationCensus_AllData_Tsv_v*_GRCh37.tar > Download in browser)
 - JSH_Guidelines.csv: 日本血液学会ガイドライン (http://www.jshem.or.jp/genomgl/home.html)
 - MutationView_r21.csv: The TP53 Database (https://tp53.cancer.gov/static/data/MutationView_r21.csv)
 - erepo-tabbed.tsv: ClinGen (https://erepo.clinicalgenome.org/evrepo/   Download > Tab-delimited)
@@ -182,6 +183,7 @@ ExPReSS/
 |   |
 |   └── db/
 |       ├── Cosmic_CancerGeneCensus_v*_GRCh38.tsv  # Cancer_in_Roleデータ
+|       ├── CancerMutationCensus_Slim_v*_GRCh37.tsv.gz  # COSMICデータ（gzipファイルのまま）
 |       ├── JSH_Guidelines.csv                     # JSHガイドラインデータ
 |       ├── MutationView_r21.csv                   # TP53データ
 |       ├── erepo-tabbed.tsv                       # ClinGenデータ

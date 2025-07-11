@@ -24,15 +24,24 @@ def cancer_gene_census():
 
     df_cgc = pd.read_csv(cancergenecensus_path, sep='\t', encoding='utf-8')
     df_cgc = df_cgc[['GENE_SYMBOL', 'ROLE_IN_CANCER', 'TIER']].copy()
-    df_cgc['ROLE_IN_CANCER'] = df_cgc['ROLE_IN_CANCER'].replace({
-        'oncogene': 'OG',
-        'fusion': 'FU'
-    }, regex=True).str.replace(', ', '/', regex=False)
+    df_cgc['ROLE_IN_CANCER'] = df_cgc['ROLE_IN_CANCER'].replace({'oncogene': 'OG', 'fusion': 'FU'}, regex=True).str.replace(', ', '/', regex=False)
     df_cgc['Role_Tier'] = df_cgc['ROLE_IN_CANCER'] + '[' + df_cgc['TIER'].astype(str) + ']'
-    df_cgc = df_cgc[['GENE_SYMBOL', 'Role_Tier']].rename(
-        columns={'GENE_SYMBOL': 'geneSymbol', 'Role_Tier': 'Role'}
-    )
+    df_cgc = df_cgc[['GENE_SYMBOL', 'Role_Tier']].rename(columns={'GENE_SYMBOL': 'geneSymbol', 'Role_Tier': 'Role'})
     return df_cgc
+
+
+def cancer_mutation_census():
+    cosmic_files = glob.glob(Database.COSMIC_37_PATH)
+
+    if not cosmic_files:
+        raise FileNotFoundError(f"No file matching pattern: {Database.COSMIC_37_PATH}")
+    
+    mutationcensus_path = cosmic_files[0]
+
+    df_cmc = pd.read_csv(mutationcensus_path, sep='\t', encoding='utf-8', compression='gzip')
+    df_cmc = df_cmc[['GENE_NAME', 'Mutation CDS', 'COSMIC_SAMPLE_MUTATED']].copy()
+    df_cmc = df_cmc.rename(columns={'GENE_NAME': 'geneSymbol', 'Mutation CDS': 'cdsChange', 'COSMIC_SAMPLE_MUTATED': 'COSMIC_Mutation'})
+    return df_cmc
 
 
 def process_hemsight(analysis_type, json_data, template_path, date, normal_sample, ep_institution, ep_department, ep_responsible, ep_contact, ep_tel):
@@ -215,6 +224,7 @@ def process_foundationone(analysis_type, xml_data, template_path, date, ep_insti
     write_df_to_sheet(qc_data, 'QC', wb)
 
     df_cgc = cancer_gene_census()
+    df_cmc = cancer_mutation_census()
     
     variants_data = []
     variant_id = 1
@@ -228,6 +238,7 @@ def process_foundationone(analysis_type, xml_data, template_path, date, ep_insti
         gene_symbol = Gene.HUGO_SYMBOL.get(gene_symbol, gene_symbol)
         
         role_in_cancer = df_cgc[df_cgc['geneSymbol'] == gene_symbol]['Role'].values[0] if not df_cgc[df_cgc['geneSymbol'] == gene_symbol].empty else ''
+        cosmic_mutation = df_cmc[df_cmc['geneSymbol'] == gene_symbol]['COSMIC_Mutation'].values[0] if not df_cmc[df_cmc['geneSymbol'] == gene_symbol].empty else ''
         
         # aminoacidの値を取得し、p.を追加
         amino_acid_change = variant.get('protein-effect', '')
@@ -254,6 +265,7 @@ def process_foundationone(analysis_type, xml_data, template_path, date, ep_insti
             'equivocal': variant.get('equivocal', ''),
             'functional_effect': variant.get('functional-effect', ''),
             'status': variant.get('status', ''),
+            'COSMIC_Mutation': cosmic_mutation,
         }
         variants_data.append(var_data)
         variant_id += 1
@@ -378,6 +390,7 @@ def process_genminetop(analysis_type, xml_data, template_path, date, ep_institut
     output_stream = BytesIO()
 
     df_cgc = cancer_gene_census()
+    df_cmc = cancer_mutation_census()
     
     # Basic Information
     basic_info = []
@@ -656,6 +669,7 @@ def process_guardant360(analysis_type, xlsx_data, template_path, date, ep_instit
     wb = openpyxl.load_workbook(template_path)
 
     df_cgc = cancer_gene_census()
+    df_cmc = cancer_mutation_census()
 
     df_snv = pd.read_excel(xlsx_data, sheet_name='SNV')
     df_snv = df_snv[df_snv['call'] == 1]

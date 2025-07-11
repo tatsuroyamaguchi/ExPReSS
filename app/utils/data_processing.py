@@ -236,10 +236,16 @@ def process_foundationone(analysis_type, xml_data, template_path, date, ep_insti
         depth = int(variant.get('depth', '0'))
         gene_symbol = variant.get('gene', '')
         gene_symbol = Gene.HUGO_SYMBOL.get(gene_symbol, gene_symbol)
+        cds_change = 'c.' + variant.get('cds-effect', '')
         
         role_in_cancer = df_cgc[df_cgc['geneSymbol'] == gene_symbol]['Role'].values[0] if not df_cgc[df_cgc['geneSymbol'] == gene_symbol].empty else ''
-        cosmic_mutation = df_cmc[df_cmc['geneSymbol'] == gene_symbol]['COSMIC_Mutation'].values[0] if not df_cmc[df_cmc['geneSymbol'] == gene_symbol].empty else ''
         
+        cosmic_mutation = (
+            df_cmc[(df_cmc['geneSymbol'] == gene_symbol) & (df_cmc['cdsChange'] == cds_change)]['COSMIC_Mutation'].values[0]
+            if not df_cmc[(df_cmc['geneSymbol'] == gene_symbol) & (df_cmc['cdsChange'] == cds_change)].empty
+            else ''
+        )
+
         # aminoacidの値を取得し、p.を追加
         amino_acid_change = variant.get('protein-effect', '')
         if amino_acid_change:

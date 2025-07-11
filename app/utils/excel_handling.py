@@ -985,7 +985,10 @@ def excel_guardant360(analysis_type, output_stream, date, ep_institution, ep_dep
     
     # df_cnv
     df_cnv = df_cnv.copy()
-    df_cnv = df_cnv[Columns.GUARDANT_CNV].copy()
+    try:
+        df_cnv = df_cnv[Columns.GUARDANT_CNV].copy()
+    except KeyError:
+        df_cnv = pd.DataFrame(columns=Columns.GUARDANT_CNV)
 
     ####################################
     wb = openpyxl.load_workbook(output_stream)

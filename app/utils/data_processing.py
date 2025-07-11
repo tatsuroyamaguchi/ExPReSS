@@ -561,9 +561,16 @@ def process_genminetop(analysis_type, xml_data, template_path, date, ep_institut
         # gene_symbolがMUTYHの場合、transcript_idをNM_001048171.1に設定
         if gene_symbol == 'MUTYH':
             transcript_id = 'NM_001048171.1'
+        cds_change = get_text(item, 'coding-dna-alteration')
+        
         role_in_cancer = (
             df_cgc[df_cgc['geneSymbol'] == gene_symbol]['Role'].values[0]
             if not df_cgc[df_cgc['geneSymbol'] == gene_symbol].empty else ''
+        )
+        cosmic_mutation = (
+            df_cmc[(df_cmc['geneSymbol'] == gene_symbol) & (df_cmc['cdsChange'] == cds_change)]['COSMIC_Mutation'].values[0]
+            if not df_cmc[(df_cmc['geneSymbol'] == gene_symbol) & (df_cmc['cdsChange'] == cds_change)].empty
+            else ''
         )
 
         # breakpointの下のディレクトリにitem要素が２つある場合、itemの下にあるregion, index, length, gene, transcript, chr, posをそれぞれ_1, _2として取得
@@ -592,7 +599,7 @@ def process_genminetop(analysis_type, xml_data, template_path, date, ep_institut
             'alternateAllele': get_text(item, 'alt'),
             'transcriptId': get_text(item, 'transcript'),
             'aminoAcidsChange': get_text(item, 'protein-alteration'),
-            'cdsChange': get_text(item, 'coding-dna-alteration'),
+            'cdsChange': cds_change,
             'origin': origin,
             'alternateAlleleFrequency': get_text(item, 'allele-frequency'),
             'status': get_text(item, 'status'),
@@ -615,6 +622,7 @@ def process_genminetop(analysis_type, xml_data, template_path, date, ep_institut
             'chr_2': chr_2,
             'pos_1': pos_1,
             'pos_2': pos_2,
+            'COSMIC_Mutation': cosmic_mutation,
         }
         if origin.lower() == 'germline':
             variants_germine.append(variant)
@@ -702,6 +710,13 @@ def process_guardant360(analysis_type, xlsx_data, template_path, date, ep_instit
             gene_symbol = Gene.HUGO_SYMBOL.get(gene_symbol, gene_symbol)
             role_in_cancer = df_cgc[df_cgc['geneSymbol'] == gene_symbol]['Role'].values[0] if not df_cgc[df_cgc['geneSymbol'] == gene_symbol].empty else ''
             df_snv.at[i, 'Role_in_Cancer'] = role_in_cancer
+            cds_change = row['cdsChange']
+            cosmic_mutation = (
+                df_cmc[(df_cmc['geneSymbol'] == gene_symbol) & (df_cmc['cdsChange'] == cds_change)]['COSMIC_Mutation'].values[0]
+                if not df_cmc[(df_cmc['geneSymbol'] == gene_symbol) & (df_cmc['cdsChange'] == cds_change)].empty
+                else ''
+            )
+            df_snv.at[i, 'COSMIC_Mutation'] = cosmic_mutation
             progress_text.text(f"Processing {i + 1} of {len(df_snv)} variants.... φ(..)")
             results = link_generator(analysis_type, row, row['geneID'], row['transcriptId'], row['chromosome'], row['position'], row['referenceAllele'], row['alternateAllele'], row['cdsChange'], gene_symbol, row['aminoAcidsChange'], row['dbSNP'])
             for key, value in results.items():
@@ -732,6 +747,13 @@ def process_guardant360(analysis_type, xlsx_data, template_path, date, ep_instit
             gene_symbol = Gene.HUGO_SYMBOL.get(gene_symbol, gene_symbol)
             role_in_cancer = df_cgc[df_cgc['geneSymbol'] == gene_symbol]['Role'].values[0] if not df_cgc[df_cgc['geneSymbol'] == gene_symbol].empty else ''
             df_indel.at[i, 'Role_in_Cancer'] = role_in_cancer
+            cds_change = row['cdsChange']
+            cosmic_mutation = (
+                df_cmc[(df_cmc['geneSymbol'] == gene_symbol) & (df_cmc['cdsChange'] == cds_change)]['COSMIC_Mutation'].values[0]
+                if not df_cmc[(df_cmc['geneSymbol'] == gene_symbol) & (df_cmc['cdsChange'] == cds_change)].empty
+                else ''
+            )
+            df_indel.at[i, 'COSMIC_Mutation'] = cosmic_mutation
             progress_text.text(f"Processing {i + 1} of {len(df_indel)} variants.... φ(..)")
             results = link_generator(analysis_type, row, row['geneID'], row['transcriptId'], row['chromosome'], row['position'], row['referenceAllele'], row['alternateAllele'], row['cdsChange'], gene_symbol, row['aminoAcidsChange'], row['dbSNP'])
             for key, value in results.items():

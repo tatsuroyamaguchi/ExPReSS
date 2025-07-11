@@ -2,6 +2,7 @@ import fnmatch
 import glob
 import json
 import os
+import io
 from io import BytesIO
 import xml.etree.ElementTree as ET
 
@@ -685,7 +686,7 @@ def process_guardant360(analysis_type, xlsx_data, template_path, date, ep_instit
     df_cgc = cancer_gene_census()
     df_cmc = cancer_mutation_census()
 
-    df_snv = pd.read_excel(xlsx_data, sheet_name='SNV')
+    df_snv = pd.read_excel(io.BytesIO(xlsx_data), sheet_name='SNV')
     df_snv = df_snv[df_snv['call'] == 1]
     
     if not df_snv.empty:
@@ -716,14 +717,14 @@ def process_guardant360(analysis_type, xlsx_data, template_path, date, ep_instit
                 if not df_cmc[(df_cmc['geneSymbol'] == gene_symbol) & (df_cmc['cdsChange'] == cds_change)].empty
                 else ''
             )
-            df_snv.at[i, 'COSMIC_Mutation'] = cosmic_mutation
+            df_snv.at[i, 'COSMIC_Mutation'] = str(cosmic_mutation)
             progress_text.text(f"Processing {i + 1} of {len(df_snv)} variants.... φ(..)")
             results = link_generator(analysis_type, row, row['geneID'], row['transcriptId'], row['chromosome'], row['position'], row['referenceAllele'], row['alternateAllele'], row['cdsChange'], gene_symbol, row['aminoAcidsChange'], row['dbSNP'])
             for key, value in results.items():
                 df_snv.at[i, key] = value
         write_df_to_sheet(df_snv, 'SNV', wb)
 
-    df_indel = pd.read_excel(xlsx_data, sheet_name='Indels')
+    df_indel = pd.read_excel(io.BytesIO(xlsx_data), sheet_name='Indels')
     df_indel = df_indel[df_indel['call'] == 1]
     
     if not df_indel.empty:
@@ -760,7 +761,7 @@ def process_guardant360(analysis_type, xlsx_data, template_path, date, ep_instit
                 df_indel.at[i, key] = value
         write_df_to_sheet(df_indel, 'Indels', wb)
     
-    df_cnv = pd.read_excel(xlsx_data, sheet_name='CNAs')
+    df_cnv = pd.read_excel(io.BytesIO(xlsx_data), sheet_name='CNAs')
     df_cnv.columns = ['chromosome', 'geneSymbol', 'copyNumber', 'call']
     df_cnv = df_cnv[df_cnv['call'] != 0]
     
@@ -787,7 +788,7 @@ def process_guardant360(analysis_type, xlsx_data, template_path, date, ep_instit
         df_cnv.loc[df_cnv['call'] == 3, 'status'] = 'Aneuploidy'
     write_df_to_sheet(df_cnv, 'CNAs', wb)
     
-    df_fusion = pd.read_excel(xlsx_data, sheet_name='Fusions')
+    df_fusion = pd.read_excel(io.BytesIO(xlsx_data), sheet_name='Fusions')
     df_fusion = df_fusion[df_fusion['call'] == 1]
     
     if not df_fusion.empty:
@@ -812,10 +813,10 @@ def process_guardant360(analysis_type, xlsx_data, template_path, date, ep_instit
         df_fusion.loc[df_fusion['gene_a'].isin(['FGFR2', 'FGFR3']), 'status'] = 'LV3'
     write_df_to_sheet(df_fusion, 'Fusions', wb)
     
-    df_msi = pd.read_excel(xlsx_data, sheet_name='MSI')
+    df_msi = pd.read_excel(io.BytesIO(xlsx_data), sheet_name='MSI')
     write_df_to_sheet(df_msi, 'MSI', wb)
     
-    df_qc = pd.read_excel(xlsx_data, sheet_name='QC')
+    df_qc = pd.read_excel(io.BytesIO(xlsx_data), sheet_name='QC')
     write_df_to_sheet(df_qc, 'QC', wb)
     
     output_stream = BytesIO()

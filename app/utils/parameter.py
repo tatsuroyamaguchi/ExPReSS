@@ -84,7 +84,8 @@ import os
 class Database:
     BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
     CIVIC_PATH = os.path.join(BASE_DIR, 'app', 'db', 'nightly-FeatureSummaries.tsv')
-    COSMIC_PATH = os.path.join(BASE_DIR, 'app', 'db', 'Cosmic_CancerGeneCensus_v*_GRCh38.tsv')  # glob使用時対応
+    COSMIC_PATH = os.path.join(BASE_DIR, 'app', 'db', 'Cosmic_CancerGeneCensus_v*_GRCh38.tsv')
+    COSMIC_37_PATH = os.path.join(BASE_DIR, 'app', 'db', 'CancerMutationCensus_AllData_v*_GRCh37.tsv.gz')
     HGNC_PATH = os.path.join(BASE_DIR, 'app', 'db', 'protein-coding_gene.tsv')
     JSA_PATH = os.path.join(BASE_DIR, 'app', 'db', 'JSH_Guidelines.csv')
     LOGO_PATH = os.path.join(BASE_DIR, 'app', 'template', 'Logo.png')

@@ -230,8 +230,6 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
         # df_final['geneSymbol_1']に'(+)'が含まれる場合は'geneSymbol_0'と入れ替える
         mask = df_final['geneSymbol_1'].str.contains(r'\(\+\)', na=False)
         df_final.loc[mask, ['geneSymbol_0', 'geneSymbol_1']] = df_final.loc[mask, ['geneSymbol_1', 'geneSymbol_0']].values
-        
-        st.write(df_final)
         df_final = df_final.reset_index().reindex(columns=columns, fill_value='')
         df_final['Check'] = check_value
         return df_final

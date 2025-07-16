@@ -172,16 +172,19 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
         lambda row: f"{row['geneSymbol']} [ex {int(row['number.number'])}]" 
         if pd.notna(row['number.number']) else row['geneSymbol'], axis=1)
     df_rearrange = df_rearrange.drop(columns=['number.number'])
+    
+    # matePieceLocationがupstreamの場合(+)、downstreamの場合(-)に変換
+    df_rearrange['matePieceLocation'] = df_rearrange['matePieceLocation'].replace({'upstream': '(+)', 'downstream': '(-)'})
 
     # 3. 共通処理用の関数定義
-    def process_rearrangement_data(df, prefix, columns, check_value, include_inserted_sequence=True):
+    def process_rearrangement_data(df, prefix, columns, check_value, include_inserted_sequence=True, include_read_count=True):
         if df.empty:
             result = pd.DataFrame(columns=columns)
             result['Check'] = check_value
             return result
 
         # geneSymbolに位置情報を追加
-        df['geneSymbol'] = df['geneSymbol'] + '\n' + df['chromosome'].astype(str) + ':' + df['startPosition'].astype(str)
+        df['geneSymbol'] = df['geneSymbol'] + '\n' + df['chromosome'].astype(str) + ':' + df['startPosition'].astype(str) + ' ' + df['matePieceLocation'].astype(str)
         
         # ピボットテーブル作成
         df_pivot = df.pivot_table(
@@ -205,13 +208,18 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
         merge_cols = ['itemId', 'chromosome', 'startPosition', 'rearrangementType', 'function.mitelman']
         if include_inserted_sequence:
             merge_cols.append('insertedSequence')
+        if include_read_count:
+            merge_cols.append('supportingReadCount')
         df_merged = pd.merge(df_pivot, df_rearrange[merge_cols], on=['itemId', 'chromosome', 'startPosition'])
         df_merged['function.mitelman'] = df_merged['function.mitelman'].fillna('-')
+        df_merged['supportingReadCount'] = df_merged['supportingReadCount'].astype(str)
 
         # ピボットテーブル再作成
         pivot_values = ['geneSymbol', 'rearrangementType', 'function.mitelman']
         if include_inserted_sequence:
             pivot_values.append('insertedSequence')
+        if include_read_count:
+            pivot_values.append('supportingReadCount')
         df_final = df_merged.drop_duplicates().pivot_table(
             index='itemId',
             columns=df_merged.groupby('itemId').cumcount(),
@@ -219,6 +227,11 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
             aggfunc='first'
         )
         df_final.columns = [f'{col[0]}_{col[1]}' for col in df_final.columns]
+        # df_final['geneSymbol_1']に'(+)'が含まれる場合は'geneSymbol_0'と入れ替える
+        mask = df_final['geneSymbol_1'].str.contains(r'\(\+\)', na=False)
+        df_final.loc[mask, ['geneSymbol_0', 'geneSymbol_1']] = df_final.loc[mask, ['geneSymbol_1', 'geneSymbol_0']].values
+        
+        st.write(df_final)
         df_final = df_final.reset_index().reindex(columns=columns, fill_value='')
         df_final['Check'] = check_value
         return df_final
@@ -234,7 +247,7 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
     )
     df_fu = process_rearrangement_data(
         df_rearrange[df_rearrange['itemId'].str.startswith('FU')],
-        'FU', Columns.HEMESIGHT_FU, 'FU_RNA', include_inserted_sequence=False
+        'FU', Columns.HEMESIGHT_FU, 'FU_RNA', include_inserted_sequence=False, include_read_count=True
     )
     df_du = process_rearrangement_data(
         df_rearrange[df_rearrange['itemId'].str.startswith('DU')],
@@ -271,7 +284,7 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
     
     ####################################    
     sheet = wb['Report']
-    
+
     # 基本情報の設定
     add_logo(current_dir, sheet, cell='A1')
     sheet['D2'] = analysis_type
@@ -302,7 +315,7 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
         df_up_sv.insert(insert_pos, chr(96 + insert_pos), '')
     start_row_fu = start_row_up_sv + 4 + len(df_up_sv) - 1 if len(df_up_sv) > 1 else start_row_up_sv + 4
     insert_row(wb, df_fu, sheet_name='Report', start_row=start_row_fu, start_col='A', end_col='P')
-    for insert_pos in [1, 2, 4, 5, 7, 8, 10, 11, 12, 13, 14, 15]:
+    for insert_pos in [1, 2, 4, 5, 7, 8, 10, 12, 13, 14, 15]:
         df_fu.insert(insert_pos, chr(96 + insert_pos), '')
     start_row_du = start_row_fu + 4 + len(df_fu) - 1 if len(df_fu) > 1 else start_row_fu + 4
     insert_row(wb, df_du, sheet_name='Report', start_row=start_row_du, start_col='A', end_col='P')
@@ -354,7 +367,8 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
             sheet.merge_cells(start_row=row[0].row, start_column=1, end_row=row[0].row, end_column=3)
             sheet.merge_cells(start_row=row[0].row, start_column=4, end_row=row[0].row, end_column=6)
             sheet.merge_cells(start_row=row[0].row, start_column=7, end_row=row[0].row, end_column=9)
-            sheet.merge_cells(start_row=row[0].row, start_column=10, end_row=row[0].row, end_column=14)
+            sheet.merge_cells(start_row=row[0].row, start_column=10, end_row=row[0].row, end_column=11)
+            sheet.merge_cells(start_row=row[0].row, start_column=12, end_row=row[0].row, end_column=14)
             for cell in row:
                 cell.alignment = Alignment(vertical='center', wrap_text=True)
         elif check_evidence:

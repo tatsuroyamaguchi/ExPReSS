@@ -222,9 +222,9 @@ class Columns:
     HEMESIGHT_SHORT = ['itemId', 'geneSymbol', 'aminoAcidsChange', 'alternateAlleleFrequency', 'Role_in_Cancer', 
                        'database.tommo', 'database.gnomAD', 'GeneBe_ClinVar_Germline', 'database.cosmicHeme']
     HEMESIGHT_REARRANGEMENT = ['itemId', 'geneSymbol', 'number.number', 'rearrangementType', 'insertedSequence', 
-                               'function.mitelman', 'chromosome', 'startPosition']
+                               'function.mitelman', 'chromosome', 'startPosition', 'matePieceLocation', 'supportingReadCount']
     HEMESIGHT_SV = ['geneSymbol_0', 'geneSymbol_1', 'rearrangementType_0', 'insertedSequence_0', 'function.mitelman_0']
-    HEMESIGHT_FU = ['geneSymbol_0', 'geneSymbol_1', 'rearrangementType_0', 'function.mitelman_0']
+    HEMESIGHT_FU = ['geneSymbol_0', 'geneSymbol_1', 'rearrangementType_0', 'supportingReadCount_0', 'function.mitelman_0']
     HEMESIGHT_JSA = ['Gene', 'Disease', 'PathogenicVariants', 'EV_Diagnosis', 'EV_Treatment', 'EV_Prognosis']
     HEMESIGHT_FASTTRACK_SNV = ["Gene_FastTrack", "Protein_FastTrack", "Gene", "Protein", "Mutation_Type", "Mutation_Allele_Frequency"]
     HEMESIGHT_FASTTRACK_CNV = ["Gene_FastTrack", "Protein_FastTrack", "Gene_1", "Cytoband_1", "Gene_2", "Cytoband_2", "Mutation_Type"]

@@ -5,6 +5,15 @@ Expert Panel Report Support System
 ExPReSSは、がん遺伝子パネル検査におけるエキスパートパネルレポートサポートシステム（ExPReSS）です。このツールは、ゲノムデータ（JSON/XML）を処理し、Excel形式のレポートやProteinPaintおよびDisco用のデータを生成します。Streamlitを利用したWebインターフェースを通じて、ユーザーはデータをアップロードし、結果をダウンロードできます。
 
 ---
+#### What's New
+- version 0.3
+  - DataExtractor for CGP搭載
+  - SummaryViewer for F1搭載
+  - VariantAnnotator搭載
+- version 0.2
+  - HemeSightに対応
+
+---
 #### 対象パネル
 
 - FoundationOne CDx (XML)
@@ -39,27 +48,60 @@ ExPReSSは、がん遺伝子パネル検査におけるエキスパートパネ�
 git clone https://github.com/tatsuroyamaguchi/ExPReSS.git
 cd ExPReSS
 ```
-
-##### 2. データファイルの準備
+---
+##### 2.1. データファイルの準備
 
 以下のファイルを各ディレクトリに配置してください：
+- template
+  - Template_Hemesight.xlsx: HemeSightテンプレートファイル
+  - Template_FastTrack.xlsx: Fast-Track用Excelテンプレートファイル
+  - Template_FoundationOne.xlsx: FoundationOneテンプレートファイル
+  - Template_GenMineTOP.xlsx: GenMineTOPテンプレート
+  - Template_Guardant360.xlsx: Guardant360テンプレート
+  - Logo.png: レポートに挿入するロゴ画像
+- db
+  - JSH_Guidelines.csv: 日本血液学会ガイドライン (http://www.jshem.or.jp/genomgl/home.html) （GitHub内にアップロード済み）
+  - pgpv.csv: 小杉班二次的所見より作成 （GitHub内にアップロード済み）
 
-- Template_Hemesight.xlsx: HemeSightテンプレートファイル
-- Template_FastTrack.xlsx: Fast-Track用Excelテンプレートファイル
-- Template_FoundationOne.xlsx: FoundationOneテンプレートファイル
-- Template_GenMineTOP.xlsx: GenMineTOPテンプレート
-- Template_Guardant360.xlsx: Guardant360テンプレート
-- Logo.png: レポートに挿入するロゴ画像
 
-- Cosmic_CancerGeneCensus_v*_GRCh38.tsv: CancerGeneCensus (https://cancer.sanger.ac.uk/cosmic/download/cosmic   Cancer Gene Census > Cosmic_CancerGeneCensus_Tsv_v*_GRCh38.tar > Download in browser)
-- CancerMutationCensus_AllData_Tsv_v*_GRCh37.tsv: CancerGeneCensus (https://cancer.sanger.ac.uk/cosmic/download/cosmic   Cancer Mutation Census > CancerMutationCensus_AllData_Tsv_v*_GRCh37.tar > Download in browser)
-- JSH_Guidelines.csv: 日本血液学会ガイドライン (http://www.jshem.or.jp/genomgl/home.html)
-- MutationView_r21.csv: The TP53 Database (https://tp53.cancer.gov/static/data/MutationView_r21.csv)
-- erepo-tabbed.tsv: ClinGen (https://erepo.clinicalgenome.org/evrepo/   Download > Tab-delimited)
-- nightly-FeatureSummaries.tsv: CiVIC (https://civicdb.org/releases/main nightly Features TSVをDownload)
-- protein-coding_gene.tsv: HGNC (https://www.genenames.org/download/statistics-and-files/ tsv形式でDownload)
-- pgpv.csv: 小杉班二次的所見より作成
+  - Cosmic_CancerGeneCensus_v\*_GRCh38.tsv: CancerGeneCensus (https://cancer.sanger.ac.uk/cosmic/download/cosmic   Cancer Gene Census > Cosmic_CancerGeneCensus_Tsv_v\*_GRCh38.tar > Download in browser)
+  - CancerMutationCensus_AllData_Tsv_v\*_GRCh37.tsv.gz: CancerGeneCensus (https://cancer.sanger.ac.uk/cosmic/download/cosmic   Cancer Mutation Census > CancerMutationCensus_AllData_Tsv_v\*_GRCh37.tar > Download in browser)
+  - MutationView_r21.csv: The TP53 Database (https://tp53.cancer.gov/static/data/MutationView_r21.csv)
+  - erepo-tabbed.tsv: ClinGen (https://erepo.clinicalgenome.org/evrepo/   Download > Tab-delimited)
+  - nightly-FeatureSummaries.tsv: CiVIC (https://civicdb.org/releases/main nightly Features TSVをDownload)
+  - protein-coding_gene.tsv: HGNC (https://www.genenames.org/download/statistics-and-files/ tsv形式でDownload)
 
+
+---
+##### 2.2. データファイルの圧縮
+- CancerMutationCensus_conversion.ipynbを実行: CancerMutationCensus_AllData_Tsv_v*_GRCh37.tsv.gzのデータサイズを圧縮
+
+```python:CancerMutationCensus_conversion.ipynb
+# CancerMutationCensus_conversion.ipynb
+
+import pandas as pd
+import glob
+import os
+
+input_pattern = "CancerMutationCensus_AllData_v*_GRCh37.tsv.gz"
+input_files = glob.glob(input_pattern)
+input_file = input_files[0]
+
+base_name = os.path.splitext(os.path.splitext(input_file)[0])[0]
+output_file = base_name + "_va.tsv.gz"
+
+columns_to_extract = [
+    "GENE_NAME",
+    "Mutation CDS",
+    "COSMIC_SAMPLE_TESTED",
+    "COSMIC_SAMPLE_MUTATED",
+    "Mutation AA"
+]
+df = pd.read_csv(input_file, sep="\t", compression="gzip", usecols=columns_to_extract)
+df.to_csv(output_file, sep="\t", index=False, compression="gzip")
+```
+
+---
 ##### 3. 初期設定
 
 app/config.pyで初期設定をしてください
@@ -70,6 +112,7 @@ app/config.pyで初期設定をしてください
 - 問い合わせ窓口（住所）
 - 問い合わせ窓口（電話番号）
 
+---
 ##### 4. Dockerを使用したビルドと実行
 
 Dockerイメージをビルド:
@@ -84,6 +127,7 @@ docker run --name ExPReSS -p 8503:8503 express
 
 ブラウザで http://localhost:8503 にアクセスしてアプリケーションを確認。
 
+---
 ##### 5. ローカルでの実行（オプション）
 
 Dockerを使用せずローカルで実行する場合：
@@ -132,46 +176,35 @@ ExPReSS/
 ├── Readme.md               # Readme
 ├── Dockerfile              # Dockerビルド用
 ├── requirements.txt        # Python依存関係リスト
-├── .streamlit/
-│   └── config.toml               # 設定ファイル
 |
 ├── app/
 │   ├── __init__.py               # 初期化
 │   ├── main.py                   # メインスクリプト
 │   ├── config.py                 # 設定ファイル
 |   |
+│   ├── pages/
+│   │   ├── DataExtracter_for_CGP.py              # Extractor for CGP Data
+│   │   ├── DataViewer.py                         # Data Viewer
+│   │   ├── SummaryViewer_for_F1.py               # SummaryViewer for FoudantionOne
+│   │   └── VariantAnnotator.py                   # VariantAnnotator
+│   │
 │   ├── utils/
 │   │   ├── __init__.py                            # 初期化
-│   │   │
 │   │   ├── data_processing.py                     # データ処理
-│   │   │   ├── def process_hemsight
-│   │   │   ├── def process_foundationone
-│   │   │   ├── def process_genminetop
-│   │   │   ├── def process_guardant360
-│   │   │   └── def hugo_gene
-│   │   │
 │   │   ├── excel_handling.py                      # Excel操作
-│   │   │   ├── def write_df_to_sheet
-│   │   │   ├── def excel_hemesight
-│   │   │   ├── def excel_foundationone
-│   │   │   ├── def excel_genminetop
-│   │   │   └── def excel_guardant360
-│   │   │
 │   │   ├── file_handling.py                       # ファイル操作
-│   │   │   └── def create_zip_file
-│   │   │
 │   │   ├── link_generator.py                      # Link作成
-│   │   │   └── def link_generator
-│   │   │
 │   │   ├── parameter.py                           # パラメーター
-│   │   │
 │   │   ├── sidebar_inputs.py                      # サイドバー
-│   │   │   └── def render_sidebar_inputs
-│   │   │
 │   │   └── web_scraping.py                        # Webスクレイピング
-│   │       ├── def fetch_genebe
-│   │       ├── def fetch_clinvar
-│   │       └── def fetch_tommo
+|   |
+|   └── annotator/
+|   |   ├── data_fetch.py                          # Webスクレイピング
+|   |   ├── link_generator.py                      # Link作成
+│   │   ├── parameter.py                           # パラメーター
+|   |   ├── parser.py                              # ファイル読み込み
+|   |   ├── sidebar.py                             # サイドバー
+|   |   └── variant_processor.py                   # データ処理
 |   |
 |   ├── template/
 |   |   ├── Template_HemeSight.xlsx                # HemeSightテンプレート
@@ -183,13 +216,15 @@ ExPReSS/
 |   |
 |   └── db/
 |       ├── Cosmic_CancerGeneCensus_v*_GRCh38.tsv  # Cancer_in_Roleデータ
-|       ├── CancerMutationCensus_Slim_v*_GRCh37.tsv.gz  # COSMICデータ（gzipファイルのまま）
 |       ├── JSH_Guidelines.csv                     # JSHガイドラインデータ
 |       ├── MutationView_r21.csv                   # TP53データ
 |       ├── erepo-tabbed.tsv                       # ClinGenデータ
 |       |── nightly-FeatureSummaries.tsv           # CiVICデータ
 |       |── protein-coding_gene.tsv                # HGNCデータ
-|       └── pgpv.csv                               # 小杉班PGPVデータ
+|       |── pgpv.csv                               # 小杉班PGPVデータ
+|       ├── CancerMutationCensus_AllData_v*_GRCh37.tsv.gz  # COSMICデータ（gzipファイルのまま）
+|       └── CancerMutationCensus_compressor.ipynb  # COSMICデータ圧縮プログラム
+|
 ├── img/
 │   ├── img_1.png                 # サンプル画面
 │   ├── img_2.png                 # サンプルレポート

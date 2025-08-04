@@ -140,7 +140,7 @@ pip install -r requirements.txt
 アプリケーションを起動:
 ```bash
 cd docker
-streamlit run app/main.py --server.port 8080
+streamlit run app/ExPReSS.py --server.port 8080
 ```
 
 ブラウザで http://localhost:8080 にアクセス。

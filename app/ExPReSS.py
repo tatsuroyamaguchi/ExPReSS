@@ -226,24 +226,6 @@ with st.expander("## README", expanded=False):
         readme_content = f.read()
     st.markdown(readme_content)
 
-# パスワードを入力
-password = st.text_input("API", type="password")
-
-# 正しいパスワードを設定（必要に応じてハッシュ化なども可能）
-correct_password = "123"
-
-# パスワードが正しい場合にのみ表示
-if password == correct_password:
-    with st.expander("## API", expanded=False):
-        st.markdown("""
-        ### API
-        - echo "machine api.genebe.io login t.yamaguchi.nf@juntendo.ac.jp password Kyosuke1220" >> ~/.netrc
-        - genebe account --username t.yamaguchi.nf@juntendo.ac.jp --api_key YOUR_API_KEY
-        """)
-elif password:  # パスワードが入力されたが間違っていた場合
-    st.error("パスワードが間違っています。")
-    
-
 # Table作成
 st.markdown("---")
 st.markdown("""

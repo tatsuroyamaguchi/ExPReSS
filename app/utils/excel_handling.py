@@ -295,24 +295,16 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
     sheet['J4'] = ep_department + ' / ' + ep_responsible
     sheet['J66'] = ep_responsible
     sheet['J69'] = ep_institution + ' ' + ep_department + '\n' + ep_contact + '\n' + '電話番号 ' + ep_tel
-                                    
-    start_row_gl = 16
-    insert_row(wb, df_gl, sheet_name='Report', start_row=start_row_gl, start_col='A', end_col='P')
-    start_row_mt = start_row_gl + 5 + len(df_gl) - 1 if len(df_gl) > 1 else start_row_gl + 5
+
+    start_row_mt = 16
     insert_row(wb, df_mt, sheet_name='Report', start_row=start_row_mt, start_col='A', end_col='P')
-    start_row_mnv = start_row_mt + 4 +len(df_mt) - 1 if len(df_mt) > 1 else start_row_mt + 4
+    start_row_mnv = start_row_mt + 5 +len(df_mt) - 1 if len(df_mt) > 1 else start_row_mt + 5
     insert_row(wb, df_mnv, sheet_name='Report', start_row=start_row_mnv, start_col='A', end_col='P')
-    start_row_up = start_row_mnv + 4 + len(df_mnv) - 1 if len(df_mnv) > 1 else start_row_mnv + 4
-    insert_row(wb, df_up, sheet_name='Report', start_row=start_row_up, start_col='A', end_col='P')
-    start_row_sv = start_row_up + 4 + len(df_up) - 1 if len(df_up) > 1 else start_row_up + 4
+    start_row_sv = start_row_mnv + 4 + len(df_mnv) - 1 if len(df_mnv) > 1 else start_row_mnv + 4
     insert_row(wb, df_sv, sheet_name='Report', start_row=start_row_sv, start_col='A', end_col='P')
     for insert_pos in [1, 2, 4, 5, 7, 8, 10, 12, 13, 14, 15]:
         df_sv.insert(insert_pos, chr(96 + insert_pos), '')
-    start_row_up_sv = start_row_sv + 4 + len(df_sv) - 1 if len(df_sv) > 1 else start_row_sv + 4
-    insert_row(wb, df_up_sv, sheet_name='Report', start_row=start_row_up_sv, start_col='A', end_col='P')
-    for insert_pos in [1, 2, 4, 5, 7, 8, 10, 12, 13, 14, 15]:
-        df_up_sv.insert(insert_pos, chr(96 + insert_pos), '')
-    start_row_fu = start_row_up_sv + 4 + len(df_up_sv) - 1 if len(df_up_sv) > 1 else start_row_up_sv + 4
+    start_row_fu = start_row_sv + 4 + len(df_sv) - 1 if len(df_sv) > 1 else start_row_sv + 4
     insert_row(wb, df_fu, sheet_name='Report', start_row=start_row_fu, start_col='A', end_col='P')
     for insert_pos in [1, 2, 4, 5, 7, 8, 10, 12, 13, 14, 15]:
         df_fu.insert(insert_pos, chr(96 + insert_pos), '')
@@ -320,7 +312,15 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
     insert_row(wb, df_du, sheet_name='Report', start_row=start_row_du, start_col='A', end_col='P')
     for insert_pos in [1, 2, 4, 5, 7, 8, 10, 12, 13, 14, 15]:
         df_du.insert(insert_pos, chr(96 + insert_pos), '')
-    start_row_jsh_evidence = start_row_du + 4 + len(df_du) - 1 if len(df_du) > 1 else start_row_du + 4
+    start_row_gl = start_row_du + 4 + len(df_du) - 1 if len(df_du) > 1 else start_row_du + 4
+    insert_row(wb, df_gl, sheet_name='Report', start_row=start_row_gl, start_col='A', end_col='P')
+    start_row_up = start_row_gl + 4 + len(df_gl) - 1 if len(df_gl) > 1 else start_row_gl + 4
+    insert_row(wb, df_up, sheet_name='Report', start_row=start_row_up, start_col='A', end_col='P')    
+    start_row_up_sv = start_row_up + 4 + len(df_up) - 1 if len(df_up) > 1 else start_row_up + 4
+    insert_row(wb, df_up_sv, sheet_name='Report', start_row=start_row_up_sv, start_col='A', end_col='P')
+    for insert_pos in [1, 2, 4, 5, 7, 8, 10, 12, 13, 14, 15]:
+        df_up_sv.insert(insert_pos, chr(96 + insert_pos), '')
+    start_row_jsh_evidence = start_row_up_sv + 4 + len(df_up_sv) - 1 if len(df_up_sv) > 1 else start_row_up_sv + 4
     insert_row(wb, df_jsh_evidence, sheet_name='Report', start_row=start_row_jsh_evidence, start_col='A', end_col='P')
     for insert_pos in [2, 3, 5, 7, 8, 9, 11, 12, 13, 15]:
         df_jsh_evidence.insert(insert_pos, chr(96 + insert_pos), '')
@@ -329,9 +329,11 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
     for insert_pos in [2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15]:
         df_jsh_drugs.insert(insert_pos, chr(96 + insert_pos), '')
 
-    for df_section, start_row in [(df_gl, start_row_gl), (df_mt, start_row_mt), (df_mnv, start_row_mnv), (df_up, start_row_up), 
-                                  (df_sv, start_row_sv), (df_up_sv, start_row_up_sv), (df_fu, start_row_fu), (df_du, start_row_du), 
-                                  (df_jsh_evidence, start_row_jsh_evidence), (df_jsh_drugs, start_row_jsh_drugs)]:
+    for df_section, start_row in [(df_mt, start_row_mt), (df_mnv, start_row_mnv), (df_sv, start_row_sv), 
+                                  (df_fu, start_row_fu), (df_du, start_row_du), (df_gl, start_row_gl), 
+                                  (df_up, start_row_up), (df_up_sv, start_row_up_sv), 
+                                  (df_jsh_evidence, start_row_jsh_evidence), (df_jsh_drugs, start_row_jsh_drugs)
+                                  ]:
         for r_idx, row in enumerate(dataframe_to_rows(df_section, index=False, header=False), start_row):
             for c_idx, value in enumerate(row, 1):
                 sheet.cell(row=r_idx, column=c_idx, value=value)

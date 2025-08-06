@@ -1,14 +1,18 @@
-import streamlit as st
-import pandas as pd
+import re
+import math
 from io import BytesIO
-from annotator.parser import parse_foundationone_xml
-import altair as alt
+
+import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import altair as alt
 from matplotlib.patches import Patch
+import streamlit as st
 
-import numpy as np
-import math
+from annotator.parser import parse_foundationone_xml
+from annotator.parameter import SummaryViewerF1
+
 
 st.set_page_config(
     page_title="SummaryViewer for F1",
@@ -17,53 +21,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 st.title("🧬 SummaryViewer for FoundationOne")
-
-# Define valid alteration types
-VALID_ALTERATIONS = [
-    "MISSENSE",
-    "FRAMESHIFT",
-    "NONSENSE",
-    "SPLICE",
-    "NONFRAMESHIFT",
-    "FUSION",
-    "TRUNCATION",
-    "DELETION",
-    "DUPLICATION",
-    "REARRANGEMENT",
-    "AMPLIFICATION",
-    "LOSS",
-    "OTHER",
-]
-
-    
-# Custom color map for alterations
-COLOR_MAP = {
-    'MISSENSE': '#2ca02c',
-    'FRAMESHIFT': '#9467bd',
-    'NONSENSE': '#333333',
-    'SPLICE': '#e377c2',
-    'NONFRAMESHIFT': '#8c564b',
-    'FUSION': '#ff7f0e',
-    'TRUNCATION': '#7f7f7f',
-    'DELETION': '#bcbd22',
-    'DUPLICATION': '#17becf',
-    'REARRANGEMENT': '#1f77b4',
-    'AMPLIFICATION': '#d62728',
-    'LOSS': '#1f77b4',
-    'OTHER': '#d3d3d3',
-    'UNKNOWN': '#d3d3d3',
-    '': '#ffffff',
-    'male': '#1f77b4',
-    'female': '#e377c2',
-    'MSI-H': '#ff7f0e',
-    'MSI-L': '#c5b0d5',
-    'MSS': '#cccccc',
-    'TMB Score < 10': '#1f77b4',
-    'TMB Score >= 10': '#d62728',
-    'FoundationOne': '#ff7f0e',
-    'FoundationOne Liquid': '#666666'
-}
-
 
 uploaded_files = st.sidebar.file_uploader("Upload XML files", type="xml", accept_multiple_files=True)
 # --- 重複するファイルを削除 ---
@@ -253,7 +210,7 @@ if uploaded_files:
 
     df_sv_filtered = df_sv_all[df_sv_all['Status'] != 'unknown'].copy()
     df_sv_filtered["Alteration"] = df_sv_filtered["Functional_Effect"].apply(simplify_variant_effect)
-    df_sv_filtered = df_sv_filtered[df_sv_filtered["Alteration"].isin(VALID_ALTERATIONS)]
+    df_sv_filtered = df_sv_filtered[df_sv_filtered["Alteration"].isin(SummaryViewerF1.VALID_ALTERATIONS)]
     short_variants_df = df_sv_filtered[["ReferenceID", "Gene", "Alteration"]]
 
     # Simplify CopyNumber
@@ -268,7 +225,7 @@ if uploaded_files:
 
     df_cna_filtered = df_cna_all[df_cna_all['Status'] != 'unknown'].copy()
     df_cna_filtered["Alteration"] = df_cna_filtered["Type"].apply(simplify_copy_number)
-    df_cna_filtered = df_cna_filtered[df_cna_filtered["Alteration"].isin(VALID_ALTERATIONS)]
+    df_cna_filtered = df_cna_filtered[df_cna_filtered["Alteration"].isin(SummaryViewerF1.VALID_ALTERATIONS)]
     copy_number_df = df_cna_filtered[["ReferenceID", "Gene", "Alteration"]]
 
     # Simplify Rearrangements
@@ -287,7 +244,7 @@ if uploaded_files:
 
     df_re_filtered = df_re_all[df_re_all['Status'] != 'unknown'].copy()
     df_re_filtered["Alteration"] = df_re_filtered["Type"].apply(simplify_rearrangement)
-    df_re_filtered = df_re_filtered[df_re_filtered["Alteration"].isin(VALID_ALTERATIONS)]
+    df_re_filtered = df_re_filtered[df_re_filtered["Alteration"].isin(SummaryViewerF1.VALID_ALTERATIONS)]
     rearrangements_df = df_re_filtered[["ReferenceID", "TargetedGene", "Alteration"]].rename(columns={"TargetedGene": "Gene"})
 
     # Combine all alterations
@@ -401,14 +358,14 @@ if uploaded_files:
 
                 # VALID_ALTERATIONSに'UNKNOWN'を追加
                 genetic_alterations = [
-                    alt for alt in VALID_ALTERATIONS 
+                    alt for alt in SummaryViewerF1.VALID_ALTERATIONS 
                 ]
                 extended_valid_alterations = genetic_alterations + ['UNKNOWN'] + unique_diseases + unique_genders + unique_msi_statuses + unique_sample_types
 
                 # Disease用のカラー
                 disease_colors = sns.color_palette("tab20", n_colors=len(unique_diseases))
                 for disease, color in zip(unique_diseases, disease_colors):
-                    COLOR_MAP[disease] = color
+                    SummaryViewerF1.COLOR_MAP[disease] = color
 
 
                 # TMB_Scoreを一時的に取り出して除外
@@ -432,7 +389,7 @@ if uploaded_files:
                     variant_counts_by_type[sample] = alteration_counts
 
                 # カラーマップ（拡張したカラーマップを使用）
-                colors = ['#eeeeee'] + [COLOR_MAP.get(alt, '#d3d3d3') for alt in extended_valid_alterations]
+                colors = ['#eeeeee'] + [SummaryViewerF1.COLOR_MAP.get(alt, '#d3d3d3') for alt in extended_valid_alterations]
                 cmap = sns.color_palette(colors, as_cmap=False)
 
                 # 描画設定：上部にヒストグラム用のスペースを追加
@@ -450,7 +407,7 @@ if uploaded_files:
                 for alt_type in alteration_types:
                     counts = [variant_counts_by_type.get(sample, {}).get(alt_type, 0) for sample in heatmap_data.columns]
                     ax0.bar(x_positions, counts, bar_width, bottom=bottom, 
-                            color=COLOR_MAP.get(alt_type, '#d3d3d3'), 
+                            color=SummaryViewerF1.COLOR_MAP.get(alt_type, '#d3d3d3'), 
                             label=alt_type if sum(counts) > 0 else None, 
                             align='edge')
                     bottom += np.array(counts)
@@ -525,7 +482,7 @@ if uploaded_files:
                         alteration_counts = gene_alteration_counts[gene]
                         x_offset = 0
                         for alteration, count in alteration_counts.items():
-                            color = COLOR_MAP.get(alteration, '#d3d3d3')
+                            color = SummaryViewerF1.COLOR_MAP.get(alteration, '#d3d3d3')
                             ax2.barh(len(new_yticks) - 1 - i, count,
                                     left=x_offset, height=bar_height,
                                     color=color, alpha=0.8,
@@ -540,7 +497,7 @@ if uploaded_files:
 
                 # 凡例の作成（Alteration用）
                 alteration_legend_elements = [
-                    Patch(facecolor=COLOR_MAP[alt], label=alt)
+                    Patch(facecolor=SummaryViewerF1.COLOR_MAP[alt], label=alt)
                     for alt in genetic_alterations
                 ]
 
@@ -549,7 +506,7 @@ if uploaded_files:
 
                 # 凡例の作成（Sample_Type用）
                 sample_type_legend_elements = [
-                    Patch(facecolor=COLOR_MAP[stype], label=stype)
+                    Patch(facecolor=SummaryViewerF1.COLOR_MAP[stype], label=stype)
                     for stype in unique_sample_types
                 ]
                 num_sample_types = len(sample_type_legend_elements)
@@ -557,7 +514,7 @@ if uploaded_files:
 
                 # 凡例の作成（Disease用）
                 disease_legend_elements = [
-                    Patch(facecolor=COLOR_MAP[disease], label=disease)
+                    Patch(facecolor=SummaryViewerF1.COLOR_MAP[disease], label=disease)
                     for disease in unique_diseases
                 ]
                 num_diseases = len(disease_legend_elements)
@@ -565,7 +522,7 @@ if uploaded_files:
 
                 # 凡例の作成（Gender用）
                 gender_legend_elements = [
-                    Patch(facecolor=COLOR_MAP[gender], label=gender)
+                    Patch(facecolor=SummaryViewerF1.COLOR_MAP[gender], label=gender)
                     for gender in unique_genders
                 ]
                 num_genders = len(gender_legend_elements)
@@ -573,7 +530,7 @@ if uploaded_files:
 
                 # 凡例の作成（MSI_Status用）
                 msi_status_legend_elements = [
-                    Patch(facecolor=COLOR_MAP[msi], label=msi)
+                    Patch(facecolor=SummaryViewerF1.COLOR_MAP[msi], label=msi)
                     for msi in unique_msi_statuses
                 ]
                 num_msi_statuses = len(msi_status_legend_elements)
@@ -581,8 +538,8 @@ if uploaded_files:
 
                 # 凡例の作成（TMB_Score用）
                 tmb_score_legend_elements = [
-                    Patch(facecolor=COLOR_MAP['TMB Score < 10'], label='TMB Score < 10'),
-                    Patch(facecolor=COLOR_MAP['TMB Score >= 10'], label='TMB Score >= 10')
+                    Patch(facecolor=SummaryViewerF1.COLOR_MAP['TMB Score < 10'], label='TMB Score < 10'),
+                    Patch(facecolor=SummaryViewerF1.COLOR_MAP['TMB Score >= 10'], label='TMB Score >= 10')
                 ]
                 num_tmb_scores = len(tmb_score_legend_elements)
                 ncol_tmb_score = math.ceil(num_tmb_scores)
@@ -671,3 +628,113 @@ if uploaded_files:
             st.warning("現在のフィルタではOncoPrint用のデータがありません。")
     
     onco_print(df_variant, df_gender, df_disease, df_msi, df_tmb, df_sample_type)
+    
+
+    st.markdown("---")
+    st.subheader("Lollipop Plot of Variants")
+
+    # Sidebar for selecting gene for Lollipop plot
+    gene_options = ['None'] + sorted(set(df_sv_all['Gene'].unique()))
+    selected_gene = st.selectbox("Select Gene for Lollipop Plot", options=gene_options, index=0)
+
+    if selected_gene != 'None':
+        # Filter Short Variants for the selected gene and apply existing filters
+        df_lollipop = df_sv_all[df_sv_all['Gene'] == selected_gene].copy()
+        
+        # Parse mutation positions from Protein_Effect
+        def parse_mutation_position(protein_effect):
+            if pd.isna(protein_effect) or not isinstance(protein_effect, str):
+                return None
+
+            import re
+
+            # Case 1: splice site, e.g., 'splice site 3954-1G>A'
+            if protein_effect.startswith('splice site'):
+                match = re.search(r'splice site\s+(\d+)', protein_effect)
+                if match:
+                    try:
+                        genomic_pos = int(match.group(1))
+                        return genomic_pos // 3
+                    except ValueError:
+                        return None
+                return None
+
+            # Case 2: promoter region, e.g., 'promoter -146C>T'
+            if protein_effect.startswith('promoter'):
+                match = re.search(r'promoter\s+(-?\d+)', protein_effect)
+                if match:
+                    try:
+                        promoter_pos = int(match.group(1))
+                        return promoter_pos // 3
+                    except ValueError:
+                        return None
+                return None
+
+            # Case 3: protein-level mutation, e.g., 'A552V', 'Q442*', etc.
+            match = re.search(r'(\d+)(?:_\w*\d*(?:ins|del))?', protein_effect)
+            return int(match.group(1)) if match else None
+
+        df_lollipop['Position'] = df_lollipop['Protein_Effect'].apply(parse_mutation_position)
+        df_lollipop = df_lollipop.dropna(subset=['Position'])
+
+        if not df_lollipop.empty:
+            # Aggregate mutation counts by position
+            mutation_counts = df_lollipop.groupby('Position').size().reset_index(name='Count')
+
+            # Create Lollipop plot
+            fig, ax = plt.subplots(figsize=(12, 3))
+            ax.vlines(x=mutation_counts['Position'], ymin=0, ymax=mutation_counts['Count'],
+                    colors='#1f77b4', linewidth=2)
+            ax.plot(mutation_counts['Position'], mutation_counts['Count'], 'o', 
+                    color='#ff7f0e', markersize=8)
+
+            # Customize plot
+            ax.set_xlabel('Amino Acid Position', fontsize=12)
+            ax.set_ylabel('Variant Count', fontsize=12)
+            ax.set_title(f'Lollipop Plot of Variants in {selected_gene}', fontsize=14)
+            ax.grid(True, axis='y', linestyle='--', alpha=0.3)
+
+
+            # X-axis: 0 to max position
+            if selected_gene in SummaryViewerF1.GENE_LENGTHS:
+                max_position = SummaryViewerF1.GENE_LENGTHS[selected_gene]
+            else:
+                max_position = mutation_counts['Position'].max() if mutation_counts['Position'].max() > 0 else mutation_counts['Position'].max() * (-5)
+            mini_position = mutation_counts['Position'].min() if mutation_counts['Position'].min() < 0 else 0
+            ax.set_xlim(mini_position * 1.1, max_position)
+            
+            # 100の倍数のラベル候補を作成
+            start = ((mini_position + 99) // 100) * 100
+            end = (max_position // 100) * 100
+            xticks = np.arange(start, end + 1, 100)
+
+            # 10個を超える場合は間引く
+            if len(xticks) > 10:
+                step = int(np.ceil(len(xticks) / 10))
+                xticks = xticks[::step]
+
+            # max_position を目盛りにだけ追加（ラベルなし）
+            xticks_with_max = np.unique(np.append(xticks, max_position))  # 重複回避
+
+            # ラベルの作成：max_positionは空白に
+            xticklabels = [str(tick) if tick != max_position else '' for tick in xticks_with_max]
+
+            ax.set_xticks(xticks_with_max)
+            ax.set_xticklabels(xticklabels, fontsize=10)
+
+            # Y-axis is integer count, so set it to integer format
+            ax.yaxis.get_major_locator().set_params(integer=True)
+            y_max = mutation_counts['Count'].max()
+            ax.set_ylim(0, y_max * 1.1)  # Add 10% padding
+            
+            ax.spines['left'].set_position(('outward', 5))  # Move left spine to a small offset
+            ax.spines['bottom'].set_position('zero')
+            ax.spines['right'].set_color('none')
+            ax.spines['top'].set_color('none')
+
+            # Display plot
+            st.pyplot(fig)
+        else:
+            st.warning(f"No valid mutation data available for {selected_gene} with current filters.")
+    else:
+        st.info("Please select a gene from the sidebar to display the Lollipop plot.")

@@ -6,6 +6,7 @@ from copy import copy
 from io import BytesIO
 
 import pandas as pd
+import numpy as np
 import pdfplumber
 import openpyxl
 from openpyxl.utils.dataframe import dataframe_to_rows
@@ -428,67 +429,91 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
 
     # 基本情報の設定
     add_logo(current_dir, sheet, cell='A1')
-    sheet['C2'] = analysis_type
-    sheet['A30'] = '報告書作成日：' + date.strftime('%Y年%m月%d日')
-    sheet['B4'] = ep_institution
-    sheet['A31'] = ep_institution + ' ' + ep_department
-    sheet['E5'] = ep_department + ' / ' + ep_responsible
-    sheet['F31'] = ep_responsible
-    sheet['E34'] = ep_institution + ' ' + ep_department + '\n' + ep_contact + '\n' + '電話番号 ' + ep_tel
+    sheet['D2'] = analysis_type
+    sheet['A42'] = '報告書作成日：' + date.strftime('%Y年%m月%d日')
+    sheet['C4'] = ep_institution
+    sheet['A43'] = ep_institution + ' ' + ep_department
+    sheet['L5'] = ep_department + ' / ' + ep_responsible
+    sheet['L43'] = ep_responsible
+    sheet['J46'] = ep_institution + ' ' + ep_department + '\n' + ep_contact + '\n' + '電話番号 ' + ep_tel
 
-    df_for_pts = df_short[['geneSymbol', 'aminoAcidsChange']].copy()
-    df_for_pts.insert(1, 'Empty', '')
-    start_row_for_pts = 16
-    insert_row(wb, df_for_pts, sheet_name='For_pts', start_row=start_row_for_pts, start_col='A', end_col='F')
+    # 2列を結合して1列にする関数
+    def combine_2cols_to_one(df, col1, col2, out='combined'):
+        s1 = df[col1].fillna('').astype(str).apply(lambda x: re.sub(r'\s+', ' ', x).strip())
+        s2 = df[col2].fillna('').astype(str).apply(lambda x: re.sub(r'\s+', ' ', x).strip())
+        combined = s1 + np.where(s2 != '', ' ' + s2, '')
+        out_df = df.copy()
+        out_df[out] = combined
+        return out_df[[out]]
+
+    # 1列目: ForPTS
+    df_for_pts = combine_2cols_to_one(df_short, 'geneSymbol', 'aminoAcidsChange', out='ForPTS')
+    # 空の2〜４列目を追加
+    while df_for_pts.shape[1] < 4:
+        df_for_pts.insert(df_for_pts.shape[1], f'empty_{df_for_pts.shape[1]+1}', '')
+    # 5列目として alternateAlleleFrequency を追加
+    df_for_pts.insert(4, 'alternateAlleleFrequency', df_short['alternateAlleleFrequency'])
+
+    start_row_for_pts = 15
+
+    insert_row(wb, df_for_pts, sheet_name='For_pts',
+            start_row=start_row_for_pts, start_col='A', end_col='N') 
+
     for r_idx, row in enumerate(dataframe_to_rows(df_for_pts, index=False, header=False), start_row_for_pts):
         for c_idx, value in enumerate(row, 1):
-            sheet.cell(row=r_idx, column=c_idx, value=value)
-            sheet.cell(row=r_idx, column=c_idx).alignment = Alignment(wrap_text=False, vertical='top')
+            cell = sheet.cell(row=r_idx, column=c_idx, value=value)
+            cell.alignment = Alignment(wrap_text=False, vertical='top')
+
     for r_idx in range(start_row_for_pts, start_row_for_pts + len(df_for_pts)):
         sheet.row_dimensions[r_idx].height = 35
 
+    # process_and_insert 関数（geneSymbol + rearrangementType_0 → 1列）
     def process_and_insert(df, start_row, wb, sheet, sheet_name='For_pts'):
         df_tmp = df[['geneSymbol_0', 'geneSymbol_1', 'rearrangementType_0']].copy()
         df_tmp = df_tmp.fillna('-')
         df_tmp = df_tmp.drop_duplicates(subset=['geneSymbol_0', 'geneSymbol_1', 'rearrangementType_0'])
+        # geneSymbol 整形
         df_tmp['geneSymbol_0'] = df_tmp['geneSymbol_0'].str.split('\n').str[0].str.split(' \[').str[0]
         df_tmp['geneSymbol_1'] = df_tmp['geneSymbol_1'].str.split('\n').str[0].str.split(' \[').str[0]
         df_tmp['geneSymbol'] = df_tmp['geneSymbol_0'] + '::' + df_tmp['geneSymbol_1']
-        df_tmp = df_tmp[['geneSymbol', 'rearrangementType_0']].copy()
-        df_tmp.insert(1, 'Empty', '')
-        df_tmp = df_tmp.drop_duplicates(subset=['geneSymbol', 'rearrangementType_0'])
+        # 2列を結合して1列化
+        df_tmp = combine_2cols_to_one(df_tmp, 'geneSymbol', 'rearrangementType_0', out='ForPTS')
+        # 重複削除
+        df_tmp = df_tmp.drop_duplicates(subset=['ForPTS'])
 
-        insert_row(wb, df_tmp, sheet_name=sheet_name, start_row=start_row, start_col='A', end_col='F')
+        insert_row(wb, df_tmp, sheet_name=sheet_name, start_row=start_row, start_col='A', end_col='N')
 
+        # データの書き込みと書式設定
         for r_idx, row in enumerate(dataframe_to_rows(df_tmp, index=False, header=False), start=start_row):
-            for c_idx, value in enumerate(row, 1):
+            for c_idx, value in enumerate(row, 1): 
                 cell = sheet.cell(row=r_idx, column=c_idx, value=value)
                 cell.alignment = Alignment(wrap_text=False, vertical='top')
+                
         for r_idx in range(start_row, start_row + len(df_tmp)):
-            sheet.row_dimensions[r_idx].height = 35 
-            
+            sheet.row_dimensions[r_idx].height = 35
+
         return start_row + len(df_tmp)
-    
-    # 貼り付け行を決定
+
     start_row_sv_for_pts = start_row_for_pts + len(df_for_pts)
 
-    # 各DataFrameを順に処理し、次の貼り付け行を受け取る
     start_row_up_sv_for_pts = process_and_insert(df_sv, start_row_sv_for_pts, wb, sheet)
     start_row_fu_for_pts    = process_and_insert(df_up_sv, start_row_up_sv_for_pts, wb, sheet)
     start_row_du_for_pts    = process_and_insert(df_fu, start_row_fu_for_pts, wb, sheet)
     process_and_insert(df_du, start_row_du_for_pts, wb, sheet)
 
+    # 郵便番号行の高さ・セル結合処理（既存コード）
     for row in sheet.iter_rows():
-        row_values = [cell.value for cell in row]  # row_values を定義
+        row_values = [cell.value for cell in row]
         contains_postal_code = any('〒' in str(value) for value in row_values if value is not None)
         if contains_postal_code:
             sheet.row_dimensions[row[0].row].height = 100
-            sheet.merge_cells(start_row=row[0].row, start_column=5, end_row=row[0].row, end_column=6)
+            sheet.merge_cells(start_row=row[0].row, start_column=10, end_row=row[0].row, end_column=14)
             for cell in row:
-                cell.alignment = Alignment(vertical='center', wrap_text=True)   
-        
+                cell.alignment = Alignment(vertical='center', wrap_text=True)
+
+            
     # 印刷範囲
-    sheet.print_area = f'A1:AF{sheet.max_row}'
+    sheet.print_area = f'A1:N{sheet.max_row}'
             
     output_stream = BytesIO()
     wb.save(output_stream)

@@ -852,24 +852,12 @@ def excel_genminetop(analysis_type, output_stream, date, ep_institution, ep_depa
     df_fusion = xlsx['Fusion']
     df_germline = xlsx['Germline']
 
-    ####################################    
-    wb = openpyxl.load_workbook(output_stream)
-    sheet = wb['Summary']
-                    
-    # 基本情報の入力
-    add_logo(current_dir, sheet, cell='A1')
-    sheet['D2'] = analysis_type
-    sheet['D4'] = date.strftime('%Y年%m月%d日')
-    sheet['J2'] = ep_institution
-    sheet['J4'] = f'{ep_department} / {ep_responsible}'
-    sheet['A55'] = '報告書作成日：' + date.strftime('%Y年%m月%d日')
-    sheet['A56'] = f'{ep_institution} {ep_department}'
-    sheet['J56'] = ep_responsible
-    sheet['H59'] = f'{ep_institution} {ep_department}\n{ep_contact}\n電話番号 {ep_tel}'
-    
+    # process_variant_df 関数を excel_genminetop 内に定義
     def process_variant_df(df):
         if df.empty:
-            return
+            # 空の DataFrame を返す（期待される列構造を保持）
+            return pd.DataFrame(columns=Columns.SNV_INDEL)
+        
         df = df.copy()
         # 欠損補完（aminoAcidsChange）
         df['aminoAcidsChange'] = df['aminoAcidsChange'].fillna(df['cdsChange'])
@@ -889,7 +877,7 @@ def excel_genminetop(analysis_type, output_stream, date, ep_institution, ep_depa
         mask = df['GeneBe_ClinVar_Germline'].str.strip() == '§'
         df.loc[mask, 'GeneBe_ClinVar_Germline'] = '(' + df.loc[mask, 'GeneBe_ClinVar_Submission_Summary'].astype(str) + ')'
 
-        # 出力用DataFrameの作成
+        # 出力用 DataFrame の作成
         df_out = df[Columns.SNV_INDEL].copy()
 
         # ソート
@@ -900,7 +888,23 @@ def excel_genminetop(analysis_type, output_stream, date, ep_institution, ep_depa
             df_out.insert(insert_pos, chr(96 + insert_pos), '')
         
         return df_out
-                
+
+    ####################################    
+    wb = openpyxl.load_workbook(output_stream)
+    sheet = wb['Summary']
+                    
+    # 基本情報の入力
+    add_logo(current_dir, sheet, cell='A1')
+    sheet['D2'] = analysis_type
+    sheet['D4'] = date.strftime('%Y年%m月%d日')
+    sheet['J2'] = ep_institution
+    sheet['J4'] = f'{ep_department} / {ep_responsible}'
+    sheet['A55'] = '報告書作成日：' + date.strftime('%Y年%m月%d日')
+    sheet['A56'] = f'{ep_institution} {ep_department}'
+    sheet['J56'] = ep_responsible
+    sheet['H59'] = f'{ep_institution} {ep_department}\n{ep_contact}\n電話番号 {ep_tel}'
+    
+    # DataFrame の処理
     df_germline = process_variant_df(df_germline)
     df_short = process_variant_df(df_short)
 
@@ -927,6 +931,7 @@ def excel_genminetop(analysis_type, output_stream, date, ep_institution, ep_depa
             else:
                 df_fusion[col_name] = ''
     
+    # df_germline_comment の処理（df_germline が空でない場合）
     if not df_germline.empty:            
         base_path = os.path.dirname(__file__)
         df_pgpv = pd.read_csv(os.path.join(base_path, Database.PGPV_PATH))
@@ -934,6 +939,9 @@ def excel_genminetop(analysis_type, output_stream, date, ep_institution, ep_depa
         df_germline_comment = df_germline_comment[['geneSymbol', 'aminoAcidsChange', 'Comment_GPV']].copy()
         df_germline_comment['Merged'] = df_germline_comment['geneSymbol'] + ' ' + df_germline_comment['aminoAcidsChange'] + ' ' + df_germline_comment['Comment_GPV']
         df_germline_comment = df_germline_comment[['Merged']]
+    else:
+        # 空の DataFrame を作成
+        df_germline_comment = pd.DataFrame(columns=['Merged'])
 
     start_row_germline = 17
     insert_row(wb, df_germline, sheet_name='Summary', start_row=start_row_germline, start_col='A', end_col='O')
@@ -971,7 +979,7 @@ def excel_genminetop(analysis_type, output_stream, date, ep_institution, ep_depa
             sheet.merge_cells(start_row=r, start_column=1, end_row=r, end_column=15)
         elif 'エキスパートパネルレポート' in str(values):
             sheet.row_dimensions[r].height = 100
-        elif '生殖細胞系列由来' in str(values) :
+        elif '生殖細胞系列由来' in str(values):
             sheet.merge_cells(start_row=r, start_column=1, end_row=r, end_column=15)
             sheet.cell(row=r, column=1).alignment = Alignment(vertical='center', wrap_text=True)
         elif 'ACMG' in str(values):
@@ -982,7 +990,7 @@ def excel_genminetop(analysis_type, output_stream, date, ep_institution, ep_depa
     sheet.merge_cells(start_row=3, start_column=27, end_row=7, end_column=32)
     sheet.merge_cells(start_row=9, start_column=27, end_row=15, end_column=32)
                         
-    # 印刷範囲を設定（A1からF列までの最大行）
+    # 印刷範囲を設定
     sheet.print_area = f'A1:AF{sheet.max_row}'
 
     ####################################
@@ -1007,16 +1015,18 @@ def excel_genminetop(analysis_type, output_stream, date, ep_institution, ep_depa
     # df_patient
     start_row_patient = 26
     insert_row(wb, df_patient, sheet_name='For_pts', start_row=start_row_patient, start_col='A', end_col='F')
-    start_row_germline = start_row_patient + 5 + len(df_patient) - 1 if len(df_patient) > 1 else start_row_patient + 5
-    insert_row(wb, df_germline, sheet_name='For_pts', start_row=start_row_germline, start_col='A', end_col='F')
     for insert_pos in [1]:
         df_patient.insert(insert_pos, f'column_{chr(96 + insert_pos)}', '')
 
+    start_row_germline = start_row_patient + 5 + len(df_patient) - 1 if len(df_patient) > 1 else start_row_patient + 5
+    insert_row(wb, df_germline_comment, sheet_name='For_pts', start_row=start_row_germline, start_col='A', end_col='F')
+
     for df_section, start_row in [(df_patient, start_row_patient), (df_germline_comment, start_row_germline)]:
-        for r_idx, row in enumerate(dataframe_to_rows(df_section, index=False, header=False), start_row):
-            for c_idx, value in enumerate(row, 1):
-                sheet.cell(row=r_idx, column=c_idx, value=value)
-                sheet.cell(row=r_idx, column=c_idx).alignment = Alignment(wrap_text=False, vertical='top')
+        if df_section is not None and not df_section.empty:
+            for r_idx, row in enumerate(dataframe_to_rows(df_section, index=False, header=False), start_row):
+                for c_idx, value in enumerate(row, 1):
+                    sheet.cell(row=r_idx, column=c_idx, value=value)
+                    sheet.cell(row=r_idx, column=c_idx).alignment = Alignment(wrap_text=False, vertical='top')
 
     # 空行削除
     # delete_blank_lines(sheet)
@@ -1030,11 +1040,11 @@ def excel_genminetop(analysis_type, output_stream, date, ep_institution, ep_depa
             sheet.merge_cells(start_row=r, start_column=5, end_row=r, end_column=6)
         elif 'がん遺伝子パネル検査説明書' in str(values):
             sheet.row_dimensions[r].height = 100
-        elif '生殖細胞系列由来' in str(values) :
+        elif '生殖細胞系列由来' in str(values):
             sheet.merge_cells(start_row=r, start_column=1, end_row=r, end_column=6)
             sheet.cell(row=r, column=1).alignment = Alignment(vertical='center', wrap_text=True)        
 
-    # 印刷範囲を設定（A1からF列までの最大行）
+    # 印刷範囲を設定
     sheet.print_area = f'A1:F{sheet.max_row}'
 
     # 新しい出力ストリームを作成し保存

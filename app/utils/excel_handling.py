@@ -711,6 +711,8 @@ def excel_foundationone(analysis_type, output_stream, date, ep_institution, ep_d
     df_germline = df_germline[['geneSymbol', 'aminoAcidsChange', 'Comment']].copy()
     df_germline['Merged'] = df_germline['geneSymbol'] + ' ' + df_germline['aminoAcidsChange'] + ' ' + df_germline['Comment']
     df_germline = df_germline[['Merged']]
+    df_germline = df_germline.dropna(subset=['Merged'], how='all')
+    df_germline = df_germline.sort_values(by=['Merged'])
     
     
     ####################################

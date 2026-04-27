@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------------
-# Title   : ExPReSS 0.3
+# Title   : ExPReSS 0.3.1
 # Author  : tatsuroyamaguchi
 # License : CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
 # Created : 2025-05-03
@@ -33,7 +33,7 @@ ep_contact = inputs['ep_contact']
 ep_tel = inputs['ep_tel']
 
 ###### Main Content ######
-st.title("🧬 ExPReSS 0.3")
+st.title("🧬 ExPReSS 0.3.1")
 st.write("Expert Panel Report Support System for Comprehensive Cancer Genomic Profiling")
 st.markdown("---")
 

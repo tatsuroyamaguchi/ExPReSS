@@ -107,6 +107,8 @@ def link_generator(analysis_type, row, gene_id, transcript_id, chromosome, pos, 
     if gene_symbol and amino_acids_change:
         aa_change = amino_acids_change[2:] if amino_acids_change.startswith('p.') else amino_acids_change
         row['jMorp'] = f'=HYPERLINK("{Hyperlink.JMORP_LINK}{gene_symbol}+{aa_change}", "jMorp")'
+    else:
+        row['jMorp'] = '-'
     row['Mastermind'] = f'=HYPERLINK("{Hyperlink.MASTERMIND_LINK}{gene_symbol}:{cds_change}", "Mastermind")'
     row['OMIM'] = f'=HYPERLINK("{Hyperlink.OMIM_LINK}{gene_symbol}", "OMIM")'
     row['OncoKB'] = f'=HYPERLINK("{Hyperlink.ONCOKB_LINK}{gene_symbol}", "OncoKB")'

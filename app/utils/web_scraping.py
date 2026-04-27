@@ -9,42 +9,31 @@ from .parameter import Hyperlink
 
 def fetch_genebe(analysis_type, transcript_id, cds_change):
 
-    # if analysis_type == 'HemeSight':
-    #     grc = "hg38"
-    # elif analysis_type == 'FoundationOne':
-    #     grc = "hg19"
-    # elif analysis_type == 'FoundationOne Liquid':
-    #     grc = "hg19"
-    # elif analysis_type == 'GenMineTOP':
-    #     grc = "hg38"
-    # elif analysis_type == 'Guardant360':
-    #     grc = "hg19"
     grc = "hg38"
-    
-    url = f'{Hyperlink.GENEBE_LINK}{grc}/{transcript_id}:{cds_change}'
-    
+
+    # gnb.parse_variants を使って HGVS 形式から chr-pos-ref-alt を取得
+    hgvs = f'{transcript_id}:{cds_change}'
     try:
-        r = requests.get(url)
-        r.raise_for_status()
-    except requests.exceptions.HTTPError as e:
-        print(f"[GeneBe fetch error] {e} - URL: {url}")
+        parsed = gnb.parse_variants([hgvs], genome=grc)
+        if not parsed or parsed[0] is None:
+            print(f"[GeneBe parse_variants] Could not parse: {hgvs}")
+            return None, None, None, None, None, None, None
+        variant = parsed[0]  # 例: '17-7673803-G-A'
+        parts = variant.split('-')
+        if len(parts) != 4:
+            print(f"[GeneBe parse_variants] Unexpected format: {variant}")
+            return None, None, None, None, None, None, None
+        chromosome, position, ref, alt = parts
+        chromosome = chromosome.replace('chr', '')
+    except Exception as e:
+        print(f"[GeneBe parse_variants error] {e} - HGVS: {hgvs}")
         return None, None, None, None, None, None, None
 
-    soup = BeautifulSoup(r.text, 'html.parser')
-    
     try:
-        if grc == "hg19":
-            variant_element = soup.find('div', class_='prose max-w-none').find("a")
-        else:
-            variant_element = soup.find('li', class_='inline-block').find("a")
-        variant = variant_element.get_text(strip=True).replace('hg38:', '').replace('chr:', '')
-        chromosome, position, ref, alt = variant.split('-')
-        chromosome = chromosome.replace('chr', '')
-        
         genebe_json = gnb.annotate_variants_list([variant], flatten_consequences=False, genome=grc)
-        dbsnp = genebe_json[0].get('dbsnp')
+        dbsnp = genebe_json[0].get('dbsnp') if genebe_json else None
     except Exception as e:
-        print(f"[GeneBe parsing error] {e} - URL: {url}")
+        print(f"[GeneBe annotate error] {e} - variant: {variant}")
         return None, None, None, None, None, None, None
 
     return genebe_json, variant, chromosome, position, ref, alt, dbsnp

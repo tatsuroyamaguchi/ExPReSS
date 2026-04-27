@@ -6,6 +6,8 @@ ExPReSSは、がん遺伝子パネル検査におけるエキスパートパネ�
 
 ---
 #### What's New
+- version 0.3.1
+  - バグの修正
 - version 0.3
   - DataExtractor for CGP 搭載
   - DataViewer 搭載

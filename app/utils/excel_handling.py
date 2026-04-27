@@ -441,7 +441,9 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
     def combine_2cols_to_one(df, col1, col2, out='combined'):
         s1 = df[col1].fillna('').astype(str).apply(lambda x: re.sub(r'\s+', ' ', x).strip())
         s2 = df[col2].fillna('').astype(str).apply(lambda x: re.sub(r'\s+', ' ', x).strip())
-        combined = s1 + np.where(s2 != '', ' ' + s2, '')
+        # np.whereはArrow dtype非互換のためapplyで代替
+        suffix = s2.apply(lambda x: ' ' + x if x != '' else '')
+        combined = s1 + suffix
         out_df = df.copy()
         out_df[out] = combined
         return out_df[[out]]

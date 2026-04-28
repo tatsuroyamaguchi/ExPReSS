@@ -525,6 +525,16 @@ def process_genminetop(analysis_type, xml_data, template_path, date, ep_institut
         qc_data.append(qc_entry)
 
     write_df_to_sheet(qc_data, 'QC', wb)
+    
+    # MSI
+    msi_data = []
+    for msi in root.findall('./report/result/marker/msi'):
+        msi_entry = {
+            'score': msi.findtext('score/value', ''),
+            'status': msi.findtext('status', ''),
+        }
+        msi_data.append(msi_entry)
+    write_df_to_sheet(msi_data, 'MSI', wb)
         
     # TMB
     tmb_data = []
@@ -694,7 +704,7 @@ def process_guardant360(analysis_type, xlsx_data, template_path, date, ep_instit
         df_snv[['referenceAllele', 'alternateAllele']] = df_snv['mut_nt'].str.split('>', expand=True)        
         df_snv.columns = ['geneSymbol', 'chromosome', 'position', 'mut_nt', 'aminoAcidsChange', 'cdsChange', 'alternateAlleleFrequency', 'call', 'transcriptId', 'exon', 'reporting_category', 'rm_reportable', 'referenceAllele', 'alternateAllele']
         df_snv.reset_index(drop=True, inplace=True)
-        df_snv['aminoAcidsChange'] = df_snv['aminoAcidsChange'].apply(lambda x: "p." + str(x) if pd.notnull(x) else '')
+        df_snv['aminoAcidsChange'] = df_snv['aminoAcidsChange'].apply(lambda x: str(x) if (pd.notnull(x) and str(x).startswith('p.')) else ("p." + str(x) if pd.notnull(x) else ''))
         # 'geneID', 'dbSNP'は元のデータに存在しないため、空の列を追加
         df_snv['geneID'] = ''
         df_snv['dbSNP'] = ''
@@ -732,7 +742,7 @@ def process_guardant360(analysis_type, xlsx_data, template_path, date, ep_instit
         df_indel[['referenceAllele', 'alternateAllele']] = df_snv['mut_nt'].str.split('>', expand=True)  
         df_indel.columns = ['geneSymbol', 'chromosome', 'position', 'mut_nt', 'aminoAcidsChange', 'cdsChange', 'length', 'exon', 'type', 'alternateAlleleFrequency', 'call', 'transcriptId', 'reporting_category', 'mut_aa_short', 'rm_reportable', 'referenceAllele', 'alternateAllele']
         df_indel.reset_index(drop=True, inplace=True)
-        df_indel['aminoAcidsChange'] = df_indel['aminoAcidsChange'].apply(lambda x: "p." + str(x) if pd.notnull(x) else '')
+        df_indel['aminoAcidsChange'] = df_indel['aminoAcidsChange'].apply(lambda x: str(x) if (pd.notnull(x) and str(x).startswith('p.')) else ("p." + str(x) if pd.notnull(x) else ''))
         # 'geneID', 'dbSNP'は元のデータに存在しないため、空の列を追加
         df_indel['geneID'] = ''
         df_indel['dbSNP'] = ''

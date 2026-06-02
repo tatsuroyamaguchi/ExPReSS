@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------------
-# Title   : ExPReSS 0.3.1
+# Title   : ExPReSS 0.3.2
 # Author  : tatsuroyamaguchi
 # License : CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
 # Created : 2025-05-03

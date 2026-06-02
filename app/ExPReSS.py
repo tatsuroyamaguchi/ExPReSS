@@ -33,7 +33,7 @@ ep_contact = inputs['ep_contact']
 ep_tel = inputs['ep_tel']
 
 ###### Main Content ######
-st.title("🧬 ExPReSS 0.3.1")
+st.title("🧬 ExPReSS 0.3.2")
 st.write("Expert Panel Report Support System for Comprehensive Cancer Genomic Profiling")
 st.markdown("---")
 

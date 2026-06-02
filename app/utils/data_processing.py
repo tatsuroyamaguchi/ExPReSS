@@ -139,6 +139,8 @@ def process_hemsight(analysis_type, json_data, template_path, date, normal_sampl
     def process_rearrangements(output_stream):
         df_rearrangements = pd.read_excel(output_stream, sheet_name='Rearrangements')
         df_proteinpaint = df_rearrangements.copy()
+        if 'transcriptId' in df_proteinpaint.columns:
+            df_proteinpaint['transcriptId'] = df_proteinpaint['transcriptId'].astype(object)
         df_proteinpaint.loc[:, 'geneSymbol'] = df_proteinpaint['geneSymbol'].replace({'D4Z4': 'DUX4'})
         transcriptID = Transcript.TRANSCRIPT_ID
         for gene, transcript in transcriptID.items():
@@ -704,7 +706,7 @@ def process_guardant360(analysis_type, xlsx_data, template_path, date, ep_instit
         df_snv[['referenceAllele', 'alternateAllele']] = df_snv['mut_nt'].str.split('>', expand=True)        
         df_snv.columns = ['geneSymbol', 'chromosome', 'position', 'mut_nt', 'aminoAcidsChange', 'cdsChange', 'alternateAlleleFrequency', 'call', 'transcriptId', 'exon', 'reporting_category', 'rm_reportable', 'referenceAllele', 'alternateAllele']
         df_snv.reset_index(drop=True, inplace=True)
-        df_snv['aminoAcidsChange'] = df_snv['aminoAcidsChange'].apply(lambda x: str(x) if (pd.notnull(x) and str(x).startswith('p.')) else ("p." + str(x) if pd.notnull(x) else ''))
+        df_snv['aminoAcidsChange'] = df_snv['aminoAcidsChange'].apply(lambda x: "p." + str(x) if pd.notnull(x) else '')
         # 'geneID', 'dbSNP'は元のデータに存在しないため、空の列を追加
         df_snv['geneID'] = ''
         df_snv['dbSNP'] = ''
@@ -742,7 +744,7 @@ def process_guardant360(analysis_type, xlsx_data, template_path, date, ep_instit
         df_indel[['referenceAllele', 'alternateAllele']] = df_snv['mut_nt'].str.split('>', expand=True)  
         df_indel.columns = ['geneSymbol', 'chromosome', 'position', 'mut_nt', 'aminoAcidsChange', 'cdsChange', 'length', 'exon', 'type', 'alternateAlleleFrequency', 'call', 'transcriptId', 'reporting_category', 'mut_aa_short', 'rm_reportable', 'referenceAllele', 'alternateAllele']
         df_indel.reset_index(drop=True, inplace=True)
-        df_indel['aminoAcidsChange'] = df_indel['aminoAcidsChange'].apply(lambda x: str(x) if (pd.notnull(x) and str(x).startswith('p.')) else ("p." + str(x) if pd.notnull(x) else ''))
+        df_indel['aminoAcidsChange'] = df_indel['aminoAcidsChange'].apply(lambda x: "p." + str(x) if pd.notnull(x) else '')
         # 'geneID', 'dbSNP'は元のデータに存在しないため、空の列を追加
         df_indel['geneID'] = ''
         df_indel['dbSNP'] = ''

@@ -138,6 +138,16 @@ def process_hemsight(analysis_type, json_data, template_path, date, normal_sampl
 
     def process_rearrangements(output_stream):
         df_rearrangements = pd.read_excel(output_stream, sheet_name='Rearrangements')
+        proteinpaint_path = 'proteinpaint.tsv'
+        disco_path = 'disco.tsv'
+
+        if df_rearrangements.empty or 'geneSymbol' not in df_rearrangements.columns:
+            df_empty_pp = pd.DataFrame(columns=['itemId', 'chr_a', 'chr_b', 'gene_a', 'gene_b', 'strand_a', 'strand_b', 'position_a', 'position_b', 'refseq_a', 'refseq_b'])
+            df_empty_pp.to_csv(proteinpaint_path, sep='\t', index=False)
+            df_empty_disco = pd.DataFrame(columns=Columns.DISCO)
+            df_empty_disco.to_csv(disco_path, sep='\t', index=False)
+            return proteinpaint_path, disco_path
+
         df_proteinpaint = df_rearrangements.copy()
         if 'transcriptId' in df_proteinpaint.columns:
             df_proteinpaint['transcriptId'] = df_proteinpaint['transcriptId'].astype(object)

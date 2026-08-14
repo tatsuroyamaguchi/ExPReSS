@@ -7,13 +7,35 @@ from io import BytesIO
 import xml.etree.ElementTree as ET
 
 import openpyxl
+from openpyxl.utils.dataframe import dataframe_to_rows
 import pandas as pd
 import streamlit as st
 
-from .excel_handling import write_df_to_sheet, excel_hemesight, excel_foundationone, excel_genminetop, excel_guardant360, excel_trusight
+from .excel_handling import excel_hemesight, excel_foundationone, excel_genminetop, excel_guardant360, excel_trusight
 from .link_generator import link_generator
 from .parameter import Base, Transcript, Database, Gene, Columns
 from annotator.parser import parse_trusight_json
+
+
+def write_df_to_sheet(data_section, sheet_name, wb):
+    # データを正規化（既にDataFrameならそのまま）
+    if not isinstance(data_section, pd.DataFrame):
+        df = pd.json_normalize(data_section)
+    else:
+        df = data_section
+    # シートが存在するか確認し、なければ新規作成
+    if sheet_name in wb.sheetnames:
+        sheet = wb[sheet_name]
+    else:
+        sheet = wb.create_sheet(title=sheet_name)
+    # DataFrame を Excel シートに書き込み
+    for r_idx, row in enumerate(dataframe_to_rows(df, index=False, header=True), 1):
+        for c_idx, value in enumerate(row, 1):
+            if isinstance(value, list):
+                value = "\n".join(map(str, value))
+            elif isinstance(value, dict):
+                value = json.dumps(value, ensure_ascii=False)
+            sheet.cell(row=r_idx, column=c_idx, value=value)
 
 
 def cancer_gene_census():

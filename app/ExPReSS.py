@@ -10,7 +10,6 @@ import os
 import streamlit as st
 from utils.data_processing import process_foundationone, process_genminetop, process_guardant360, process_hemsight, process_hemesight, process_trusight
 from utils.file_handling import create_zip_file
-from utils.excel_handling import excel_fasttrack
 from utils.sidebar_inputs import render_sidebar_inputs
 
 
@@ -201,6 +200,7 @@ if uploaded_file is not None:
         pdf_data = uploaded_file.read()
         template_file = os.path.join(current_dir, "app/template/Template_FastTrack.xlsx")
         if st.button('Run'):
+            from utils.excel_handling import excel_fasttrack
             output_stream = excel_fasttrack(
                 analysis_type, pdf_data, template_file, date, ep_institution, ep_department, ep_responsible, ep_contact, ep_tel
             )

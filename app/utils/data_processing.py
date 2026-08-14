@@ -13,7 +13,6 @@ import streamlit as st
 
 from .link_generator import link_generator
 from .parameter import Base, Transcript, Database, Gene, Columns
-from annotator.parser import parse_trusight_json
 
 
 def write_df_to_sheet(data_section, sheet_name, wb):
@@ -886,6 +885,7 @@ def process_trusight(analysis_type, json_data, template_path, date, ep_instituti
     output_stream = BytesIO()
 
     # パース
+    from annotator.parser import parse_trusight_json
     df_basic, df_sv, df_cnv, df_fusion, df_msi_tmb, df_qc = parse_trusight_json(data)
 
     # 1. VariantReport / Sample / QC

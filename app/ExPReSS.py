@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------------
-# Title   : ExPReSS 0.3.2
+# Title   : ExPReSS 0.4
 # Author  : tatsuroyamaguchi
 # License : CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
 # Created : 2025-05-03
@@ -8,7 +8,7 @@
 # app/main.py
 import os
 import streamlit as st
-from utils.data_processing import process_foundationone, process_genminetop, process_guardant360, process_hemsight
+from utils.data_processing import process_foundationone, process_genminetop, process_guardant360, process_hemsight, process_hemesight, process_trusight
 from utils.file_handling import create_zip_file
 from utils.excel_handling import excel_fasttrack
 from utils.sidebar_inputs import render_sidebar_inputs
@@ -33,14 +33,14 @@ ep_contact = inputs['ep_contact']
 ep_tel = inputs['ep_tel']
 
 ###### Main Content ######
-st.title("🧬 ExPReSS 0.3.2")
+st.title("🧬 ExPReSS 0.4")
 st.write("Expert Panel Report Support System for Comprehensive Cancer Genomic Profiling")
 st.markdown("---")
 
 # Analysis type selection
 analysis_type = st.radio(
     "解析タイプを選択してください",
-    ("FoundationOne", "FoundationOne Liquid", "GenMineTOP", "Guardant360", "HemeSight", "HemeSight (Fast Track)"),
+    ("FoundationOne", "FoundationOne Liquid", "GenMineTOP", "Guardant360", "HemeSight", "HemeSight (Fast Track)", "TruSight"),
     horizontal=False
 )
 
@@ -63,6 +63,9 @@ elif analysis_type == "HemeSight":
 elif analysis_type == "HemeSight (Fast Track)":
     uploaded_file = st.file_uploader("PDFファイルをアップロードしてください", type="pdf")
     file_extension = "pdf"
+elif analysis_type == "TruSight":
+    uploaded_file = st.file_uploader("JSONファイルをアップロードしてください", type="json")
+    file_extension = "json"
     
 
 # Get filename without extension
@@ -179,6 +182,21 @@ if uploaded_file is not None:
                 mime='application/zip'
             )
     
+    elif analysis_type == "TruSight":
+        json_data = uploaded_file.read().decode('utf-8')
+        template_file = os.path.join(current_dir, "app/template/Template_TruSight.xlsx")
+        if st.button('Run'):
+            output_stream = process_trusight(
+                analysis_type, json_data, template_file, date, ep_institution, ep_department, ep_responsible, ep_contact, ep_tel
+            )
+            if output_stream is not None:
+                st.download_button(
+                    label="Download Processed Excel",
+                    data=output_stream.getvalue(),
+                    file_name=file_name + '.xlsx',
+                    mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                )
+            
     elif analysis_type == "HemeSight (Fast Track)":  # HemeSight (Fast Track)
         pdf_data = uploaded_file.read()
         template_file = os.path.join(current_dir, "app/template/Template_FastTrack.xlsx")
@@ -226,20 +244,40 @@ with st.expander("## README", expanded=False):
         readme_content = f.read()
     st.markdown(readme_content)
 
+# パスワードを入力
+password = st.text_input("API", type="password")
+
+# 正しいパスワードを設定（必要に応じてハッシュ化なども可能）
+correct_password = "123"
+
+# パスワードが正しい場合にのみ表示
+if password == correct_password:
+    with st.expander("## API", expanded=False):
+        st.markdown("""
+        ### API
+        - echo "machine api.genebe.io login t.yamaguchi.nf@juntendo.ac.jp password Kyosuke1220" >> ~/.netrc
+        - genebe account --username t.yamaguchi.nf@juntendo.ac.jp --api_key YOUR_API_KEY
+        """)
+elif password:  # パスワードが入力されたが間違っていた場合
+    st.error("パスワードが間違っています。")
+    
+
 # Table作成
 st.markdown("---")
 st.markdown("""
-            | Panel | HemeSight | FoundationOne | FoundationOne Liquid| GenMineTOP | Guardant360 |
-            |-------|-----------|---------------|---------------------|------------|-------------|
-            | Sample type | Blood/Normal | Tumor | Liquid | Tumor/Normal| Liquid|
-            | Nucleic acid | DNA/RNA | DNA | ctDNA | DNA/RNA | ctDNA|
-            | # of SNV/Indel | 319 | 324 | 324 | 737 | 74 |
-            | # of CNV | - | 309 (Amp/Del) | - | 737 (Amp) | 18 (Amp) |
-            | # of rearrangements | 329   | 36 | 36 | 454 | 6 |
-            | MSI | - | + | - | - | + |
-            | TMB | - | + | - | + | - |
-            | Germline | + | - | - | 40 | - |
-            | File type | JSON | XML | XML | XML | XLSX |
-            | Referrnce genome | GRCh38 | GRCh37(hg19) | GRCh37(hg19) | GRCh38 | GRCh37(hg19) |
+            | Panel | HemeSight | FoundationOne | FoundationOne Liquid| GenMineTOP | Guardant360 | TruSight |
+            |-------|-----------|---------------|---------------------|------------|-------------|----------|
+            | Sample type | Blood/Normal | Tumor | Liquid | Tumor/Normal| Liquid| Tumor |
+            | Nucleic acid | DNA/RNA | DNA | ctDNA | DNA/RNA | ctDNA| DNA/RNA |
+            | # of SNV/Indel | 319 | 324 | 324 | 737 | 74 | 517 |
+            | # of CNV | - | 309 (Amp/Del) | 309 (Amp/Del) | 737 (Amp) | 18 (Amp) | 2 (Amp) |
+            | # of rearrangements | 329 | 36 | 36 | 454 | 6 | 23 |
+            | MSI | - | ◯ | △ | △ | ◯ | △ |
+            | TMB | - | ◯ | bTMB | ◯ | - | △ |
+            | Germline | 68 | - | - | 40 | - | - |
+            | File type | JSON | XML | XML | XML | XLSX | JSON |
+            | Referrnce genome | GRCh38 | GRCh37(hg19) | GRCh37(hg19) | GRCh38 | GRCh37(hg19) | GRCh37(hg19) |
+            
+            △, 参考値
             """)
 st.markdown("---")

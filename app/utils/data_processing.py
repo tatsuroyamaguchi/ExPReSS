@@ -11,7 +11,6 @@ from openpyxl.utils.dataframe import dataframe_to_rows
 import pandas as pd
 import streamlit as st
 
-from .excel_handling import excel_hemesight, excel_foundationone, excel_genminetop, excel_guardant360, excel_trusight
 from .link_generator import link_generator
 from .parameter import Base, Transcript, Database, Gene, Columns
 from annotator.parser import parse_trusight_json
@@ -157,6 +156,7 @@ def process_hemsight(analysis_type, json_data, template_path, date, normal_sampl
     wb.save(output_stream)
     output_stream.seek(0)
 
+    from .excel_handling import excel_hemesight
     output_stream = excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_institution, ep_department, ep_responsible, ep_contact, ep_tel)
 
     def process_rearrangements(output_stream):
@@ -421,6 +421,7 @@ def process_foundationone(analysis_type, xml_data, template_path, date, ep_insti
     wb.save(output_stream)
     output_stream.seek(0)
     
+    from .excel_handling import excel_foundationone
     output_stream = excel_foundationone(analysis_type, output_stream, date, ep_institution, ep_department, ep_responsible, ep_contact, ep_tel)
     output_stream.seek(0)
     return output_stream
@@ -721,6 +722,7 @@ def process_genminetop(analysis_type, xml_data, template_path, date, ep_institut
     wb.save(output_stream)
     output_stream.seek(0)
 
+    from .excel_handling import excel_genminetop
     output_stream = excel_genminetop(analysis_type, output_stream, date, ep_institution, ep_department, ep_responsible, ep_contact, ep_tel)
     output_stream.seek(0)
     return output_stream
@@ -867,6 +869,7 @@ def process_guardant360(analysis_type, xlsx_data, template_path, date, ep_instit
     output_stream = BytesIO()
     wb.save(output_stream)
     output_stream.seek(0)
+    from .excel_handling import excel_guardant360
     output_stream = excel_guardant360(analysis_type, output_stream, date, ep_institution, ep_department, ep_responsible, ep_contact, ep_tel)
     output_stream.seek(0)
     return output_stream
@@ -1048,6 +1051,11 @@ def process_trusight(analysis_type, json_data, template_path, date, ep_instituti
     wb.save(output_stream)
     output_stream.seek(0)
 
+    from .excel_handling import excel_trusight
     output_stream = excel_trusight(analysis_type, output_stream, date, ep_institution, ep_department, ep_responsible, ep_contact, ep_tel)
     return output_stream
+
+
+# Alias for spell consistency
+process_hemesight = process_hemsight
 

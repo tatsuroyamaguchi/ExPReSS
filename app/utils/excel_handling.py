@@ -678,6 +678,7 @@ def excel_foundationone(analysis_type, output_stream, date, ep_institution, ep_d
     df_fusion = xlsx['Fusion']
     df_msi = xlsx['MSI']
     
+    df_snv = pd.DataFrame(columns=Columns.SNV_INDEL)
     if not df_short.empty:
         df_short = df_short.copy()
         df_short['alternateAlleleFrequency'] = df_short.apply(lambda x: x['alternateAlleleReadDepth'] / x['totalReadDepth'] if pd.notna(x['alternateAlleleReadDepth']) and pd.notna(x['totalReadDepth']) and x['totalReadDepth'] != 0 else None, axis=1)
@@ -691,31 +692,38 @@ def excel_foundationone(analysis_type, output_stream, date, ep_institution, ep_d
     if not df_cnv.empty:
         df_cnv = df_cnv[Columns.FOUNDATION_CNV].copy()
         df_cnv = df_cnv.sort_values(by=['status', 'geneSymbol'])
+    else:
+        df_cnv = pd.DataFrame(columns=Columns.FOUNDATION_CNV)
         
     if not df_fusion.empty:
         df_fusion = df_fusion[Columns.FOUNDATION_FUSION].copy()
         df_fusion = df_fusion.sort_values(by=['status', 'description'])
+    else:
+        df_fusion = pd.DataFrame(columns=Columns.FOUNDATION_FUSION)
     
-    df_germline = df_short[Columns.FOUNDATION_GERMLINE].copy()
-    base_path = os.path.dirname(__file__)
-    df_pgpv = pd.read_csv(os.path.join(base_path, Database.PGPV_PATH))
-    df_germline = pd.merge(df_germline, df_pgpv, on='geneSymbol', how='left')
-    if analysis_type == 'FoundationOne':
-        if df_germline['cdsChange'].str.contains('>', na=False).any():
-            df_germline = df_germline[df_germline['alternateAlleleFrequency'] > df_germline['SNV']]
-        elif df_germline['cdsChange'].str.contains('del|ins', na=False).any():
-            df_germline = df_germline[df_germline['alternateAlleleFrequency'] > df_germline['Indel']]
-        if (df_msi['status'] != 'MSI').any():
-            df_germline = df_germline[~df_germline['geneSymbol'].isin(['MLH1', 'MSH2', 'MSH6', 'PMS2'])]
-        else:
-            pass
-    elif analysis_type == 'FoundationOne Liquid':
-        df_germline = df_germline[df_germline['alternateAlleleFrequency'].astype(float) > 0.3]
-    df_germline = df_germline[['geneSymbol', 'aminoAcidsChange', 'Comment']].copy()
-    df_germline['Merged'] = df_germline['geneSymbol'] + ' ' + df_germline['aminoAcidsChange'] + ' ' + df_germline['Comment']
-    df_germline = df_germline[['Merged']]
-    df_germline = df_germline.dropna(subset=['Merged'], how='all')
-    df_germline = df_germline.sort_values(by=['Merged'])
+    df_germline = pd.DataFrame(columns=['Merged'])
+    if not df_short.empty and all(col in df_short.columns for col in Columns.FOUNDATION_GERMLINE):
+        df_germline = df_short[Columns.FOUNDATION_GERMLINE].copy()
+        base_path = os.path.dirname(__file__)
+        df_pgpv = pd.read_csv(os.path.join(base_path, Database.PGPV_PATH))
+        df_germline = pd.merge(df_germline, df_pgpv, on='geneSymbol', how='left')
+        if analysis_type == 'FoundationOne':
+            if df_germline['cdsChange'].str.contains('>', na=False).any():
+                df_germline = df_germline[df_germline['alternateAlleleFrequency'] > df_germline['SNV']]
+            elif df_germline['cdsChange'].str.contains('del|ins', na=False).any():
+                df_germline = df_germline[df_germline['alternateAlleleFrequency'] > df_germline['Indel']]
+            if (df_msi['status'] != 'MSI').any():
+                df_germline = df_germline[~df_germline['geneSymbol'].isin(['MLH1', 'MSH2', 'MSH6', 'PMS2'])]
+            else:
+                pass
+        elif analysis_type == 'FoundationOne Liquid':
+            df_germline = df_germline[df_germline['alternateAlleleFrequency'].astype(float) > 0.3]
+        if 'geneSymbol' in df_germline.columns and 'aminoAcidsChange' in df_germline.columns and 'Comment' in df_germline.columns:
+            df_germline = df_germline[['geneSymbol', 'aminoAcidsChange', 'Comment']].copy()
+            df_germline['Merged'] = df_germline['geneSymbol'] + ' ' + df_germline['aminoAcidsChange'] + ' ' + df_germline['Comment']
+            df_germline = df_germline[['Merged']]
+            df_germline = df_germline.dropna(subset=['Merged'], how='all')
+            df_germline = df_germline.sort_values(by=['Merged'])
     
     
     ####################################
@@ -1062,10 +1070,9 @@ def excel_genminetop(analysis_type, output_stream, date, ep_institution, ep_depa
 
 def excel_guardant360(analysis_type, output_stream, date, ep_institution, ep_department, ep_responsible, ep_contact, ep_tel):
     current_dir = os.getcwd()
-    
     xlsx = pd.read_excel(output_stream, sheet_name=None)
-    df_snv = xlsx['SNV']
-    df_indel = xlsx['Indels']
+    df_snv = xlsx.get('SNV', pd.DataFrame())
+    df_indel = xlsx.get('Indels', pd.DataFrame())
     
     if not df_snv.empty and not df_indel.empty:
         df_short = pd.concat([df_snv, df_indel], ignore_index=True)
@@ -1073,43 +1080,60 @@ def excel_guardant360(analysis_type, output_stream, date, ep_institution, ep_dep
         df_short = df_snv.copy()
     elif df_snv.empty and not df_indel.empty:
         df_short = df_indel.copy()
+    else:
+        df_short = pd.DataFrame()
     
-    df_cnv = xlsx['CNAs']
-    df_fusion = xlsx['Fusions']
-    df_msi = xlsx['MSI']
+    df_cnv = xlsx.get('CNAs', pd.DataFrame())
+    df_fusion = xlsx.get('Fusions', pd.DataFrame())
+    df_msi = xlsx.get('MSI', pd.DataFrame())
 
+    df_germline = pd.DataFrame(columns=['Merged'])
     if not df_short.empty:
         df_germline = df_short.copy()
         base_path = os.path.dirname(__file__)
         df_pgpv = pd.read_csv(os.path.join(base_path, Database.PGPV_PATH))
         df_germline = pd.merge(df_germline, df_pgpv, on='geneSymbol', how='left')
-        df_germline = df_germline[df_germline['alternateAlleleFrequency'].astype(float) > 30]
+        if 'alternateAlleleFrequency' in df_germline.columns:
+            df_germline = df_germline[df_germline['alternateAlleleFrequency'].astype(float) > 30]
 
-        if (df_msi['msi_status'] != 'MSI-H').any():
+        if not df_msi.empty and 'msi_status' in df_msi.columns and (df_msi['msi_status'] != 'MSI-H').any():
             df_germline = df_germline[~df_germline['geneSymbol'].isin(['MLH1', 'MSH2', 'MSH6', 'PMS2'])]
         else:
             pass
         # 欠損補完（aminoAcidsChange）
-        df_germline['aminoAcidsChange'] = df_germline['aminoAcidsChange'].fillna(df_germline['cdsChange'])
+        if 'aminoAcidsChange' in df_germline.columns and 'cdsChange' in df_germline.columns:
+            df_germline['aminoAcidsChange'] = df_germline['aminoAcidsChange'].fillna(df_germline['cdsChange'])
         
-        df_germline = df_germline[['geneSymbol', 'aminoAcidsChange', 'Comment']].copy()
-        df_germline['Merged'] = df_germline['geneSymbol'] + ' ' + df_germline['aminoAcidsChange'] + ' ' + df_germline['Comment']
-        df_germline = df_germline[['Merged']]
-    
-    df_short = df_short.copy()
-    df_short['aminoAcidsChange'] = df_short['aminoAcidsChange'].fillna(df_short['cdsChange'])
-    df_short['GeneBe_ClinVar_Germline'] = df_short['GeneBe_ClinVar_Germline'].fillna('').astype(str) + ' ' + df_short['GeneBe_ClinVar_Germline_Status'].fillna('').astype(str)
-    df_short['GeneBe_ClinVar_Somatic'] = df_short['GeneBe_ClinVar_Somatic'].fillna('').astype(str) + ' ' + df_short['GeneBe_ClinVar_Somatic_Status'].fillna('').astype(str)
-    mask = df_short['GeneBe_ClinVar_Germline'].str.strip() == '§'
-    df_short.loc[mask, 'GeneBe_ClinVar_Germline'] = '(' + df_short.loc[mask, 'GeneBe_ClinVar_Submission_Summary'].astype(str) + ')'
-    df_short = df_short[Columns.SNV_INDEL].copy()
-    df_short = df_short.sort_values(by=['status', 'geneSymbol'])
+        if 'geneSymbol' in df_germline.columns and 'aminoAcidsChange' in df_germline.columns and 'Comment' in df_germline.columns:
+            df_germline = df_germline[['geneSymbol', 'aminoAcidsChange', 'Comment']].copy()
+            df_germline['Merged'] = df_germline['geneSymbol'] + ' ' + df_germline['aminoAcidsChange'] + ' ' + df_germline['Comment']
+            df_germline = df_germline[['Merged']]
+
+    if not df_short.empty:
+        df_short = df_short.copy()
+        if 'aminoAcidsChange' in df_short.columns and 'cdsChange' in df_short.columns:
+            df_short['aminoAcidsChange'] = df_short['aminoAcidsChange'].fillna(df_short['cdsChange'])
+        if 'GeneBe_ClinVar_Germline' in df_short.columns and 'GeneBe_ClinVar_Germline_Status' in df_short.columns:
+            df_short['GeneBe_ClinVar_Germline'] = df_short['GeneBe_ClinVar_Germline'].fillna('').astype(str) + ' ' + df_short['GeneBe_ClinVar_Germline_Status'].fillna('').astype(str)
+        if 'GeneBe_ClinVar_Somatic' in df_short.columns and 'GeneBe_ClinVar_Somatic_Status' in df_short.columns:
+            df_short['GeneBe_ClinVar_Somatic'] = df_short['GeneBe_ClinVar_Somatic'].fillna('').astype(str) + ' ' + df_short['GeneBe_ClinVar_Somatic_Status'].fillna('').astype(str)
+        if 'GeneBe_ClinVar_Germline' in df_short.columns and 'GeneBe_ClinVar_Submission_Summary' in df_short.columns:
+            mask = df_short['GeneBe_ClinVar_Germline'].str.strip() == '§'
+            df_short.loc[mask, 'GeneBe_ClinVar_Germline'] = '(' + df_short.loc[mask, 'GeneBe_ClinVar_Submission_Summary'].astype(str) + ')'
+        cols_snv = [c for c in Columns.SNV_INDEL if c in df_short.columns]
+        if cols_snv:
+            df_short = df_short[cols_snv].copy()
+        if 'status' in df_short.columns and 'geneSymbol' in df_short.columns:
+            df_short = df_short.sort_values(by=['status', 'geneSymbol'])
+    else:
+        df_short = pd.DataFrame(columns=Columns.SNV_INDEL)
     
     # df_cnv
-    df_cnv = df_cnv.copy()
-    try:
-        df_cnv = df_cnv[Columns.GUARDANT_CNV].copy()
-    except KeyError:
+    if not df_cnv.empty:
+        cols_cnv = [c for c in Columns.GUARDANT_CNV if c in df_cnv.columns]
+        if cols_cnv:
+            df_cnv = df_cnv[cols_cnv].copy()
+    else:
         df_cnv = pd.DataFrame(columns=Columns.GUARDANT_CNV)
 
     ####################################
@@ -1230,6 +1254,207 @@ def excel_guardant360(analysis_type, output_stream, date, ep_institution, ep_dep
             sheet.cell(row=r, column=1).alignment = Alignment(vertical='center', wrap_text=True)        
                     
     # 印刷範囲を設定（A1からF列までの最大行）
+    sheet.print_area = f'A1:F{sheet.max_row}'
+
+    output_stream = BytesIO()
+    wb.save(output_stream)
+    wb.close()
+    output_stream.seek(0)    
+    
+    return output_stream
+
+
+def excel_trusight(analysis_type, output_stream, date, ep_institution, ep_department, ep_responsible, ep_contact, ep_tel):
+    current_dir = os.getcwd()
+
+    xlsx = pd.read_excel(output_stream, sheet_name=None)
+    df_short = xlsx['SNV_Indel']
+    df_cnv = xlsx['CNV']
+    df_fusion = xlsx['Fusion']
+    df_msi = xlsx['MSI']
+    
+    # Initialize empty dataframes with columns to avoid errors if empty
+    df_snv = pd.DataFrame(columns=Columns.SNV_INDEL)
+    
+    if not df_short.empty:
+        df_short = df_short.copy()
+        df_short['alternateAlleleFrequency'] = df_short.apply(lambda x: x['alternateAlleleReadDepth'] / x['totalReadDepth'] if pd.notna(x['alternateAlleleReadDepth']) and pd.notna(x['totalReadDepth']) and x['totalReadDepth'] != 0 else None, axis=1)
+        df_short['GeneBe_ClinVar_Germline'] = df_short['GeneBe_ClinVar_Germline'].fillna('').astype(str) + ' ' + df_short['GeneBe_ClinVar_Germline_Status'].fillna('').astype(str)
+        df_short['GeneBe_ClinVar_Somatic'] = df_short['GeneBe_ClinVar_Somatic'].fillna('').astype(str) + ' ' + df_short['GeneBe_ClinVar_Somatic_Status'].fillna('').astype(str)   
+        df_short.loc[df_short['GeneBe_ClinVar_Germline'].isin(['§']), 'GeneBe_ClinVar_Germline'] = '(' + df_short['GeneBe_ClinVar_Submission_Summary'].astype(str) + ')'
+        df_snv = df_short[Columns.SNV_INDEL].copy()
+        df_snv['alternateAlleleFrequency'] = df_snv['alternateAlleleFrequency'].apply(lambda x: f"{x * 100:.1f}%" if pd.notna(x) else '')
+        df_snv = df_snv.sort_values(by=['status', 'geneSymbol'])
+    
+    if not df_cnv.empty:
+        df_cnv = df_cnv[Columns.FOUNDATION_CNV].copy()
+        df_cnv = df_cnv.sort_values(by=['status', 'geneSymbol'])
+    else:
+        df_cnv = pd.DataFrame(columns=Columns.FOUNDATION_CNV)
+        
+    if not df_fusion.empty:
+        df_fusion = df_fusion[Columns.FOUNDATION_FUSION].copy()
+        df_fusion = df_fusion.sort_values(by=['status', 'description'])
+    else:
+        df_fusion = pd.DataFrame(columns=Columns.FOUNDATION_FUSION)
+    
+    df_germline = pd.DataFrame(columns=['Merged'])
+    if not df_short.empty:
+        df_germline = df_short[Columns.FOUNDATION_GERMLINE].copy()
+        base_path = os.path.dirname(__file__)
+        df_pgpv = pd.read_csv(os.path.join(base_path, Database.PGPV_PATH))
+        df_germline = pd.merge(df_germline, df_pgpv, on='geneSymbol', how='left')
+        
+        # Germline filtering
+        def keep_germline(row):
+            cds = str(row.get('cdsChange', ''))
+            vaf = row.get('alternateAlleleFrequency')
+            if pd.isna(vaf):
+                return False
+            if '>' in cds:
+                limit = row.get('SNV')
+            elif 'del' in cds or 'ins' in cds or 'dup' in cds:
+                limit = row.get('Indel')
+            else:
+                limit = min(row.get('SNV', 0.3), row.get('Indel', 0.2))
+            
+            if pd.isna(limit):
+                return False
+            return vaf > limit
+
+        df_germline = df_germline[df_germline.apply(keep_germline, axis=1)]
+        
+        if (df_msi['status'] != 'MSI').any():
+            df_germline = df_germline[~df_germline['geneSymbol'].isin(['MLH1', 'MSH2', 'MSH6', 'PMS2'])]
+            
+        df_germline = df_germline[['geneSymbol', 'aminoAcidsChange', 'Comment']].copy()
+        df_germline['Merged'] = df_germline['geneSymbol'] + ' ' + df_germline['aminoAcidsChange'] + ' ' + df_germline['Comment']
+        df_germline = df_germline[['Merged']]
+        df_germline = df_germline.dropna(subset=['Merged'], how='all')
+        df_germline = df_germline.sort_values(by=['Merged'])
+    
+    
+    ####################################
+    wb = openpyxl.load_workbook(output_stream)
+    sheet = wb['Summary']
+        
+    # 基本情報の入力
+    add_logo(current_dir, sheet, cell='A1')
+    sheet['D2'] = analysis_type
+    sheet['D4'] = date.strftime('%Y年%m月%d日')
+    sheet['J2'] = ep_institution
+    sheet['J4'] = f'{ep_department} / {ep_responsible}'
+    sheet['A54'] = '報告書作成日：' + date.strftime('%Y年%m月%d日')
+    sheet['A55'] = f'{ep_institution} {ep_department}'
+    sheet['J55'] = ep_responsible
+    sheet['J58'] = f'{ep_institution} {ep_department}\n{ep_contact}\n電話番号 {ep_tel}'
+
+    start_row_snv = 22
+    insert_row(wb, df_snv, sheet_name='Summary', start_row=start_row_snv, start_col='A', end_col='O')
+    for insert_pos in [2, 3, 7]:
+        df_snv.insert(insert_pos, chr(96 + insert_pos), '')
+    
+    start_row_cnv = start_row_snv + 5 + len(df_snv) - 1 if len(df_snv) > 1 else start_row_snv + 5
+    insert_row(wb, df_cnv, sheet_name='Summary', start_row=start_row_cnv, start_col='A', end_col='O')
+    for insert_pos in [2, 4, 7, 8, 10]:
+        col_name = chr(96 + insert_pos)
+        if 0 <= insert_pos <= df_cnv.shape[1]:
+            df_cnv.insert(insert_pos, col_name, '')
+        else:
+            df_cnv[col_name] = ''
+            
+    start_row_fusion = start_row_cnv + 4 + len(df_cnv) - 1 if len(df_cnv) > 1 else start_row_cnv + 4
+    insert_row(wb, df_fusion, sheet_name='Summary', start_row=start_row_fusion, start_col='A', end_col='O')
+    for insert_pos in [1, 2, 3, 4, 7, 8, 10]:
+        col_name = chr(96 + insert_pos)
+        if 0 <= insert_pos <= df_fusion.shape[1]:
+            df_fusion.insert(insert_pos, col_name, '')
+        else:
+            df_fusion[col_name] = ''
+            
+    start_row_germline = start_row_fusion + 15 + len(df_fusion) - 1 if len(df_fusion) > 1 else start_row_fusion + 15
+    insert_row(wb, df_germline, sheet_name='Summary', start_row=start_row_germline, start_col='A', end_col='O')
+
+    for df_section, start_row in [(df_snv, start_row_snv), (df_cnv, start_row_cnv), (df_fusion, start_row_fusion), (df_germline, start_row_germline)]:
+        if df_section.empty:
+            continue
+        for r_idx, row in enumerate(dataframe_to_rows(df_section, index=False, header=False), start_row):
+            for c_idx, value in enumerate(row, 1):
+                sheet.cell(row=r_idx, column=c_idx, value=value)
+                sheet.cell(row=r_idx, column=c_idx).alignment = Alignment(wrap_text=False, vertical='top')
+
+    # 条件に応じた行処理
+    for row in sheet.iter_rows():
+        values = [cell.value for cell in row]
+        r = row[0].row
+
+        if any('〒' in str(v) for v in values):
+            sheet.row_dimensions[r].height = 100
+            sheet.merge_cells(start_row=r, start_column=10, end_row=r, end_column=15)
+        elif 'Tohoku' in str(values):
+            sheet.row_dimensions[r].height = 150
+            sheet.merge_cells(start_row=r, start_column=1, end_row=r, end_column=15)
+        elif 'エキスパートパネルレポート' in str(values):
+            sheet.row_dimensions[r].height = 100
+        elif '生殖細胞系列由来' in str(values) :
+            sheet.row_dimensions[r].height = 100
+            sheet.merge_cells(start_row=r, start_column=1, end_row=r, end_column=15)
+            sheet.cell(row=r, column=1).alignment = Alignment(vertical='center', wrap_text=True)
+
+    # 固定セル結合
+    sheet.merge_cells(start_row=3, start_column=17, end_row=15, end_column=26)
+    sheet.merge_cells(start_row=3, start_column=27, end_row=7, end_column=32)
+    sheet.merge_cells(start_row=9, start_column=27, end_row=15, end_column=32)
+
+    # 印刷範囲設定
+    sheet.print_area = f'A1:AF{sheet.max_row}'
+
+    # For_ptsシートの入力
+    sheet = wb['For_pts']
+    add_logo(current_dir, sheet, cell='A1')
+    sheet['C2'] = analysis_type
+    sheet['C4'] = ep_institution
+    sheet['F5'] = f'{ep_department} / {ep_responsible}'
+    sheet['A37'] = '報告書作成日：' + date.strftime('%Y年%m月%d日')
+    sheet['A38'] = f'{ep_institution} {ep_department}'
+    sheet['F38'] = ep_responsible
+    sheet['E41'] = f'{ep_institution} {ep_department}\n{ep_contact}\n電話番号 {ep_tel}'
+    
+    # 必要な列のみ抽出 (体細胞変異遺伝子のリスト)
+    df_patient = df_short[['geneSymbol', 'aminoAcidsChange']].copy()
+        
+    start_row_patient = 26
+    insert_row(wb, df_patient, sheet_name='For_pts', start_row=start_row_patient, start_col='A', end_col='F')
+    for insert_pos in [1]:
+        df_patient.insert(insert_pos, f'column_{chr(96 + insert_pos)}', '')
+        
+    # df_germline (生殖細胞系列所見)
+    start_row_germline = 30 + len(df_patient) - 1
+    insert_row(wb, df_germline, sheet_name='For_pts', start_row=start_row_germline, start_col='A', end_col='F')
+
+    for df_section, start_row in [(df_patient, start_row_patient), (df_germline, start_row_germline)]:
+        if df_section.empty:
+            continue
+        for r_idx, row in enumerate(dataframe_to_rows(df_section, index=False, header=False), start_row):
+            for c_idx, value in enumerate(row, 1):
+                sheet.cell(row=r_idx, column=c_idx, value=value)
+                sheet.cell(row=r_idx, column=c_idx).alignment = Alignment(wrap_text=False, vertical='top')
+
+    # 条件に応じた行処理
+    for row in sheet.iter_rows():
+        values = [cell.value for cell in row]
+        r = row[0].row
+        if any('〒' in str(v) for v in values):
+            sheet.row_dimensions[r].height = 100
+            sheet.merge_cells(start_row=r, start_column=5, end_row=r, end_column=6)
+        elif 'がん遺伝子パネル検査説明書' in str(values):
+            sheet.row_dimensions[r].height = 100
+        elif '生殖細胞系列由来' in str(values) :
+            sheet.row_dimensions[r].height = 80
+            sheet.merge_cells(start_row=r, start_column=1, end_row=r, end_column=6)
+            sheet.cell(row=r, column=1).alignment = Alignment(vertical='center', wrap_text=True)        
+
+    # 印刷範囲を設定
     sheet.print_area = f'A1:F{sheet.max_row}'
 
     output_stream = BytesIO()

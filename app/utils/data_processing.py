@@ -10,9 +10,10 @@ import openpyxl
 import pandas as pd
 import streamlit as st
 
-from .excel_handling import write_df_to_sheet, excel_hemesight, excel_foundationone, excel_genminetop, excel_guardant360
+from .excel_handling import write_df_to_sheet, excel_hemesight, excel_foundationone, excel_genminetop, excel_guardant360, excel_trusight
 from .link_generator import link_generator
 from .parameter import Base, Transcript, Database, Gene, Columns
+from annotator.parser import parse_trusight_json
 
 
 def cancer_gene_census():
@@ -742,16 +743,15 @@ def process_guardant360(analysis_type, xlsx_data, template_path, date, ep_instit
             )
             df_snv.at[i, 'COSMIC_Mutation'] = str(cosmic_mutation)
             progress_text.text(f"Processing {i + 1} of {len(df_snv)} variants.... φ(..)")
-            results = link_generator(analysis_type, row, row['geneID'], row['transcriptId'], row['chromosome'], row['position'], row['referenceAllele'], row['alternateAllele'], row['cdsChange'], gene_symbol, row['aminoAcidsChange'], row['dbSNP'])
             for key, value in results.items():
                 df_snv.at[i, key] = value
-        write_df_to_sheet(df_snv, 'SNV', wb)
+    write_df_to_sheet(df_snv, 'SNV', wb)
 
     df_indel = pd.read_excel(io.BytesIO(xlsx_data), sheet_name='Indels')
     df_indel = df_indel[df_indel['call'] == 1]
     
     if not df_indel.empty:
-        df_indel[['referenceAllele', 'alternateAllele']] = df_snv['mut_nt'].str.split('>', expand=True)  
+        df_indel[['referenceAllele', 'alternateAllele']] = df_indel['mut_nt'].str.split('>', expand=True)  
         df_indel.columns = ['geneSymbol', 'chromosome', 'position', 'mut_nt', 'aminoAcidsChange', 'cdsChange', 'length', 'exon', 'type', 'alternateAlleleFrequency', 'call', 'transcriptId', 'reporting_category', 'mut_aa_short', 'rm_reportable', 'referenceAllele', 'alternateAllele']
         df_indel.reset_index(drop=True, inplace=True)
         df_indel['aminoAcidsChange'] = df_indel['aminoAcidsChange'].apply(lambda x: "p." + str(x) if pd.notnull(x) else '')
@@ -782,7 +782,7 @@ def process_guardant360(analysis_type, xlsx_data, template_path, date, ep_instit
             results = link_generator(analysis_type, row, row['geneID'], row['transcriptId'], row['chromosome'], row['position'], row['referenceAllele'], row['alternateAllele'], row['cdsChange'], gene_symbol, row['aminoAcidsChange'], row['dbSNP'])
             for key, value in results.items():
                 df_indel.at[i, key] = value
-        write_df_to_sheet(df_indel, 'Indels', wb)
+    write_df_to_sheet(df_indel, 'Indels', wb)
     
     df_cnv = pd.read_excel(io.BytesIO(xlsx_data), sheet_name='CNAs')
     df_cnv.columns = ['chromosome', 'geneSymbol', 'copyNumber', 'call']
@@ -848,3 +848,184 @@ def process_guardant360(analysis_type, xlsx_data, template_path, date, ep_instit
     output_stream = excel_guardant360(analysis_type, output_stream, date, ep_institution, ep_department, ep_responsible, ep_contact, ep_tel)
     output_stream.seek(0)
     return output_stream
+
+
+def process_trusight(analysis_type, json_data, template_path, date, ep_institution, ep_department, ep_responsible, ep_contact, ep_tel):
+    try:
+        data = json.loads(json_data)
+    except Exception as e:
+        st.error(f"JSON解析エラー: {e}")
+        return None
+
+    wb = openpyxl.load_workbook(template_path)
+    output_stream = BytesIO()
+
+    # パース
+    df_basic, df_sv, df_cnv, df_fusion, df_msi_tmb, df_qc = parse_trusight_json(data)
+
+    # 1. VariantReport / Sample / QC
+    # 基本情報をVariantReportに書き込む
+    variant_report = []
+    if not df_basic.empty:
+        basic_row = df_basic.iloc[0]
+        variant_report.append({
+            'testType': basic_row.get('ProductName', ''),
+            'gender': basic_row.get('Sex', ''),
+            'disease': basic_row.get('TumorType', ''),
+            'specimen': basic_row.get('SampleID', ''),
+            'pipelineVersion': basic_row.get('AnalysisDate', ''),
+            'testRequest': basic_row.get('RunName', ''),
+        })
+    write_df_to_sheet(variant_report, 'VariantReport', wb)
+
+    sample_data = []
+    if not df_basic.empty:
+        basic_row = df_basic.iloc[0]
+        sample_data.append({
+            'name': basic_row.get('SampleID', ''),
+            'nucleicAcidType': 'DNA/RNA', # TruSightは両方
+        })
+    write_df_to_sheet(sample_data, 'Sample', wb)
+
+    # QC status
+    qc_data = []
+    if not df_qc.empty:
+        for idx, row in df_qc.iterrows():
+            qc_data.append({
+                'status': f"{row['Label']}: {row['Value']}"
+            })
+    write_df_to_sheet(qc_data, 'QC', wb)
+
+    # 2. CGC / CMC databases
+    df_cgc = cancer_gene_census()
+    
+    # 3. Short Variants Annotation & Link Generator
+    variants_data = []
+    if not df_sv.empty:
+        progress_text = st.empty()
+        for i, row_idx in enumerate(df_sv.index):
+            row = df_sv.loc[row_idx].to_dict()
+            gene_symbol = row.get('Gene', '')
+            gene_symbol = Gene.HUGO_SYMBOL.get(gene_symbol, gene_symbol)
+            role_in_cancer = df_cgc[df_cgc['geneSymbol'] == gene_symbol]['Role'].values[0] if not df_cgc[df_cgc['geneSymbol'] == gene_symbol].empty else ''
+            
+            # link_generatorのパラメータマッピング
+            amino_acid_change = row.get('Protein_Effect', '')
+            cds_change = row.get('CDS_Effect', '')
+            chromosome = row.get('Chr', '').replace('chr', '')
+            pos = row.get('Pos')
+            ref = row.get('Ref')
+            alt = row.get('Alt')
+            gene_id = ''
+            dbsnp = row.get('CosmicIDs', '')
+            
+            # link_generatorに必要なキーをセット
+            var_data = {
+                'geneSymbol': gene_symbol,
+                'Role_in_Cancer': role_in_cancer,
+                'aminoAcidsChange': amino_acid_change,
+                'cdsChange': cds_change,
+                'alternateAlleleReadDepth': None,
+                'totalReadDepth': None,
+                'chromosome': chromosome,
+                'position': pos,
+                'transcriptId': row.get('Transcript', ''),
+                'strand': '',
+                'equivocal': '',
+                'functional_effect': row.get('Consequence', ''),
+                'status': row.get('status', 'Uncertain'),
+                'alternateAlleleFrequency': row.get('VAF'),
+                'COSMIC_Mutation': '',
+            }
+            
+            if row.get('VAF') is not None:
+                try:
+                    vaf = float(row.get('VAF'))
+                    var_data['totalReadDepth'] = 1000
+                    var_data['alternateAlleleReadDepth'] = int(vaf * 1000)
+                except ValueError:
+                    pass
+            
+            progress_text.text(f"Processing {i + 1} of {len(df_sv)} variants.... φ(..)")
+            
+            link_generator(analysis_type, var_data, gene_id, var_data['transcriptId'], chromosome, pos, ref, alt, cds_change, gene_symbol, amino_acid_change, dbsnp)
+            variants_data.append(var_data)
+            
+        write_df_to_sheet(variants_data, 'SNV_Indel', wb)
+    else:
+        write_df_to_sheet([], 'SNV_Indel', wb)
+
+    # 4. CNV
+    cnv_data = []
+    if not df_cnv.empty:
+        for idx, row in df_cnv.iterrows():
+            gene_symbol = row.get('Gene', '')
+            gene_symbol = Gene.HUGO_SYMBOL.get(gene_symbol, gene_symbol)
+            role_in_cancer = df_cgc[df_cgc['geneSymbol'] == gene_symbol]['Role'].values[0] if not df_cgc[df_cgc['geneSymbol'] == gene_symbol].empty else ''
+            cnv_data.append({
+                'geneSymbol': gene_symbol,
+                'Role_in_Cancer': role_in_cancer,
+                'copyNumber': row.get('copyNumber', ''),
+                'equivocal': '',
+                'numberOfExons': '',
+                'position': '',
+                'ratio': '',
+                'status': row.get('status', ''),
+                'type': row.get('Type', '')
+            })
+    write_df_to_sheet(cnv_data, 'CNV', wb)
+
+    # 5. Fusion
+    fusion_data = []
+    if not df_fusion.empty:
+        for idx, row in df_fusion.iterrows():
+            fusion_data.append({
+                'geneSymbol': row.get('Genes', ''),
+                'Role_in_Cancer': '',
+                'alleleFraction': 0.0,
+                'description': row.get('Variant_Label', ''),
+                'equivocal': '',
+                'inFrame': '',
+                'otherGene': '',
+                'percentReads': '',
+                'pos1': '',
+                'pos2': '',
+                'status': row.get('status', ''),
+                'supportingReadPairs': '',
+                'type': row.get('Type', '')
+            })
+    write_df_to_sheet(fusion_data, 'Fusion', wb)
+
+    # 6. MSI
+    msi_data = []
+    if not df_msi_tmb.empty:
+        msi_row = df_msi_tmb.iloc[0]
+        msi_status = msi_row.get('MSI_Status', '')
+        msi_val = msi_row.get('MSI_Value', '')
+        status = 'MSI' if msi_status == 'MSI-H' or 'High' in str(msi_val) else 'MSS'
+        msi_data.append({
+            'status': status
+        })
+    write_df_to_sheet(msi_data, 'MSI', wb)
+
+    # 7. TMB
+    tmb_data = []
+    if not df_msi_tmb.empty:
+        tmb_row = df_msi_tmb.iloc[0]
+        score = tmb_row.get('TMB_Score', '')
+        tmb_data.append({
+            'score': score,
+            'unit': 'Mut/Mb',
+            'status': 'High' if (score is not None and str(score) != '' and float(score) >= 10.0) else 'Low'
+        })
+    write_df_to_sheet(tmb_data, 'TMB', wb)
+
+    # 8. Non-human
+    write_df_to_sheet([], 'nonHuman', wb)
+
+    wb.save(output_stream)
+    output_stream.seek(0)
+
+    output_stream = excel_trusight(analysis_type, output_stream, date, ep_institution, ep_department, ep_responsible, ep_contact, ep_tel)
+    return output_stream
+

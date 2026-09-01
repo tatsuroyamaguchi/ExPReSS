@@ -66,7 +66,7 @@ cd ExPReSS
   - Logo.png: レポートに挿入するロゴ画像
 - db
   - JSH_Guidelines.csv: 日本血液学会ガイドライン (http://www.jshem.or.jp/genomgl/home.html) （GitHub内にアップロード済み）
-  - pgpv.csv: 小杉班二次的所見より作成 （GitHub内にアップロード済み）
+  - pgpv.csv: ｢がん遺伝子パネル検査における GPV/PGPV 対応手順に関する指針（2025 版）｣より作成 （GitHub内にアップロード済み）
 
 
   - Cosmic_CancerGeneCensus_v\*_GRCh38.tsv: CancerGeneCensus (https://cancer.sanger.ac.uk/cosmic/download/cosmic   Cancer Gene Census > Cosmic_CancerGeneCensus_Tsv_v\*_GRCh38.tar > Download in browser)

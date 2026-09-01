@@ -8,6 +8,7 @@ ExPReSSは、がん遺伝子パネル検査におけるエキスパートパネ�
 #### What's New
 - version 0.4
   - TruSightに対応（仮）
+  - 「がん遺伝子パネル検査における GPV/PGPV 対応手順に関する指針（2025 版）」に対応
 - version 0.3
   - DataExtractor for CGP 搭載
   - DataViewer 搭載

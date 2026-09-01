@@ -6,10 +6,8 @@ ExPReSSは、がん遺伝子パネル検査におけるエキスパートパネ�
 
 ---
 #### What's New
-- version 0.3.2
-  - バグの修正
-- version 0.3.1
-  - バグの修正
+- version 0.4
+  - TruSightに対応（仮）
 - version 0.3
   - DataExtractor for CGP 搭載
   - DataViewer 搭載
@@ -27,11 +25,12 @@ ExPReSSは、がん遺伝子パネル検査におけるエキスパートパネ�
 - Guardant360 CDx (XLSX)
 - HemeSight (JSON)
 - HemeSight FastTrack (PDF)
+- TruSight (JSON)
 
 ---
 #### 機能
 
-- ゲノムデータ（JSON/XML）を読み込み、Excelレポートを生成
+- ゲノムデータ（JSON/XML/XLSX/PDF）を読み込み、Excelレポートを生成
 - ClinVar、ClinGen、GeneBe、TOMMOなどのデータベースから情報を取得
 - ProteinPaintおよびDisco用のTSVファイルを生成（HemeSightのみ）
 - 生成されたファイルを個別またはZIP形式でダウンロード可能
@@ -63,6 +62,7 @@ cd ExPReSS
   - Template_FoundationOne.xlsx: FoundationOneテンプレートファイル
   - Template_GenMineTOP.xlsx: GenMineTOPテンプレート
   - Template_Guardant360.xlsx: Guardant360テンプレート
+  - Template_TruSight.xlsx: TruSightテンプレートファイル
   - Logo.png: レポートに挿入するロゴ画像
 - db
   - JSH_Guidelines.csv: 日本血液学会ガイドライン (http://www.jshem.or.jp/genomgl/home.html) （GitHub内にアップロード済み）
@@ -81,7 +81,8 @@ cd ExPReSS
 ##### 2.2. データファイルの圧縮
 - CancerMutationCensus_conversion.ipynbを実行: CancerMutationCensus_AllData_Tsv_v*_GRCh37.tsv.gzのデータサイズを圧縮
 
-```python:CancerMutationCensus_conversion.ipynb
+```
+python:CancerMutationCensus_conversion.ipynb
 # CancerMutationCensus_conversion.ipynb
 
 import pandas as pd
@@ -217,6 +218,7 @@ ExPReSS/
 |   |   ├── Template_FoundationOne.xlsx            # FoundationOneテンプレート
 |   |   ├── Template_GenMineTOP.xlsx               # GenMineTOPテンプレート
 |   |   ├── Template_Guardant360.xlsx              # Guardant360テンプレート
+|   |   ├── Template_TruSight.xlsx                 # TruSightテンプレート
 |   |   └── Logo.png                               # ロゴ画像
 |   |
 |   └── db/

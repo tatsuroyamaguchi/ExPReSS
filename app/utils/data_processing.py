@@ -766,6 +766,7 @@ def process_guardant360(analysis_type, xlsx_data, template_path, date, ep_instit
             )
             df_snv.at[i, 'COSMIC_Mutation'] = str(cosmic_mutation)
             progress_text.text(f"Processing {i + 1} of {len(df_snv)} variants.... φ(..)")
+            results = link_generator(analysis_type, row, row['geneID'], row['transcriptId'], row['chromosome'], row['position'], row['referenceAllele'], row['alternateAllele'], row['cdsChange'], gene_symbol, row['aminoAcidsChange'], row['dbSNP'])
             for key, value in results.items():
                 df_snv.at[i, key] = value
     write_df_to_sheet(df_snv, 'SNV', wb)

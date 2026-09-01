@@ -51,10 +51,12 @@ def delete_blank_lines(sheet):
         if all(cell.value is None for cell in sheet[row]):
             sheet.delete_rows(row, 1)
 
-def insert_row(wb, df, sheet_name, start_row, start_col, end_col):
+def insert_row(wb, df, sheet_name, start_row, start_col, end_col, default_height=35):
     if df is None or df.empty:
         return
     sheet = wb[sheet_name]
+    # 元の行の高さ（設定されていればその高さ、なければ default_height=35）を取得
+    row_height = sheet.row_dimensions[start_row].height or default_height
     # スタイルを取得
     select_range = f'{start_col}{start_row}:{end_col}{start_row}'
     styles = []
@@ -72,8 +74,9 @@ def insert_row(wb, df, sheet_name, start_row, start_col, end_col):
     insert_count = len(df) - 1
     if insert_count > 0:
         sheet.insert_rows(start_row, amount=insert_count)
-    # スタイルを適用
-    for r_idx in range(start_row, start_row + insert_count):
+    # スタイルと行の高さを適用
+    for r_idx in range(start_row, start_row + len(df)):
+        sheet.row_dimensions[r_idx].height = row_height
         for c_idx, style in enumerate(styles, start=1):
             cell = sheet.cell(row=r_idx, column=c_idx)
             cell.font = style['font']
@@ -81,6 +84,12 @@ def insert_row(wb, df, sheet_name, start_row, start_col, end_col):
             cell.fill = style['fill']
             cell.number_format = style['number_format']
             cell.alignment = style['alignment']
+
+def adjust_row_heights(sheet, default_height=35):
+    for r in range(1, sheet.max_row + 1):
+        current_height = sheet.row_dimensions[r].height
+        if current_height is None or current_height < default_height:
+            sheet.row_dimensions[r].height = default_height
 
 def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_institution, ep_department, ep_responsible, ep_contact, ep_tel):
     current_dir = os.getcwd()
@@ -424,6 +433,9 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
     sheet.merge_cells(start_row=3, start_column=27, end_row=7, end_column=32)
     sheet.merge_cells(start_row=9, start_column=27, end_row=15, end_column=32)
 
+    # 行の高さを調整
+    adjust_row_heights(sheet, default_height=35)
+
     # 印刷範囲は'contains_postal_code'を含むセルまで
     sheet.print_area = f'A1:AF{sheet.max_row}'
 
@@ -476,8 +488,8 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
         df_tmp = df_tmp.fillna('-')
         df_tmp = df_tmp.drop_duplicates(subset=['geneSymbol_0', 'geneSymbol_1', 'rearrangementType_0'])
         # geneSymbol 整形
-        df_tmp['geneSymbol_0'] = df_tmp['geneSymbol_0'].str.split('\n').str[0].str.split(' \[').str[0]
-        df_tmp['geneSymbol_1'] = df_tmp['geneSymbol_1'].str.split('\n').str[0].str.split(' \[').str[0]
+        df_tmp['geneSymbol_0'] = df_tmp['geneSymbol_0'].str.split('\n').str[0].str.split(r' \[').str[0]
+        df_tmp['geneSymbol_1'] = df_tmp['geneSymbol_1'].str.split('\n').str[0].str.split(r' \[').str[0]
         df_tmp['geneSymbol'] = df_tmp['geneSymbol_0'] + '::' + df_tmp['geneSymbol_1']
         # 2列を結合して1列化
         df_tmp = combine_2cols_to_one(df_tmp, 'geneSymbol', 'rearrangementType_0', out='ForPTS')
@@ -514,6 +526,8 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
             for cell in row:
                 cell.alignment = Alignment(vertical='center', wrap_text=True)
 
+    # 行の高さを調整
+    adjust_row_heights(sheet, default_height=35)
             
     # 印刷範囲
     sheet.print_area = f'A1:N{sheet.max_row}'
@@ -657,6 +671,9 @@ def excel_fasttrack(analysis_type, pdf_data, template_path, date, ep_institution
             elif contains_expert_panel:
                 sheet.row_dimensions[row[0].row].height = 100
 
+        # 行の高さを調整
+        adjust_row_heights(sheet, default_height=35)
+
         # 印刷範囲
         sheet.print_area = f'A1:P{sheet.max_row}'
 
@@ -783,7 +800,7 @@ def excel_foundationone(analysis_type, output_stream, date, ep_institution, ep_d
         elif 'エキスパートパネルレポート' in str(values):
             sheet.row_dimensions[r].height = 100
         elif '生殖細胞系列由来' in str(values) :
-            sheet.row_dimensions[r].height = 100
+            sheet.row_dimensions[r].height = 60
             sheet.merge_cells(start_row=r, start_column=1, end_row=r, end_column=15)
             sheet.cell(row=r, column=1).alignment = Alignment(vertical='center', wrap_text=True)
 
@@ -791,6 +808,9 @@ def excel_foundationone(analysis_type, output_stream, date, ep_institution, ep_d
     sheet.merge_cells(start_row=3, start_column=17, end_row=15, end_column=26)
     sheet.merge_cells(start_row=3, start_column=27, end_row=7, end_column=32)
     sheet.merge_cells(start_row=9, start_column=27, end_row=15, end_column=32)
+
+    # 行の高さを調整
+    adjust_row_heights(sheet, default_height=35)
 
     # 印刷範囲設定
     sheet.print_area = f'A1:AF{sheet.max_row}'
@@ -841,9 +861,12 @@ def excel_foundationone(analysis_type, output_stream, date, ep_institution, ep_d
         elif 'がん遺伝子パネル検査説明書' in str(values):
             sheet.row_dimensions[r].height = 100
         elif '生殖細胞系列由来' in str(values) :
-            sheet.row_dimensions[r].height = 100
+            sheet.row_dimensions[r].height = 60
             sheet.merge_cells(start_row=r, start_column=1, end_row=r, end_column=6)
             sheet.cell(row=r, column=1).alignment = Alignment(vertical='center', wrap_text=True)        
+
+    # 行の高さを調整
+    adjust_row_heights(sheet, default_height=35)
 
     # 印刷範囲を設定（A1からF列までの最大行）
     sheet.print_area = f'A1:F{sheet.max_row}'
@@ -993,6 +1016,7 @@ def excel_genminetop(analysis_type, output_stream, date, ep_institution, ep_depa
         elif 'エキスパートパネルレポート' in str(values):
             sheet.row_dimensions[r].height = 100
         elif '生殖細胞系列由来' in str(values):
+            sheet.row_dimensions[r].height = 60
             sheet.merge_cells(start_row=r, start_column=1, end_row=r, end_column=15)
             sheet.cell(row=r, column=1).alignment = Alignment(vertical='center', wrap_text=True)
         elif 'ACMG' in str(values):
@@ -1003,6 +1027,9 @@ def excel_genminetop(analysis_type, output_stream, date, ep_institution, ep_depa
     sheet.merge_cells(start_row=3, start_column=27, end_row=7, end_column=32)
     sheet.merge_cells(start_row=9, start_column=27, end_row=15, end_column=32)
                         
+    # 行の高さを調整
+    adjust_row_heights(sheet, default_height=35)
+
     # 印刷範囲を設定
     sheet.print_area = f'A1:AF{sheet.max_row}'
 
@@ -1054,8 +1081,12 @@ def excel_genminetop(analysis_type, output_stream, date, ep_institution, ep_depa
         elif 'がん遺伝子パネル検査説明書' in str(values):
             sheet.row_dimensions[r].height = 100
         elif '生殖細胞系列由来' in str(values):
+            sheet.row_dimensions[r].height = 60
             sheet.merge_cells(start_row=r, start_column=1, end_row=r, end_column=6)
             sheet.cell(row=r, column=1).alignment = Alignment(vertical='center', wrap_text=True)        
+
+    # 行の高さを調整
+    adjust_row_heights(sheet, default_height=35)
 
     # 印刷範囲を設定
     sheet.print_area = f'A1:F{sheet.max_row}'
@@ -1190,7 +1221,7 @@ def excel_guardant360(analysis_type, output_stream, date, ep_institution, ep_dep
         elif 'エキスパートパネルレポート' in str(values):
             sheet.row_dimensions[r].height = 100
         elif '生殖細胞系列由来' in str(values) :
-            sheet.row_dimensions[r].height = 80
+            sheet.row_dimensions[r].height = 60
             sheet.merge_cells(start_row=r, start_column=1, end_row=r, end_column=15)
             sheet.cell(row=r, column=1).alignment = Alignment(vertical='center', wrap_text=True)
         elif 'ACMG' in str(values):
@@ -1201,6 +1232,9 @@ def excel_guardant360(analysis_type, output_stream, date, ep_institution, ep_dep
     sheet.merge_cells(start_row=3, start_column=27, end_row=7, end_column=32)
     sheet.merge_cells(start_row=9, start_column=27, end_row=15, end_column=32)
                         
+    # 行の高さを調整
+    adjust_row_heights(sheet, default_height=35)
+
     # 印刷範囲を設定（A1からF列までの最大行）
     sheet.print_area = f'A1:AF{sheet.max_row}'    
 
@@ -1249,10 +1283,13 @@ def excel_guardant360(analysis_type, output_stream, date, ep_institution, ep_dep
         elif 'がん遺伝子パネル検査説明書' in str(values):
             sheet.row_dimensions[r].height = 100
         elif '生殖細胞系列由来' in str(values) :
-            sheet.row_dimensions[r].height = 80
+            sheet.row_dimensions[r].height = 60
             sheet.merge_cells(start_row=r, start_column=1, end_row=r, end_column=6)
             sheet.cell(row=r, column=1).alignment = Alignment(vertical='center', wrap_text=True)        
                     
+    # 行の高さを調整
+    adjust_row_heights(sheet, default_height=35)
+
     # 印刷範囲を設定（A1からF列までの最大行）
     sheet.print_area = f'A1:F{sheet.max_row}'
 
@@ -1397,7 +1434,7 @@ def excel_trusight(analysis_type, output_stream, date, ep_institution, ep_depart
         elif 'エキスパートパネルレポート' in str(values):
             sheet.row_dimensions[r].height = 100
         elif '生殖細胞系列由来' in str(values) :
-            sheet.row_dimensions[r].height = 100
+            sheet.row_dimensions[r].height = 60
             sheet.merge_cells(start_row=r, start_column=1, end_row=r, end_column=15)
             sheet.cell(row=r, column=1).alignment = Alignment(vertical='center', wrap_text=True)
 
@@ -1405,6 +1442,9 @@ def excel_trusight(analysis_type, output_stream, date, ep_institution, ep_depart
     sheet.merge_cells(start_row=3, start_column=17, end_row=15, end_column=26)
     sheet.merge_cells(start_row=3, start_column=27, end_row=7, end_column=32)
     sheet.merge_cells(start_row=9, start_column=27, end_row=15, end_column=32)
+
+    # 行の高さを調整
+    adjust_row_heights(sheet, default_height=35)
 
     # 印刷範囲設定
     sheet.print_area = f'A1:AF{sheet.max_row}'
@@ -1450,9 +1490,12 @@ def excel_trusight(analysis_type, output_stream, date, ep_institution, ep_depart
         elif 'がん遺伝子パネル検査説明書' in str(values):
             sheet.row_dimensions[r].height = 100
         elif '生殖細胞系列由来' in str(values) :
-            sheet.row_dimensions[r].height = 80
+            sheet.row_dimensions[r].height = 60
             sheet.merge_cells(start_row=r, start_column=1, end_row=r, end_column=6)
             sheet.cell(row=r, column=1).alignment = Alignment(vertical='center', wrap_text=True)        
+
+    # 行の高さを調整
+    adjust_row_heights(sheet, default_height=35)
 
     # 印刷範囲を設定
     sheet.print_area = f'A1:F{sheet.max_row}'

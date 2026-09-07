@@ -186,9 +186,8 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
         if pd.notna(row['number.number']) else row['geneSymbol'], axis=1)
     df_rearrange = df_rearrange.drop(columns=['number.number'])
     
-    # matePieceLocationがupstreamの場合(+)、downstreamの場合(-)に変換
+    # matePieceLocationはJSONの記載（upstream/downstream）をそのまま用いる
     df_rearrange = df_rearrange.copy()
-    df_rearrange['matePieceLocation'] = df_rearrange['matePieceLocation'].replace({'upstream': '(+)', 'downstream': '(-)'})
 
     # 3. 共通処理用の関数定義
     def process_rearrangement_data(df, prefix, columns, check_value, include_inserted_sequence=True, include_read_count=True):
@@ -198,12 +197,19 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
             return result
 
         # geneSymbolに位置情報を追加
+        df = df.copy()
         df.loc[:, 'geneSymbol'] = df['geneSymbol'] + '\n' + df['chromosome'].astype(str) + ':' + df['startPosition'].astype(str) + ' ' + df['matePieceLocation'].astype(str)
-        
+
+        # JSONの記載順（breakendの並び順）を保持するための序数を付与
+        breakend_key = ['itemId', 'chromosome', 'startPosition']
+        first_row = pd.Series(range(len(df)), index=df.index).groupby(
+            [df[col] for col in breakend_key], sort=False).transform('min')
+        df['breakendOrder'] = first_row.groupby(df['itemId']).rank(method='dense').astype(int)
+
         # ピボットテーブル作成
         df_pivot = df.pivot_table(
-            index=['itemId', 'chromosome', 'startPosition'],
-            columns=df.groupby(['itemId', 'chromosome', 'startPosition']).cumcount(),
+            index=breakend_key,
+            columns=df.groupby(breakend_key).cumcount(),
             values='geneSymbol',
             aggfunc='first'
         )
@@ -217,6 +223,7 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
             else row['geneSymbol_0'], axis=1
         )
         df_pivot = df_pivot.drop(columns=[col for col in ['geneSymbol_0', 'geneSymbol_1'] if col in df_pivot.columns])
+        df_pivot = df_pivot.merge(df[breakend_key + ['breakendOrder']].drop_duplicates(subset=breakend_key), on=breakend_key)
 
         # マージとデータ整形
         merge_cols = ['itemId', 'chromosome', 'startPosition', 'rearrangementType', 'function.mitelman']
@@ -224,9 +231,11 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
             merge_cols.append('insertedSequence')
         if include_read_count:
             merge_cols.append('supportingReadCount')
-        df_merged = pd.merge(df_pivot, df_rearrange[merge_cols], on=['itemId', 'chromosome', 'startPosition'])
+        df_merged = pd.merge(df_pivot, df_rearrange[merge_cols], on=breakend_key)
         df_merged['function.mitelman'] = df_merged['function.mitelman'].fillna('-')
         df_merged['supportingReadCount'] = df_merged['supportingReadCount'].astype(str)
+        # Breakpoint1/2をJSONの記載順どおりに並べる
+        df_merged = df_merged.drop_duplicates().sort_values(['itemId', 'breakendOrder'], kind='stable')
 
         # ピボットテーブル再作成
         pivot_values = ['geneSymbol', 'rearrangementType', 'function.mitelman']
@@ -234,16 +243,13 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
             pivot_values.append('insertedSequence')
         if include_read_count:
             pivot_values.append('supportingReadCount')
-        df_final = df_merged.drop_duplicates().pivot_table(
+        df_final = df_merged.pivot_table(
             index='itemId',
-            columns=df_merged.groupby('itemId').cumcount(),
+            columns=df_merged.groupby('itemId', sort=False).cumcount(),
             values=pivot_values,
             aggfunc='first'
         )
         df_final.columns = [f'{col[0]}_{col[1]}' for col in df_final.columns]
-        # df_final['geneSymbol_1']に'(+)'が含まれる場合は'geneSymbol_0'と入れ替える
-        mask = df_final['geneSymbol_1'].str.contains(r'\(\+\)', na=False)
-        df_final.loc[mask, ['geneSymbol_0', 'geneSymbol_1']] = df_final.loc[mask, ['geneSymbol_1', 'geneSymbol_0']].values
         df_final = df_final.reset_index().reindex(columns=columns, fill_value='')
         df_final['Check'] = check_value
         return df_final
@@ -268,10 +274,14 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
 
     # 5. CaseDataとJSHデータの処理
     df_case_data = pd.read_excel(output_stream, sheet_name='CaseData')
+    case_cancer_type = str(df_case_data['cancerType'].values[0])
     cancer_type = next(
-        (abbr for key, abbr in Abbreviation.ABBR_DISEASE_NAME.items() if key in df_case_data['cancerType'].values[0]),
+        (abbr for key, abbr in Abbreviation.ABBR_DISEASE_NAME.items() if key in case_cancer_type),
         'Other'
     )
+    if cancer_type == 'Other':
+        st.warning(f'疾患名「{case_cancer_type}」をJSHガイドラインの疾患略号に変換できないため、'
+                   'エビデンス（JSH）・薬物療法（JSH）は空欄になります。')
 
     # 6. 全遺伝子の収集
     all_genes = set(df_gl['geneSymbol']).union(
@@ -286,7 +296,7 @@ def excel_hemesight(analysis_type, output_stream, date, normal_sample, ep_instit
     # 7. JSHデータのフィルタリング
     jsh_path = os.path.join(current_dir, Database.JSA_PATH)
     df_jsh = pd.read_csv(jsh_path, encoding='utf-8')
-    df_jsh = df_jsh[df_jsh['Disease'].str.contains(cancer_type) & df_jsh['Gene'].isin(all_genes)].sort_values('Gene')
+    df_jsh = df_jsh[df_jsh['Disease'].str.contains(cancer_type, regex=False, na=False) & df_jsh['Gene'].isin(all_genes)].sort_values('Gene')
     
     # 8. JSHエビデンスと薬剤データの作成
     df_jsh_evidence = df_jsh[Columns.HEMESIGHT_JSA].copy()

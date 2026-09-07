@@ -162,12 +162,14 @@ def process_hemsight(analysis_type, json_data, template_path, date, normal_sampl
         df_rearrangements = pd.read_excel(output_stream, sheet_name='Rearrangements')
         proteinpaint_path = 'proteinpaint.tsv'
         disco_path = 'disco.tsv'
+        # ProteinPaint Fusion Editorの仕様に合わせた列名
+        # https://docs.stjude.cloud/visualization-community/proteinpaint/sv-and-fusion-transcript
+        pp_columns = ['itemId', 'chr_a', 'chr_b', 'gene_a', 'gene_b', 'strand_a', 'strand_b',
+                      'position_a', 'position_b', 'isoform_a', 'isoform_b']
 
         if df_rearrangements.empty or 'geneSymbol' not in df_rearrangements.columns:
-            df_empty_pp = pd.DataFrame(columns=['itemId', 'chr_a', 'chr_b', 'gene_a', 'gene_b', 'strand_a', 'strand_b', 'position_a', 'position_b', 'refseq_a', 'refseq_b'])
-            df_empty_pp.to_csv(proteinpaint_path, sep='\t', index=False)
-            df_empty_disco = pd.DataFrame(columns=Columns.DISCO)
-            df_empty_disco.to_csv(disco_path, sep='\t', index=False)
+            pd.DataFrame(columns=pp_columns).to_csv(proteinpaint_path, sep='\t', index=False)
+            pd.DataFrame(columns=Columns.DISCO).to_csv(disco_path, sep='\t', index=False)
             return proteinpaint_path, disco_path
 
         df_proteinpaint = df_rearrangements.copy()
@@ -176,29 +178,55 @@ def process_hemsight(analysis_type, json_data, template_path, date, normal_sampl
         df_proteinpaint.loc[:, 'geneSymbol'] = df_proteinpaint['geneSymbol'].replace({'D4Z4': 'DUX4'})
         transcriptID = Transcript.TRANSCRIPT_ID
         for gene, transcript in transcriptID.items():
-            df_proteinpaint.loc[df_proteinpaint['geneSymbol'].str.contains(gene, case=False) & df_proteinpaint['transcriptId'].isna(), 'transcriptId'] = transcript
+            df_proteinpaint.loc[df_proteinpaint['geneSymbol'].str.contains(gene, case=False, na=False)
+                                & df_proteinpaint['transcriptId'].isna(), 'transcriptId'] = transcript
 
-        df_proteinpaint.loc[:, 'geneSymbol'] = df_proteinpaint['geneSymbol'].str.split(' ').str[0].str.split('(').str[0].str.split('-').str[0]
-        df_proteinpaint = df_proteinpaint.pivot_table(index='itemId', columns=df_proteinpaint.groupby('itemId').cumcount(), values=['geneSymbol', 'transcriptId', 'chromosome', 'startPosition', 'matePieceLocation'], aggfunc='first')
-        df_proteinpaint.columns = [f'{col[0]}_{col[1]}' for col in df_proteinpaint.columns]
-        df_proteinpaint = df_proteinpaint.reset_index()
-        df_proteinpaint = df_proteinpaint.loc[:, ~df_proteinpaint.columns.str.contains('_2')]
-        df_proteinpaint.columns = ['itemId', 'chr_a', 'chr_b', 'gene_a', 'gene_b', 'strand_a', 'strand_b', 'position_a', 'position_b', 'refseq_a', 'refseq_b']
-        df_proteinpaint['refseq_a'] = df_proteinpaint['refseq_a'].str.split('.').str[0]
-        df_proteinpaint['refseq_b'] = df_proteinpaint['refseq_b'].str.split('.').str[0]
-        df_proteinpaint['strand_a'] = df_proteinpaint['strand_a'].apply(lambda x: '+' if x == 'downstream' else '-')
-        df_proteinpaint['strand_b'] = df_proteinpaint['strand_b'].apply(lambda x: '+' if x == 'downstream' else '-')
-        proteinpaint_path = 'proteinpaint.tsv'
-        df_proteinpaint.to_csv(proteinpaint_path, sep='\t', index=False)
-        
-        df_disco = df_proteinpaint[Columns.PROTEINPAINT].copy()
-        df_disco = df_disco[Columns.DISCO].copy()
-        df_disco['chr_a'] = 'chr' + df_disco['chr_a'].astype(str)
-        df_disco['chr_b'] = 'chr' + df_disco['chr_b'].astype(str)
-        disco_path = 'disco.tsv'
+        # 'TRB (TRBC2)'のような表記から遺伝子名のみを取り出す
+        # （HLA-DRB1やNKX2-1が壊れるため'-'では分割しない）
+        df_proteinpaint.loc[:, 'geneSymbol'] = df_proteinpaint['geneSymbol'].str.split(' ').str[0].str.split('(').str[0]
+
+        # breakendごとに1行へ集約（1つのbreakendに複数transcriptがある場合は先頭を採用）
+        breakend_key = ['itemId', 'chromosome', 'startPosition']
+        df_breakend = df_proteinpaint.drop_duplicates(subset=breakend_key, keep='first').copy()
+        df_breakend['breakendIndex'] = df_breakend.groupby('itemId', sort=False).cumcount()
+        df_breakend = df_breakend[df_breakend['breakendIndex'] < 2]
+
+        def breakend_side(index, suffix):
+            renames = {'chromosome': f'chr_{suffix}', 'startPosition': f'position_{suffix}',
+                       'geneSymbol': f'gene_{suffix}', 'transcriptId': f'isoform_{suffix}',
+                       'matePieceLocation': f'mate_{suffix}'}
+            df_side = df_breakend[df_breakend['breakendIndex'] == index]
+            return df_side[['itemId'] + list(renames)].rename(columns=renames)
+
+        df_pp = breakend_side(0, 'a').merge(breakend_side(1, 'b'), on='itemId')
+
+        def format_chromosome(value):
+            if pd.isna(value):
+                return ''
+            name = str(value).strip()
+            if name.endswith('.0'):
+                name = name[:-2]
+            return name if name.startswith('chr') else f'chr{name}'
+
+        for suffix in ('a', 'b'):
+            # ProteinPaintは'10'ではなく'chr10'を要求する
+            df_pp[f'chr_{suffix}'] = df_pp[f'chr_{suffix}'].apply(format_chromosome)
+            # 小数点付き（例: 32521905.0）で出力されないよう整数化
+            df_pp[f'position_{suffix}'] = pd.to_numeric(df_pp[f'position_{suffix}'], errors='coerce').astype('Int64')
+            df_pp[f'isoform_{suffix}'] = df_pp[f'isoform_{suffix}'].str.split('.').str[0]
+
+        # matePieceLocationはbreakendの向き（CICEROのortA/ortBに相当）。
+        # 5'側(_a)はmateが下流なら'+'、3'側(_b)はmateが上流なら'+'。
+        df_pp['strand_a'] = df_pp['mate_a'].map({'downstream': '+', 'upstream': '-'}).fillna('')
+        df_pp['strand_b'] = df_pp['mate_b'].map({'upstream': '+', 'downstream': '-'}).fillna('')
+
+        df_pp = df_pp[pp_columns]
+        df_pp.to_csv(proteinpaint_path, sep='\t', index=False)
+
+        df_disco = df_pp[Columns.DISCO].copy()
         df_disco.to_csv(disco_path, sep='\t', index=False)
         return proteinpaint_path, disco_path
-    
+
     proteinpaint_path, disco_path = process_rearrangements(output_stream)
     output_stream.seek(0)
     return output_stream, proteinpaint_path, disco_path

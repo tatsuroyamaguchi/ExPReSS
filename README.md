@@ -83,7 +83,8 @@ cd ExPReSS
 ##### 2.2. データファイルの圧縮
 - CancerMutationCensus_conversion.ipynbを実行: CancerMutationCensus_AllData_Tsv_v*_GRCh37.tsv.gzのデータサイズを圧縮
 
-```python:CancerMutationCensus_conversion.ipynb
+python:CancerMutationCensus_conversion.ipynb
+```bash
 # CancerMutationCensus_conversion.ipynb
 
 import pandas as pd

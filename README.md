@@ -6,9 +6,10 @@ ExPReSSは、がん遺伝子パネル検査におけるエキスパートパネ�
 
 ---
 #### What's New
+- version 0.4.1
+  - バグ修正
 - version 0.4
-  - TruSightに対応（仮）
-  - 「がん遺伝子パネル検査における GPV/PGPV 対応手順に関する指針（2025 版）」に対応
+  - TruSight Oncology Comprehensiveに対応
 - version 0.3
   - DataExtractor for CGP 搭載
   - DataViewer 搭載
@@ -26,12 +27,12 @@ ExPReSSは、がん遺伝子パネル検査におけるエキスパートパネ�
 - Guardant360 CDx (XLSX)
 - HemeSight (JSON)
 - HemeSight FastTrack (PDF)
-- TruSight (JSON)
+- TruSight Oncology Comprehensive (JSON)
 
 ---
 #### 機能
 
-- ゲノムデータ（JSON/XML/XLSX/PDF）を読み込み、Excelレポートを生成
+- ゲノムデータ（JSON/XML）を読み込み、Excelレポートを生成
 - ClinVar、ClinGen、GeneBe、TOMMOなどのデータベースから情報を取得
 - ProteinPaintおよびDisco用のTSVファイルを生成（HemeSightのみ）
 - 生成されたファイルを個別またはZIP形式でダウンロード可能
@@ -63,11 +64,11 @@ cd ExPReSS
   - Template_FoundationOne.xlsx: FoundationOneテンプレートファイル
   - Template_GenMineTOP.xlsx: GenMineTOPテンプレート
   - Template_Guardant360.xlsx: Guardant360テンプレート
-  - Template_TruSight.xlsx: TruSightテンプレートファイル
+  - Template_TruSight.xlsx: TruSight Oncology Comprehensiveテンプレート
   - Logo.png: レポートに挿入するロゴ画像
 - db
   - JSH_Guidelines.csv: 日本血液学会ガイドライン (http://www.jshem.or.jp/genomgl/home.html) （GitHub内にアップロード済み）
-  - pgpv.csv: ｢がん遺伝子パネル検査における GPV/PGPV 対応手順に関する指針（2025 版）｣より作成 （GitHub内にアップロード済み）
+  - pgpv.csv: 平沢班二次的所見より作成 （GitHub内にアップロード済み）
 
 
   - Cosmic_CancerGeneCensus_v\*_GRCh38.tsv: CancerGeneCensus (https://cancer.sanger.ac.uk/cosmic/download/cosmic   Cancer Gene Census > Cosmic_CancerGeneCensus_Tsv_v\*_GRCh38.tar > Download in browser)
@@ -82,8 +83,7 @@ cd ExPReSS
 ##### 2.2. データファイルの圧縮
 - CancerMutationCensus_conversion.ipynbを実行: CancerMutationCensus_AllData_Tsv_v*_GRCh37.tsv.gzのデータサイズを圧縮
 
-```
-python:CancerMutationCensus_conversion.ipynb
+```python:CancerMutationCensus_conversion.ipynb
 # CancerMutationCensus_conversion.ipynb
 
 import pandas as pd
@@ -219,7 +219,7 @@ ExPReSS/
 |   |   ├── Template_FoundationOne.xlsx            # FoundationOneテンプレート
 |   |   ├── Template_GenMineTOP.xlsx               # GenMineTOPテンプレート
 |   |   ├── Template_Guardant360.xlsx              # Guardant360テンプレート
-|   |   ├── Template_TruSight.xlsx                 # TruSightテンプレート
+|   |   ├── Template_TruSight.xlsx                 # TruSight Oncology Comprehensiveテンプレート
 |   |   └── Logo.png                               # ロゴ画像
 |   |
 |   └── db/
@@ -229,7 +229,7 @@ ExPReSS/
 |       ├── erepo-tabbed.tsv                       # ClinGenデータ
 |       |── nightly-FeatureSummaries.tsv           # CiVICデータ
 |       |── protein-coding_gene.tsv                # HGNCデータ
-|       |── pgpv.csv                               # 小杉班PGPVデータ
+|       |── pgpv.csv                               # 平沢班PGPVデータ（ver.0.4より）
 |       ├── CancerMutationCensus_AllData_v*_GRCh37.tsv.gz  # COSMICデータ（gzipファイルのまま）
 |       └── CancerMutationCensus_compressor.ipynb  # COSMICデータ圧縮プログラム
 |
